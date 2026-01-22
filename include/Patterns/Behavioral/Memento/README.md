@@ -1,110 +1,101 @@
-## Хранитель (Снимок) (Memento)
+## Memento
 
-Паттерн Memento относится к поведенческим паттернам уровня объекта.
+The Memento pattern is a behavioral pattern at the object level.
 
-Паттерн Memento получает и сохраняет за пределами объекта его внутреннее состояние так, чтобы позже можно было
-восстановить объект в таком же состоянии. Если клиенту в дальнейшем нужно "откатить" состояние исходного объекта, он
-передает Memento обратно в исходный объект для его восстановления.
+Memento captures and stores an object's internal state outside the object so it can later be restored to the same
+state. If a client later needs to roll back the object's state, it passes the memento back to the object for
+restoration.
 
-Паттерн оперирует тремя объектами:
+The pattern involves three objects:
 
-1. Хозяин состояния (Originator);
-2. Хранитель (Memento) - Хранит в себе состояние объекта-хозяина класса Originator.;
-3. Смотритель (Caretaker) - Отвечает за сохранность объекта-хранителя класса Memento.
+1. Originator.
+2. Memento - stores the state of the Originator object.
+3. Caretaker - is responsible for keeping the Memento safe.
 
-Хранитель - это объект, который хранит конкретный снимок состояния некоторого объекта или ресурса: строки, числа,
-массива, экземпляра класса и так далее. Уникальность в данном случае подразумевает не запрет на существование одинаковых
-состояний в разных снимках, а то, что состояние можно извлечь в виде независимой копии. Любой объект, сохраняемый в
-Хранителе, должен быть полной копией исходного объекта, а не ссылкой на исходный объект. Сам объект Хранитель является
-«непрозрачным объектом» (тот, который никто не может и не должен изменять).
+A memento is an object that stores a snapshot of some object's state: a string, a number, an array, a class instance,
+ etc. Uniqueness here does not mean that equal states cannot exist in different snapshots; it means the state can be
+extracted as an independent copy. Any object saved in a Memento must be a full copy of the original, not a reference.
+The Memento itself is an opaque object (one that no one can or should modify).
 
-Создатель — это объект, который содержит в себе актуальное состояние внешнего объекта строго заданного типа и умеет
-создавать уникальную копию этого состояния, возвращая её, обёрнутую в объект Хранителя. Создатель не знает истории
-изменений. Создателю можно принудительно установить конкретное состояние извне, которое будет считаться актуальным.
-Создатель должен позаботиться о том, чтобы это состояние соответствовало типу объекта, с которым ему разрешено работать.
-Создатель может (но не обязан) иметь любые методы, но они не могут менять сохранённое состояние объекта.
+The originator holds the current state of a specific type of object and can create a unique copy of that state wrapped
+in a Memento object. The originator does not know the history of changes. The originator can be forced to set a
+specific external state as current. The originator must ensure that this state matches the type it is allowed to work
+with. The originator may (but does not have to) have any methods, but they cannot change the stored state.
 
-Опекун управляет историей снимков состояний. Он может вносить изменения в объект, принимать решение о сохранении
-состояния внешнего объекта в Создателе, запрашивать от Создателя снимок текущего состояния, или привести состояние
-Создателя в соответствие с состоянием какого-то снимка из истории.
+The caretaker manages the history of snapshots. It can change the object, decide to save the object's state via the
+originator, request a snapshot of the current state, or restore the originator to a previous snapshot.
 
-## Примеры из изни
+## Real-world examples
 
-    - Зерно генератора псевдослучайных чисел.
+    - Seed of a pseudorandom number generator.
 
-    - Состояние конечного автомата
+    - Finite state machine state.
 
-    - Контроль промежуточных состояний модели в ORM перед сохранением
+    - Tracking intermediate ORM model states before saving.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс Originator, у которого есть какое-то меняющиеся состояние, а так же он может создавать и принимать хранителей (
-   Memento) своего состояния;
-2. Класс Memento, реализует хранилище для состояния Originator;
-3. Класс Caretaker, получает и хранит объект-хранитель (Memento), пока он не понадобится хозяину.
+1. Originator class that has some changing state and can create and accept mementos of its state.
+2. Memento class that stores Originator state.
+3. Caretaker class that receives and stores the memento until it is needed by the originator.
 
-## Применимость
+## Applicability
 
-### Когда вам нужно сохранять мгновенные снимки состояния объекта (или его части), чтобы впоследствии объект можно было восстановить в том же состоянии.
+### When you need to capture snapshots of an object's state (or part of it) so it can later be restored to that state.
 
-    Паттерн Снимок позволяет создавать любое количество снимков объекта и хранить их, независимо от объекта, с которого делают снимок. Снимки часто используют не только для реализации операции отмены, но и для транзакций, когда состояние объекта нужно «откатить», если операция не удалась.
+    Memento allows you to create any number of snapshots and store them independently from the object. Snapshots are
+    often used not only for undo but also for transactions, where the state must be rolled back if an operation fails.
 
-### Когда прямое получение состояния объекта раскрывает приватные детали его реализации, нарушая инкапсуляцию.
+### When direct access to an object's state exposes private implementation details, breaking encapsulation.
 
-    Паттерн предлагает изготовить снимок самому исходному объекту, поскольку ему доступны все поля, даже приватные.
+    The pattern suggests making the snapshot inside the object itself, since it can access all fields, including
+    private ones.
 
-## Шаги реализации
+## Implementation steps
 
-1. Определите класс создателя, объекты которого должны создавать снимки своего состояния.
+1. Identify the originator class whose objects should create snapshots of their state.
 
-2. Создайте класс снимка и опишите в нём все те же поля, которые имеются в оригинальном классе-создателе.
+2. Create a memento class and describe in it the same fields that exist in the originator class.
 
-3. Сделайте объекты снимков неизменяемыми. Они должны получать начальные значения только один раз, через свой
-   конструктор.
+3. Make memento objects immutable. They should receive initial values only once, via their constructor.
 
-4. Если ваш язык программирования это позволяет, сделайте класс снимка вложенным в класс создателя. Если нет, извлеките
-   из класса снимка пустой интерфейс, который будет доступен остальным объектам программы. Впоследствии вы можете
-   добавить в этот интерфейс некоторые вспомогательные методы, дающие доступ к метаданным снимка, однако прямой доступ к
-   данным создателя должен быть исключён.
+4. If your language allows it, make the memento class nested in the originator class. If not, extract an empty
+   interface that will be visible to other objects. Later you can add helper methods to this interface to access
+   memento metadata, but direct access to originator data should be excluded.
 
-5. Добавьте в класс создателя метод получения снимков. Создатель должен создавать новые объекты снимков, передавая
-   значения своих полей через конструктор.
+5. Add a method in the originator to create mementos. The originator should create new memento objects and pass field
+   values via the constructor.
 
-Сигнатура метода должна возвращать снимки через ограниченный интерфейс, если он у вас есть. Сам класс должен работать с
-конкретным классом снимка.
+The method signature should return mementos via the restricted interface if you have one. The originator should work
+with the concrete memento class.
 
-6. Добавьте в класс создателя метод восстановления из снимка. Что касается привязки к типам, руководствуйтесь той же
-   логикой, что и в пункте 4.
+6. Add a method in the originator to restore from a memento. For type binding, follow the same logic as in step 4.
 
-7. Опекуны, будь то история операций, объекты команд или нечто иное, должны знать о том, когда запрашивать снимки у
-   создателя, где их хранить и когда восстанавливать.
+7. Caretakers, whether they are operation history, command objects, or something else, should know when to request
+   snapshots from the originator, where to store them, and when to restore.
 
-8. Связь опекунов с создателями можно перенести внутрь снимков. В этом случае каждый снимок будет привязан к своему
-   создателю и должен будет сам восстанавливать его состояние. Но это будет работать либо если классы снимков вложены в
-   классы создателей, либо если создатели имеют соответствующие сеттеры для установки значений своих полей.
+8. The link between caretakers and originators can be moved into the mementos. In that case each memento is bound to
+   its originator and must restore its state itself. This only works if memento classes are nested in originator
+   classes or if originators have setters for their fields.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    Не нарушает инкапсуляции исходного объекта.
-    Упрощает структуру исходного объекта. Ему не нужно хранить историю версий своего состояния.
+    + Does not violate encapsulation of the original object.
+    + Simplifies the original object's structure; it does not need to store version history.
 
-    Требует много памяти, если клиенты слишком часто создают снимки.
-    Может повлечь дополнительные издержки памяти, если объекты, хранящие историю, не освобождают ресурсы, занятые устаревшими снимками.
-    В некоторых языках (например, PHP, Python, JavaScript) сложно гарантировать, чтобы только исходный объект имел доступ к состоянию снимка.
+    - Requires a lot of memory if clients create snapshots too often.
+    - Can add memory overhead if history holders do not release resources for stale snapshots.
+    - In some languages (for example, PHP, Python, JavaScript) it is hard to ensure only the originator can access the
+      memento state.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Команду` и `Снимок` можно использовать сообща для реализации отмены операций. В этом случае объекты команд будут
-   отвечать за выполнение действия над объектом, а снимки будут хранить резервную копию состояния этого объекта,
-   сделанную перед самым запуском команды.
+1. `Command` and `Memento` can be used together to implement undo. Command objects perform actions on the target object,
+   while mementos store a backup of its state before the command runs.
 
-2. `Снимок` можно использовать вместе с `Итератором`, чтобы сохранить текущее состояние обхода структуры данных и
-   вернуться к нему в будущем, если потребуется.
+2. `Memento` can be used with `Iterator` to save the current traversal state and return to it later if needed.
 
-3. `Снимок` иногда можно заменить `Прототипом`, если объект, состояние которого требуется сохранять в истории, довольно
-   простой, не имеет активных ссылок на внешние ресурсы либо их можно легко восстановить.
-
-
-
+3. `Memento` can sometimes be replaced with `Prototype` if the object whose state must be stored is simple and has no
+   active references to external resources, or those can be restored easily.

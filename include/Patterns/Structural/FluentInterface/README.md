@@ -1,16 +1,16 @@
-## Текучий Интерфейс (Fluent Interface)
+## Fluent Interface
 
-## Назначение
+## Intent
 
-Писать код, который легко читается, как предложения в естественном языке (вроде русского или английского).
+Write code that reads easily like natural language sentences (for example, English).
 
-## Примеры
+## Examples
 
-    Doctrine2’s QueryBuilder работает примерно также, как пример ниже.
+    Doctrine2's QueryBuilder works similarly to the example below.
 
-    PHPUnit использует текучий интерфейс, чтобы создавать макеты объектов.
+    PHPUnit uses a fluent interface to create mock objects.
 
-## Код
+## Code
 
 ### Sql.php
 
@@ -90,7 +90,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/FluentInterfaceTest.php
 

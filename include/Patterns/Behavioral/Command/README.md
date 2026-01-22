@@ -1,118 +1,122 @@
-## Команда (Command)  - Также известен как: Действие, Транзакция, Action, Command
+## Command - Also known as: Action, Transaction
 
-Паттерн Command относится к поведенческим паттернам уровня объекта.
+The Command pattern is a behavioral pattern at the object level.
 
-Паттерн Command позволяет представить запрос в виде объекта. Из этого следует, что команда - это объект. Такие запросы,
-например, можно ставить в очередь, отменять или возобновлять.
+The Command pattern lets you represent a request as an object. A command is an object. Such requests can be queued,
+undone, or resumed.
 
-В этом паттерне мы оперируем следующими понятиями:
-Command - запрос в виде объекта на выполнение;
-Receiver - объект-получатель запроса, который будет обрабатывать нашу команду;
-Invoker - объект-инициатор запроса.
+In this pattern we use these terms:
+Command - a request object to execute.
+Receiver - the object that will handle the command.
+Invoker - the object that initiates the request.
 
-Паттерн Command отделяет объект, инициирующий операцию, от объекта, который знает, как ее выполнить. Единственное, что
-должен знать инициатор, это как отправить команду.
+Command separates the object that triggers an operation from the object that knows how to perform it. The only thing
+the initiator must know is how to send the command.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый абстрактный класс Command описывающий интерфейс команды;
-2. Класс ConcreteCommand, реализующий команду;
-3. Класс Invoker, реализующий инициатора, записывающий команду и провоцирующий её выполнение;
-4. Класс Receiver, реализующий получателя и имеющий набор действий, которые команда можем запрашивать;
+1. Base abstract Command class that defines the command interface.
+2. ConcreteCommand class that implements the command.
+3. Invoker class that stores a command and triggers its execution.
+4. Receiver class that implements the receiver and contains a set of actions that the command can request.
 
-Invoker умеет складывать команды в стопку и инициировать их выполнение по какому-то событию. Обратившись к Invoker можно
-отменить команду, пока та не выполнена.
+Invoker can stack commands and run them on some event. You can ask Invoker to cancel a command as long as it has not
+been executed.
 
-ConcreteCommand содержит в себе запросы к Receiver, которые тот должен выполнять. В свою очередь Receiver содержит
-только набор действий (Actions), которые выполняются при обращении к ним из ConcreteCommand.
+ConcreteCommand contains requests to Receiver, which Receiver must execute. Receiver only contains a set of actions
+that are called by ConcreteCommand.
 
-## Применимость
+## Applicability
 
-### Когда вы хотите параметризовать объекты выполняемым действием.
+### When you want to parameterize objects with actions.
 
-    Команда превращает операции в объекты. А объекты можно передавать, хранить и взаимозаменять внутри других объектов.
+    Command turns operations into objects. Objects can be passed, stored, and swapped inside other objects.
 
-    Скажем, вы разрабатываете библиотеку графического меню и хотите, чтобы пользователи могли использовать меню в разных приложениях, не меняя каждый раз код ваших классов. Применив паттерн, пользователям не придётся изменять классы меню, вместо этого они будут конфигурировать объекты меню различными командами.
+    Say you are developing a GUI menu library and want users to be able to use the menu in different apps without
+    changing your class code. Using the pattern, users will configure menu objects with different commands instead of
+    modifying the menu classes.
 
-### Когда вы хотите ставить операции в очередь, выполнять их по расписанию или передавать по сети.
+### When you want to queue operations, schedule them, or send them over the network.
 
-    Как и любые другие объекты, команды можно сериализовать, то есть превратить в строку, чтобы потом сохранить в файл или базу данных. Затем в любой удобный момент её можно достать обратно, снова превратить в объект команды и выполнить. Таким же образом команды можно передавать по сети, логировать или выполнять на удалённом сервере.
+    Like any other objects, commands can be serialized, i.e., turned into a string to store in a file or database.
+    Later you can restore the command object and execute it. Commands can also be sent over the network, logged, or
+    executed on a remote server.
 
-### Когда вам нужна операция отмены.
+### When you need undo.
 
-    Главная вещь, которая вам нужна, чтобы иметь возможность отмены операций, — это хранение истории. Среди многих способов, которыми можно это сделать, паттерн Команда является, пожалуй, самым популярным.
+    The main thing you need for undo is history. Among the many ways to implement it, the Command pattern is probably
+    the most popular.
 
-    История команд выглядит как стек, в который попадают все выполненные объекты команд. Каждая команда перед выполнением операции сохраняет текущее состояние объекта, с которым она будет работать. После выполнения операции копия команды попадает в стек истории, все ещё неся в себе сохранённое состояние объекта. Если потребуется отмена, программа возьмёт последнюю команду из истории и возобновит сохранённое в ней состояние.
+    Command history looks like a stack that stores all executed command objects. Each command, before execution, saves
+    the current state of the object it will work with. After the operation, a copy of the command goes into the
+    history stack, still carrying the saved state. If undo is needed, the program takes the last command from history
+    and restores the saved state.
 
-    Этот способ имеет две особенности. Во-первых, точное состояние объектов не так-то просто сохранить, ведь часть его может быть приватным. Но с этим может помочь справиться паттерн Снимок.
+    This approach has two features. First, the exact object state can be hard to save because part of it can be
+    private. The Memento pattern can help with that.
 
-    Во-вторых, копии состояния могут занимать довольно много оперативной памяти. Поэтому иногда можно прибегнуть к альтернативной реализации, когда вместо восстановления старого состояния команда выполняет обратное действие. Недостаток этого способа в сложности (а иногда и невозможности) реализации обратного действия.
+    Second, state copies can take a lot of memory. Sometimes you can use an alternative implementation where instead
+    of restoring the old state the command performs an inverse action. The downside is complexity (and sometimes
+    impossibility) of implementing inverse actions.
 
-## Шаги реализации
+## Implementation steps
 
-1. Создайте общий интерфейс команд и определите в нём метод запуска.
+1. Create a common command interface and define an execution method on it.
 
-2. Один за другим создайте классы конкретных команд. В каждом классе должно быть поле для хранения ссылки на один или
-   несколько объектов-получателей, которым команда будет перенаправлять основную работу.
+2. One by one create concrete command classes. Each class should have a field to store a reference to one or more
+   receiver objects that do the actual work.
 
-Кроме этого, команда должна иметь поля для хранения параметров, которые нужны при вызове методов получателя. Значения
-всех этих полей команда должна получать через конструктор.
+The command should also have fields for parameters needed to call receiver methods. All these fields should be
+provided via the constructor.
 
-И, наконец, реализуйте основной метод команды, вызывая в нём те или иные методы получателя.
+Finally, implement the main command method by calling the appropriate receiver methods.
 
-3. Добавьте в классы отправителей поля для хранения команд. Обычно объекты-отправители принимают готовые объекты команд
-   извне — через конструктор либо через сеттер поля команды.
+3. Add command fields to sender classes. Usually senders accept ready command objects from the outside, via a
+   constructor or a setter.
 
-4. Измените основной код отправителей так, чтобы они делегировали выполнение действия команде.
+4. Change sender code so that it delegates execution to the command.
 
-5. Порядок инициализации объектов должен выглядеть так:
-    - Создаём объекты получателей.
-    - Создаём объекты команд, связав их с получателями.
-    - Создаём объекты отправителей, связав их с командами.
+5. Initialization order should look like this:
+    - Create receiver objects.
+    - Create command objects and bind them to receivers.
+    - Create sender objects and bind them to commands.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Убирает прямую зависимость между объектами, вызывающими операции, и объектами, которые их непосредственно выполняют.
-    + Позволяет реализовать простую отмену и повтор операций.
-    + Позволяет реализовать отложенный запуск операций.
-    + Позволяет собирать сложные команды из простых.
-    + Реализует принцип открытости/закрытости.
+    + Removes the direct dependency between objects that call operations and the objects that execute them.
+    + Enables simple undo and redo.
+    + Enables deferred execution.
+    + Allows building complex commands from simple ones.
+    + Follows the open/closed principle.
 
-    - Усложняет код программы из-за введения множества дополнительных классов.
+    - Increases code complexity due to many additional classes.
 
-Отношения с другими паттернами
+Relations with other patterns
 
-1. `Цепочка обязанностей`, `Команда`, `Посредник` и `Наблюдатель` показывают различные способы работы отправителей
-   запросов с их получателями:
-   `Цепочка обязанностей` передаёт запрос последовательно через цепочку потенциальных получателей, ожидая, что какой-то
-   из них обработает запрос.
-   `Команда` устанавливает косвенную одностороннюю связь от отправителей к получателям.
-   `Посредник` убирает прямую связь между отправителями и получателями, заставляя их общаться опосредованно, через себя.
-   `Наблюдатель` передаёт запрос одновременно всем заинтересованным получателям, но позволяет им динамически
-   подписываться или отписываться от таких оповещений.
+1. `Chain of Responsibility`, `Command`, `Mediator`, and `Observer` show different ways to work with request senders
+   and receivers:
+   `Chain of Responsibility` passes a request through a chain of potential receivers until one handles it.
+   `Command` sets up an indirect one-way connection from senders to receivers.
+   `Mediator` removes direct connections between senders and receivers, making them communicate through itself.
+   `Observer` broadcasts a request to all interested receivers, while allowing them to subscribe or unsubscribe.
 
-2. Обработчики в `Цепочке обязанностей` могут быть выполнены в виде `Команд`. В этом случае множество разных операций
-   может быть выполнено над одним и тем же контекстом, коим является запрос.
+2. Handlers in `Chain of Responsibility` can be implemented as `Commands`. In that case many different operations can
+   be applied to the same context, which is the request.
 
-Но есть и другой подход, в котором сам запрос является `Командой`, посланной по цепочке объектов. В этом случае одна и
-та же операция может быть выполнена над множеством разных контекстов, представленных в виде цепочки.
+Another approach is when the request itself is a `Command` sent through a chain of objects. In that case the same
+operation can be performed on many different contexts represented as a chain.
 
-3. `Команду` и `Снимок` можно использовать сообща для реализации отмены операций. В этом случае объекты команд будут
-   отвечать за выполнение действия над объектом, а снимки будут хранить резервную копию состояния этого объекта,
-   сделанную перед самым запуском команды.
+3. `Command` and `Memento` can be used together to implement undo. Command objects perform actions on the target
+   object, while mementos store a backup of its state before the command runs.
 
-4. `Команда` и `Стратегия` похожи по духу, но отличаются масштабом и применением:
-   `Команду` используют, чтобы превратить любые разнородные действия в объекты. Параметры операции превращаются в поля
-   объекта. Этот объект теперь можно логировать, хранить в истории для отмены, передавать во внешние сервисы и так
-   далее.
-   С другой стороны, `Стратегия` описывает разные способы произвести одно и то же действие, позволяя взаимозаменять эти
-   способы в каком-то объекте контекста.
+4. `Command` and `Strategy` are similar in spirit but differ in scale and use:
+   `Command` turns diverse actions into objects. Operation parameters become fields on the object, which can then be
+   logged, stored in history for undo, passed to external services, and so on.
+   `Strategy`, on the other hand, describes different ways to do the same action, allowing them to be swapped in a
+   context object.
 
-5. Если `Команду` нужно копировать перед вставкой в историю выполненных команд, вам может помочь `Прототип`.
+5. If you need to copy `Command` before inserting it into the history, `Prototype` can help.
 
-6. `Посетитель` можно рассматривать как расширенный аналог `Команды`, который способен работать сразу с несколькими
-   видами получателей.
-
-
+6. `Visitor` can be seen as an advanced analog of `Command` that can work with multiple kinds of receivers.

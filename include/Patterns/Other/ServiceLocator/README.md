@@ -1,25 +1,23 @@
-## Локатор Служб (Service Locator)
+## Service Locator
 
-Этот шаблон считается анти-паттерном!
+This pattern is considered an anti-pattern.
 
-Некоторые считают Локатор Служб анти-паттерном. Он нарушает принцип инверсии зависимостей (Dependency Inversion
-principle) из набора принципов SOLID. Локатор Служб скрывает зависимости данного класса вместо их совместного
-использования, как в случае шаблона Внедрение Зависимости (Dependency Injection). В случае изменения данных зависимостей
-мы рискуем сломать функционал классов, которые их используют, вследствие чего затрудняется поддержка системы.
+Some consider Service Locator an anti-pattern. It violates the Dependency Inversion Principle from SOLID. Service
+Locator hides dependencies of a class instead of exposing them for injection, as in Dependency Injection. If those
+dependencies change, we risk breaking classes that use them, which makes maintenance harder.
 
-## Назначение
+## Intent
 
-Для реализации слабосвязанной архитектуры, чтобы получить хорошо тестируемый, сопровождаемый и расширяемый код. Паттерн
-Инъекция зависимостей (DI) и паттерн Локатор Служб — это реализация паттерна Инверсия управления (Inversion of Control,
-IoC).
+To implement a loosely coupled architecture and get testable, maintainable, and extensible code. The Dependency
+Injection (DI) and Service Locator patterns are implementations of Inversion of Control (IoC).
 
-## Использование
+## Usage
 
-С Локатором Служб вы можете зарегистрировать сервис для определенного интерфейса. С помощью интерфейса вы можете
-получить зарегистрированный сервис и использовать его в классах приложения, не зная его реализацию. Вы можете настроить
-и внедрить объект Service Locator на начальном этапе сборки приложения.
+With Service Locator you can register a service for a given interface. Using the interface you can obtain the
+registered service and use it in application classes without knowing its implementation. You can configure and inject a
+Service Locator object during application bootstrap.
 
-## Код
+## Code
 
 ### Service.php
 
@@ -149,7 +147,7 @@ IoC).
 
     }
 
-## Тест
+## Test
 
 ### Tests/ServiceLocatorTest.php
 
@@ -213,4 +211,3 @@ IoC).
         }
 
     }
-

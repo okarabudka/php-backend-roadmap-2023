@@ -1,14 +1,14 @@
-## Сущность-Атрибут-Значение (Attribute)
+## Entity-Attribute-Value (Attribute)
 
-Шаблон Сущность-Атрибут-Значение используется для реализации модели EAV на PHP
+The Entity-Attribute-Value pattern is used to implement the EAV model in PHP.
 
-## Назначение
+## Intent
 
-Модель Сущность-Атрибут-Значение (EAV) - это модель данных, предназначенная для описания сущностей, в которых количество
-атрибутов (свойств, параметров), характеризующих их, потенциально огромно, но то количество, которое реально будет
-использоваться в конкретной сущности, относительно мало.
+The Entity-Attribute-Value (EAV) data model is intended to describe entities where the number of attributes
+(properties, parameters) is potentially huge, but the number that will actually be used for a given entity is
+relatively small.
 
-## Код
+## Code
 
 ### Entity.php
 
@@ -171,7 +171,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/EAVTest.php
 
@@ -221,4 +221,3 @@
         }
 
     }
-

@@ -1,112 +1,103 @@
-## Наблюдатель (Observer)
+## Observer
 
-Паттерн Observer относится к поведенческим паттернам уровня объекта.
+The Observer pattern is a behavioral pattern at the object level.
 
-Паттерн Observer определяет зависимость "один-ко-многим" между объектами так, что при изменении состояния одного объекта
-все зависящие от него объекты уведомляются об этом и обновляются автоматически.
+Observer defines a one-to-many dependency between objects so that when one object changes state, all dependent objects
+are notified and updated automatically.
 
-Основные участиники паттерна это Издатели (Subject) и Подписчики (Observer).
+The main participants are Subjects (publishers) and Observers (subscribers).
 
-Имеется два способа получения уведомлений от издателя:
+There are two ways to receive notifications from a subject:
 
-1. Метод вытягивания: После получения уведомления от издателя, подписчик должен пойти к издателю и забрать (вытянуть)
-   данные самостоятельно.
-2. Метод проталкивания: Издатель не уведомляет подписчика об обновлениях данных, а самостоятельно доставляет (
-   проталкивает) данные подписчику.
+1. Pull: after receiving a notification, the observer goes to the subject and fetches the data.
+2. Push: the subject sends the updated data to the observer directly.
 
-## Примеры из жизни
+## Real-world examples
 
-    Система очереди сообщений наблюдает за очередями, чтобы отображать прогресс в GUI
+    A message queue system observes queues to show progress in a GUI.
 
-## Примечание
+## Note
 
-PHP предоставляет два стандартных интерфейса, которые могут помочь реализовать этот шаблон: SplObserver и SplSubject.
+PHP provides two standard interfaces that can help implement this pattern: SplObserver and SplSubject.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Абстрактный класс Subject, определяющий интерфейс Издателя;
-2. Класс ConcreteSubject, реализует интерфейс Subject;
-3. Абстрактный класс Observer, определяющий общий функционал Подписчиков;
-4. Класс ConcreteObserver, реализует Подписчика;
+1. Abstract Subject class that defines the publisher interface.
+2. ConcreteSubject class that implements Subject.
+3. Abstract Observer class that defines common subscriber behavior.
+4. ConcreteObserver class that implements Observer.
 
-## Применимость
+## Applicability
 
-### Когда после изменения состояния одного объекта требуется что-то сделать в других, но вы не знаете наперёд, какие именно объекты должны отреагировать.
+### When you need to do something in other objects after one object changes, but you do not know in advance which objects should react.
 
-    Описанная проблема может возникнуть при разработке библиотек пользовательского интерфейса, когда вам надо дать возможность сторонним классам реагировать на клики по кнопкам.
+    This problem can appear when building UI libraries where you want third-party classes to respond to button clicks.
 
-    Паттерн Наблюдатель позволяет любому объекту с интерфейсом подписчика зарегистрироваться на получение оповещений о событиях, происходящих в объектах-издателях.
+    Observer lets any object with the observer interface subscribe to notifications about events in subject objects.
 
-### Когда одни объекты должны наблюдать за другими, но только в определённых случаях.
+### When some objects must observe others only in certain cases.
 
-    Издатели ведут динамические списки. Все наблюдатели могут подписываться или отписываться от получения оповещений прямо во время выполнения программы.
+    Subjects maintain dynamic lists. Observers can subscribe and unsubscribe during program execution.
 
-## Шаги реализации
+## Implementation steps
 
-1. Разбейте вашу функциональность на две части: независимое ядро и опциональные зависимые части. Независимое ядро станет
-   издателем. Зависимые части станут подписчиками.
+1. Split your functionality into two parts: an independent core and optional dependent parts. The core becomes the
+   subject. The dependent parts become observers.
 
-2. Создайте интерфейс подписчиков. Обычно в нём достаточно определить единственный метод оповещения.
+2. Create the observer interface. Usually it is enough to define a single notification method.
 
-3. Создайте интерфейс издателей и опишите в нём операции управления подпиской. Помните, что издатель должен работать
-   только с общим интерфейсом подписчиков.
+3. Create the subject interface and define subscription management operations. Remember that the subject should work
+   only with the common observer interface.
 
-4. Вам нужно решить, куда поместить код ведения подписки, ведь он обычно бывает одинаков для всех типов издателей. Самый
-   очевидный способ — вынести этот код в промежуточный абстрактный класс, от которого будут наследоваться все издатели.
+4. You need to decide where to put subscription management code, since it is usually the same for all kinds of
+   subjects. The most obvious way is to put it into an intermediate abstract class that all subjects inherit from.
 
-Но если вы интегрируете паттерн в существующие классы, то создать новый базовый класс может быть затруднительно. В этом
-случае вы можете поместить логику подписки во вспомогательный объект и делегировать ему работу из издателей.
+If you are integrating the pattern into existing classes, creating a new base class can be hard. In that case, you can
+move subscription logic into a helper object and delegate to it from subjects.
 
-5. Создайте классы конкретных издателей. Реализуйте их так, чтобы после каждого изменения состояния они отправляли
-   оповещения всем своим подписчикам.
+5. Create concrete subject classes. Implement them so that after each state change they notify all their observers.
 
-6. Реализуйте метод оповещения в конкретных подписчиках. Не забудьте предусмотреть параметры, через которые издатель мог
-   бы отправлять какие-то данные, связанные с происшедшим событием.
+6. Implement the notification method in concrete observers. Do not forget to include parameters through which the
+   subject can send data related to the event.
 
-Возможен и другой вариант, когда подписчик, получив оповещение, сам возьмёт из объекта издателя нужные данные. Но в этом
-случае вы будете вынуждены привязать класс подписчика к конкретному классу издателя.
+Another option is that the observer, after receiving a notification, fetches the needed data from the subject object.
+But then you must bind the observer class to a concrete subject class.
 
-7. Клиент должен создавать необходимое количество объектов подписчиков и подписывать их у издателей.
+7. The client must create the needed number of observer objects and subscribe them to subjects.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Издатели не зависят от конкретных классов подписчиков и наоборот.
-    + Вы можете подписывать и отписывать получателей на лету.
-    + Реализует принцип открытости/закрытости.
+    + Subjects do not depend on concrete observer classes and vice versa.
+    + You can subscribe and unsubscribe receivers on the fly.
+    + Follows the open/closed principle.
 
-    - Подписчики оповещаются в случайном порядке.
+    - Observers are notified in a random order.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Цепочка обязанностей`, `Команда`, `Посредник` и `Наблюдатель` показывают различные способы работы отправителей
-   запросов с их получателями:
+1. `Chain of Responsibility`, `Command`, `Mediator`, and `Observer` show different ways of working with request senders
+   and receivers:
 
-   Цепочка обязанностей передаёт запрос последовательно через цепочку потенциальных получателей, ожидая, что какой-то из
-   них обработает запрос.
-   Команда устанавливает косвенную одностороннюю связь от отправителей к получателям.
-   Посредник убирает прямую связь между отправителями и получателями, заставляя их общаться опосредованно, через себя.
-   Наблюдатель передаёт запрос одновременно всем заинтересованным получателям, но позволяет им динамически подписываться
-   или отписываться от таких оповещений.
+   Chain of Responsibility passes a request through a chain of potential receivers until one handles it.
+   Command sets up an indirect one-way connection from senders to receivers.
+   Mediator removes direct connections between senders and receivers, making them communicate through itself.
+   Observer broadcasts a request to all interested receivers while allowing them to subscribe or unsubscribe.
 
-2. Разница между `Посредником` и `Наблюдателем` не всегда очевидна. Чаще всего они выступают как конкуренты, но иногда
-   могут работать вместе.
+2. The difference between `Mediator` and `Observer` is not always obvious. They often compete, but sometimes work
+   together.
 
-   Цель Посредника — убрать обоюдные зависимости между компонентами системы. Вместо этого они становятся зависимыми от
-   самого посредника. С другой стороны, цель Наблюдателя — обеспечить динамическую одностороннюю связь, в которой одни
-   объекты косвенно зависят от других.
+   The goal of Mediator is to remove mutual dependencies between system components. Instead, they become dependent on
+   the mediator itself. The goal of Observer is to provide a dynamic one-way connection where some objects indirectly
+   depend on others.
 
-   Довольно популярна реализация Посредника при помощи Наблюдателя. При этом объект посредника будет выступать
-   издателем, а все остальные компоненты станут подписчиками и смогут динамически следить за событиями, происходящими в
-   посреднике. В этом случае трудно понять, чем же отличаются оба паттерна.
+   A popular implementation of Mediator uses Observer. The mediator acts as a publisher, and other components become
+   subscribers and can dynamically listen to mediator events. In that case it can be hard to tell the patterns apart.
 
-   Но Посредник имеет и другие реализации, когда отдельные компоненты жёстко привязаны к объекту посредника. Такой код
-   вряд ли будет напоминать Наблюдателя, но всё же останется Посредником.
+   But Mediator has other implementations where components are tightly bound to the mediator object. That code is
+   unlikely to resemble Observer, but it is still Mediator.
 
-   Напротив, в случае реализации посредника с помощью Наблюдателя представим такую программу, в которой каждый компонент
-   системы становится издателем. Компоненты могут подписываться друг на друга, в то же время не привязываясь к
-   конкретным классам. Программа будет состоять из целой сети Наблюдателей, не имея центрального объекта-Посредника.
-
-
-
+   Conversely, if we implement Mediator with Observer in a program where each component becomes a publisher, components
+   can subscribe to each other without binding to concrete classes. The program becomes a network of Observers without
+   a central Mediator object.

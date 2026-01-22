@@ -1,20 +1,19 @@
-## Хранилище (Repository)
+## Repository
 
-## Назначение
+## Intent
 
-Посредник между уровнями области определения (хранилище) и распределения данных. Использует интерфейс, похожий на
-коллекции, для доступа к объектам области определения. Репозиторий инкапсулирует набор объектов, сохраняемых в хранилище
-данных, и операции выполняемые над ними, обеспечивая более объектно-ориентированное представление реальных данных.
-Репозиторий также преследует цель достижения полного разделения и односторонней зависимости между уровнями области
-определения и распределения данных.
+A mediator between the domain layer and data mapping layer. Uses a collection-like interface to access domain objects.
+A repository encapsulates the set of objects persisted in the data store and operations performed on them, providing a
+more object-oriented view of real data. The repository also aims to achieve clean separation and one-way dependency
+between the domain and data mapping layers.
 
-## Примеры
+## Examples
 
-    Doctrine 2 ORM: в ней есть Repository, который является связующим звеном между Entity и DBAL и содержит методы для получения объектов.
+    Doctrine 2 ORM: it has a Repository that connects Entity and DBAL and contains methods for fetching objects.
 
-    Laravel Framework
+    Laravel Framework.
 
-## Код
+## Code
 
 ### Post.php
 
@@ -535,7 +534,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/PostRepositoryTest.php
 
@@ -623,5 +622,3 @@
         }
 
     }
-
-

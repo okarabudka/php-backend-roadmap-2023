@@ -1,83 +1,80 @@
-## Состояние (State)
+## State
 
-Паттерн State относится к поведенческим паттернам уровня объекта.
+The State pattern is a behavioral pattern at the object level.
 
-Паттерн State позволяет объекту изменять свое поведение в зависимости от внутреннего состояния и является
-объектно-ориентированной реализацией конечного автомата. Поведение объекта изменяется на столько, что создается
-впечатление, что изменился класс объекта.
+State lets an object change its behavior depending on its internal state and is an object-oriented implementation of a
+finite state machine. The object's behavior changes so much that it appears as if the object's class has changed.
 
-Паттерн должен применятся, когда поведение объекта зависит от его состояния и оно должно изменяться во время выполнения
-программы при условии того, что состояний достаточно много и использовать для этого условные операторы разбросаные по
-коду достаточно затруднительно.
+The pattern should be used when object behavior depends on its state and must change during program execution, when
+there are enough states that using conditional operators scattered across code is too difficult.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс Context, представляет собой объектно-ориентированное представление конечного автомата;
-2. Абстрактный класс State, определяющий интерфейс различных состояний;
-3. Класс ConcreteStateA, реализует одно из поведений ассоциированное с определенным состоянием;
-4. Класс ConcreteStateB, реализует одно из поведений ассоциированное с определенным состоянием.
+1. Context class that represents a finite state machine.
+2. Abstract State class that defines the interface for different states.
+3. ConcreteStateA class that implements one behavior associated with a particular state.
+4. ConcreteStateB class that implements one behavior associated with a particular state.
 
-## Применимость
+## Applicability
 
-### Когда у вас есть объект, поведение которого кардинально меняется в зависимости от внутреннего состояния, причём типов состояний много, и их код часто меняется.
+### When you have an object whose behavior changes dramatically depending on internal state, and there are many state types whose code changes often.
 
-    Паттерн предлагает выделить в собственные классы все поля и методы, связанные с определёнными состояниями. Первоначальный объект будет постоянно ссылаться на один из объектов-состояний, делегируя ему часть своей работы. Для изменения состояния в контекст достаточно будет подставить другой объект-состояние.
+    The pattern suggests extracting all fields and methods related to specific states into separate classes. The original
+    object will reference one of the state objects and delegate part of its work to it. To change state in the context,
+    you just substitute a different state object.
 
-### Когда код класса содержит множество больших, похожих друг на друга, условных операторов, которые выбирают поведения в зависимости от текущих значений полей класса.
+### When a class contains many large, similar conditional statements that choose behaviors based on current field values.
 
-    Паттерн предлагает переместить каждую ветку такого условного оператора в собственный класс. Тут же можно поселить и все поля, связанные с данным состоянием.
+    The pattern suggests moving each branch of such a conditional into its own class. You can also place all fields
+    related to that state there.
 
-### Когда вы сознательно используете табличную машину состояний, построенную на условных операторах, но вынуждены мириться с дублированием кода для похожих состояний и переходов.
+### When you deliberately use a tabular state machine built with conditionals, but must tolerate duplicated code for similar states and transitions.
 
-    Паттерн Состояние позволяет реализовать иерархическую машину состояний, базирующуюся на наследовании. Вы можете отнаследовать похожие состояния от одного родительского класса и вынести туда весь дублирующий код.
+    State allows you to implement a hierarchical state machine based on inheritance. You can inherit similar states from
+    a single parent class and move all duplicated code there.
 
-## Шаги реализации
+## Implementation steps
 
-1. Определитесь с классом, который будет играть роль контекста. Это может быть как существующий класс, в котором уже
-   есть зависимость от состояния, так и новый класс, если код состояний размазан по нескольким классам.
+1. Decide which class will act as the context. It can be an existing class that already depends on state, or a new
+   class if state code is scattered across several classes.
 
-2. Создайте общий интерфейс состояний. Он должен описывать методы, общие для всех состояний, обнаруженных в контексте.
-   Заметьте, что не всё поведение контекста нужно переносить в состояние, а только то, которое зависит от состояний.
+2. Create a common state interface. It should describe the methods common to all states found in the context. Note that
+   you should not move all context behavior into state, only what depends on state.
 
-3. Для каждого фактического состояния создайте класс, реализующий интерфейс состояния. Переместите код, связанный с
-   конкретными состояниями в нужные классы. В конце концов, все методы интерфейса состояния должны быть реализованы во
-   всех классах состояний.
+3. For each actual state, create a class that implements the state interface. Move code related to specific states into
+   the appropriate classes. Eventually, all state interface methods must be implemented by all state classes.
 
-При переносе поведения из контекста вы можете столкнуться с тем, что это поведение зависит от приватных полей или
-методов контекста, к которым нет доступа из объекта состояния. Существует парочка способов обойти эту проблему.
+When moving behavior from the context you may find it depends on private fields or methods of the context that state
+objects cannot access. There are a couple of ways around this.
 
-Самый простой — оставить поведение внутри контекста, вызывая его из объекта состояния. С другой стороны, вы можете
-сделать классы состояний вложенными в класс контекста, и тогда они получат доступ ко всем приватным частям контекста. Но
-последний способ доступен только в некоторых языках программирования (например, Java, C#).
+The simplest is to keep that behavior in the context and call it from the state object. Another option is to make state
+classes nested in the context class so they can access private parts of the context. This is available only in some
+languages (for example, Java, C#).
 
-4. Создайте в контексте поле для хранения объектов-состояний, а также публичный метод для изменения значения этого поля.
+4. Add a field in the context to store state objects and a public method to change that field.
 
-5. Старые методы контекста, в которых находился зависимый от состояния код, замените на вызовы соответствующих методов
-   объекта-состояния.
+5. Replace old context methods that had state-dependent code with calls to the corresponding methods on the state
+   object.
 
-6. В зависимости от бизнес-логики, разместите код, который переключает состояние контекста либо внутри контекста, либо
-   внутри классов конкретных состояний.
+6. Depending on business logic, place the code that switches context state either inside the context or inside concrete
+   state classes.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Избавляет от множества больших условных операторов машины состояний.
-    + Концентрирует в одном месте код, связанный с определённым состоянием.
-    + Упрощает код контекста.
+    + Removes many large conditional statements of the state machine.
+    + Concentrates code related to a specific state in one place.
+    + Simplifies context code.
 
-    - Может неоправданно усложнить код, если состояний мало и они редко меняются.
+    - Can overcomplicate the code if there are few states and they rarely change.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. Мост, Стратегия и Состояние (а также слегка и Адаптер) имеют схожие структуры классов — все они построены на принципе
-   «композиции», то есть делегирования работы другим объектам. Тем не менее, они отличаются тем, что решают разные
-   проблемы. Помните, что паттерны — это не только рецепт построения кода определённым образом, но и описание проблем,
-   которые привели к данному решению.
+1. Bridge, Strategy, and State (and slightly Adapter) have similar class structures: all are based on composition, i.e.,
+   delegating work to other objects. They differ in the problems they solve. Patterns are not just recipes for building
+   code, but descriptions of problems that led to the solution.
 
-2. Состояние можно рассматривать как надстройку над Стратегией. Оба паттерна используют композицию, чтобы менять
-   поведение основного объекта, делегируя работу вложенным объектам-помощникам. Однако в Стратегии эти объекты не знают
-   друг о друге и никак не связаны. В Состоянии сами конкретные состояния могут переключать контекст.
-
-
-
+2. State can be seen as an extension of Strategy. Both patterns use composition to change behavior of the main object by
+   delegating work to helper objects. In Strategy these objects do not know about each other. In State the concrete
+   states can switch the context.

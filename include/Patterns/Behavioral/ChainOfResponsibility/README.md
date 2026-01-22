@@ -1,121 +1,112 @@
-## Цепочка ответственности (Chain Of Responsibility)
+## Chain of Responsibility
 
-Паттерн Chain Of Responsibility относится к поведенческим паттернам уровня объекта.
+The Chain of Responsibility pattern is a behavioral pattern at the object level.
 
-Паттерн Chain Of Responsibility позволяет избежать привязки объекта-отправителя запроса к объекту-получателю запроса,
-при этом давая шанс обработать этот запрос нескольким объектам. Получатели связываются в цепочку, и запрос передается по
-цепочке, пока не будет обработан каким-то объектом.
+Chain of Responsibility avoids coupling the sender of a request to its receiver, while giving multiple objects a
+chance to handle the request. Receivers are linked into a chain, and the request is passed along the chain until some
+object handles it.
 
-По сути это цепочка обработчиков, которые по очереди получают запрос, а затем решают, обрабатывать его или нет. Если
-запрос не обработан, то он передается дальше по цепочке. Если же он обработан, то паттерн сам решает передавать его
-дальше или нет. Если запрос не обработан ни одним обработчиком, то он просто теряется.
+In essence this is a chain of handlers that receive a request in turn and then decide whether to handle it. If the
+request is not handled, it is passed further along the chain. If it is handled, the pattern decides whether to pass it
+on or not. If no handler processes the request, it is simply lost.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый абстрактный класс Handler, описывающий интерфейс обработчиков в цепочки;
-2. Класс ConcreteHandlerA, реализующий конкретный обработчик A;
-3. Класс ConcreteHandlerB, реализующий конкретный обработчик B;
-4. Класс ConcreteHandlerC, реализующий конкретный обработчик C;
+1. Base abstract Handler class that defines the handler interface in the chain.
+2. ConcreteHandlerA class that implements handler A.
+3. ConcreteHandlerB class that implements handler B.
+4. ConcreteHandlerC class that implements handler C.
 
-Обратите внимание, что вместо хранения ссылок на всех кандидатов-получателей запроса, каждый отправитель хранит
-единственную ссылку на начало цепочки, а каждый получатель имеет единственную ссылку на своего преемника - последующий
-элемент в цепочке.
+Note that instead of storing references to all candidate receivers, each sender keeps a single reference to the start
+of the chain, and each receiver has a single reference to its successor, the next element in the chain.
 
-## Примеры из жизни
+## Real-world examples
 
-    - фреймворк для записи журналов, где каждый элемент цепи самостоятельно принимает решение, что делать с сообщением для логирования.
+    - A logging framework where each chain element decides what to do with a log message.
 
-    - фильтр спама
+    - Spam filtering.
 
-    - кеширование: первый объект является экземпляром, к примеру, интерфейса Memcached. Если запись в кеше отсутствует, вызов делегируется интерфейсу базы данных.
+    - Caching: the first object is an instance of something like a Memcached interface. If the cache miss occurs, the
+      call is delegated to the database interface.
 
-## Применимость
+## Applicability
 
-### Когда программа должна обрабатывать разнообразные запросы несколькими способами, но заранее неизвестно, какие конкретно запросы будут приходить и какие обработчики для них понадобятся.
+### When a program must handle various requests in different ways, but it is not known in advance which requests will come and which handlers are needed.
 
-    С помощью Цепочки обязанностей вы можете связать потенциальных обработчиков в одну цепь и при получении запроса поочерёдно спрашивать каждого из них, не хочет ли он обработать запрос.
+    With Chain of Responsibility you can link potential handlers into a chain and, upon receiving a request, ask each
+    in turn whether it wants to handle the request.
 
-### Когда важно, чтобы обработчики выполнялись один за другим в строгом порядке.
+### When it is important that handlers run one after another in a strict order.
 
-    Цепочка обязанностей позволяет запускать обработчиков последовательно один за другим в том порядке, в котором они находятся в цепочке.
+    Chain of Responsibility lets you run handlers sequentially in the order they appear in the chain.
 
-### Когда набор объектов, способных обработать запрос, должен задаваться динамически.
+### When the set of objects that can handle a request must be defined dynamically.
 
-    В любой момент вы можете вмешаться в существующую цепочку и переназначить связи так, чтобы убрать или добавить новое звено.
+    At any moment you can rewire the chain to remove or add a link.
 
-## Шаги реализации
+## Implementation steps
 
-1. Создайте интерфейс обработчика и опишите в нём основной метод обработки.
+1. Create the handler interface and define the main handling method.
 
-Продумайте, в каком виде клиент должен передавать данные запроса в обработчик. Самый гибкий способ — превратить данные
-запроса в объект и передавать его целиком через параметры метода обработчика.
+Think about how the client should pass request data to the handler. The most flexible approach is to turn the request
+into an object and pass it through handler method parameters.
 
-2. Имеет смысл создать абстрактный базовый класс обработчиков, чтобы не дублировать реализацию метода получения
-   следующего обработчика во всех конкретных обработчиках.
+2. It makes sense to create an abstract base handler class to avoid duplicating the next-handler plumbing in every
+   concrete handler.
 
-Добавьте в базовый обработчик поле для хранения ссылки на следующий объект цепочки. Устанавливайте начальное значение
-этого поля через конструктор. Это сделает объекты обработчиков неизменяемыми. Но если программа предполагает
-динамическую перестройку цепочек, можете добавить и сеттер для поля.
+Add a field in the base handler to store a reference to the next object in the chain. Set it via the constructor. This
+makes handler objects immutable. But if the program expects dynamic chain rewiring, you can also add a setter.
 
-Реализуйте базовый метод обработки так, чтобы он перенаправлял запрос следующему объекту, проверив его наличие. Это
-позволит полностью скрыть поле-ссылку от подклассов, дав им возможность передавать запросы дальше по цепи, обращаясь к
-родительской реализации метода.
+Implement the base handling method so it forwards the request to the next object if it exists. This hides the
+next-reference from subclasses while still letting them pass requests further down the chain via the parent method.
 
-3. Один за другим создайте классы конкретных обработчиков и реализуйте в них методы обработки запросов. При получении
-   запроса каждый обработчик должен решить:
-   Может ли он обработать запрос или нет?
-   Следует ли передать запрос следующему обработчику или нет?
+3. One by one create concrete handler classes and implement request handling. On receiving a request, each handler must
+   decide:
+   Can it handle the request or not?
+   Should it pass the request to the next handler or not?
 
-4. Клиент может собирать цепочку обработчиков самостоятельно, опираясь на свою бизнес-логику, либо получать уже готовые
-   цепочки извне. В последнем случае цепочки собираются фабричными объектами, опираясь на конфигурацию приложения или
-   параметры окружения.
+4. The client can build the handler chain itself based on business logic, or obtain ready-made chains from elsewhere. In
+   the latter case chains are built by factory objects based on application configuration or environment parameters.
 
-5. Клиент может посылать запросы любому обработчику в цепи, а не только первому. Запрос будет передаваться по цепочке до
-   тех пор, пока какой-то обработчик не откажется передавать его дальше, либо когда будет достигнут конец цепи.
+5. The client can send requests to any handler in the chain, not just the first. The request will travel along the
+   chain until a handler refuses to pass it further or the end of the chain is reached.
 
-6. Клиент должен знать о динамической природе цепочки и быть готов к таким случаям:
-   Цепочка может состоять из единственного объекта.
-   Запросы могут не достигать конца цепи.
-   Запросы могут достигать конца, оставаясь необработанными.
+6. The client must be aware of the chain's dynamic nature and be prepared for these cases:
+   The chain may consist of a single object.
+   Requests may not reach the end of the chain.
+   Requests may reach the end but remain unhandled.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Уменьшает зависимость между клиентом и обработчиками.
-    + Реализует принцип единственной обязанности.
-    + Реализует принцип открытости/закрытости.
+    + Reduces coupling between client and handlers.
+    + Follows the single responsibility principle.
+    + Follows the open/closed principle.
 
-    - Запрос может остаться никем не обработанным.
+    - A request can end up unhandled.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. Цепочка обязанностей, Команда, Посредник и Наблюдатель показывают различные способы работы отправителей запросов с их
-   получателями:
-    - Цепочка обязанностей передаёт запрос последовательно через цепочку потенциальных получателей, ожидая, что какой-то
-      из них обработает запрос.
-    - Команда устанавливает косвенную одностороннюю связь от отправителей к получателям.
-    - Посредник убирает прямую связь между отправителями и получателями, заставляя их общаться опосредованно, через
-      себя.
-    - Наблюдатель передаёт запрос одновременно всем заинтересованным получателям, но позволяет им динамически
-      подписываться или отписываться от таких оповещений.
+1. Chain of Responsibility, Command, Mediator, and Observer show different ways of working with request senders and
+   receivers:
+    - Chain of Responsibility passes a request through a chain of potential receivers until one handles it.
+    - Command sets up an indirect one-way connection from senders to receivers.
+    - Mediator removes direct connections between senders and receivers, making them communicate through itself.
+    - Observer broadcasts a request to all interested receivers while allowing them to subscribe or unsubscribe.
 
-2. Цепочку обязанностей часто используют вместе с Компоновщиком. В этом случае запрос передаётся от дочерних компонентов
-   к их родителям.
+2. Chain of Responsibility is often used together with Composite. In that case the request is passed from child
+   components to their parents.
 
-3. Обработчики в Цепочке обязанностей могут быть выполнены в виде Команд. В этом случае множество разных операций может
-   быть выполнено над одним и тем же контекстом, коим является запрос.
+3. Handlers in Chain of Responsibility can be implemented as Commands. In that case many different operations can be
+   performed on the same context, which is the request.
 
-Но есть и другой подход, в котором сам запрос является Командой, посланной по цепочке объектов. В этом случае одна и та
-же операция может быть выполнена над множеством разных контекстов, представленных в виде цепочки.
+Another approach is when the request itself is a Command sent through a chain of objects. In that case the same
+operation can be performed on many different contexts represented as a chain.
 
-5. Цепочка обязанностей и Декоратор имеют очень похожие структуры. Оба паттерна базируются на принципе рекурсивного
-   выполнения операции через серию связанных объектов. Но есть и несколько важных отличий.
+5. Chain of Responsibility and Decorator have very similar structures. Both are based on the idea of recursively
+   executing an operation through a series of linked objects, but there are important differences.
 
-Обработчики в Цепочке обязанностей могут выполнять произвольные действия, независимые друг от друга, а также в любой
-момент прерывать дальнейшую передачу по цепочке. С другой стороны Декораторы расширяют какое-то определённое действие,
-не ломая интерфейс базовой операции и не прерывая выполнение остальных декораторов.
-
-
-
-
+Handlers in Chain of Responsibility can perform arbitrary actions independent of each other and can stop the chain at
+any time. Decorators, on the other hand, extend a specific action without breaking the base operation interface and
+without stopping the rest of the decorators.

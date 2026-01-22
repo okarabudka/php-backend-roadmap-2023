@@ -1,29 +1,29 @@
-## Объект Null (Null Object)
+## Null Object
 
-## Назначение
+## Intent
 
-NullObject не шаблон из книги Банды Четырёх, но схема, которая появляется достаточно часто, чтобы считаться паттерном.
-Она имеет следующие преимущества:
+NullObject is not a GoF pattern, but a scheme that appears often enough to be considered a pattern. It has the
+following benefits:
 
-    Клиентский код упрощается
+    Client code is simplified.
 
-    Уменьшает шанс исключений из-за нулевых указателей (и ошибок PHP различного уровня)
+    Reduces the chance of null pointer exceptions (and PHP errors of various levels).
 
-    Меньше дополнительных условий — значит меньше тесткейсов
+    Fewer extra conditionals means fewer test cases.
 
-Методы, которые возвращают объект или Null, вместо этого должны вернуть объект NullObject. Это упрощённый формальный
-код, устраняющий необходимость проверки if (!is_null($obj)) { $obj->callSomething(); }, заменяя её на обычный вызов $
-obj->callSomething();.
+Methods that return an object or null should return a NullObject instead. This is formalized, simplified code that
+eliminates the need to check if (!is_null($obj)) { $obj->callSomething(); }, replacing it with a normal call
+$obj->callSomething();.
 
-## Примеры
+## Examples
 
-    Null logger or null output to preserve a standard way of interaction between objects, even if the shouldn’t do anything
+    Null logger or null output to preserve a standard way of interaction between objects, even if they should not do anything
 
-    null handler in a Chain of Responsibilities pattern
+    null handler in a Chain of Responsibility pattern
 
     null command in a Command pattern
 
-## Код
+## Code
 
 ### Service.php
 
@@ -140,7 +140,7 @@ obj->callSomething();.
 
     }
 
-## Тест
+## Test
 
 ### Tests/LoggerTest.php
 

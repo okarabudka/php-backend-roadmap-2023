@@ -1,23 +1,22 @@
-## Преобразователь Данных (Data Mapper)
+## Data Mapper
 
-## Назначение
+## Intent
 
-Преобразователь Данных — это паттерн, который выступает в роли посредника для двунаправленной передачи данных между
-постоянным хранилищем данных (часто, реляционной базы данных) и представления данных в памяти (слой домена, то что уже
-загружено и используется для логической обработки). Цель паттерна в том, чтобы держать представление данных в памяти и
-постоянное хранилище данных независимыми друг от друга и от самого преобразователя данных. Слой состоит из одного или
-более mapper-а (или объектов доступа к данным), отвечающих за передачу данных. Реализации mapper-ов различаются по
-назначению. Общие mapper-ы могут обрабатывать всевозоможные типы сущностей доменов, а выделенные mapper-ы будет
-обрабатывать один или несколько конкретных типов.
+Data Mapper is a pattern that acts as a mediator for bidirectional data transfer between a persistent data store
+(often a relational database) and the in-memory data representation (the domain layer, what is loaded and used for
+logic). The goal is to keep the in-memory representation and the persistent store independent of each other and of the
+mapper itself. The layer consists of one or more mappers (or data access objects) responsible for data transfer. Mapper
+implementations vary in purpose. Generic mappers can handle various domain entity types, while specialized mappers
+handle one or a few specific types.
 
-Ключевым моментом этого паттерна, в отличие от Активной Записи (Active Records) является то, что модель данных следует
-Принципу Единой Обязанности SOLID.
+The key point of this pattern, as opposed to Active Record, is that the data model follows the SOLID Single
+Responsibility Principle.
 
-## Примеры
+## Examples
 
-    DB Object Relational Mapper (ORM) : Doctrine2 использует DAO под названием «EntityRepository»
+    DB Object Relational Mapper (ORM): Doctrine2 uses a DAO called EntityRepository.
 
-## Код
+## Code
 
 ### User.php
 
@@ -189,7 +188,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/DataMapperTest.php
 
@@ -251,6 +250,3 @@
         }
 
     }
-
-
-

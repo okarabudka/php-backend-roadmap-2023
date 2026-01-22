@@ -1,83 +1,80 @@
-## Посетитель (Visitor)
+## Visitor
 
-Паттерн Visitor относится к поведенческим паттернам уровня объекта.
+The Visitor pattern is a behavioral pattern at the object level.
 
-Паттерн Visitor позволяет обойти набор элементов (объектов) с разнородными интерфейсами, а также позволяет добавить
-новый метод в класс объекта, при этом, не изменяя сам класс этого объекта.
+Visitor lets you traverse a set of elements (objects) with different interfaces and also add a new method to a class
+without changing the class itself.
 
-Шаблон «Посетитель» выполняет операции над объектами других классов. Главной целью является сохранение разделения
-направленности задач отдельных классов. При этом классы обязаны определить специальный контракт, чтобы позволить
-использовать их Посетителям (метод «принять роль» Role::accept в примере).
+The Visitor pattern performs operations on objects of other classes. The main goal is to keep the separation of
+responsibilities between classes. Classes must define a special contract to allow Visitors to use them (the Role::accept
+method in the example).
 
-Контракт, как правило, это абстрактный класс, но вы можете использовать чистый интерфейс. В этом случае, каждый
-посетитель должен сам выбирать, какой метод ссылается на посетителя.
+The contract is usually an abstract class, but you can use a pure interface. In that case, each visitor must decide
+which method references the visitor.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Абстрактный класс Visitor, описывающий интерфейс визитера;
-2. Класс ConcreteVisitor, реализующий конкретного визитера. Реализует методы для обхода конкретного элемента;
-3. Класс ObjectStructure, реализующий структуру(коллекцию), в которой хранятся элементы для обхода;
-4. Абстрактный класс Element, реализующий интерфейс элементов структуры;
-5. Класс ElementA, реализующий элемент структуры;
-6. Класс ElementB, реализующий элемент структуры.
+1. Abstract Visitor class that defines the visitor interface.
+2. ConcreteVisitor class that implements a specific visitor and methods to traverse concrete elements.
+3. ObjectStructure class that implements the structure (collection) that stores elements to traverse.
+4. Abstract Element class that defines the element interface.
+5. ElementA class that implements an element.
+6. ElementB class that implements an element.
 
-## Применимость
+## Applicability
 
-### Когда вам нужно выполнить какую-то операцию над всеми элементами сложной структуры объектов, например, деревом.
+### When you need to perform some operation on all elements of a complex object structure, for example, a tree.
 
-Посетитель позволяет применять одну и ту же операцию к объектам различных классов.
+Visitor allows you to apply the same operation to objects of different classes.
 
-### Когда над объектами сложной структуры объектов надо выполнять некоторые не связанные между собой операции, но вы не хотите «засорять» классы такими операциями.
+### When you need to perform some unrelated operations on objects of a complex structure, but you do not want to clutter their classes with those operations.
 
-Посетитель позволяет извлечь родственные операции из классов, составляющих структуру объектов, поместив их в один
-класс-посетитель. Если структура объектов является общей для нескольких приложений, то паттерн позволит в каждое
-приложение включить только нужные операции.
+Visitor lets you extract related operations from the classes that make up the object structure into a single visitor
+class. If the object structure is shared by multiple applications, the pattern lets each app include only the
+operations it needs.
 
-### Когда новое поведение имеет смысл только для некоторых классов из существующей иерархии.
+### When new behavior makes sense only for some classes in an existing hierarchy.
 
-Посетитель позволяет определить поведение только для этих классов, оставив его пустым для всех остальных.
+Visitor lets you define behavior only for those classes and leave it empty for the rest.
 
-## Шаги реализации
+## Implementation steps
 
-1. Создайте интерфейс посетителя и объявите в нём методы «посещения» для каждого класса элемента, который существует в
-   программе.
+1. Create the visitor interface and declare visit methods for each element class that exists in the program.
 
-2. Опишите интерфейс элементов. Если вы работаете с уже существующими классами, то объявите абстрактный метод принятия
-   посетителей в базовом классе иерархии элементов.
+2. Describe the element interface. If you work with existing classes, declare an abstract accept method in the base
+   class of the element hierarchy.
 
-3. Реализуйте методы принятия во всех конкретных элементах. Они должны переадресовывать вызовы тому методу посетителя, в
-   котором тип параметра совпадает с текущим классом элемента.
+3. Implement accept in all concrete elements. Each accept should redirect the call to the visitor method whose
+   parameter type matches the current element class.
 
-4. Иерархия элементов должна знать только о базовом интерфейсе посетителей. С другой стороны, посетители будут знать обо
-   всех классах элементов.
+4. The element hierarchy should know only about the base visitor interface. Visitors, on the other hand, will know
+   about all element classes.
 
-5. Для каждого нового поведения создайте конкретный класс посетителя. Приспособьте это поведение для работы со всеми
-   типами элементов, реализовав все методы интерфейса посетителей.
+5. For each new behavior, create a concrete visitor class. Adapt this behavior to work with all element types by
+   implementing all visitor interface methods.
 
-Вы можете столкнуться с ситуацией, когда посетителю нужен будет доступ к приватным полям элементов. В этом случае вы
-можете либо раскрыть доступ к этим полям, нарушив инкапсуляцию элементов, либо сделать класс посетителя вложенным в
-класс элемента, если вам повезло писать на языке, который поддерживает вложенность классов.
+You may encounter a situation where a visitor needs access to private element fields. In that case you can either
+expose those fields, breaking encapsulation, or make the visitor class nested inside the element class if your language
+supports nested classes.
 
-6. Клиент будет создавать объекты посетителей, а затем передавать их элементам, используя метод принятия.
+6. The client creates visitor objects and passes them to elements via accept.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Упрощает добавление операций, работающих со сложными структурами объектов.
-    + Объединяет родственные операции в одном классе.
-    + Посетитель может накапливать состояние при обходе структуры элементов.
+    + Simplifies adding operations that work with complex object structures.
+    + Combines related operations in one class.
+    + Visitor can accumulate state while traversing an element structure.
 
-    - Паттерн не оправдан, если иерархия элементов часто меняется.
-    - Может привести к нарушению инкапсуляции элементов.
+    - The pattern is not justified if the element hierarchy changes often.
+    - Can lead to breaking element encapsulation.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Посетитель` можно рассматривать как расширенный аналог `Команды`, который способен работать сразу с несколькими
-   видами получателей.
+1. `Visitor` can be seen as an advanced analog of `Command` that can work with multiple kinds of receivers.
 
-2. Вы можете выполнить какое-то действие над всем деревом `Компоновщика` при помощи `Посетителя`.
+2. You can perform an action over a Composite tree with `Visitor`.
 
-3. `Посетитель` можно использовать совместно с `Итератором`. `Итератор` будет отвечать за обход структуры данных, а
-   `Посетитель` — за выполнение действий над каждым её компонентом.
-
+3. `Visitor` can be used together with `Iterator`. `Iterator` traverses the data structure, while `Visitor` performs
+   actions on each component.

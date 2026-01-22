@@ -1,19 +1,19 @@
-## Интепретатор (Interpreter)
+## Interpreter
 
-## Назначение
+## Intent
 
-Для некоего языка шаблон описывает его грамматику с помощью терминов «Терминальный символ» и «Нетерминальный символ», а
-также описывает интерпретатор предложений, созданных с помощью данного языка.
+For a given language, the pattern describes its grammar using the terms Terminal Expression and Nonterminal
+Expression, and defines an interpreter for sentences built with that language.
 
-## Примеры
+## Examples
 
-    Интерпретатор бинарной (двоичной) логики, в котором каждый тип логической операции определен в своем собственном классе.
+    Interpreter of binary logic where each type of logical operation is defined in its own class.
 
-## Диаграмма UML
+## UML diagram
 
 ![Alt text](uml2.png)
 
-## Код
+## Code
 
 ### AbstractExp.php
 
@@ -141,7 +141,7 @@
 
     /**
 
-    * This NoTerminalExpression
+    * This NonTerminalExpression
 
     */
 
@@ -179,7 +179,7 @@
 
     /**
 
-    * This NoTerminalExpression
+    * This NonTerminalExpression
 
     */
 
@@ -204,7 +204,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/InterpreterTest.php
 
@@ -267,24 +267,24 @@
             $this->context->assign($this->c, true);
 
 
-            // A ∨ B
+            // A OR B
 
             $exp1 = new OrExp($this->a, $this->b);
 
             $result1 = $exp1->interpret($this->context);
 
 
-            $this->assertFalse($result1, 'A ∨ B must false');
+            $this->assertFalse($result1, 'A OR B must be false');
 
 
-            // $exp1 ∨ C
+            // $exp1 OR C
 
             $exp2 = new OrExp($exp1, $this->c);
 
             $result2 = $exp2->interpret($this->context);
 
 
-            $this->assertTrue($result2, '(A ∨ B) ∨ C must true');
+            $this->assertTrue($result2, '(A OR B) OR C must be true');
 
         }
 
@@ -300,24 +300,24 @@
             $this->context->assign($this->c, false);
 
 
-            // A ∧ B
+            // A AND B
 
             $exp1 = new AndExp($this->a, $this->b);
 
             $result1 = $exp1->interpret($this->context);
 
 
-            $this->assertTrue($result1, 'A ∧ B must true');
+            $this->assertTrue($result1, 'A AND B must be true');
 
 
-            // $exp1 ∧ C
+            // $exp1 AND C
 
             $exp2 = new AndExp($exp1, $this->c);
 
             $result2 = $exp2->interpret($this->context);
 
 
-            $this->assertFalse($result2, '(A ∧ B) ∧ C must false');
+            $this->assertFalse($result2, '(A AND B) AND C must be false');
 
         }
 

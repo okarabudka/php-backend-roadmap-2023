@@ -1,105 +1,91 @@
-## Абстрактная фабрика (Abstract Factory)
+## Abstract Factory
 
-Паттерн Abstract Factory относится к порождающим паттернам уровня объекта.
+The Abstract Factory pattern is a creational pattern at the object level.
 
-Паттерн Abstract Factory предоставляет общий интерфейс для создания семейства взаимосвязанных объектов.
-Это позволяет отделить функциональность системы от внутренней реализации каждого класса, а обращение к этим классам
-становится возможным через абстрактные интерфейсы.
+Abstract Factory provides a common interface for creating families of related objects. This separates system
+functionality from internal implementation of each class, and access to those classes becomes possible via abstract
+interfaces.
 
-В общем виде абстрактная фабрика выглядит следующим образом. Для каждого из семейств объектов, создается конкретная
-фабрика
-(наследник абстрактной), посредством которой создаются продукты этого семейства.
+In general, for each family of objects a concrete factory is created (a subclass of the abstract factory), which
+produces the products of that family.
 
-### Пример
+### Example
 
-Есть две фабрики по производству газировки, Кока-Кола и Пепси. Эти фабрики выпускают семейство продуктов (объектов) -
-бутылка, крышка, этикетка, жидкость. Каждая из этих фабрик выпускает продукты, которые взаимодействуют между собой и не
-могут
-жить отдельно друг от друга. Фабрика Кока-Кола не может поставлять клиентам пустые бутылки.
+There are two soda factories: Coca-Cola and Pepsi. These factories produce a family of products (objects): bottle, cap,
+label, liquid. Each factory produces products that work together and cannot exist separately. A Coca-Cola factory
+cannot supply customers with empty bottles.
 
-Что бы реализовать простое создание семейства объектов, должен быть интерфейс, по которому работает фабрика, так же
-фабрика должна
-выпускать продукты с определенным интерфейсом. Например, бутылки обеих компаний обладают одним интерфейсом - у них есть
-горлышко
-через которое они наполняются жидкостью, так же мы можем узнать объем бутылок. Дальше бутылки могут отличаться по форме,
-объему или
-материалу, нас это не касается, нам нужно только знать, куда наливать жидкость, а так же, сколько этой жидкости нужно.
+To implement simple creation of a family of objects, there must be a factory interface, and the factory should produce
+products with a specific interface. For example, bottles of both companies have one interface: they have a neck for
+filling and you can check bottle volume. Bottles may differ in shape, volume, or material, which does not matter to us.
+We only need to know where to pour the liquid and how much to pour.
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс абстрактной фабрики AbstractFactory, описывающий общий интерфейс фабрики, от которой будет наследоваться каждая
-   конкретная фабрика;
-2. Класс абстрактного продукта AbstractProduct, описывающий общий интерфейс продукта, от которого будет наследоваться
-   каждый конкретный продукт;
-3. Класс конкретной фабрики Factory;
-4. Класс конкретного продукта ProductA.
-5. Класс конкретного продукта ProductB.
+1. AbstractFactory class describing the common factory interface that each concrete factory will extend.
+2. AbstractProduct class describing the common product interface that each concrete product will extend.
+3. Concrete factory class Factory.
+4. Concrete product class ProductA.
+5. Concrete product class ProductB.
 
-## Пример из реальной жизни
+## Real-world example
 
-    В этом примере паттерн Абстрактная фабрика предоставляет инфраструктуру для создания нескольких разновидностей шаблонов 
-    для одних и тех же элементов веб-страницы.
-    
-    Чтобы веб-приложение могло поддерживать сразу несколько разных движков рендеринга страниц, его классы должны работать с 
-    шаблонами только через интерфейсы, не привязываясь к конкретным классам. Чтобы этого достичь, объекты приложения не должны 
-    создавать шаблоны напрямую, а поручать создание специальным объектам-фабрикам, с которыми тоже надо работать через а
-    бстрактный интерфейс.
-    
-    Благодаря этому, вы можете подать в приложение фабрику, соответствующую одному из движков рендеринга, зная, что с этого 
-    момента, все шаблоны будут порождаться именно этой фабрикой, и будут соответствовать движку рендеринга этой фабрики. 
-    Если вы захотите сменить движок рендеринга, то всё что нужно будет сделать — это подать в приложение объект фабрики другого 
-    типа и ничего при этом не сломается.
+    In this example, Abstract Factory provides infrastructure for creating several variations of templates for the same
+    web page elements.
 
-### Применимость
+    For a web application to support multiple rendering engines, its classes should work with templates only through
+    interfaces, without binding to concrete classes. To achieve this, application objects should not create templates
+    directly, but delegate creation to dedicated factory objects, which are also used through an abstract interface.
 
-- Когда бизнес-логика программы должна работать с разными видами связанных друг с другом продуктов, не завися от
-  конкретных классов продуктов.
-- Абстрактная фабрика скрывает от клиентского кода подробности того, как и какие конкретно объекты будут созданы. Но при
-  этом клиентский код может работать со всеми типами создаваемых продуктов, поскольку их общий интерфейс был заранее
-  определён.
-- Когда в программе уже используется Фабричный метод, но очередные изменения предполагают введение новых типов
-  продуктов.
-- В хорошей программе каждый класс отвечает только за одну вещь. Если класс имеет слишком много фабричных методов, они
-  способны затуманить его основную функцию. Поэтому имеет смысл вынести всю логику создания продуктов в отдельную
-  иерархию классов, применив абстрактную фабрику.
+    Thanks to this, you can pass the app a factory corresponding to one rendering engine, knowing that from that
+    moment all templates will be produced by that factory and match its rendering engine. If you want to switch the
+    rendering engine, all you need is to pass a factory of another type, and nothing will break.
 
-### Шаги реализации
+### Applicability
 
-    1. Создайте таблицу соотношений типов продуктов к вариациям семейств продуктов.
-    2. Сведите все вариации продуктов к общим интерфейсам.
-    3. Определите интерфейс абстрактной фабрики. Он должен иметь фабричные методы для создания каждого из типов продуктов.
-    4. Создайте классы конкретных фабрик, реализовав интерфейс абстрактной фабрики. Этих классов должно быть столько же, сколько и вариаций семейств продуктов.
-    5. Измените код инициализации программы так, чтобы она создавала определённую фабрику и передавала её в клиентский код.
-    6. Замените в клиентском коде участки создания продуктов через конструктор вызовами соответствующих методов фабрики.
+- When business logic must work with different kinds of related products without depending on their concrete classes.
+- Abstract Factory hides from client code the details of how and which concrete objects are created. Client code can
+  work with all product types because their common interface is defined upfront.
+- When the program already uses Factory Method, but upcoming changes introduce new product types.
+- In a good program each class is responsible for only one thing. If a class has too many factory methods, they blur
+  its main purpose. It makes sense to move product creation logic into a separate class hierarchy using Abstract
+  Factory.
 
-### Преимущества и недостатки
+### Implementation steps
 
-    + Гарантирует сочетаемость создаваемых продуктов.
-    + Избавляет клиентский код от привязки к конкретным классам продуктов.
-    + Выделяет код производства продуктов в одно место, упрощая поддержку кода.
-    + Упрощает добавление новых продуктов в программу.
-    + Реализует принцип открытости/закрытости.
+    1. Create a table mapping product types to family variations.
+    2. Reduce all product variations to common interfaces.
+    3. Define the abstract factory interface. It should have factory methods for creating each product type.
+    4. Create concrete factory classes that implement the abstract factory interface. There should be one per family
+       variation.
+    5. Change program initialization so it creates a specific factory and passes it into client code.
+    6. Replace constructor-based product creation in client code with calls to the corresponding factory methods.
 
-    - Усложняет код программы из-за введения множества дополнительных классов.
-    - Требует наличия всех типов продуктов в каждой вариации.
+### Pros and cons
 
-Отношения с другими паттернами
+    + Guarantees compatibility between created products.
+    + Removes client code coupling to concrete product classes.
+    + Centralizes product creation code, easing maintenance.
+    + Simplifies adding new products to the program.
+    + Follows the open/closed principle.
 
-- Многие архитектуры начинаются с применения `Фабричного метода` (более простого и расширяемого через подклассы) и
-  эволюционируют в сторону `Абстрактной фабрики`, `Прототипа` или `Строителя` (более гибких, но и более сложных).
+    - Increases code complexity due to many additional classes.
+    - Requires all product types to exist in each family variation.
 
-- `Строитель` концентрируется на построении сложных объектов шаг за шагом. `Абстрактная фабрика` специализируется на
-  создании семейств связанных продуктов. `Строитель` возвращает продукт только после выполнения всех шагов, а
-  `Абстрактная фабрика` возвращает продукт сразу же.
+Relations with other patterns
 
-- Классы `Абстрактной фабрики` чаще всего реализуются с помощью `Фабричного метода`, хотя они могут быть построены и на
-  основе `Прототипа`.
+- Many architectures start with Factory Method (simpler and extensible through subclasses) and evolve toward Abstract
+  Factory, Prototype, or Builder (more flexible but more complex).
 
-- `Абстрактная фабрика` может быть использована вместо `Фасада` для того, чтобы скрыть платформо-зависимые классы.
+- Builder focuses on constructing complex objects step by step. Abstract Factory specializes in creating families of
+  related products. Builder returns the product only after all steps, while Abstract Factory returns a product
+  immediately.
 
-- `Абстрактная фабрика` может работать совместно с `Мостом`. Это особенно полезно, если у вас есть абстракции, которые
-  могут работать только с некоторыми из реализаций. В этом случае фабрика будет определять типы создаваемых абстракций и
-  реализаций.
+- Abstract Factory classes are often implemented using Factory Method, although they can also be based on Prototype.
 
-- `Абстрактная фабрика`, `Строитель` и `Прототип` могут быть реализованы при помощи `Одиночки`.
+- Abstract Factory can be used instead of Facade to hide platform-dependent classes.
 
+- Abstract Factory can work together with Bridge. This is especially useful when you have abstractions that can work
+  only with some implementations. The factory then defines the types of abstractions and implementations created.
+
+- Abstract Factory, Builder, and Prototype can be implemented using Singleton.

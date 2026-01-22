@@ -1,12 +1,12 @@
-## Спецификация (Specification)
+## Specification
 
-## Назначение
+## Intent
 
-Строит ясное описание бизнес-правил, на соответствие которым могут быть проверены объекты. Композитный класс
-спецификация имеет один метод, называемый isSatisfiedBy, который возвращает истину или ложь в зависимости от того,
-удовлетворяет ли данный объект спецификации.
+Builds a clear description of business rules that objects can be checked against. The composite specification class has
+one method called isSatisfiedBy, which returns true or false depending on whether the object satisfies the
+specification.
 
-## Код
+## Code
 
 ### Item.php
 
@@ -269,7 +269,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/SpecificationTest.php
 

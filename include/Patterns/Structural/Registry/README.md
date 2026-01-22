@@ -1,12 +1,12 @@
-## Реестр (Registry)
+## Registry
 
-## Назначение
+## Intent
 
-Для реализации централизованного хранения объектов, часто используемых во всем приложении, как правило, реализуется с
-помощью абстрактного класса только c статическими методами (или с помощью шаблона Singleton). Помните, что это вводит
-глобальное состояние, которого следует избегать. Используйте Dependency Injection вместо Registry.
+To implement centralized storage of objects frequently used throughout the application. Typically implemented via an
+abstract class with only static methods (or using the Singleton pattern). Remember that this introduces global state
+that should be avoided. Use Dependency Injection instead of Registry.
 
-## Код
+## Code
 
 ### Registry.php
 
@@ -99,7 +99,7 @@
 
     }
 
-## Тест
+## Test
 
 ### Tests/RegistryTest.php
 
@@ -187,4 +187,3 @@
         }
 
     }
-

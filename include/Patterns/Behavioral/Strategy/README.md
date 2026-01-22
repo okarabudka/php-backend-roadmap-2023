@@ -1,94 +1,87 @@
-## Стратегия (Strategy)
+## Strategy
 
-Паттерн Strategy относится к поведенческим паттернам уровня объекта.
+The Strategy pattern is a behavioral pattern at the object level.
 
-Паттерн Strategy определяет набор алгоритмов схожих по роду деятельности, инкапсулирует их в отдельный класс и делает их
-подменяемыми. Паттерн Strategy позволяет подменять алгоритмы без участия клиентов, которые используют эти алгоритмы.
+Strategy defines a family of algorithms, encapsulates each one in a separate class, and makes them interchangeable.
+Strategy lets you swap algorithms without involving the clients that use them.
 
-## Примеры
+## Examples
 
-    - сортировка списка объектов, одна стратегия сортирует по дате, другая по id
+    - sorting a list of objects, one strategy sorts by date, another by id
 
-    - упростить юнит тестирование: например переключение между файловым хранилищем и хранилищем в оперативной памяти
+    - simplifying unit testing: for example, switching between file storage and in-memory storage
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс Context, представляющий собой контекст выполнения той или иной стратегии;
-2. Абстрактный класс Strategy, определяющий интерфейс различных стратегий;
-3. Класс ConcreteStrategyA, реализует одну из стратегий представляющую собой алгоритмы, направленные на достижение
-   определенной цели;
-4. Класс ConcreteStrategyB, реализует одно из стратегий представляющую собой алгоритмы, направленные на достижение
-   определенной цели.
+1. Context class that represents the execution context of a strategy.
+2. Abstract Strategy class that defines the interface for different strategies.
+3. ConcreteStrategyA class that implements one of the strategies, which is an algorithm aimed at a specific goal.
+4. ConcreteStrategyB class that implements one of the strategies, which is an algorithm aimed at a specific goal.
 
-## Применимость
+## Applicability
 
-### Когда вам нужно использовать разные вариации какого-то алгоритма внутри одного объекта.
+### When you need to use different variations of an algorithm inside a single object.
 
-    Стратегия позволяет варьировать поведение объекта во время выполнения программы, подставляя в него различные объекты-поведения (например, отличающиеся балансом скорости и потребления ресурсов).
+    Strategy lets you vary object behavior at runtime by plugging in different behavior objects (for example, with
+    different speed vs resource tradeoffs).
 
-### Когда у вас есть множество похожих классов, отличающихся только некоторым поведением.
+### When you have many similar classes that differ only in some behavior.
 
-    Стратегия позволяет вынести отличающееся поведение в отдельную иерархию классов, а затем свести первоначальные классы к одному, сделав поведение этого класса настраиваемым.
+    Strategy lets you move the differing behavior into a separate class hierarchy, and then reduce the original classes
+    to one by making its behavior configurable.
 
-### Когда вы не хотите обнажать детали реализации алгоритмов для других классов.
+### When you do not want to expose algorithm implementation details to other classes.
 
-    Стратегия позволяет изолировать код, данные и зависимости алгоритмов от других объектов, скрыв эти детали внутри классов-стратегий.
+    Strategy isolates code, data, and dependencies of algorithms from other objects by hiding those details inside
+    strategy classes.
 
-### Когда различные вариации алгоритмов реализованы в виде развесистого условного оператора. Каждая ветка такого оператора представляет собой вариацию алгоритма.
+### When different algorithm variations are implemented as a large conditional statement. Each branch represents a variation.
 
-    Стратегия помещает каждую лапу такого оператора в отдельный класс-стратегию. Затем контекст получает определённый объект-стратегию от клиента и делегирует ему работу. Если вдруг понадобится сменить алгоритм, в контекст можно подать другую стратегию.
+    Strategy puts each branch into a separate strategy class. The context gets a strategy object from the client and
+    delegates work to it. If you need to change the algorithm, supply a different strategy to the context.
 
-## Шаги реализации
+## Implementation steps
 
-1. Определите алгоритм, который подвержен частым изменениям. Также подойдёт алгоритм, имеющий несколько вариаций,
-   которые выбираются во время выполнения программы.
+1. Identify the algorithm that changes often or has several variations selected at runtime.
 
-2. Создайте интерфейс стратегий, описывающий этот алгоритм. Он должен быть общим для всех вариантов алгоритма.
+2. Create a strategy interface that describes the algorithm. It must be common for all algorithm variants.
 
-3. Поместите вариации алгоритма в собственные классы, которые реализуют этот интерфейс.
+3. Put algorithm variants into their own classes that implement the interface.
 
-4. В классе контекста создайте поле для хранения ссылки на текущий объект-стратегию, а также метод для её изменения.
-   Убедитесь в том, что контекст работает с этим объектом только через общий интерфейс стратегий.
+4. In the context class, add a field to store the current strategy and a method to change it. Ensure the context uses
+   the strategy only through the common interface.
 
-5. Клиенты контекста должны подавать в него соответствующий объект-стратегию, когда хотят, чтобы контекст вёл себя
-   определённым образом.
+5. Context clients must supply the appropriate strategy object when they want the context to behave in a specific way.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Горячая замена алгоритмов на лету.
-    + Изолирует код и данные алгоритмов от остальных классов.
-    + Уход от наследования к делегированию.
-    + Реализует принцип открытости/закрытости.
+    + Hot swapping of algorithms at runtime.
+    + Isolates algorithm code and data from other classes.
+    + Moves from inheritance to delegation.
+    + Follows the open/closed principle.
 
-    - Усложняет программу за счёт дополнительных классов.
-    - Клиент должен знать, в чём состоит разница между стратегиями, чтобы выбрать подходящую.
+    - Makes the program more complex due to extra classes.
+    - The client must know the differences between strategies to choose the right one.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Мост`, `Стратегия` и `Состояние` (а также слегка и `Адаптер`) имеют схожие структуры классов — все они построены на
-   принципе «композиции», то есть делегирования работы другим объектам. Тем не менее, они отличаются тем, что решают
-   разные проблемы. Помните, что паттерны — это не только рецепт построения кода определённым образом, но и описание
-   проблем, которые привели к данному решению.
+1. `Bridge`, `Strategy`, and `State` (and slightly `Adapter`) have similar class structures: all are based on
+   composition, i.e., delegating work to other objects. They differ in the problems they solve. Patterns are not just
+   recipes for building code but descriptions of the problems that led to the solution.
 
-2. `Команда` и `Стратегия` похожи по духу, но отличаются масштабом и применением:
-   Команду используют, чтобы превратить любые разнородные действия в объекты. Параметры операции превращаются в поля
-   объекта. Этот объект теперь можно логировать, хранить в истории для отмены, передавать во внешние сервисы и так
-   далее.
-   С другой стороны, Стратегия описывает разные способы произвести одно и то же действие, позволяя взаимозаменять эти
-   способы в каком-то объекте контекста.
+2. `Command` and `Strategy` are similar in spirit but differ in scale and use:
+   Command is used to turn any diverse actions into objects. Operation parameters become fields on the object. That
+   object can then be logged, stored in history for undo, passed to external services, and so on.
+   Strategy, on the other hand, describes different ways to perform the same action, allowing them to be swapped in a
+   context object.
 
-3. `Стратегия` меняет поведение объекта «изнутри», а `Декоратор` изменяет его «снаружи».
+3. `Strategy` changes behavior from the inside, while `Decorator` changes it from the outside.
 
-4. `Шаблонный метод` использует наследование, чтобы расширять части алгоритма. `Стратегия` использует делегирование,
-   чтобы изменять выполняемые алгоритмы на лету. `Шаблонный метод` работает на уровне классов. `Стратегия` позволяет
-   менять логику отдельных объектов.
+4. `Template Method` uses inheritance to extend parts of an algorithm. `Strategy` uses delegation to change algorithms
+   at runtime. `Template Method` works at the class level. `Strategy` lets you change logic of individual objects.
 
-5. `Состояние` можно рассматривать как надстройку над `Стратегией`. Оба паттерна используют композицию, чтобы менять
-   поведение основного объекта, делегируя работу вложенным объектам-помощникам. Однако в `Стратегии` эти объекты не
-   знают друг о друге и никак не связаны. В `Состоянии` сами конкретные состояния могут переключать контекст.
-
-
-
-
+5. `State` can be seen as an extension of `Strategy`. Both patterns use composition to change behavior of the main
+   object by delegating work to helper objects. In `Strategy` these objects do not know about each other. In `State` the
+   concrete states can switch the context.

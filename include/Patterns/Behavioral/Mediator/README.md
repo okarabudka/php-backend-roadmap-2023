@@ -1,104 +1,99 @@
-## Посредник (Mediator)
+## Mediator
 
-Паттерн Mediator относится к поведенческим паттернам уровня объекта.
+The Mediator pattern is a behavioral pattern at the object level.
 
-Паттерн Mediator предоставляет объект-посредник, скрывающий способ взаимодействия множества других объектов-коллег.
-Mediator делает систему слабо связанной, избавляя объекты от необходимости ссылаться друг на друга, что позволяет
-изменять взаимодействие между ними независимо.
+Mediator provides a mediator object that hides how a set of colleague objects interact. Mediator makes the system
+loosely coupled by removing direct references between objects, which allows you to change their interactions
+independently.
 
-## Пример
+## Example
 
-Например, у нас есть посредник между заводом производства хлебобулочных изделий, фермером и магазином сбыта. Посредник
-избавляет фермера от взаимодействия с заводом, который использует его сырье, а завод от взаимодействия с магазином, в
-который поступает продукция для сбыта.
+For example, there is a mediator between a bakery plant, a farmer, and a retail store. The mediator frees the farmer
+from interacting with the plant that uses the raw materials, and frees the plant from interacting with the store that
+sells the products.
 
-Требуется для реализации:
+Required for implementation:
 
-1. Интерфейс Mediator - посредник описывающий организацию процесса по обмену информацией между объектами типа Colleague;
-2. Класс ConcreteMediator, реализующий интерфейс Mediator;
-3. Базовый абстрактный класс Colleague - коллега описывающий организацию процесса взаимодействия объектов-коллег с
-   объектом типа Mediator;
-4. Класс ConcreteColleague, реализующий интерфейс Colleague. Каждый объект-коллега знает только об объекте-медиаторе.
-   Все объекты-коллеги обмениваются информацией только через посредника.
+1. Mediator interface that describes how information is exchanged between Colleague objects.
+2. ConcreteMediator class that implements Mediator.
+3. Base abstract Colleague class that describes how colleague objects interact with Mediator.
+4. ConcreteColleague class that implements Colleague. Each colleague knows only the mediator object. All colleagues
+   exchange information only through the mediator.
 
-## Применимость
+## Applicability
 
-### Когда вам сложно менять некоторые классы из-за того, что они имеют множество хаотичных связей с другими классами.
+### When it is hard to change classes because they have many chaotic links to other classes.
 
-    Посредник позволяет поместить все эти связи в один класс, после чего вам будет легче их отрефакторить, сделать более понятными и гибкими.
+    Mediator puts all these links into one class, making it easier to refactor, understand, and evolve them.
 
-### Когда вы не можете повторно использовать класс, поскольку он зависит от уймы других классов.
+### When you cannot reuse a class because it depends on too many other classes.
 
-    После применения паттерна компоненты теряют прежние связи с другими компонентами, а всё их общение происходит косвенно, через объект-посредник.
+    After applying the pattern, components lose their direct links to other components, and all communication happens
+    indirectly through the mediator object.
 
-### Когда вам приходится создавать множество подклассов компонентов, чтобы использовать одни и те же компоненты в разных контекстах.
+### When you have to create many component subclasses to use the same components in different contexts.
 
-    Если раньше изменение отношений в одном компоненте могли повлечь за собой лавину изменений во всех остальных компонентах, то теперь вам достаточно создать подкласс посредника и поменять в нём связи между компонентами.
+    If a change in one component used to cause a cascade of changes in others, now you can create a mediator subclass
+    and change the relationships there.
 
-## Шаги реализации
+## Implementation steps
 
-1. Найдите группу тесно переплетённых классов, отвязав которые друг от друга, можно получить некоторую пользу. Например,
-   чтобы повторно использовать их код в другой программе.
+1. Find a group of tightly coupled classes; decoupling them would bring some benefit, for example, reusing their code in
+   another program.
 
-Создайте общий интерфейс посредников и опишите в нём методы для взаимодействия с компонентами. В простейшем случае
-достаточно одного метода для получения оповещений от компонентов.
+Create a common mediator interface and define methods for interaction with components. In the simplest case, a single
+method for receiving notifications from components is enough.
 
-2. Этот интерфейс необходим, если вы хотите повторно использовать классы компонентов для других задач. В этом случае
-   всё, что нужно сделать — это создать новый класс конкретного посредника.
+2. This interface is required if you want to reuse component classes for other tasks. In that case, all you need is a
+   new concrete mediator class.
 
-3. Реализуйте этот интерфейс в классе конкретного посредника. Поместите в него поля, которые будут содержать ссылки на
-   все объекты компонентов.
+3. Implement the interface in a concrete mediator class. Add fields that hold references to all component objects.
 
-4. Вы можете пойти дальше и переместить код создания компонентов в класс посредника, после чего он может напоминать
-   фабрику или фасад.
+4. You can go further and move component creation into the mediator class, turning it into something like a factory or
+   a facade.
 
-5. Компоненты тоже должны иметь ссылку на объект посредника. Связь между ними удобнее всего установить, подавая
-   посредника в параметры конструктора компонентов.
+5. Components should also have a reference to the mediator object. The easiest way to set this up is to pass the
+   mediator via the component constructor.
 
-6. Измените код компонентов так, чтобы они вызывали метод оповещения посредника, вместо методов других компонентов. С
-   противоположной стороны, посредник должен вызывать методы нужного компонента, когда получает оповещение от
-   компонента.
+6. Change component code so they call the mediator's notification method instead of methods of other components. On the
+   other side, the mediator should call the needed component methods when it receives a notification.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Устраняет зависимости между компонентами, позволяя повторно их использовать.
-    + Упрощает взаимодействие между компонентами.
-    + Централизует управление в одном месте.
+    + Eliminates dependencies between components, enabling reuse.
+    + Simplifies interactions between components.
+    + Centralizes control in one place.
 
-    - Посредник может сильно раздуться.
+    - The mediator can become bloated.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Цепочка обязанностей`, `Команда`, `Посредник` и `Наблюдатель` показывают различные способы работы отправителей
-   запросов с их получателями:
-   Цепочка обязанностей передаёт запрос последовательно через цепочку потенциальных получателей, ожидая, что какой-то из
-   них обработает запрос.
-   Команда устанавливает косвенную одностороннюю связь от отправителей к получателям.
-   Посредник убирает прямую связь между отправителями и получателями, заставляя их общаться опосредованно, через себя.
-   Наблюдатель передаёт запрос одновременно всем заинтересованным получателям, но позволяет им динамически подписываться
-   или отписываться от таких оповещений.
+1. `Chain of Responsibility`, `Command`, `Mediator`, and `Observer` show different ways of working with request senders
+   and receivers:
+   Chain of Responsibility passes a request through a chain of potential receivers until one handles it.
+   Command sets up an indirect one-way connection from senders to receivers.
+   Mediator removes direct connections between senders and receivers, making them communicate through itself.
+   Observer broadcasts a request to all interested receivers while allowing them to subscribe or unsubscribe.
 
-2. `Посредник` и `Фасад` похожи тем, что пытаются организовать работу множества существующих классов.
-   Фасад создаёт упрощённый интерфейс к подсистеме, не внося в неё никакой добавочной функциональности. Сама подсистема
-   не знает о существовании Фасада. Классы подсистемы общаются друг с другом напрямую.
-   Посредник централизует общение между компонентами системы. Компоненты системы знают только о существовании
-   Посредника, у них нет прямого доступа к другим компонентам.
+2. `Mediator` and `Facade` are similar in that they try to organize work of many existing classes.
+   Facade creates a simplified interface to a subsystem without adding functionality. The subsystem does not know about
+   the Facade. Subsystem classes talk to each other directly.
+   Mediator centralizes communication between system components. Components know only about Mediator and have no direct
+   access to each other.
 
-3. Разница между `Посредником` и `Наблюдателем` не всегда очевидна. Чаще всего они выступают как конкуренты, но иногда
-   могут работать вместе.
+3. The difference between `Mediator` and `Observer` is not always obvious. They often compete, but sometimes work
+   together.
 
-Цель Посредника — убрать обоюдные зависимости между компонентами системы. Вместо этого они становятся зависимыми от
-самого посредника. С другой стороны, цель Наблюдателя — обеспечить динамическую одностороннюю связь, в которой одни
-объекты косвенно зависят от других.
+The goal of Mediator is to remove mutual dependencies between system components. Instead, they become dependent on the
+mediator itself. The goal of Observer is to provide a dynamic one-way connection where some objects indirectly depend on
+others.
 
-Довольно популярна реализация Посредника при помощи Наблюдателя. При этом объект посредника будет выступать издателем, а
-все остальные компоненты станут подписчиками и смогут динамически следить за событиями, происходящими в посреднике. В
-этом случае трудно понять, чем же отличаются оба паттерна.
+A popular implementation of Mediator uses Observer. The mediator acts as a publisher, and other components become
+subscribers and can dynamically listen to mediator events. In that case it can be hard to tell the patterns apart.
 
-Но Посредник имеет и другие реализации, когда отдельные компоненты жёстко привязаны к объекту посредника. Такой код вряд
-ли будет напоминать Наблюдателя, но всё же останется Посредником.
+But Mediator has other implementations where components are tightly bound to the mediator object. That code is unlikely
+to resemble Observer, but it is still Mediator.
 
-    Напротив, в случае реализации посредника с помощью Наблюдателя представим такую программу, в которой каждый компонент системы становится издателем. Компоненты могут подписываться друг на друга, в то же время не привязываясь к конкретным классам. Программа будет состоять из целой сети Наблюдателей, не имея центрального объекта-Посредника.
-
-
-
+    Conversely, if we implement Mediator with Observer in a program where each component becomes a publisher, components
+    can subscribe to each other without binding to concrete classes. The program becomes a network of Observers without
+    a central Mediator object.

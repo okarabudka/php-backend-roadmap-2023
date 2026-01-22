@@ -1,79 +1,77 @@
-## Шаблонный метод (Template Method)
+## Template Method
 
-Паттерн Template Method относится к поведенческим паттернам уровня класса.
+The Template Method pattern is a behavioral pattern at the class level.
 
-Паттерн Template Method формирует структуру алгоритма и позволяет в производных классах реализовать, перекрыть или
-переопределить определенные шаги алгоритма, не изменяя структуру алгоритма в целом.
+Template Method defines the structure of an algorithm and lets subclasses implement, override, or redefine certain
+steps without changing the algorithm structure as a whole.
 
-Проектировщик решает, какие шаги алгоритма являются неизменными, а какие изменяемыми. Абстрактный базовый класс
-реализует стандартные неизменяемые шаги алгоритма и может предоставлять реализацию по умолчанию для изменяемых шагов.
-Изменяемые шаги могут предоставляться клиентом компонента в конкретных производных классах.
+The designer decides which steps of the algorithm are fixed and which are variable. The abstract base class
+implements standard fixed steps and may provide default implementations for variable steps. Variable steps can be
+supplied by the client in concrete subclasses.
 
-Возможно, вы сталкивались с этим уже много раз. Идея состоит в том, чтобы позволить наследникам абстрактного шаблона
-переопределить поведение алгоритмов родителя.
+You have probably seen this many times. The idea is to let heirs of the abstract template override the behavior of the
+parent algorithm.
 
-Как в «Голливудском принципе»: «Не звоните нам, мы сами вам позвоним». Этот класс не вызывается подклассами, но
-наоборот: подклассы вызываются родителем. Как? С помощью метода в родительской абстракции, конечно.
+As in the Hollywood principle: "Do not call us, we will call you." This class is not called by subclasses, but the
+other way around: subclasses are called by the parent. How? Through a method in the parent abstraction.
 
-Другими словами, это каркас алгоритма, который хорошо подходит для библиотек (в фреймворках, например). Пользователь
-просто реализует уточняющие методы, а суперкласс делает всю основную работу.
+In other words, this is an algorithm skeleton that is well suited for libraries (frameworks, for example). The user
+implements the specific steps, and the superclass does the main work.
 
-Это простой способ изолировать логику в конкретные классы и уменьшить копипаст, поэтому вы повсеместно встретите его в
-том или ином виде.
+This is a simple way to isolate logic in specific classes and reduce copy-paste, so you will see it everywhere in one
+form or another.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Абстрактный класс AbstractClass, реализующий Template Method, который описывает порядок действий;
-2. Класс ConcreteClass, реализующий изменяемые действия.
+1. AbstractClass that implements the Template Method and defines the order of actions.
+2. ConcreteClass that implements the variable actions.
 
-## Применимость
+## Applicability
 
-### Когда подклассы должны расширять базовый алгоритм, не меняя его структуры.
+### When subclasses must extend a base algorithm without changing its structure.
 
-    Шаблонный метод позволяет подклассам расширять определённые шаги алгоритма через наследование, не меняя при этом структуру алгоритмов, объявленную в базовом классе.
+    Template Method lets subclasses extend certain steps of the algorithm via inheritance without changing the
+    structure defined in the base class.
 
-### Когда у вас есть несколько классов, делающих одно и то же с незначительными отличиями. Если вы редактируете один класс, то приходится вносить такие же правки и в остальные классы.
+### When you have multiple classes doing the same thing with minor differences. If you edit one class you have to make similar changes in the others.
 
-    Паттерн шаблонный метод предлагает создать для похожих классов общий суперкласс и оформить в нём главный алгоритм в виде шагов. Отличающиеся шаги можно переопределить в подклассах.
+    Template Method suggests creating a common superclass for similar classes and expressing the main algorithm as
+    steps. The differing steps can be overridden in subclasses.
 
-    Это позволит убрать дублирование кода в нескольких классах с похожим поведением, но отличающихся в деталях.
+    This removes duplicate code across multiple classes with similar behavior but different details.
 
-## Шаги реализации
+## Implementation steps
 
-1. Изучите алгоритм и подумайте, можно ли его разбить на шаги. Прикиньте, какие шаги будут стандартными для всех
-   вариаций алгоритма, а какие — изменяющимися.
+1. Study the algorithm and think if it can be split into steps. Decide which steps are standard for all variations and
+   which are variable.
 
-2. Создайте абстрактный базовый класс. Определите в нём шаблонный метод. Этот метод должен состоять из вызовов шагов
-   алгоритма. Имеет смысл сделать шаблонный метод финальным, чтобы подклассы не могли переопределить его (если ваш язык
-   программирования это позволяет).
+2. Create an abstract base class. Define the template method in it. This method should consist of calls to algorithm
+   steps. It often makes sense to make the template method final so subclasses cannot override it (if your language
+   allows it).
 
-3. Добавьте в абстрактный класс методы для каждого из шагов алгоритма. Вы можете сделать эти методы абстрактными или
-   добавить какую-то реализацию по умолчанию. В первом случае все подклассы должны будут реализовать эти методы, а во
-   втором — только если реализация шага в подклассе отличается от стандартной версии.
+3. Add methods to the abstract class for each algorithm step. You can make these methods abstract or provide a default
+   implementation. In the first case all subclasses must implement them; in the second, only if the subclass behavior
+   differs from the default.
 
-4. Подумайте о введении в алгоритм хуков. Чаще всего, хуки располагают между основными шагами алгоритма, а также до и
-   после всех шагов.
+4. Consider adding hooks to the algorithm. Most often hooks are placed between main steps and before or after all
+   steps.
 
-5. Создайте конкретные классы, унаследовав их от абстрактного класса. Реализуйте в них все недостающие шаги и хуки.
+5. Create concrete classes that inherit from the abstract class. Implement all missing steps and hooks in them.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Облегчает повторное использование кода.
+    + Makes code reuse easier.
 
-    - Вы жёстко ограничены скелетом существующего алгоритма.
-    - Вы можете нарушить принцип подстановки Барбары Лисков, изменяя базовое поведение одного из шагов алгоритма через подкласс.
-    - С ростом количества шагов шаблонный метод становится слишком сложно поддерживать.
+    - You are tightly constrained by the existing algorithm skeleton.
+    - You can break the Liskov substitution principle by changing base behavior of a step in a subclass.
+    - As the number of steps grows, the template method becomes too hard to maintain.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. Фабричный метод можно рассматривать как частный случай Шаблонного метода. Кроме того, Фабричный метод нередко бывает
-   частью большого класса с Шаблонными методами.
+1. Factory Method can be seen as a special case of Template Method. Also, Factory Method is often part of a larger
+   class with Template Methods.
 
-2. Шаблонный метод использует наследование, чтобы расширять части алгоритма. Стратегия использует делегирование, чтобы
-   изменять выполняемые алгоритмы на лету. Шаблонный метод работает на уровне классов. Стратегия позволяет менять логику
-   отдельных объектов.
-
-
-
+2. Template Method uses inheritance to extend parts of an algorithm. Strategy uses delegation to change algorithms at
+   runtime. Template Method works at the class level. Strategy lets you change the logic of individual objects.

@@ -1,25 +1,24 @@
-## Внедрение Зависимости (Dependency Injection)
+## Dependency Injection
 
-## Назначение
+## Intent
 
-Для реализации слабосвязанной архитектуры. Чтобы получить более тестируемый, сопровождаемый и расширяемый код.
+To implement a loosely coupled architecture, getting more testable, maintainable, and extensible code.
 
-## Использование
+## Usage
 
-Объект DatabaseConfiguration внедряется в DatabaseConnection и последний получает всё, что ему необходимо из
-переменной $ config. Без DI, конфигурация будет создана непосредственно в Connection, что не очень хорошо для
-тестирования и расширения Connection, так как связывает эти классы напрямую.
+The DatabaseConfiguration object is injected into DatabaseConnection and the latter gets everything it needs from the
+$config variable. Without DI, the configuration would be created inside Connection, which is not good for testing and
+extending Connection because it couples these classes directly.
 
-## Примеры
+## Examples
 
-The Doctrine2 ORM использует Внедрение Зависимости например для конфигурации, которая внедряется в объект Connection.
-Для целей тестирования, можно легко создать макет объекта конфигурации и внедрить его в объект Connection, подменив
-оригинальный.
+The Doctrine2 ORM uses Dependency Injection, for example, for configuration injected into the Connection object. For
+testing, you can easily create a mock configuration object and inject it into Connection, replacing the original.
 
-Во многих фреймворках уже имеются контейнеры для DI, которые создают объекты через массив с конфигурацией и внедряют
-туда, где это нужно (например в Контроллеры).
+Many frameworks already have DI containers that create objects from configuration arrays and inject them where needed
+(for example, into Controllers).
 
-## Код
+## Code
 
 ### DatabaseConfiguration.php
 
@@ -139,7 +138,7 @@ The Doctrine2 ORM использует Внедрение Зависимости
 
     }
 
-## Тест
+## Test
 
 ### Tests/DependencyInjectionTest.php
 
