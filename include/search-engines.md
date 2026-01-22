@@ -1,200 +1,155 @@
-#### Список ссылок
+# Search Engines
 
-- [Основы работы с Elasticsearch ](https://doka.guide/tools/elasticsearch/)
-- [Подключение и Настройка ElasticSearch + MySql + Yii2](https://habr.com/ru/post/590529/)
+#### Links
+
+- [Elasticsearch basics](https://doka.guide/tools/elasticsearch/)
+- [Connecting and configuring Elasticsearch + MySQL + Yii2](https://habr.com/ru/post/590529/)
 - [Elasticsearch vs Sphinx](https://habr.com/ru/post/590181/)
-- [Manticore — альтернатива Эластику на C++ с 21-летней историей](https://habr.com/ru/post/676630/)
-- [Manticore Search — форк Sphinx: отчёт за 3 года](https://habr.com/ru/post/541126/)
+- [Manticore - an Elastic alternative in C++ with 21 years of history](https://habr.com/ru/post/676630/)
+- [Manticore Search - a Sphinx fork: 3-year report](https://habr.com/ru/post/541126/)
 - [Solr](https://ru.wikipedia.org/wiki/Solr)
 
-### Elasticsearch [&uarr;](#Readme)
+## Elasticsearch [&uarr;](#search-engines)
 
-#### Кратко
+### Summary
 
-Elasticsearch (далее ES) — масштабируемая поисковая система, которую также можно отнести к нереляционным (noSQL) базам
-данных.
-В основном используется для полнотекстового поиска с фильтрами и анализаторами.
+Elasticsearch (ES) is a scalable search engine that can also be considered a non-relational (NoSQL) database. It is
+mostly used for full-text search with filters and analyzers.
 
-ES написан на Java, использует JSON REST API для работы с данными и Lucene для полнотекстового поиска. Подобные движки
-используются
-для сложного поиска по документам (релевантность, морфология, даты, диапазоны и т.д.). Документ в данном случае — это
-просто набор полей,
-с которым мы будем работать.
+ES is written in Java, uses a JSON REST API for data access, and uses Lucene for full-text search. Similar engines are
+used for complex document search (relevance, morphology, dates, ranges, and so on). A document in this context is just a
+set of fields we work with.
 
-#### Как понять
+### How it works
 
-ES позволяет производить поиск по документам в режиме реального времени, он горизонтально масштабируется и поддерживает
-многопоточность.
-У других noSQL-систем выигрывает качеством и скоростью обработки текста и гибким полнотекстовым поиском по всей базе
-документов.
+ES enables near real-time document search, scales horizontally, and supports multithreading. Among NoSQL systems, it
+stands out in text processing quality and speed, with flexible full-text search across the entire document base.
 
-В основе работы с текстом лежит анализатор, который представляет собой цепочку обработчиков. Сначала отданный в ES текст
-проходит
-символьные фильтры, которые обрабатывают отдельные символы. Например, можно привести текст к нижнему регистру или
-удалить HTML-теги.
+Text processing is built around an analyzer, which is a pipeline of processors. First, the text passed to ES goes
+through character filters that process individual characters. For example, you can lowercase text or strip HTML tags.
 
-Далее текст обрабатывается токенизатором, который очищает текст от специальных символов, знаков препинания и разбивает
-по указанным
-правилам на отдельные слова-токены.
+Next, a tokenizer cleans the text from special characters and punctuation and splits it into tokens based on rules.
 
-После токенизатора текст передаётся в один или несколько фильтров токенов, которые могут изменять слова в наборе.
-Например, можно
-добавить фильтр стоп-токенов, который будет удалять так называемые стоп-слова. На выходе из анализатора получается набор
-токенов,
-который добавляется в поисковый индекс.
+After tokenization, text is passed through one or more token filters that can transform words in the set. For example,
+you can add a stop-word filter that removes stop words. The analyzer output is a set of tokens that gets added to the
+search index.
 
-Если говорить коротко про архитектуру ES, то она такая: есть поисковые индексы, их можно делить на части — шарды. На
-каждом
-запущенном процессе (узле) ES может быть несколько шардов. Каждый узел делегирует операции нужному шарду,
-перебалансировка
-выполняется автоматически. Отказоустойчивость достигается тем, что индекс автоматически распределяется по узлам
-кластера. Кластеры
-продолжают работать, даже если возникают аппаратные ошибки.
+At a high level, ES has indices that can be split into shards. Each running process (node) can host multiple shards.
+Each node delegates operations to the relevant shard, and rebalancing is automatic. Fault tolerance is achieved by
+automatically distributing indices across cluster nodes. Clusters keep working even if hardware failures occur.
 
 ![Screenshot from 2023-03-15 13-44-56.png](images%2FScreenshot%20from%202023-03-15%2013-44-56.png)
 
-Плюсы ElasticSearch – это фасетный поиск, легкое и мощное API, большое количество
-стеммеров, гибкая структура индексов и создание индексов постфактум. С техниками поиска тут тоже все хорошо: Full-text
-search, а также алгоритмы Geo и Fuzzy.
+Elasticsearch pros include faceted search, a powerful and easy-to-use API, many stemmers, a flexible index structure,
+and the ability to build indices after the fact. Search techniques are strong too: full-text search, geo, and fuzzy
+algorithms.
 
-В Elasticsearch тоже много готовых реализованных модулей для ES, есть возможность хранить данные, Real Time индексация,
-достаточно легко масштабируется, ETL-механизмы, и что немаловажно – обширное community. Elasticsearch написан на Java и
-используется в Wikimedia, Mozilla, SoundCloud, GitHub и других площадках.
+Elasticsearch has many ready-made modules, can store data, supports real-time indexing, scales fairly easily, and has
+ETL tooling. It also has a large community. Elasticsearch is written in Java and is used by Wikimedia, Mozilla,
+SoundCloud, GitHub, and others.
 
-Что касается минусов Elasticsearch, то в их числе отсутствие своего индексера (необходимо реализовать свой или logstash
-в ELK), съедает много памяти, а лемматизаторы русского текста ставятся отдельно плагином.
+Elasticsearch cons include no built-in indexer (you need to build your own or use Logstash in ELK), high memory usage,
+and Russian lemmatizers installed as a separate plugin.
 
-Если бы нас попросили описать Sphinx и Elasticsearch одним выражением, то первую систему поиска мы бы охарактеризовали
-словами «быстрая индексация», а вторую – «мощный API».
+If we had to describe Sphinx and Elasticsearch in one phrase, the first would be "fast indexing" and the second would
+be "powerful API".
 
-### SPINX [&uarr;](#Readme)
+## Sphinx [&uarr;](#search-engines)
 
-Sphinx – система полнотекстового поиска. Из плюсов – наличие лемматизаторов ru, en, du, большое количество стеммеров
-индексации и поиска: full-text, фасетный, geo. Нет ничего лишнего, лишь поисковый движок с быстрой индексацией и своим
-индексером. При правильной конфигурации RT индексов можно достичь real time indexing. В отличие от Elasticsearch
-наблюдаем умеренное использование памяти.
+Sphinx is a full-text search system. Pros include lemmatizers for ru, en, du, many stemmers, and indexing/search modes:
+full-text, faceted, geo. There is nothing extra - just a search engine with fast indexing and its own indexer. With
+proper RT index configuration, you can achieve real-time indexing. Compared to Elasticsearch, memory usage is moderate.
 
-Что касается минусов, то главный из них – необходимость самому просчитывать всю структуру индексов, а значит,
-масштабирование проходит не так просто. Также у системы скудный API, нет возможности для визуализации, отсутствует
-fuzzy-поиск по дефолту (но можно реализовать свой) и скудное community.
+Cons include the need to design the index structure yourself, which makes scaling harder. The API is limited, there is
+no visualization, fuzzy search is not available by default (but you can implement it), and the community is small.
 
-Sphinx написан на C++. Им пользуются такие мастодонты, как Habr, Викимапия, Craigslist, поддерживается 1С-Битрикс.
+Sphinx is written in C++. It is used by companies like Habr, Wikimapia, and Craigslist, and is supported by 1C-Bitrix.
 
-Sphinx с 2016 года прекратился свое развитие и теперь альтернатива это форк сфинкса - Manticore
+Sphinx stopped active development in 2016, and the alternative is the Sphinx fork called Manticore.
 
-### Manticore [&uarr;](#Readme)
+## Manticore [&uarr;](#search-engines)
 
-Manticore Search - форк Sphinxsearch. разрабатываемая командой Sphinxsearch.
+Manticore Search is a fork of Sphinxsearch developed by the Sphinxsearch team.
 
-- 🙁 Sphinx 2: Основной способ использования - индексация данных из внешней БД: Sphinx возвращает id, затем по id нужно
-  идти в БД и искать там исходных документ. Схема данных соответственно описывается через конфиг.
-- ✅ Manticore: Основной способ использования - ровно такой же, как в Mysql / Postgres и Elasticsearch: таблица создаётся
-  запросом, данные пишут одиночными или bulk insert/replace/delete запросами, в фоне автоматически оптимизируются, за
-  исходными документами никуда ходить не нужно. Добавлена поддержка auto id.
+- Sphinx 2: The main usage is indexing data from an external DB. Sphinx returns an id, then you fetch the original
+  document by id from the DB. The data schema is described in a config.
+- Manticore: The main usage is the same as in MySQL, Postgres, and Elasticsearch. You create a table with a query, write
+  data with single or bulk insert/replace/delete queries, it is optimized automatically in the background, and there is
+  no need to fetch original documents. Auto id support is added.
 
+- Sphinx 2: No replication.
+- Manticore: Replication based on Galera, also used in MariaDB and Percona Server.
 
-- 🙁 Sphinx 2: Нет репликации
-- ✅ Manticore: Есть репликация, основанная на Galera, которую также использую в Mariadb и Percona Server
+- Sphinx 2: Queries can be executed via SQL (MySQL protocol) or a binary protocol, with clients for some languages.
+- Manticore: A JSON protocol similar to Elasticsearch was added. New clients exist for PHP, Python, Java, JavaScript,
+  and Elixir. Clients are generated automatically, which speeds up availability of new functionality.
 
+- Sphinx 2: Tokenization is hard to configure for most languages.
+- Manticore: Simplified with cjk and non_cjk aliases. Chinese tokenization is based on ICU. Many new stemmers were
+  added, including Ukrainian.
 
-- 🙁 Sphinx 2: Запросы можно выполнять через SQL (протокол - mysql) или бинарный протокол, есть клиенты для некоторых
-  языков программирования.
-- ✅ Manticore: Добавился JSON похожий на эластиковский. На основе нового протокола были сделаны новые клиенты для php,
-  python, java, javascript, elixir. Клиенты генерируются автоматически, что позволяет быстрее делать доступной новую
-  функциональность.
+- Sphinx 2: No official Docker and no support in the Kubernetes ecosystem.
+- Manticore: Official Docker images and a Helm chart for Kubernetes.
 
+- Sphinx 2: No APT/YUM/Homebrew repositories.
+- Manticore: APT/YUM/Homebrew repositories were added. Development branches are supported, with CI that builds packages
+  for all new commits.
 
-- 🙁 Sphinx 2: Сложно настраивать токенизацию текстов для большинства языков
-- ✅ Manticore: Упростили: сделали алиасы cjk и non_cjk. Сделали токенизацию китайского на основе ICU. Добавили много
-  новых стеммеров, в том числе для украинского.
+- Sphinx 2: Some beginners find it hard to understand what is what.
+- Manticore: An interactive course platform was created - https://play.manticoresearch.com/
 
+- Sphinx 2: Few examples in the documentation.
+- Manticore: Documentation was rewritten, with a custom engine - https://manual.manticoresearch.com/
 
-- 🙁 Sphinx 2: Нет официального docker’а и никакой поддержки в экосистеме Kubernetes
-- ✅ Manticore: Сделали и поддерживаем официальный docker. Сделали и поддерживаем Helm chart для Kubernetes
+- Sphinx 2: Bugs that often lead to crashes.
+- Manticore: Crashes are now rare. Hundreds of old bugs were fixed.
 
+- Sphinx 2: Parallelizing a search query is only possible with one physical index chunk per thread.
+- Manticore: Everything was rebuilt on coroutines. Any search query can be parallelized to fully load the CPU and reduce
+  response time to a minimum.
 
-- 🙁 Sphinx 2: Нет APT/YUM/Homebrew репозиториев
-- ✅ Manticore: Добавили APT/YUM/Homebrew репозитории. Поддерживаются development ветки репозиториев, есть CI: пакеты
-  собираются для всех новых коммитов.
+- Sphinx 2: Cannot be used without full-text search.
+- Manticore: Can be used without full-text search, like any other database.
 
+- Sphinx 2: Non-full-text data is stored row-wise, and for efficiency it must be in memory.
+- Manticore: Manticore Columnar Library was implemented, an external independent library that stores data column-wise in
+  blocks with codecs for compression across data types. It requires little memory and can handle much larger volumes.
 
-- 🙁 Sphinx 2: Некоторым начинающим пользователям сложно понять что к чему.
-- ✅ Manticore: Сделали платформу с интерактивными курсами - https://play.manticoresearch.com/
+- Sphinx 2: No secondary indexes.
+- Manticore: A second key feature of Manticore Columnar Library is support for secondary indexes based on the modern
+  PGM algorithm.
 
+- Sphinx 2: No percolate tables for reverse search (when queries are stored in a table and documents are passed in to
+  see which queries would match them).
+- Manticore: Percolate tables were added.
 
-- 🙁 Sphinx 2: Мало примеров в документации
-- ✅ Manticore: переписали документацию, сделали для неё собственный движок - https://manual.manticoresearch.com/
+## Solr [&uarr;](#search-engines)
 
+Solr (pronounced "solar") is an open-source full-text search platform based on Apache Lucene. Its main capabilities
+include full-text search, result highlighting, faceted search, dynamic clustering, integration with databases, and
+processing documents in complex formats (for example, Word and PDF). Because Solr supports distributed search and
+replication, it scales well. As of May 2016, Solr was the second most popular search engine.
 
-- 🙁 Sphinx 2: Баги, часто приводящие к крэшам
-- ✅ Manticore: Крэши теперь - большая редкость. Сотни старых багов были пофикшены.
+Solr is written in Java and runs as a standalone full-text search web application (starting with version 5.0 it runs as
+its own application rather than inside a servlet container). Solr uses Lucene as the core for indexing and search. Solr
+has HTTP/XML and JSON APIs, which makes it possible to use Solr from most popular programming languages. Solr is also
+highly configurable and allows connecting external modules.
 
+Since the two projects merged in 2010 - Lucene and Solr - they have been developed by the same team at the Apache
+Software Foundation, so you will often see references to Lucene/Solr or Solr/Lucene.
 
-- 🙁 Sphinx 2: Распараллеливание поискового запроса возможно только в режиме один физический индекс (чанк) - один тред
-- ✅ Manticore: Передалали всё на корутины. Сделали возможность распараллеливать любой поисковый запрос так, чтоб
-  полностью загружать проц и уменьшать время отклика до минимума
+Key capabilities:
 
-
-- 🙁 Sphinx 2: Нельзя использовать без полнотекста
-- ✅ Manticore: Можно использовать совсем без полнотекста, как любую другую базу данных
-
-
-- 🙁 Sphinx 2: Неполнотекстовые данные хранятся построчно, для эффективной работы они должны быть в памяти.
-- ✅ Manticore: Реализовали Manticore Columnar Library - внешнюю полностью независимую библиотеку, которая позволяет
-  хранить данные поколоночно в блоках с поддержкой разных кодеков для сжатия для разных типов данных. Памяти почти не
-  требует. Теперь можно обрабатывать намного большие объёмы.
-
-
-- 🙁 Sphinx 2: Нет вторичных индексов
-- ✅ Manticore: Вторая важная функциональность Manticore Columnar LIbrary - поддержка вторичных индексов на основе
-  современного и инновационного алгоритма PGM.
-
-
-- 🙁 Sphinx 2: Нет типа таблиц percolate для реверсивного поиска (когда в таблице лежат запросы, а на вход подаются
-  документы, чтоб понять какие запросы их бы нашли)
-- ✅ Manticore: Добавили таблицы типа percolate.
-
-### Solr [&uarr;](#Readme)
-
-Solr (произносится «солар») — платформа полнотекстового поиска с открытым исходным кодом, основанная на проекте Apache
-Lucene.
-Её основные возможности: полнотекстовый поиск, подсветка результатов, фасетный поиск, динамическая кластеризация,
-интеграция с базами
-данных, обработка документов со сложным форматом (например, Word, PDF). Так как в Solr есть возможность распределенного
-поиска и
-репликации, Solr хорошо масштабируем. По состоянию на май 2016 года Solr является вторым по популярности поисковым
-движком.
-
-Solr написан на Java и запускается как отдельное веб-приложение полнотекстового поиска (начиная с версии 5.0
-запускается, как
-самостоятельное приложение, а не внутри какого-либо контейнера сервлетов). Solr использует Lucene в качестве основы для
-реализации
-индексации и поиска. У Solr есть HTTP/XML и JSON API, что делает возможным использовать Solr из всех популярных языков
-программирования.
-Также Solr можно очень гибко настраивать и подключать к нему внешние модули.
-
-С момента слияния двух проектов в 2010 году — Lucene и Solr — они оба делаются одной и той же командой из Apache
-Software Foundation,
-так что часто на эти продукты ссылаются как Lucene/Solr или Solr/Lucene.
-
-Основные возможности:
-
-- фасетный поиск
-- подсветка результатов поиска
-- язык запросов поддерживает структурный поиск так же хорошо, как и поиск по тексту
-- множество форматов взаимодействия поверх HTTP, включая JSON, XML, CSV, бинарные форматы, а также множество библиотек
-  для других языков программирования
-- веб-интерфейс для администрирования
-- репликация — это позволяет увеличить скорость обработки запросов
-- поиск в данных, распределённых на множество узлов — это позволяет увеличить объём данных для поиска
-- кластеризация результатов поиска, основанная на Carrot2
-- расширяемость за счёт подключаемых модулей (плагинов)
-- гибкое управление релевантностью
-- кэширование запросов, фильтров и документов
-- геопространственный поиск
-- автоматическое управление большими кластерами с использованием ZooKeeper
-
-
-
-
-
+- faceted search
+- highlighting search results
+- query language supports structured search as well as full-text search
+- many interaction formats over HTTP, including JSON, XML, CSV, binary formats, plus libraries for other languages
+- web admin interface
+- replication, which increases query throughput
+- search across data distributed across many nodes, which increases data volume for search
+- result clustering based on Carrot2
+- extensibility through modules (plugins)
+- flexible relevance tuning
+- caching of queries, filters, and documents
+- geospatial search
+- automatic management of large clusters with ZooKeeper

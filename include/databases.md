@@ -1,53 +1,55 @@
-#### Список ссылок
+# Databases
+
+#### Links
 
 - [Doctrine](https://ru.wikipedia.org/wiki/Doctrine)
 
 <hr />
 
 - [ACID](https://ru.wikipedia.org/wiki/ACID)
-- [Race condition в веб-приложениях](https://habr.com/ru/post/460339/)
-- [Транзакции и автоматическая фиксация изменений](https://www.php.net/manual/ru/pdo.transactions.php)
+- [Race condition in web applications](https://habr.com/ru/post/460339/)
+- [Transactions and auto-commit](https://www.php.net/manual/ru/pdo.transactions.php)
 
 <hr />
 
-- [Решение проблемы N+1 запроса без увеличения потребления памяти в Laravel](https://habr.com/ru/post/508544/)
-- [Проблема с N+1 запросами](https://habr.com/ru/company/otus/blog/529692/)
+- [Fixing the N+1 query problem without increasing memory usage in Laravel](https://habr.com/ru/post/508544/)
+- [The N+1 query problem](https://habr.com/ru/company/otus/blog/529692/)
 
 <hr />
 
-- [Нормализация баз данных простыми словами](https://info-comp.ru/database-normalization)
-- [Первая нормальная форма (1NF) базы данных](https://info-comp.ru/first-normal-form)
-- [Вторая нормальная форма (2NF) базы данных](https://info-comp.ru/second-normal-form)
-- [Третья нормальная форма (3NF) базы данных](https://info-comp.ru/third-normal-form)
+- [Database normalization in simple terms](https://info-comp.ru/database-normalization)
+- [First normal form (1NF) of a database](https://info-comp.ru/first-normal-form)
+- [Second normal form (2NF) of a database](https://info-comp.ru/second-normal-form)
+- [Third normal form (3NF) of a database](https://info-comp.ru/third-normal-form)
 
 <hr />
 
-- [Использование индексов в MySQL](http://www.mysql.ru/docs/man/MySQL_indexes.html)
-- [Индексы в MySQL](https://highload.today/indeksy-v-mysql/)
-- [MySql. Что такое индексы? Как создать или удалить индекс?](https://pacificsky.ru/recepty/sql/mysql/163-mysql-chto-takoe-indeksy-kak-sozdat-ili-udalit-indeks.html)
+- [Using indexes in MySQL](http://www.mysql.ru/docs/man/MySQL_indexes.html)
+- [Indexes in MySQL](https://highload.today/indeksy-v-mysql/)
+- [MySQL: what are indexes? How to create or drop an index?](https://pacificsky.ru/recepty/sql/mysql/163-mysql-chto-takoe-indeksy-kak-sozdat-ili-udalit-indeks.html)
 
 <hr />
 
-- [Стратегии масштабирования MySQL](http://www.phphighload.com/2012/10/mysql-scaling-strategies.html)
-- [Репликация баз данных MySQL](https://habr.com/ru/post/532216/)
+- [MySQL scaling strategies](http://www.phphighload.com/2012/10/mysql-scaling-strategies.html)
+- [MySQL database replication](https://habr.com/ru/post/532216/)
 
 <hr />
 
-- [Теорема CAP](https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_CAP)
+- [CAP theorem](https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_CAP)
 - [CAP](https://www.bigdataschool.ru/wiki/cap)
 
 <hr />
 
-- [Что такое документная база данных?](https://wiki.merionet.ru/servernye-resheniya/100/chto-takoe-dokumentnaya-baza-dannyh/)
-- [MySQL и MongoDB — когда и что лучше использовать](https://habr.com/ru/post/322532/)
+- [What is a document database?](https://wiki.merionet.ru/servernye-resheniya/100/chto-takoe-dokumentnaya-baza-dannyh/)
+- [MySQL and MongoDB: when and what to use](https://habr.com/ru/post/322532/)
 
 <hr />
 
-- [Что такое базы данных временных рядов](https://wiki.merionet.ru/servernye-resheniya/110/chto-takoe-bazy-dannyh-vremennyh-ryadov/)
+- [What are time series databases?](https://wiki.merionet.ru/servernye-resheniya/110/chto-takoe-bazy-dannyh-vremennyh-ryadov/)
 
 <hr />
 
-- [Топ 5 Баз Данных Реального Времени](https://blog.back4app.com/ru/%D1%82%D0%BE%D0%BF-5-%D0%B1%D0%B0%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8/)
+- [Top 5 real-time databases](https://blog.back4app.com/ru/%D1%82%D0%BE%D0%BF-5-%D0%B1%D0%B0%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8/)
 
 <hr />
 
@@ -56,467 +58,354 @@
 
 <hr />
 
-- [Разбираемся с Redis](https://habr.com/ru/company/wunderfund/blog/685894/)
-- [NoSQL: как моделировать базу данных на примере DynamoDB](https://highload.today/blogs/nosql-kak-modelirovat-bazu-dannyh-na-primere-dynamodb/)
+- [Understanding Redis](https://habr.com/ru/company/wunderfund/blog/685894/)
+- [NoSQL: modeling a database with DynamoDB](https://highload.today/blogs/nosql-kak-modelirovat-bazu-dannyh-na-primere-dynamodb/)
 
 <hr />
 
-- [База данных Oracle. Структура и основные понятия СУБД Oracle](https://otus.ru/nest/post/1577/)
+- [Oracle database: structure and core concepts](https://otus.ru/nest/post/1577/)
 
 <hr />
 
-- [Что такое графовая база данных?](https://wiki.merionet.ru/servernye-resheniya/101/chto-takoe-grafovaya-baza-dannyh/)
-- [Графовая база данных](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B1%D0%B0%D0%B7%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
-- [Neo4j - Графовые базы данных на примере простых запросов](https://habr.com/ru/company/neoflex/blog/654267/)
+- [What is a graph database?](https://wiki.merionet.ru/servernye-resheniya/101/chto-takoe-grafovaya-baza-dannyh/)
+- [Graph database](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B1%D0%B0%D0%B7%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85)
+- [Neo4j: graph databases with simple queries](https://habr.com/ru/company/neoflex/blog/654267/)
 
 <hr />
 
-## ORM [&uarr;](#Readme)
+## ORM [&uarr;](#databases)
 
-`ORM (Object-Relation Mapping)` – общее название для фреймворков, позволяющих автоматически связать базу данных с кодом.
-Они стараются скрыть существование базы
-данных настолько, насколько это возможно. Взамен, программисту дают возможность оперировать данными в базе через
-специальный интерфейс.
+ORM (Object-Relational Mapping) is a general name for frameworks that automatically map a database to code. They try to
+hide the database as much as possible and let developers work with data through a convenient interface.
 
-### Doctrine [&uarr;](#Readme)
+### Doctrine [&uarr;](#databases)
 
-`Doctrine` — объектно-реляционный проектор (ORM) для PHP 7.1+, который базируется на слое абстракции доступа к БД (
-DBAL).
-Одной из ключевых возможностей Doctrine является запись запросов к БД на собственном объектно-ориентированном диалекте
-SQL, называемом DQL (Doctrine Query Language) и базирующемся на идеях HQL (Hibernate Query Language).
+Doctrine is an ORM for PHP 7.1+ built on top of the DBAL (database abstraction layer). One of its key features is
+writing database queries in its object-oriented dialect called DQL (Doctrine Query Language), based on ideas from HQL
+(Hibernate Query Language).
 
-`Doctrine ORM` применяется во фреймворках `Laravel, Yii, Symfony`.
+Doctrine ORM is used in frameworks such as Laravel, Yii, and Symfony.
 
-`Doctrine ORM` предоставляет разработчику удобные средства выборки данных. Это и мощный DQL для работы в
-объектно-ориентированном ключе, и удобный Query Builder, простой и понятный в использовании. Они покрывают большую часть
-потребностей, но иногда возникает необходимость использовать SQL запросы, оптимизированные или специфичные для
-конкретной СУБД. Для работы с результатами запросов в коде важно понимание того, как работает маппинг в Doctrine.
+Doctrine ORM provides powerful data retrieval tools: DQL, and a convenient Query Builder. They cover most needs, but
+sometimes you must use SQL queries optimized for a specific DBMS. In those cases, it is important to understand how
+Doctrine maps results.
 
-В основе Doctrine ORM лежит паттерн Data Mapper, изолирующий реляционное представление от объектного, и конвертирующий
-данные между ними. Одним из ключевых компонентов этого процесса является объект ResultSetMapping, с помощью которого
-описывается, как именно преобразовывать результаты запроса из реляционной модели в объектную. Doctrine всегда использует
-ResultSetMapping для представления результатов запроса, но обычно этот объект создается на основе аннотаций или yaml,
-xml конфигов, остается скрыт от глаз разработчика, потому о его возможностях знают далеко не все.
+Doctrine ORM is built on the Data Mapper pattern, which isolates the relational model from the object model and
+converts data between them. A key component is ResultSetMapping, which defines how to transform a relational result set
+into objects. Doctrine always uses ResultSetMapping, but it is usually generated from annotations or YAML/XML configs
+and hidden from developers.
 
-В `Doctrine` есть два `QueryBuilder` — `SQL и ORM (DQL)`. ResultSetMapping предназначен для работы с SQL-запросами, а
-метод
-createQueryBuilder EntityManager'a вернет Вам ORM QueryBuilder. В последнем случае я не вижу необходимости использовать
-ручной ResultSetMapping, т.к. запрос Вы составляете уже в терминах описанных сущностей, используя DQL. В первом же
-случае, при использовании SQL QueryBuilder, поля в выборке переименовываться не будут.
+Doctrine has two QueryBuilders: SQL and ORM (DQL). ResultSetMapping is intended for SQL queries. The
+EntityManager::createQueryBuilder method returns an ORM QueryBuilder. In the ORM case there is usually no need for
+manual ResultSetMapping, since you already build queries in terms of mapped entities. With SQL QueryBuilder, selected
+fields are not renamed automatically.
 
-### ACID [&uarr;](#Readme)
+### ACID [&uarr;](#databases)
 
-Требования `ACID` — набор требований, которые обеспечивают сохранность ваших данных:
+ACID requirements are a set of guarantees that keep your data safe:
 
-- `Atomicity` — Атомарность
-- `Consistency` — Согласованность
-- `Isolation` — Изолированность
-- `Durability` — Надёжность
+- Atomicity
+- Consistency
+- Isolation
+- Durability
 
-#### `Atomicity` — Атомарность
+#### Atomicity
 
-Атомарность гарантирует, что каждая транзакция будет выполнена полностью или не будет выполнена совсем. Не допускаются
-промежуточные состояния.
+Atomicity guarantees that each transaction is either fully completed or not executed at all. No intermediate states are
+allowed.
 
-#### `Consistency` — Согласованность
+#### Consistency
 
-Транзакция, достигающая своего нормального завершения (EOT — end of transaction, завершение транзакции) и, тем самым,
-фиксирующая
-свои результаты, сохраняет согласованность базы данных. Другими словами, каждая успешная транзакция по определению
-фиксирует только
-допустимые результаты ​ wikipedia
+A transaction that completes successfully and commits its results keeps the database consistent. In other words, each
+successful transaction commits only valid results.
 
-Это свойство вытекает из предыдущего. Благодаря тому, что транзакция не допускает промежуточных результатов, база
-остается консистентной.
-Есть такое определение транзакции: «Упорядоченное множество операций, переводящих базу данных из одного согласованного
-состояния в
-другое». То есть до выполнения операции и после база остается консистентной (в переводе на русский — согласованной).
+This follows from atomicity: because a transaction has no intermediate results, the database stays consistent. Another
+classic definition: a transaction is an ordered set of operations that moves the database from one consistent state to
+another.
 
-#### `Isolation` — Изолированность
+#### Isolation
 
-Во время выполнения транзакции параллельные транзакции не должны оказывать влияния на её результат.
+While a transaction is executing, parallel transactions should not affect its result.
 
-Если у нас система строго для одного человека, проблем не будет. А если пользователей несколько? Тогда транзакции
-запускают в параллель — для ускорения работы системы.
-Но к каким эффектам может привести параллельная работа двух транзакций?
+If the system has a single user, there are no issues. With multiple users, transactions run in parallel for speed.
+That can cause anomalies:
 
-1 эффект: "Потерянная запись"
-2 эффект: "Грязное чтение"
-3 эффект: "Повторимое чтение"
-4 эффект: "Фантомы"
+1. Lost update
+2. Dirty read
+3. Non-repeatable read
+4. Phantom reads
 
-Как бороться с этими проблемами? Нужно изолировать транзакцию. Способов есть несколько, но основные — блокировки и
-версии.
+To prevent these, you isolate transactions. The main approaches are locks and versions.
 
-- `Блокировки` — это когда мы блокируем данные в базе. Можно заблокировать одну строку в таблице, а можно всю таблицу.
-  Можно заблокировать данные на редактирование, а можно и на чтение тоже.
-- `Версии` — это когда внутри базы при каждом обновлении создается новая версия данных и сохраняется старая.
-  Версионирование скрыто от разработчика, то есть мы не видим в базе никаких номеров версий и данных по ним. Просто пока
-  транзакция, обновляющая запись, не покомитит свое изменение, остальные потребители читают старую версию записи и не
-  блокируются.
+- Locks: block data in the database. You can lock a row or a whole table, and lock for write or read.
+- Versions: on each update, a new version is created while the old one remains. Versioning is hidden from the
+  developer. Until the updating transaction commits, other readers see the old version and do not block.
 
-#### `Durability` — Надёжность
+#### Durability
 
-Если пользователь получил подтверждение от системы, что транзакция выполнена, он может быть уверен, что сделанные им
-изменения не
-будут отменены из-за какого-либо сбоя. Обесточилась система, произошел сбой в оборудовании? На выполненную транзакцию
-это не повлияет.
+If the user receives confirmation that a transaction is complete, the changes will not be lost even after a crash or
+power failure.
 
-### Raise Condition [&uarr;](#Readme)
+### Race Conditions [&uarr;](#databases)
 
-`Состояние гонки (англ. race condition)`, также конкуренция — ошибка проектирования многопоточной системы или
-приложения, при которой работа системы или приложения зависит от того, в каком порядке выполняются части кода.
+A race condition is a design error in a multi-threaded system where system behavior depends on the order in which code
+runs. The term is common in engineering slang; in more formal contexts, it may be called nondeterminism.
 
-Термин состояние гонки относится к инженерному жаргону и появился вследствие неаккуратного дословного перевода
-английского эквивалента. В более строгой академической среде принято использовать термин
-`неопределённость параллелизма`.
+A race condition is a "heisenbug" that appears at random times and disappears when you try to debug it.
 
-`Состояние гонки — «плавающая» ошибка (гейзенбаг)`, проявляющаяся в случайные моменты времени и «пропадающая» при
-попытке
-её локализовать.
+Possible consequences:
 
-Возможные последствия
+- memory leaks
+- segmentation faults
+- data corruption
+- vulnerabilities
+- deadlocks
+- leakage of other resources (for example, file descriptors)
 
-- утечки памяти
-- ошибки сегментирования
-- порча данных
-- уязвимости
-- взаимные блокировки
-- утечки других ресурсов, например файловых дескрипторов
+This is primarily an architectural problem. With a good design, you can avoid many races.
 
-В первую очередь это конечно же архитектурная проблема, если правильно спроектировать веб-приложение, можно избежать
-подобных гонок.
+How to deal with it:
 
-Как с этим бороться:
+- Use locks. The database blocks access to an object until it is unlocked. Other transactions wait. Use locks carefully.
+- Use transaction isolation levels. Serializable transactions guarantee strict ordering, but can hurt performance.
+- Use mutex semaphores. Use a coordinator (for example etcd). Create a record with a key before processing. If you
+  cannot create it, the request is rejected. Remove the record after processing.
 
-- Используют `блокировки`. Операция блокирует в СУБД обращения к заблокированному объекту, пока его не разблокируют.
-  Другие стоят и ждут в сторонке. Необходимо правильно работать с блокировками, не блокировать ничего лишнего.
-- Рулят `изоляциями транзакций`. Упорядоченные транзакции (serializable) — гарантируют, что транзакции будут выполнены
-  строго последовательно, однако, это может сказаться на производительности.
-- Используют `мьютексные семафоры`. Берут какую-нибудь штуку (например etcd). В момент вызова функций создают запись с
-  ключом, если не получилось создать запись, значит она уже есть и тогда запрос прерывается. По окончании обработки
-  запроса запись удаляется.
+### Transactions [&uarr;](#databases)
 
-### Транзакции [&uarr;](#Readme)
+If you have not worked with transactions before, they have four main properties: atomicity, consistency, isolation,
+and durability (ACID).
 
-Если вы прежде не сталкивались с транзакциями, они обладают четырьмя главными свойствами, это `Атомарность`,
-`Согласованность`, `Изолированность` и `Долговечность` - `(ACID)`.
+In simple terms, any actions performed inside a transaction are safe for the database and are not affected by other
+connections, even if the actions are performed in multiple steps.
 
-Говоря простым языком, любые действия, совершенные в рамках транзакции, гарантированно будут выполнены безопасно для
-базы данных,
-и на них не повлияют другие подключения к этой базе, даже если эти действия совершаются в несколько этапов.
+Transactional operations can be rolled back on request (if the transaction is not yet committed), which simplifies
+error handling in scripts.
 
-Транзакционные операции можно отменять по запросу (если транзакция ещё не зафиксирована), что упрощает обработку ошибок
-в скриптах.
+Transactions work by temporarily storing changes and then applying them as a whole. This can significantly improve
+performance and make scripts more reliable (if used correctly).
 
-Механизм транзакций реализован путём "временного сохранения" всех изменений и дальнейшего применения этих изменений, как
-единого целого.
-Это позволяет добиться резкого увеличения эффективности подобных изменений. Другими словами, транзакции могут сделать
-ваши скрипты более быстрыми
-и потенциально более стабильными (но для этого необходимо корректно использовать этот механизм).
+Not all databases support transactions.
 
-К сожалению, не все базы данных поддерживают транзакции
+You are not limited in the number of queries inside a transaction. You can run complex queries to extract data and
+then use those results for updates. While a transaction is active, you can be sure no one else can modify the data you
+are working with. See your database documentation for more details.
 
-Вы никак не ограничены в количестве запросов в рамках транзакции; вы также можете выполнять сложные запросы, чтобы
-извлечь данные,
-а затем использовать их для создания других запросов на обновление и извлечение данных; если транзакция активна, вы
-можете быть уверены,
-что никто не сможет изменить ваши данные, пока вы с ними работаете. За дополнительной информацией о транзакциях
-обращайтесь к документации
-к вашему серверу баз данных.
+### N+1 Problem [&uarr;](#databases)
 
-### Проблема-N+1 [&uarr;](#Readme)
+One of the main issues when building apps with an ORM is the N+1 query problem. It is an inefficient pattern where the
+app generates a query for each object access. This typically happens when you load a list without lazy or eager loading.
 
-Одна из основных проблем разработчиков, когда они создают приложение с ORM — это N+1 запрос в их приложениях. Проблема
-N+1 запроса — это
-не эффективный способ обращения к базе данных, когда приложение генерирует запрос на каждый вызов объекта. Эта проблема
-обычно возникает,
-когда мы получаем список данных из базы данных без использования ленивой или жадной загрузки (lazy load, eager load).
+The N+1 problem appears when a data access framework runs N additional SQL queries to fetch the same data that could be
+retrieved with a single query.
 
-Проблема N + 1 возникает, когда фреймворк доступа к данным выполняет N дополнительных SQL-запросов для получения тех же
-данных, которые можно
-получить при выполнении одного SQL-запроса.
+The larger the N, the more queries are executed and the greater the performance impact. Slow query logs can help find
+slow queries, but they do not always detect N+1 problems because each extra query is fast on its own.
 
-Чем больше значение N, тем больше запросов будет выполнено и тем больше влияние на производительность. И хотя лог
-медленных запросов может
-вам помочь найти медленные запросы, но проблему N + 1 он не обнаружит, так как каждый отдельный дополнительный запрос
-выполняется достаточно быстро.
+The issue is the cumulative cost of many additional queries, which degrades performance.
 
-Проблема заключается в выполнении множества дополнительных запросов, которые в сумме выполняются уже существенное время,
-влияющее на быстродействие.
+Laravel with its Eloquent ORM provides convenient tools, but they have trade-offs.
 
-Laravel с его ORM Eloquent предоставляет инструменты, для удобной работы, но они имеют некоторые недостатки.
+- Eager loading: load related objects in a single query. In Laravel, use with().
+- Eager loading of dynamic relationships.
+- Lazy loading of dynamic relationships.
 
-- `Eager load (жадная загрузка)` — это процесс, при котором запрос для одного типа объекта также загружает связанные
-  объекты в рамках одного
-  запроса к базе данных. В Laravel мы можем загружать данные связанных моделей используя метод with().
-- Жадная загрузка динамических отношений
-- Ленивая загрузка динамических отношений
+### Normalization [&uarr;](#databases)
 
-### Нормализация [&uarr;](#Readme)
+Normalization is the process of removing redundant data.
 
-`Нормализация` – это процесс удаления избыточных данных.
+Normalization is a database design method that brings a database to minimal redundancy.
 
-`Нормализация` – это метод проектирования базы данных, который позволяет привести базу данных к минимальной
-избыточности.
+Data redundancy means storing the same data in multiple places, which causes anomalies. Each entity should be stored
+once, and referenced in other tables by a link.
 
-`Избыточность` данных – это когда одни и те же данные хранятся в базе в нескольких местах, именно это и приводит к
-аномалиям.
-Другими словами, каждая сущность должна храниться отдельно, а в случае необходимости использования этой сущности в
-другой
-таблице на нее делается всего лишь ссылка, т.е. выстраивается связь.
+Benefits of a normalized database:
 
-Преимущества нормализованной базы данных:
+- Easier queries. Data can be retrieved with relatively simple SQL.
+- Data integrity. Less risk of loss or inconsistency.
+- No redundancy. Less duplication reduces table size.
+- Better long-term scalability.
 
-- Возможность существенно упростить выборки. Получение данных из базы относительно простыми запросами.
-- Целостность данных. Избежание потерь или искажения информации в базе данных.
-- Отсутствие избыточности. Данные в таблице не дублируются, что существенно снижает её размер.
-- Благоприятные предпосылки к росту базы.
+To normalize a database, you should:
 
-Для приведения базы к нормальной форме необходимо выполнить следующие действия:
+- Group data into logical sets.
+- Find logical relationships between these sets. Related fields must be of the same type and tables must use InnoDB.
 
-- Постараться объединить данные в группы.
-- Найти логические связи между этими группами данных. Для установки связей связываемые поля должны быть одного типа и
-  таблица формата InnoDB.
-
-В целом процесс нормализации базы данных выглядит следующим образом: мы, следуя определённым правилам и соблюдая
-определенные требования,
-проектируем таблицы в базе данных.
-
-При этом все эти правила и требования можно сгруппировать в несколько наборов, и если спроектировать базу данных с
-соблюдением всех правил и требований,
-которые включаются в тот или иной набор, то база данных будет находиться в определённом состоянии, т.е. форме, и такая
-форма называется нормальная форма базы данных.
-
-Иными словами, следуя определённым правилам и соблюдая определенные требования мы приводим базу данных к определенной
-нормальной форме.
-
-`Нормальная форма базы данных` – это набор правил и критериев, которым должна отвечать база данных.
-
-Существует 3 нормальные формы базы данных:
-
-#### Первая нормальная форма
-
-Чтобы база данных находилась в 1 нормальной форме, необходимо чтобы ее таблицы соблюдали следующие реляционные принципы:
-
-- В таблице не должно быть дублирующих строк
-- В каждой ячейке таблицы хранится атомарное значение (одно не составное значение)
-- В столбце хранятся данные одного типа
-- Отсутствуют массивы и списки в любом виде
-
-#### Вторая нормальная форма
-
-Чтобы база данных находилась во второй нормальной форме (2NF), необходимо чтобы ее таблицы удовлетворяли следующим
-требованиям:
-
-- Таблица должна находиться в первой нормальной форме
-- Таблица должна иметь ключ
-- Все неключевые столбцы таблицы должны зависеть от полного ключа (в случае если он составной)
-
-`Ключ` – это столбец или набор столбцов, по которым гарантировано можно отличить строки друг от друга, т.е. ключ
-идентифицирует
-каждую строку таблицы. По ключу мы можем обратиться к конкретной строке данных в таблице.
-
-#### Третья нормальная форма
-
-Требуется вторая нормальная форма.
-
-Требование третьей нормальной формы (3NF) заключается в том, чтобы в таблицах отсутствовала транзитивная зависимость.
-
-`Транзитивная зависимость` – это когда неключевые столбцы зависят от значений других неключевых столбцов.
-
-Если в первой нормальной форме наше внимание было нацелено на соблюдение реляционных принципов, во второй нормальной
-форме
-в центре нашего внимания был первичный ключ, то в третьей нормальной форме все наше внимание уделено столбцам, которые
-не являются первичным ключом,
-т.е. неключевым столбцам.
-
-Чтобы нормализовать базу данных до третьей нормальной формы, необходимо сделать так, чтобы в таблицах отсутствовали
-неключевые столбцы,
-которые зависят от других неключевых столбцов.
-
-Иными словами, неключевые столбцы не должны пытаться играть роль ключа в таблице, т.е. они действительно должны быть
-неключевыми
-столбцами, такие столбцы не дают возможности получить данные из других столбцов, они дают возможность посмотреть на
-информацию,
-которая в них содержится, так как в этом их назначение.
-
-### Failure Modes [&uarr;](#Readme)
-
-- `Read contention`: This occurs when multiple clients or processes are trying to read data from the same location in
-  the database at the same time, which can lead to delays or errors.
-- `Write contention`: This occurs when multiple clients or processes are trying to write data to the same location in
-  the database at the same time, which can lead to delays or errors.
-- `Thundering herd`: This occurs when a large number of clients or processes try to access the same resource
-  simultaneously, which can lead to resource exhaustion and reduced performance.
-- `Cascade`: This occurs when a failure in one part of the database system causes a chain reaction that leads to
-  failures in other parts of the system.
-- `Deadlock`: This occurs when two or more transactions are waiting for each other to release a lock on a resource,
-  leading to a standstill.
-- `Corruption`: This occurs when data in the database becomes corrupted, which can lead to errors or unexpected results
-  when reading or writing to the database.
-- `Hardware failure`: This occurs when hardware components, such as disk drives or memory, fail, which can lead to data
-  loss or corruption.
-- `Software failure`: This occurs when software components, such as the database management system or application, fail,
-  which can lead to errors or unexpected results.
-- `Network failure`: This occurs when the network connection between the database and the client is lost, which can lead
-  to errors or timeouts when trying to access the database.
-- `Denial of service (DoS) attack`: This occurs when a malicious actor attempts to overwhelm the database with requests,
-  leading to resource exhaustion and reduced performance.
-
-### Профилирование [&uarr;](#Readme)
-
-There are several ways to profile the performance of a database:
-
-- `Monitor system performance`: You can use tools like the Windows Task Manager or the Unix/Linux top command to monitor
-  the performance of your database server. These tools allow you to see the overall CPU, memory, and disk usage of the
-  system, which can help identify any resource bottlenecks.
-- `Use database-specific tools`: Most database management systems (DBMSs) have their own tools for monitoring
-  performance. For example, Microsoft SQL Server has the SQL Server Management Studio (SSMS) and the
-  sys.dm_os_wait_stats dynamic management view, while Oracle has the Oracle Enterprise Manager and the v$waitstat view.
-  These tools allow you to see specific performance metrics, such as the amount of time spent waiting on locks or the
-  number of physical reads and writes.
-- `Use third-party tools`: There are also several third-party tools that can help you profile the performance of a
-  database. Some examples include SolarWinds Database Performance Analyzer, Quest Software Foglight, and Redgate SQL
-  Monitor. These tools often provide more in-depth performance analysis and can help you identify specific issues or
-  bottlenecks.
-- `Analyze slow queries`: If you have specific queries that are running slowly, you can use tools like EXPLAIN PLAN or
-  SHOW PLAN in MySQL or SQL Server to see the execution plan for the query and identify any potential issues. You can
-  also use tools like the MySQL slow query log or the SQL Server Profiler to capture slow queries and analyze them
-  further.
-- `Monitor application performance`: If you are experiencing performance issues with a specific application that is
-  using the database, you can use tools like Application Insights or New Relic to monitor the performance of the
-  application and identify any issues that may be related to the database.
-
-### Индексы [&uarr;](#Readme)
-
-1. Чтение данных с диска
-
-На жестком диске нет такого понятия, как файл. Есть понятие блок. Один файл обычно занимает несколько блоков. Каждый
-блок знает, какой блок идет
-после него. Файл делится на куски и каждый кусок сохраняется в пустой блок.
+In general, normalization means designing tables according to a set of rules. If you satisfy all rules in a given set,
+the database reaches a normal form.
+
+A normal form is a set of rules and criteria that a database must satisfy.
+
+There are three normal forms:
+
+#### First normal form
+
+To be in 1NF, tables must follow these principles:
+
+- No duplicate rows.
+- Each cell holds a single atomic value.
+- Columns contain values of a single type.
+- No arrays or lists in any form.
+
+#### Second normal form
+
+To be in 2NF, tables must satisfy:
+
+- The table is in 1NF.
+- The table has a key.
+- All non-key columns depend on the entire key (if the key is composite).
+
+A key is a column or set of columns that uniquely identifies each row.
+
+#### Third normal form
+
+Requires 2NF.
+
+3NF requires that tables do not have transitive dependencies.
+
+A transitive dependency means non-key columns depend on other non-key columns.
+
+In 1NF, the focus is on relational principles. In 2NF, the focus is on the primary key. In 3NF, the focus is on columns
+that are not part of the primary key.
+
+To normalize to 3NF, ensure that non-key columns do not depend on other non-key columns. They should not play the role
+of a key.
+
+### Failure Modes [&uarr;](#databases)
+
+- Read contention: multiple clients or processes read data from the same location at the same time, causing delays.
+- Write contention: multiple clients or processes write to the same location at the same time, causing delays.
+- Thundering herd: many clients access the same resource, causing resource exhaustion.
+- Cascade: a failure in one part of the system triggers failures elsewhere.
+- Deadlock: two or more transactions wait on each other to release locks.
+- Corruption: data is corrupted, leading to errors when reading or writing.
+- Hardware failure: disks or memory fail, causing loss or corruption.
+- Software failure: DBMS or application failure leads to errors.
+- Network failure: lost connection causes timeouts and errors.
+- Denial of service (DoS) attack: a malicious actor overwhelms the database.
+
+### Profiling [&uarr;](#databases)
+
+There are several ways to profile database performance:
+
+- Monitor system performance: use tools like Windows Task Manager or Linux top to see CPU, memory, and disk usage.
+- Use database-specific tools: for example, SQL Server Management Studio (SSMS), sys.dm_os_wait_stats, Oracle Enterprise
+  Manager, v$waitstat.
+- Use third-party tools: SolarWinds Database Performance Analyzer, Quest Software Foglight, Redgate SQL Monitor, etc.
+- Analyze slow queries: use EXPLAIN PLAN or SHOW PLAN, slow query logs, or SQL Server Profiler.
+- Monitor application performance: Application Insights, New Relic, etc.
+
+### Indexes [&uarr;](#databases)
+
+#### Reading data from disk
+
+A hard drive does not have a concept of a file. It has blocks. A file occupies multiple blocks. Each block knows which
+block comes next. A file is split into chunks, and each chunk is stored in a free block.
 
 ![Screenshot from 2023-03-18 19-11-15.png](images%2FScreenshot%20from%202023-03-18%2019-11-15.png)
 
-При чтении файла, мы по очереди проходимся по всем блокам и собираем файл из кусков. Блоки одного файла могут быть
-раскиданы по диску (фрагментация).
-Тогда чтение файла замедлится, так как понадобится прыгать по разным участкам диска.
+When reading a file, the system walks through all blocks and reconstructs the file. Blocks of one file can be scattered
+across the disk (fragmentation). That slows reads because the head must jump between regions.
 
-Когда мы ищем что-то внутри файла, нам понадобится пройтись по всем блокам, в которых он сохранен. Если файл очень
-большой, то и количество блоков будет значительным.
-Необходимость перепрыгивать с блока на блок, которые могут находиться в разных местах, сильно замедлит поиск данных.
+When searching inside a file, you must scan every block. If the file is large, the number of blocks is large. Jumping
+between blocks in different locations slows data search.
 
-2. Использование индексов в MySQL
+#### Using indexes in MySQL
 
-Таблицы MySQL – это по сути обычные файлы.
+MySQL tables are essentially files.
 
-Итак, есть две проблемы при чтении данных:
+There are two main problems when reading data:
 
-- Низкая скорость чтения файлов из-за расположения блоков в разных частях диска (фрагментация).
-- Большое количество операций сравнения для поиска нужных данных.
+- Slow reads because blocks are scattered across the disk (fragmentation).
+- A large number of comparisons to find the right data.
 
-Индексы применяются для быстрого поиска строк с указанным значением одного столбца. Без индекса чтение таблицы
-осуществляется по всей
-таблице начиная с первой записи, пока не будут найдены соответствующие строки. Чем больше таблица, тем больше накладные
-расходы. Если же таблица содержит
-индекс по рассматриваемым столбцам, то MySQL может быстро определить позицию для поиска в середине файла данных без
-просмотра всех данных.
-Для таблицы, содержащей 1000 строк, это будет как минимум в 100 раз быстрее по сравнению с последовательным перебором
-всех записей. Однако в случае,
-когда необходим доступ почти ко всем 1000 строкам, быстрее будет последовательное чтение, так как при этом не требуется
-операций поиска по диску.
+Indexes speed up searches for rows with a given column value. Without an index, the engine scans from the first row
+until it finds matching rows. The larger the table, the higher the overhead. With an index, MySQL can quickly find the
+position in the data file without scanning everything.
 
-Все индексы MySQL (PRIMARY, UNIQUE, и INDEX) хранятся в виде B-деревьев (бинарных деревьев). Строки автоматически
-сжимаются с удалением пробелов в префиксах и оконечных пробелов.
+For a table with 1000 rows, this is at least 100x faster than a full scan. However, if you need most rows, a full scan
+can be faster because it avoids disk seeks.
 
-Индексы используются для того, чтобы:
+All MySQL indexes (PRIMARY, UNIQUE, INDEX) are stored as B-trees. Rows are compressed with removal of leading and
+trailing spaces.
 
-- Быстро найти строки, соответствующие выражению `WHERE`.
-- Извлечь строки из других таблиц при выполнении объединений.
-- Найти величины `MAX()` или `MIN()` для заданного индексированного столбца. Эта операция оптимизируется препроцессором,
-  который проверяет, не используете ли вы WHERE key_part_4 = константа, по всем частям составного ключа < N. В этом
-  случае MySQL сделает один просмотр ключа и заменит выражение константой MIN(). Если все выражения заменяются
-  константой, запрос моментально вернет результат:
+Indexes are used to:
+
+- Quickly find rows matching a WHERE condition.
+- Retrieve rows from other tables during joins.
+- Find MAX() or MIN() for an indexed column. The optimizer may replace the expression with a constant if all key parts
+  are constrained.
 
 ```sql
-SELECT MIN(key_part2),MAX(key_part2) FROM table_name where key_part1=10
+SELECT MIN(key_part2), MAX(key_part2) FROM table_name WHERE key_part1 = 10
 ```
 
-- Производить сортировку или группирование в таблице, если эти операции делаются на крайнем слева префиксе используемого
-  ключа (например ORDER BY key_part_1,key_part_2). Если за всеми частями ключа следует DESC, то данный ключ читается в
-  обратном порядке (see section 5.2.7 Как MySQL оптимизирует ORDER BY).
-- В некоторых случаях запрос можно оптимизировать для извлечения величин без обращения к файлу данных. Если все
-  используемые столбцы в некоторой таблице являются числовыми и образуют крайний слева префикс для некоторого ключа, то
-  чтобы обеспечить большую скорость, искомые величины могут быть извлечены непосредственно из индексного дерева:
--
+- Sort or group results if operations use the leftmost prefix of an index (ORDER BY key_part_1, key_part_2). If all
+  key parts are DESC, the index is read in reverse order.
+- Optimize queries to avoid reading data files. If all columns in a table are numeric and form the leftmost prefix of
+  an index, values may be retrieved directly from the index tree.
 
 ```sql
-SELECT key_part3 FROM table_name WHERE key_part1=1
+SELECT key_part3 FROM table_name WHERE key_part1 = 1
 ```
 
-Типы MySql индексов:
+Types of MySQL indexes:
 
-- `PRIMARY KEY` - Первичный ключ: основной ключ, который позволяет хранить свои значения как уникальные записи таблицы.
-  Данный тип ключа должен присутствовать в таблице в единственном экземпляре. Обычно данный тип ключа определяют колонке
-  с наименованием id.
-- `UNIQUE` - Уникальный ключ: Частично похож на первичный ключ, за счет того, что значения колонки таблицы должны быть
-  уникальными (не должны повторяться) и не долны быть равны NULL.
-- `Составной индекс`: данный тип индекса включает в индексирование несколько полей. Данный тип индексирования обычно
-  используется в запросах, в которых необходимо произвести выборку по нескольким полям (там где в условии WHERE
-  встречается более одного параметра).
+- PRIMARY KEY: the main key with unique values. Only one per table, usually on an id column.
+- UNIQUE: values must be unique and not NULL.
+- Composite index: indexes multiple columns, often used when WHERE has more than one parameter.
 
-
-1. Назначение индекса с помощью запроса:
+1. Create an index:
 
 ```sql
-ALTER TABLE `Наименование_таблицы` ADD INDEX [Наименование_индекса] (`Наименование_колонки`,`или_колонок_через_запятую`...)
+ALTER TABLE `table_name` ADD INDEX `index_name` (`column_name`, `other_column`...)
 ```
 
-Пример. Добавление индекса к таблице users на колонку age. Наименование индекса - NEWINDEX.
+Example: add an index on users.age named NEWINDEX.
 
 ```sql
-ALTER TABLE `users` ADD INDEX NEWINDEX (`age`);
+ALTER TABLE `users` ADD INDEX `NEWINDEX` (`age`);
 ```
 
-2. Назначение уникального индекса с помощью запроса:
+2. Create a unique index:
 
 ```sql
-ALTER TABLE `Наименование_таблицы` ADD UNIQUE(`Наименование_колонки`);
+ALTER TABLE `table_name` ADD UNIQUE (`column_name`);
 ```
 
-Пример. Назначение уникального индекса к таблице users на колонку age.
+Example: add a unique index on users.age.
 
 ```sql
-ALTER TABLE `users` ADD UNIQUE(`age`);
+ALTER TABLE `users` ADD UNIQUE (`age`);
 ```
 
-3. Назначение составного индекса с помощью запроса:
+3. Create a composite index:
 
 ```sql
-ALTER TABLE `Наименование_таблицы` ADD INDEX `Наименование_индекса` (`Наименование_колонки_n`, `Наименование_колонки_n+1`);
+ALTER TABLE `table_name` ADD INDEX `index_name` (`column_name_n`, `column_name_n_plus_1`);
 ```
 
-Пример. Добавление составного индекса к таблице users на колонку lastname и age. Наименование индекса - TEST.
+Example: add a composite index on users.lastname and users.age named TEST.
 
 ```sql
 ALTER TABLE `users` ADD INDEX `TEST` (`lastname`, `age`);
 ```
 
-4. Удаление индекса с помощью запроса:
+4. Drop an index:
 
 ```sql
-ALTER TABLE ``Наименование_таблицы`` DROP INDEX ``Наименование_колонки``;
+ALTER TABLE `table_name` DROP INDEX `index_name`;
 ```
 
-Пример. Удаление индекса с колонки age, таблицы users.
+Example: drop the age index from users.
 
 ```sql
-ALTER TABLE ``users`` DROP INDEX ``age``;
+ALTER TABLE `users` DROP INDEX `age`;
 ```
 
-#### Использование EXPLAIN для анализа индексов
+#### Using EXPLAIN to analyze indexes
 
-Инструкция EXPLAIN покажет данные об использовании индексов для конкретного запроса. Например:
+EXPLAIN shows index usage for a query. For example:
 
 ```sql
 EXPLAIN SELECT * FROM users WHERE email = 'test@gmail.com';
@@ -524,11 +413,10 @@ EXPLAIN SELECT * FROM users WHERE email = 'test@gmail.com';
 
 ![Screenshot-2021-03-19-at-11.29.00-1000x108.png](images%2FScreenshot-2021-03-19-at-11.29.00-1000x108.png)
 
-Колонка key показывает используемый индекс. Колонка possible_keys показывает все индексы, которые могут быть
-использованы для этого запроса. Колонка rows показывает число записей, которые пришлось прочитать базе данных для
-выполнения этого запроса (в таблице всего 336 записей).
+The key column shows the used index. The possible_keys column shows indexes that could be used. The rows column shows
+how many records were read to execute the query (the table has 336 records).
 
-Как видим, в примере не используется ни один индекс. После создания индекса:
+In this example, no index is used. After creating an index:
 
 ```sql
 EXPLAIN SELECT * FROM users WHERE email = 'test@gmail.com';
@@ -536,153 +424,99 @@ EXPLAIN SELECT * FROM users WHERE email = 'test@gmail.com';
 
 ![Screenshot-2021-03-19-at-11.34.22-1000x92.png](images%2FScreenshot-2021-03-19-at-11.34.22-1000x92.png)
 
-Прочитана всего одна запись, так как был использован индекс.
+Only one row is read because the index is used.
 
 #### Overhead
 
-Важно помнить, что индексы предполагают дополнительные операции записи на диск. При каждом обновлении или добавлении
-данных в таблицу, происходит также запись и обновление данных в индексе.
+Indexes require extra disk writes. Every insert or update also updates the index.
 
-Создавайте только необходимые индексы, чтобы не расходовать зря ресурсы сервера. Контролируйте размеры индексов для
-Ваших таблиц:
+Create only the necessary indexes to avoid wasting resources. Monitor index sizes:
 
 ```sql
-show table status;
+SHOW TABLE STATUS;
 ```
 
-#### Когда создавать индексы?
+#### When to create indexes?
 
-- Индексы следует создавать по мере обнаружения медленных запросов. В этом поможет slow log в MySQL. Запросы, которые
-  выполняются более 1 секунды, являются первыми кандидатами на оптимизацию.
-- Начинайте создание индексов с самых частых запросов. Запрос, выполняющийся секунду, но 1000 раз в день наносит больше
-  ущерба, чем 10-секундный запрос, который выполняется несколько раз в день.
-- Не создавайте индексы на таблицах, число записей в которых меньше нескольких тысяч. Для таких размеров выигрыш от
-  использования индекса будет почти незаметен.
-- Не создавайте индексы заранее, например, в среде разработки. Индексы должны устанавливаться исключительно под форму и
-  тип нагрузки работающей системы.
-- Удаляйте неиспользуемые индексы.
+- Create indexes after you discover slow queries. Use MySQL slow query log. Queries slower than 1 second are candidates.
+- Start with the most frequent queries. A 1-second query executed 1000 times a day is worse than a 10-second query
+  executed a few times.
+- Do not create indexes on tables with only a few thousand rows. The benefit is minimal.
+- Do not create indexes ahead of time in development. Indexes should match real production load patterns.
+- Remove unused indexes.
 
-Выделяйте достаточно времени на анализ и организацию индексов в MySQL (и других базах данных). На это может уйти намного
-больше времени,
-чем на проектирование структуры базы данных. Удобно будет организовать тестовую среду с копией реальных данных и
-проверять там разные
-структуры индексов.
+Spend enough time analyzing and designing indexes in MySQL (and other databases). It can take longer than schema
+planning. A test environment with real data helps validate index choices.
 
-Не создавайте индексы на каждую колонку, которая есть в запросе, MySQL так не работает. Используйте уникальные индексы,
-где необходимо.
-Всегда устанавливайте первичные ключи.
+Do not add an index for every column in a query. MySQL does not work that way. Use unique indexes when needed.
+Always define primary keys.
 
-#### Ряд недостатков при использовании индексов:
+#### Drawbacks of indexes
 
-Если же индексы дают такой прирост во время выполнения запросов, так почему бы не определять индексы на все колонки
-таблицы?
+If indexes improve query performance, why not index every column?
 
-- В процессе индексирования колонок MySql таблицы создаются дополнительные таблицы, в которых хранятся отсортированные
-  данные. И такие данные занимают некий объем физической памяти.
-- При выполнении ряда запросов наличие индексов может играть совершенно противоположную роль и увеличивать время
-  выполнения запроса.
-- При наличии индекса в таблице, INSERT запрос выполняется дольше чем в таблице, которая не содержит индексов.
-- Использование индексов может оказывать и негатив при выполнении запроса с использованием выражения LIKE в условии
-  WHERE. Например использование выражения LIKE по индексированному полю не даст ни какого прироста в скорости
-  выполнения.
+- Indexing creates additional tables with sorted data and consumes disk space.
+- For some queries, indexes can increase execution time.
+- INSERT is slower on tables with indexes.
+- Indexes can hurt LIKE queries on indexed fields and provide no speedup.
 
-### Репликация [&uarr;](#Readme)
+### Replication [&uarr;](#databases)
 
-Само по себе, понятие репликации означает процесс синхронизации нескольких копий объекта. В нашем случае, таким объектом
-является сервер БД,
-а наибольшую ценность представляют собой сами данные. Если мы имеем два и более серверов, и любым возможным способом
-поддерживаем синхронизированный
-набор данных на них — мы реализовали репликацию системы. Даже ручной вариант с mysqldump -> mysql load — это также
-репликация.
+Replication is the process of synchronizing multiple copies of an object. In this case, the object is a database
+server, and the data is the most valuable part. If you maintain synchronized data across two or more servers, you have
+replication. Even a manual mysqldump -> mysql load is replication.
 
-Стоит понимать, что сама по себе репликация данных не имеет ценности, и является лишь инструментом решения следующих
-задач:
+Replication itself has no value without goals. It is a tool to solve problems:
 
-- `повышение производительности чтения данных`. С помощью репликации мы сможем поддерживать несколько копий сервера, и
-  распределять между ними нагрузку.
-- `повышение отказоустойчивости`. Репликация позволяет избавиться от единственной точки отказа, которой является
-  одиночный сервер БД. В случае аварии на основном сервере, есть возможность быстро переключить нагрузку на резервный.
-- `распространение данных`. В современную эпоху глобализации ваше приложение может обслуживать пользователей со всего
-  мира, и мы хотим, чтобы жители и Сиднея, и Хельсинки имели минимальную задержку доступа к нему.
-- `распределение нагрузки`. В случае, если БД обслуживает запросы разных типов (быстрые и легкие, медленные и тяжелые),
-  может иметь смысл развести эти запросы по разным серверам, для увеличения эффективности работы каждого типа.
-- `тестирование новых конфигураций`. С помощью репликации есть возможность проведения тестирования новых версий сервера
-  БД, изменения параметров конфигурации, и даже изменения типов хранилища данных.
-- `резервное копирование`. С помощью репликации есть возможность делать механизмы резервного копирования более гибкими и
-  вносить меньше негативных эффектов в работающую систему.
+- improved read performance: keep multiple copies and distribute reads.
+- higher fault tolerance: remove the single point of failure; fail over to a replica.
+- data distribution: global users (Sydney, Helsinki) should have low latency.
+- load distribution: separate fast/light and slow/heavy queries across servers.
+- testing new configurations: test DB versions, config changes, or storage engines.
+- backups: make backup workflows more flexible with less impact on production.
 
-#### Как MySQL реплицирует данные
+#### How MySQL replicates data
 
-Процесс репликации подразумевает собой распространение изменений данных с `главного сервера` (обычно он называется как
-`мастер, master`),
-на один или более подчиненных серверов (`слейв, slave`). Существуют и более сложные конфигурации, в частности с
-несколькими мастер-серверами,
-но для каждого изменения на конкретном мастер-сервере остальные мастера условно становятся слейвами, и потребляют эти
-изменения.
+Replication propagates changes from a primary server (master) to one or more replicas (slaves). There are more complex
+setups, including multiple masters, but for each change from a given master, other masters effectively act as slaves.
 
-В общем виде, репликация в MySQL состоит из трех шагов:
+In general, MySQL replication has three steps:
 
-- `Мастер-сервер` записывает изменения данных в журнал. Этот журнал называется двоичным журналом (binary log), а
-  изменения — событиями двоичного журнала.
-- `Слейв` копирует изменения двоичного журнала в свой, который называется журналом ретрансляции (relay log).
-- `Слейв` воспроизводит изменения из журнала ретрансляции, применяя их к собственным данным.
+- The master writes data changes to a binary log (events).
+- The slave copies those events into its relay log.
+- The slave replays relay log events and applies them locally.
 
-#### Виды репликации
+#### Types of replication
 
-Существует два принципиально разных подхода к репликации: `покомандная` и `построчная`. В случае `покомандной`
-репликации, в журнал мастера
-протоколируются запросы изменения данных (INSERT, UPDATE, DELETE), а слейвы в точности воспроизводят те же команды у
-себя.
-При построчной же репликации в журнале окажутся непосредственно изменения строк в таблицах, и эти же фактические
-изменения применятся затем на слейве.
+There are two main approaches: statement-based and row-based.
 
-Как нет серебряной пули, так и каждый из этих методов имеет свои преимущества и недостатки. Покомандная репликация проще
-в реализации
-и понимании, снижает нагрузку на мастер и на сеть. Но тем не менее, покомандная репликация может приводить к
-непредсказуемым эффектам,
-при использовании недетерминированных функций, таких как NOW(), RAND(), и т.д. Могут быть также проблемы, вызванные
-рассинхронизацией
-данных между мастером и слейвом. Построчная же репликация приводит к более прогнозируемым результатам, так как
-фиксируются и воспроизводятся
-фактические изменения данных. Тем не менее этот метод может значительно увеличивать нагрузку на мастер-сервер, которому
-приходится фиксировать
-каждое изменение в журнале, и на сеть, через которую эти изменения распространяются.
+In statement-based replication, the master logs data-changing queries (INSERT, UPDATE, DELETE), and slaves execute the
+same commands. In row-based replication, the log stores actual row changes, and those changes are applied on the slave.
 
-В MySQL поддерживаются оба способа репликации, а дефолтный (можно сказать, что и рекомендуемый) изменялся в зависимости
-от версии. В современных
-версиях, например MySQL 8, по умолчанию используется построчная репликация.
+Both have pros and cons. Statement-based replication is simpler and lighter on the master and network, but it can cause
+unpredictable results with nondeterministic functions like NOW() or RAND(). It can also lead to master-slave
+desynchronization. Row-based replication produces more predictable results but can increase load because every row
+change must be logged and transferred.
 
-`Второй принцип разделения` подходов к репликации — `количество мастер-серверов`. Наличие одного мастер сервера
-подразумевает, что только он
-принимает изменения данных, и является неким эталоном, с которого уже распространяются изменения на множество слейвов. В
-случае же с
-мастер-мастер репликацией мы получаем как и некоторый профит, так и проблемы. Один из плюсов, например, то, что мы можем
-давать удаленным
-клиентам из тех же Сиднея и Хельсинки одинаково быструю возможность записывать свои изменения в базу. Из этого исходит и
-главный недостаток,
-если оба клиента одновременно изменили одни и те же данные, чьи изменения считать окончательными, чью транзакцию
-коммитить, а чью откатывать.
+MySQL supports both methods. The default has changed across versions. In modern MySQL (for example 8), row-based
+replication is the default.
 
-Также, стоит отметить, что наличие мастер-мастер репликации в общем случае не может увеличить производительность записи
-данных в системе.
-Представим, что наш единственный мастер может обрабатывать до 1000 запросов в единицу времени. Добавив к нему
-реплицируемый второй мастер,
-мы не сможем обрабатывать по 1000 запросов на каждом из них, так как кроме обработки “своих” запросов, им придется
-применять изменения,
-сделанные на втором мастере. Что в случае покомандной репликации сделает суммарно возможную нагрузку на оба не больше,
-чем на самый слабый из них,
-а с построчной репликацией эффект не совсем предсказуемый, может быть как положительный, так и отрицательный, в
-зависимости от конкретных условий.
+A second axis is the number of masters. With a single master, only that server accepts writes and acts as the source
+for replicas. With master-master replication, you can accept writes in multiple locations (for example in Sydney and
+Helsinki), but conflicts arise if both clients modify the same data. Which transaction wins, and which is rolled back?
 
-### Партиционирование [&uarr;](#Readme)
+Master-master replication does not increase write throughput in general. If a master handles 1000 requests per unit of
+time, adding a second master does not double capacity, because each master must also apply changes from the other.
+With statement-based replication, the total capacity is limited by the slowest master. With row-based replication, the
+effect can be positive or negative depending on workload.
 
-Иногда встречаются таблицы с некоторой логической группировкой данных, например, список покупок пользователя или лог
-действий можно сгруппировать по дате.
-И когда большинство запросов работает с группами (например интересует только статистика за год), тогда есть смысл
-хранить данные разбитые на группы
-непосредственно в БД. Процесс разделения данных и хранение их в виде некоторых групп и называется партиционированием.
+### Partitioning [&uarr;](#databases)
 
-Рассмотрим на примере таблицы:
+Some tables can be grouped logically, for example purchase logs by date. If most queries work with groups (for example
+statistics for a year), it makes sense to store data as partitions. The process of splitting data into groups and
+storing them as partitions is called partitioning.
+
+Example table:
 
 ```sql
     CREATE TABLE employees (
@@ -696,11 +530,11 @@ show table status;
     )
 ```
 
-4 типа партиционирования:
+Four partitioning types:
 
-1. По диапазону
+1. Range
 
-Каждая партиция содержит данные принадлежащие указанному диапазону значений колонки.
+Each partition contains data within a value range.
 
 ```sql
     PARTITION BY RANGE (store_id) (
@@ -711,11 +545,11 @@ show table status;
     );
 ```
 
-В партицию p0 попадут все строки в которых store_id<6.
+Partition p0 will contain rows where store_id < 6.
 
-2. По списку значений
+2. List
 
-Каждая партиция содержит данные содержащие определенное значение в колонке.
+Each partition contains rows with specific values.
 
 ```sql
     PARTITION BY LIST(store_id) (
@@ -726,154 +560,110 @@ show table status;
     );
 ```
 
-Например в партицию pNorth попадут все строки в которых store_id=3, 5, 6, 9, 17.
+Partition pNorth will contain rows where store_id is 3, 5, 6, 9, or 17.
 
-3. По хешу
+3. Hash
 
-Таблица разбивается по хешу значения некоторой колонки.
+The table is partitioned by hashing a column value.
 
-4. По ключу
+4. Key
 
-Аналогично предыдущему методу, но по ключу.
+Similar to hash, but based on a key.
 
-Последние два метода не дают возможности указать в какую из партиций попадет строка, а только количество партиций,
-механизм распределения MySQL берет на себя.
+The last two methods do not let you choose a specific partition for a row; you only specify the number of partitions
+and MySQL handles distribution.
 
-Партиции можно разбивать на подпартиции, которые можно дальше партиционировать и т.д.
+Partitions can be split into sub-partitions, which can be further partitioned.
 
-При этом при составлении запроса не нужно думать где и в каком виде хранятся данные, просто пишем запрос к таблице
-employees, а MySQL определит для каких партиций его нужно выполнить.
+When writing queries, you do not need to know where data is stored. You just query the table (employees) and MySQL
+chooses the relevant partitions.
 
-В реальной жизни партиции используются не часто, так как в большинстве случаев индекса достаточно, но все же нужно
-помнить о их существовании.
+In practice, partitions are used rarely because indexes are usually enough, but it is useful to know they exist.
 
-### Шардирование [&uarr;](#Readme)
+### Sharding [&uarr;](#databases)
 
-`Шардинг` - развитие партиционирования - разбиение данных на группы и хранение каждой группы на отдельном сервере (
-шарде).
-В данном случае группа не обязательно включает одну таблицу, это может быть несколько таблиц содержащих одно целое.
-Например, имея много
-зарегистрированных пользователей, данные которых лежат в нескольких таблицах (регистрационные данные, история покупок,
-лог действий),
-на каждой шарде будет храниться полная инфраструктура (все таблицы), но с данными только пользователей текущей шарды (
-например одна
-шарда - пользователи с фамилиями от А до Д, вторая Д-К и т.д).
+Sharding is an evolution of partitioning: split data into groups and store each group on a separate server (shard).
+A shard can include multiple tables that belong together. For example, with many registered users whose data is stored
+in multiple tables (registration, purchase history, activity log), each shard holds the full schema but only a subset
+of users (for example, last names A-D, then D-K, etc.).
 
-MySQL не поддерживает автоматического шардинга, поэтому его приходиться делать на уровне приложения, выбирая в
-зависимости от запроса нужный сервер.
-Обычно создается параметризованный пул серверов (в примере выше таким параметром была бы первая буква фамилии) и при
-выполнении каждого запроса,
-по этому параметру выбирается нужный сервер.
+MySQL does not support automatic sharding, so it must be handled at the application level by routing each request to a
+specific server. Typically you create a parameterized pool of servers (for example, first letter of last name) and
+select the server for each request based on that parameter.
 
-Шардинг это последняя мера масштабирования (когда репликация уже не спасает), не только из-за сложности реализации, но и
-из-за усложнения работы с данными.
-Так как работа с шардами происходит на уровне приложения, мы автоматически отказываемся от триггеров, хранимых процедур
-и прочих встроенных в БД плюшек
-которые должны работать со всеми данными, так как на уровне БД каждой шарды существует только ее набор данных и она
-ничего не знает о других.
+Sharding is a last-resort scaling technique (when replication is not enough). It is complex to implement and makes
+working with data harder. Because sharding happens at the application layer, you lose triggers, stored procedures, and
+other database features that require a global view of data. Each shard only knows its own data.
 
-Поэтому перед тем как внедрять MySQL шардинг, нужно очень хорошо подумать и быть точно уверенным что другого пути нету.
+Before adopting MySQL sharding, think carefully and be sure there is no other option.
 
-### Теорема-CAP [&uarr;](#Readme)
+### CAP Theorem [&uarr;](#databases)
 
-Теорема CAP (известная также как теорема Брюера) — эвристическое утверждение о том, что в любой реализации
-распределённых вычислений возможно обеспечить не более двух из трёх следующих свойств:
+The CAP theorem (also known as Brewer's theorem) states that in any distributed system you can guarantee only two of
+three properties at the same time:
 
-- `согласованность данных (англ. consistency)` — во всех вычислительных узлах в один момент времени данные не
-  противоречат друг другу;
-- `доступность (англ. availability)` — любой запрос к распределённой системе завершается корректным откликом, однако без
-  гарантии, что ответы всех узлов системы совпадают;
-- `устойчивость к разделению (англ. partition tolerance)` — расщепление распределённой системы на несколько
-  изолированных секций не приводит к некорректности отклика от каждой из секций.
+- consistency: data in all nodes is the same at a given time;
+- availability: every request receives a response, but responses across nodes may not match;
+- partition tolerance: the system continues to operate despite network partitions.
 
-CAP – это акроним от англоязычных слов Consistency (Согласованность, Целостность), Availability (Доступность) и
-Partition tolerance (Устойчивость к разделению).
-Согласно утверждению профессора Калифорнийского университета в Беркли, Эрика Брюера, сделанному в 2000-м году, в
-распределенных системах осуществимы лишь
-2 свойства из указанных 3-х. В частности, считается что нереляционные базы данных жертвуют согласованностью данных в
-пользу доступности и устойчивости к
-разделению, когда расщепление распределённой системы на несколько изолированных частей сохраняет корректный отклик от
-каждой из них.
+CAP is an acronym for Consistency, Availability, and Partition tolerance. According to Eric Brewer (UC Berkeley, 2000),
+distributed systems can only provide two of the three properties. Non-relational databases are often said to sacrifice
+consistency in favor of availability and partition tolerance.
 
-Классы NoSQL-СУБД с точки зрения CAP-теоремы и их значимость для Big Data:
+NoSQL classes under CAP and their relevance to Big Data:
 
-- `CA (Availability + Consistency — Parition tolerance)`, когда данные во всех узлах кластера согласованы и доступны, но
-  не устойчивы к разделению. Это означает, что реплики одной и той же информации, распределенные по разным серверам друг
-  другу, не противоречат друг другу и любой запрос к распределённой системе завершается корректным откликом. Такие
-  системы возможны при поддержке ACID-требований к транзакциям (Атомарность, Согласованность, Изоляция, Долговечность) и
-  абсолютной надежности сети. На практике таких решений на основе кластерных систем управления базами данных почти не
-  существует. Классическим примером CA-системы называют распределённую службу каталогов LDAP, а также реляционные базы
-  данных (`PostgreSQL, MySQL, MariaDB, MS SQL Server`).
-- `CP-система (Consistency + Partition tolerance — Availability)` в каждый момент обеспечивает целостность данных и
-  способна работать в условиях распада в ущерб доступности, не выдавая отклик на запрос. Устойчивость к разделению
-  требует дублирования изменений во всех узлах системы, что реализуется с помощью распределённых пессимистических
-  блокировок для сохранения целостности. По сути, CP – это система с несколькими синхронно обновляемыми мастер-базами.
-  Она всегда корректна, отрабатывая транзакцию, только в том случае, если изменения удалось распространить по всем
-  серверам. Она продолжает корректно читать данные даже при отказе одного из узлов кластера. Но в этом случае запись
-  будет обрываться или сильно задерживаться, пока система не убедится в своей целостности и согласованности (
-  консистентности). Из NoSQL-СУБД к CP-системам принято относить
-  `Apache HBase, MongoDB, Redis, MemcasheDB, Berkley DB, HyperTable и Google Big Table`.
-- `AP-система (Availability + Partition tolerance — Consistency)` не гарантирует целостность данных, обеспечивая их
-  доступность и устойчивость к разделению, например, как в распределённых веб-кэшах и DNS. Считается, что большинство
-  NoSQL-СУБД относятся к этому классу систем, обеспечивая лишь некоторой уровень согласованности данных в конечном
-  счете (eventually consistent). Таким образом, AP-система может быть представлена кластером из нескольких узлов, каждый
-  из которых может принимать данные, но не обязуется в тот же момент распространять их на другие сервера. Такая система
-  отлично справляется с отказами нескольких узлов, но, когда они снова начинают работать, возможна выдача пользователям
-  старых данных. К AP-системам относят `CoucheDB, Cassandra, Riak, Amazon DynamoDB`.
+- CA (Availability + Consistency - Partition tolerance): data is consistent and available but not tolerant to
+  partitions. These systems can exist only with strict ACID guarantees and highly reliable networks. In practice, this
+  is rare. Classic examples include LDAP directory services and relational databases (PostgreSQL, MySQL, MariaDB,
+  MS SQL Server).
+- CP (Consistency + Partition tolerance - Availability): ensures consistency and partition tolerance, sacrificing
+  availability. It uses distributed pessimistic locks and requires synchronous replication of changes. It behaves like
+  multiple synchronized masters. It reads consistently even if a node fails, but writes may stall until consistency is
+  restored. Examples: Apache HBase, MongoDB, Redis, MemcacheDB, Berkeley DB, Hypertable, Google Bigtable.
+- AP (Availability + Partition tolerance - Consistency): ensures availability and partition tolerance but not strict
+  consistency (eventual consistency). An AP system can accept writes on any node without immediately propagating them.
+  It handles node failures well, but may return stale data when nodes recover. Examples: CouchDB, Cassandra, Riak,
+  Amazon DynamoDB.
 
 ![cap_1.png](images%2Fcap_1.png)
 
-
 ==============================================================================================================================
 ==============================================================================================================================
+# NoSQL Databases [&uarr;](#databases)
 
-# NoSQL Databases [&uarr;](#Readme)
+NoSQL databases are designed for specific data models and use flexible schemas, which makes it easier to build modern
+applications. They became popular because of simpler development, functionality, and performance at any scale.
 
-Базы данных NoSQL специально созданы для определенных моделей данных и обладают гибкими схемами, что позволяет
-разрабатывать современные приложения.
-Базы данных NoSQL получили широкое распространение в связи с простотой разработки, функциональностью и
-производительностью при любых масштабах.
+These databases are optimized for applications that work with large volumes of data, need low latency, and use flexible
+models. This is achieved by relaxing strict consistency requirements that are typical for other database types.
 
-Базы данных таких типов оптимизированы для приложений, которые работают с большим объемом данных, нуждаются в низкой
-задержке и гибких моделях данных.
-Все это достигается путем смягчения жестких требований к непротиворечивости данных, характерных для других типов БД.
+Consider a simple book database model:
 
-Рассмотрим пример моделирования схемы для простой базы данных книг.
+- In a relational database, a book record is often split into multiple parts (normalized) and stored in separate
+  tables with relationships defined by primary and foreign keys. For example, the Books table may have ISBN, Title, and
+  Edition Number, the Authors table has Author ID and Author Name, and the Author-ISBN table has Author and ISBN.
+  This model preserves referential integrity. Data is normalized to reduce redundancy and optimized for storage.
+- In a NoSQL database, a book record is typically stored as a JSON document. For each book, values like ISBN, title,
+  edition number, author name, and author ID are stored as attributes in a single document. This model is optimized for
+  intuitive development and horizontal scalability.
 
-- В `реляционной базе данных` запись о книге часто разделяется на несколько частей (или «нормализуется») и хранится в
-  отдельных таблицах, отношения между которыми определяются ограничениями первичных и внешних ключей. В этом примере в
-  таблице «Книги» имеются столбцы «ISBN», «Название книги» и «Номер издания», в таблице «Авторы» – столбцы «ИД автора» и
-  «Имя автора», а в таблице «Автор–ISBN» – столбцы «Автор» и «ISBN». Реляционная модель создана таким образом, чтобы
-  обеспечить целостность ссылочных данных между таблицами в базе данных. Данные нормализованы для снижения избыточности
-  и в целом оптимизированы для хранения.
-- В `базе данных NoSQL` запись о книге обычно хранится как документ JSON. Для каждой книги, или элемента, значения
-  «ISBN», «Название книги», «Номер издания», «Имя автора и «ИД автора» хранятся в качестве атрибутов в едином документе.
-  В такой модели данные оптимизированы для интуитивно понятной разработки и горизонтальной масштабируемости.
+NoSQL databases are a good fit for many modern applications, such as mobile, gaming, and web apps, where flexible
+scalable databases with high performance and rich functionality are required.
 
-Базы данных NoSQL хорошо подходят для многих современных приложений, например мобильных, игровых, интернет‑приложений,
-когда требуются гибкие масштабируемые базы данных с высокой производительностью и широкими функциональными
-возможностями, способные обеспечивать максимальное удобство использования.
+- Flexibility. NoSQL databases usually provide flexible schemas, which speeds up development and supports incremental
+  delivery. Flexible data models fit semi-structured and unstructured data well.
+- Scalability. NoSQL databases scale using distributed hardware clusters instead of expensive, highly reliable servers.
+  Some cloud providers handle this automatically as a managed service.
+- High performance. NoSQL databases are optimized for specific data models and access patterns, often outperforming
+  relational databases for those workloads.
+- Rich functionality. NoSQL databases provide APIs and data types designed for their specific models.
 
-- `Гибкость`. Как правило, базы данных NoSQL предлагают гибкие схемы, что позволяет осуществлять разработку быстрее и
-  обеспечивает возможность поэтапной реализации. Благодаря использованию гибких моделей данных БД NoSQL хорошо подходят
-  для частично структурированных и неструктурированных данных.
-- `Масштабируемость`. Базы данных NoSQL рассчитаны на масштабирование с использованием распределенных кластеров
-  аппаратного обеспечения, а не путем добавления дорогих надежных серверов. Некоторые поставщики облачных услуг проводят
-  эти операции в фоновом режиме, обеспечивая полностью управляемый сервис.
-- `Высокая производительность`. Базы данных NoSQL оптимизированы для конкретных моделей данных и шаблонов доступа, что
-  позволяет достичь более высокой производительности по сравнению с реляционными базами данных.
-- `Широкие функциональные возможности`. Базы данных NoSQL предоставляют API и типы данных с широкой функциональностью,
-  которые специально разработаны для соответствующих моделей данных.
+## Document DBs [&uarr;](#databases)
 
-## Document DBs [&uarr;](#Readme)
+A document (document-oriented) database is a non-relational DBMS that stores data not in rows and columns, but as JSON
+documents. JSON is the native format used for storage and queries. Documents can be grouped into collections.
 
-`Документная (или документоориентированная)` база данных – это тип нереляционных СУБД, который хранит данные не в
-столбцах и строках, а в
-виде документов JSON. JSON является нативным языком, используемым для хранения и запросов данных. Такие документы можно
-сгруппировать в коллекции,
-которые образуют системы баз данных.
-
-Каждый документ состоит из нескольких пар «ключ-значение». Ниже приведен пример документа из 4 пар «ключ-значение»:
+Each document consists of key-value pairs. Example:
 
     {
         "ID" : "001",
@@ -882,373 +672,275 @@ Partition tolerance (Устойчивость к разделению).
         "Author" : "Herbert Schildt",
     }
 
-JSON позволяет разработчикам приложений хранить и запрашивать данные в том же формате документной модели, который
-используется ими для структурирования
-кода приложений. Объектную модель можно преобразовать в такие форматы, как JSON, BSON и XML.
+JSON allows developers to store and query data in the same model they use in application code. The object model can be
+serialized into JSON, BSON, or XML.
 
-#### Сравнение реляционной и документной базы данных
+#### Relational vs document databases
 
-Реляционная система управления базами данных (РСУБД) основана на языке структурированных запросов (SQL). Для
-нереляционных баз они не нужны.
+Relational database management systems (RDBMS) are based on SQL. Non-relational databases do not require SQL.
 
-РСУБД занимается созданием связей между файлами для хранения и считывания данных. Документные базы данных ориентированы
-на сами данные,
-а связи между ними представлены в виде вложенных данных.
+RDBMS builds relationships between tables for storage and reading. Document databases focus on the data itself, and
+relationships are represented as nested data.
 
-Ключевое сравнение реляционных и документных баз данных:
+Key comparison:
 
 ![Screenshot from 2023-03-19 14-30-12.png](images%2FScreenshot%20from%202023-03-19%2014-30-12.png)
 
-#### Особенности документной базы данных
+#### Document database characteristics
 
-Документные базы данных обеспечивают быстрые запросы, структуру, которая отлично подходит для обработки больших данных,
-гибкое индексирование
-и упрощенный принцип поддержания баз данных. Такая СУБД эффективна для веб-приложений и была полностью интегрирована
-крупными ИТ-компаниями уровня Amazon.
+Document databases provide fast queries, a structure well-suited for big data, flexible indexing, and simpler
+maintenance. They are efficient for web apps and were fully adopted by large IT companies such as Amazon.
 
-Несмотря на то, что базы данных SQL могут похвастаться отличной стабильность и вертикальной структурой, им свойственна
-«тяжеловесность» данных.
-В сценариях использования, когда требуется моментальный доступ к данным (например, медицинские приложения), лучше
-выбирать документные базы данных.
-Так вы сможете легко запрашивать данные в той же модели документа, в которой писался код приложения.
+Although SQL databases offer strong stability and a vertical structure, they tend to be heavy. When instant access is
+required (for example, medical apps), document databases are often a better choice. You can query data in the same
+document model as your app code.
 
-Примеры использования документной базы данных
+Examples of document database use cases:
 
-`База данных «Книга»`
+`Book database`
 
-Для создания баз данных «Книга» используются как реляционные, так и нереляционные СУБД, хотя и по-разному.
+Both relational and non-relational DBMS can model a book database, but in different ways.
 
-В реляционных СУБД связи между книгами и авторами выражаются через таблицы с идентификаторами ID: таблица Author (Автор)
-и таблица Books (Книги). Данная модель
-не допускает пустых значений, поэтому за каждым «Автором» должна быть закреплена как минимум одна запись в таблице
-«Книги».
+In an RDBMS, relationships between books and authors are expressed via tables with ID keys: Author and Books. This model
+allows no empty values, so each Author must have at least one Books record.
 
-В документной модели вы можете вкладывать данные. Такая модель показывает взаимосвязи проще и естественнее: в каждом
-документе с авторами есть свойство
-Books с массивом связанных документов «Книги». При поиске по автору отображается вся коллекция книг.
+In the document model, you can embed data. It is simpler and more natural: each author document can have a Books
+property with an array of related book documents. When you query by author, you get the whole collection of books.
 
-`Управление содержимым`
+`Content management`
 
-Разработчики пользуются документными базами данных для создания блогов, платформ с потоковыми видео и аналогичных
-сервисов. Каждый файл
-сохраняется в виде отдельного документа, и со временем, по мере разрастания сервиса, такую базу легче поддерживать. На
-значимые изменения
-в данных (как, например, изменения модели данных) не требуется простоя, поскольку им не нужно обновление схемы.
+Developers use document databases for blogs, video streaming platforms, and similar services. Each file is stored as a
+separate document, and as the service grows, the database is easier to maintain. Significant data changes (like schema
+changes) do not require downtime because no schema migration is needed.
 
-`Каталоги`
+`Catalogs`
 
-Когда дело касается хранения и чтения файлов каталога, документные базы данных оказываются в разы эффективнее
-реляционных СУБД. В каталогах могут
-храниться тысячи атрибутов, а документная база данных обеспечивает их быстрое считывание. В документных базах данных
-атрибуты, связанные с одним продуктом,
-хранятся в одном документе. Изменение атрибутов в одном из продуктов не влияет на другие документы.
+For catalog file storage and reading, document databases are far more efficient than RDBMS. Catalogs may contain
+thousands of attributes, and a document DB can fetch them quickly. In document databases, attributes of one product are
+stored in a single document. Updating attributes for one product does not affect other documents.
 
-#### Плюсы и минусы документной базы данных
+#### Pros and cons of document databases
 
-Плюсы:
+Pros:
 
-- `Отсутствие схемы`. Нет ограничений по формату и структуре хранилищ данных. Это хорошо для сохранения существующих
-  данных в больших объемах и разных структурных состояниях, особенно в непрерывно преобразующихся системах.
-- `Быстрое создание и обслуживание`. Как только вы создали документ, ему требуется лишь минимальная поддержка – она
-  может оказаться не сложнее разового добавления вашего сложного объекта.
-- `Отсутствие внешних ключей`. Когда эта динамика связей отсутствует, документы становятся независимыми друг от друга.
-- `Открытые форматы`. Чистый процесс сборки, в котором для описания документов используется XML, JSON и другие
-  производные.
-- `Встроенное управление версиями`. По мере того, как увеличивает размер ваших документов, повышается и их сложность.
-  Управление версиями уменьшает количество конфликтов.
+- No schema. There are no strict format restrictions. This is great for large volumes and evolving data structures.
+- Fast creation and maintenance. Once a document is created, it requires minimal upkeep.
+- No foreign keys. Without cross-table constraints, documents remain independent.
+- Open formats. Documents are described using XML, JSON, and similar formats.
+- Built-in versioning. As documents grow, versioning helps reduce conflicts.
 
-Минусы:
+Cons:
 
-- `Ограничения по проверке на согласованность`. В примере с базой данных «Книга» можно искать книги по несуществующему
-  автору. При поиске по коллекциям книг вы можете находить документы, не связанные с коллекцией авторов. Кроме того, в
-  каждом списке для каждой книги может дублироваться информация об авторе. В некоторых случаях такая несогласованность
-  не особо важна. Но при более высоких стандартах непротиворечивости РСУБД несогласованность серьезно снижает
-  производительность баз данных.
-- `Проблемы с атомарностью`. Реляционные системы позволяют изменять данные из одного места без использования JOIN. Все
-  новые запросы на чтение унаследуют изменения, внесенные в данные по одной команде (например, обновление или удаление
-  строки). Для документных баз данных изменение, затрагивающее 2 коллекции, выполняется через 2 отдельных запроса (по
-  одному на коллекцию). Это нарушает требования к атомарности.
-- `Безопасность`. Почти в половине современных веб-приложений отмечается активная утечка конфиденциальных данных.
-  Поэтому владельцам нереляционных баз данных следует быть крайне внимательными к уязвимостям веб-приложения.
+- Consistency checks are limited. In the book database example, you can query books by a non-existent author. When
+  querying book collections, you can find documents not linked to author collections. Author data can also be duplicated
+  in multiple documents. For stricter consistency requirements, such inconsistency can hurt performance.
+- Atomicity issues. Relational systems can update data in one place without JOINs. Document databases often require two
+  separate requests when a change affects two collections, which breaks atomicity guarantees.
+- Security. Many modern web apps leak sensitive data. Owners of non-relational databases must pay close attention to
+  application vulnerabilities.
 
-#### Как выбрать?
+#### How to choose?
 
-- Вы будете больше читать или записывать? В случае, если вы чаще записываете данные, лучше подойдут реляционные системы,
-  поскольку они позволяют избегать задвоений при обновлениях.
-- Насколько важна синхронизация? Благодаря стандартам ACID, реляционные системы справляются с этой задачей лучше.
-- Насколько сильно потребуется изменять вашу схему базы данных в будущем? Документные БД – это беспроигрышный вариант,
-  если вы работаете с разнообразными данными в масштабе и ищете минимальной поддержки.
+- Do you read more or write more? If you write more, relational systems can reduce duplication during updates.
+- How important is synchronization? ACID standards give relational systems an advantage.
+- How likely is your schema to change? Document DBs are a safe choice when you deal with varied data at scale and want
+  minimal maintenance.
 
-### MongoDB [&uarr;](#Readme)
+### MongoDB [&uarr;](#databases)
 
-Особенности:
+Features:
 
-- `Кроссплатформенность`. СУБД разработана на языке программирования С++, поэтому с легкостью интегрируется под любую
-  операционную систему (Windows, Linux, MacOS и др.).
-- `Формат данных`. MongoDB использует собственный формат хранения информации — Binary JavaScript Object Notation (BSON),
-  который построен на основе языка JavaScript.
-- `Документ`. Если реляционные БД используют строки, то MongoDB — документы, которые хранят значения и ключи.
-- `Вместо таблиц MongoDB использует коллекции`. Они содержат разные типы наборов данных
-- `Репликация`. Система хранения информации в СУБД представлена узлами. Существует один главный и множество вторичных.
-  Данные реплицируются между точками. Если один первичный узел выходит из строя, то вторичный становится главным.
-- `Индексация`. Технология применяется к любому полю в документе на усмотрение пользователя. Проиндексированная
-  информация обрабатывается быстрее.
-- Для сохранения данных большого размера MongoDB использует собственную технологию `GridFS`, состоящую из двух
-  коллекций. В первой (files) содержатся имена файлов и метаданные по ним. Вторая (chunks) сохраняет сегменты
-  информации, размер которых не превышает 256 Кб.
-- `СУБД осуществляет поиск по специальным запросам`. Например, пользователь может создать диапазонный запрос и мгновенно
-  получить ответ.
-- `Балансировщик нагрузки` используется в СУБД не только для распределения нагрузки между разными базами данных, но и
-  для горизонтального масштабирования. Сегменты БД распределяются по разным узлам, что повышает производительность. При
-  этом базы данных, расположенные на разных узлах, синхронизированы между собой и обеспечивают целостность информации
-  для клиента.
-- `MongoDB` может поставляться для конечного клиента как облачное решение.
+- Cross-platform. Written in C++, so it runs on Windows, Linux, macOS, and others.
+- Data format. Uses its own Binary JavaScript Object Notation (BSON) format.
+- Documents. Instead of rows, MongoDB uses documents with keys and values.
+- Collections instead of tables. Each collection can store different sets of data.
+- Replication. Storage is represented by nodes. There is one primary and many secondaries. Data is replicated between
+  nodes. If the primary fails, a secondary becomes primary.
+- Indexing. Indexes can be created on any document field. Indexed data is processed faster.
+- Large data storage uses GridFS, which splits files into chunks. One collection stores file metadata, the other stores
+  chunks up to 256 KB.
+- Query support. Users can run range queries and get results quickly.
+- Load balancing is used not only for distributing load across databases but also for horizontal scaling. DB segments
+  are distributed across nodes, improving performance while keeping data synchronized.
+- MongoDB can be delivered to end users as a cloud solution.
 
-Как используется:
+How it is used:
 
-- СУБД используют для хранения событий в системе (логирование), записи информации с датчиков мониторинга на предприятии,
-  а также в сфере электронной коммерции и мобильных приложений. Часто MongoDB применяют как хранилище в сфере машинного
-  обучения и искусственного интеллекта.
-- Forbes сократил время компоновки на 58%, получив прирост в 28% по количеству подписок, за счет более быстрого создания
-  новых функций, более простого объединения и более качественной обработки разнообразных типов данных.
-- Toyota заметила, что разработчикам было проще работать с документными БД на больших скоростях за счет использования
-  нативных JSON-документов. Больше времени тратилось на создание ценности бизнеса, а не на моделирование данных.
+- MongoDB is used for system event storage (logging), sensor monitoring data, e-commerce, and mobile apps. It is often
+  used in machine learning and AI storage.
+- Forbes reduced build time by 58% and increased subscriptions by 28% by creating new features faster, enabling easier
+  joins, and handling diverse data types more efficiently.
+- Toyota found it easier to work with document DBs at high speed because of native JSON documents. More time went to
+  business value instead of data modeling.
 
-### CouchDB [&uarr;](#Readme)
+### CouchDB [&uarr;](#databases)
 
-CouchDB - это документно-ориентированная база данных с открытым исходным кодом, которая использует карты значений ключей
-для хранения полей документа.
+CouchDB is an open-source document database that uses key-value maps to store document fields.
 
-Особенности:
+Features:
 
-- в качестве единицы хранения информации используется JSON (JavaScript Object Notation) документ;
-- нет поддержки сопоставления данных отдельным полям документа, но доступно использование функций-валидаторов;
-- запросы и индексы обеспечиваются за счет функции представления;
-- доступно создание сегментированных баз данных с возможностью назначать индивидуальные правила распределения по
-  сегментам;
-- сегментирование может выполняться с использованием автоматического режима разделения;
-- есть автоматическое индексирование, выполняемое в фоне, для актуализации вторичных индексов.
-- графический интерфейс на базе браузера;
-- простейшие репликации;
-- аутентификация пользователя;
-- свойства ACID (Атомарность – Согласованность – Изолированность – Прочность).
+- JSON is the storage unit.
+- No field-level mapping, but validator functions are available.
+- Queries and indexes are provided via map views.
+- Partitioned databases with custom partitioning rules are supported.
+- Automatic sharding can be used.
+- Automatic background indexing keeps secondary indexes current.
+- Browser-based UI.
+- Simple replication.
+- User authentication.
+- ACID properties (Atomicity, Consistency, Isolation, Durability).
 
-Как используется:
+How it is used:
 
-- Meebo (соцсеть) пользуется CouchDB для веб-интерфейса и его приложений.
-- The BBC выбрал CouchDB за платформы динамического контента
+- Meebo (social network) used CouchDB for its web interface and apps.
+- The BBC chose CouchDB for dynamic content platforms.
 
-## Time Series [&uarr;](#Readme)
+## Time Series [&uarr;](#databases)
 
-Как видно из названия, базы данных временных рядов предназначены для хранения данных, которые изменяются со временем.
-Это могут быть абсолютно любые данные,
-собранные с течением времени. Это могут быть метрические показатели, собранные из некоторых систем – все системы трендов
-являются примерами данных временных рядов.
+As the name suggests, time series databases store data that changes over time. This can be any data collected over time,
+including metrics from various systems. Trend systems are typical time series data sources.
 
-Временные ряды не ограничиваются метрическими показателями базы данных. Метриками может быть что угодно – изменение
-потока людей, входящих в торговый центр, с течением
-времени, изменение трафика в городе, использование общественного транспорта в течение дня, течение воды в реке или
-ручье, количество энергии, вырабатываемое водной
-установкой – все это и все остальное, что можно измерить во времени, является примером временных рядов. Такие данные
-можно запросить, построить, проанализировать,
-чтобы найти корреляционную зависимость между различными метриками.
+Time series are not limited to database metrics. Metrics can be anything: the flow of people through a mall over time,
+traffic in a city, public transport usage during the day, river flow, energy production at a hydropower station. All of
+these are time series. You can query and analyze them to find correlations between metrics.
 
-#### Структура данных в базе данных временных рядов
+#### Data structure in time series databases
 
-Существует два основных способа хранения данных. Первый способ чем-то похож на хранилище «ключ-значение» и выглядит так:
+There are two main storage approaches. The first is similar to a key-value store:
 
 ![img.png](images%2Fimg.png)
 
-Проще говоря, для каждой метки времени имеется некоторое значение метрики.
+In simple terms, each timestamp has a metric value.
 
-Второй способ подразумевает хранения большего числа показателей. Вместо того, чтобы хранить каждую метрику в отдельной
-таблице или коллекции, их можно хранить вместе.
+The second approach stores more metrics together. Instead of storing each metric in a separate table or collection,
+they are stored together.
 
 ![img_1.png](images%2Fimg_1.png)
 
-Такая структура данных, когда все метрики связаны, позволяет более эффективно запрашивать данные. Вместо того, чтобы
-читать
-несколько таблиц и объединять их для получения всех метрик, достаточно прочитать лишь одну единственную таблицу, чтобы
-подготовить
-данные к обработке и представлению.
+This structure links metrics together and makes queries more efficient. Instead of reading multiple tables and joining
+results, you can read a single table to prepare data for processing and presentation.
 
-У вас может возникнуть вопрос – что же здесь нового? Чем эта база данных отличается от обычной таблицы в MySQL или в
-любой другой
-реляционной базе данных? Да, действительно, конструкция таблиц очень похожа. Однако есть существенные различия в рабочей
-нагрузке,
-которые могут существенно повысить производительность, если хранилище данных предназначено для использования такого рода
-таблиц.
+You might wonder what is new here. How is this different from a regular MySQL table or any other relational database?
+The table structure looks similar, but the workload differs significantly. Performance can improve when the storage is
+optimized for this type of data.
 
-Временные ряды, как правило, только растут. Маловероятно, что вы будете обновлять старые данные. Чаще всего строки в
-таблице не
-удаляются, однако вам может понадобиться какая-то агрегация данных с течением времени. Если принять это при
-проектировании
-внутреннего устройства базы данных, то этот факт будет иметь существенное расхождение в сравнении со «стандартными»
-реляционными
-(и не реляционными) базами данных, предназначенными для обработки транзакций в режиме реального времени. Что здесь
-является
-наиболее важным, так это способность последовательно хранить большие объемы данных, поступающих со временем.
+Time series usually only grow. You rarely update old data. Rows are usually not deleted, but you may need to aggregate
+metrics over time. If you consider this in storage design, it differs from standard transactional databases. The key
+requirement is the ability to append large volumes of data sequentially over time.
 
-Можно, конечно, использовать РСУБД для хранения временных рядов, но она не оптимизирована для этого. Данные и индексы,
-сгенерированные на ее основе,
-могут стать слишком большими, и запросы будут проходить очень медленно. Механизмы хранения данных, используемые в СУБД,
-предназначены для хранения различных
-типов данных. Обычно они оптимизированы для рабочей нагрузки обработки транзакций в режиме реального времени, которая
-включает в себя частое изменение
-и удаление данных. В реляционных базах данных также часто отсутствуют специализированные функции и функции,
-предназначенные для обработки временных рядов.
+You can use an RDBMS for time series storage, but it is not optimized for it. Data and indexes can grow too large and
+queries become slow. Storage engines are designed for mixed data types and transactional workloads, which involve
+frequent updates and deletes. Relational databases often lack specialized time series functions.
 
-### InfluxDB [&uarr;](#Readme)
+### InfluxDB [&uarr;](#databases)
 
-InfluxDB была разработана компанией InfluxData. Это база данных временных рядов с открытым исходным кодом, написанная
-языке программирования Go.
-Хранилище данных позволяет вводить запросы данных на языке, подобном SQL, что позволяет разработчикам легко
-интегрировать эту базу данных в свои приложения.
-InfluxDB также может работать как часть коммерческого решения, которое охватывает весь стек, предназначенный для
-обеспечения процесса обработки данных временных рядов,
-полнофункциональной высоко доступной средой.
+InfluxDB was developed by InfluxData. It is an open-source time series database written in Go. It provides an SQL-like
+query language, which makes integration easy. InfluxDB can also be part of a commercial stack that covers the entire
+time series pipeline in a high-availability environment.
 
-### TimeScale [&uarr;](#Readme)
+### TimeScale [&uarr;](#databases)
 
-`TineScale` – это база данных временных рядов, разработанная на основе PostgreSQL. Это расширение для PostgreSQL,
-которое использует основное
-хранилище данных для предоставления доступа к ним, что означает, что оно поддерживает все разновидности SQL, доступные
-для использования.
-Поскольку это расширение, то оно использует все функции и расширения PostgreSQL. Вы можете совмещать временные ряды с
-другими типами данных,
-например, объединять временные ряды с метаданными, пополняя информацией выходные данные. Вы также можете выполнить более
-сложную фильтрацию,
-используя JOIN и таблицы без временных рядов. Геоинформационное обеспечение в PostgreSQL TimeScale можно использовать
-для отслеживания географических
-местоположений с течением времени, а также использовать все возможности масштабирования, предлагаемые PostgreSQL,
-включая репликацию.
+TimeScale is a time series database built on PostgreSQL. It is a PostgreSQL extension that uses the native storage
+engine, so it supports all SQL variants available in PostgreSQL. Because it is an extension, it uses PostgreSQL
+features. You can combine time series with other data types, join time series with metadata, and use JOINs with non-time
+series tables. PostgreSQL TimeScale also supports geospatial data to track locations over time, and it supports all
+PostgreSQL scaling features, including replication.
 
-## Realtime [&uarr;](#Readme)
+## Real-time [&uarr;](#databases)
 
-аза данных реального времени относится к системе баз данных, которая использует обработку в реальном времени для
-управления рабочими нагрузками
-с частыми изменениями состояния. Она отличается от обычных баз данных, которые обычно работают с постоянными данными, в
-которых не происходит частого
-изменения с течением времени. Базы данных реального времени находят применение во всех приложениях, требующих
-мгновенного обновления данных в реальном
-времени на основе изменений и отслеживания данных.
+A real-time database is a database system that uses real-time processing to manage workloads with frequent state
+changes. It differs from traditional databases that work with relatively static data. Real-time databases are used in
+applications that require instant updates based on changes and tracking.
 
-Этот тип базы данных является ключевым фактором для принятия мгновенных решений. Одной из ключевых особенностей базы
-данных реального времени является
-обработка в реальном времени, которая помогает обрабатывать транзакции или изменения и позволяет работать без задержек.
-Эти базы данных используются
-во многих отраслях и существует множество случаев их использования, таких как юриспруденция, бухгалтерский учет,
-медицинские данные, банковское дело,
-системы бронирования, мультимедиа и аналитика данных.
+This type of database is a key factor for instant decision making. One key feature is real-time processing, which helps
+process transactions or changes with minimal delay. These databases are used in many industries, including law,
+accounting, healthcare, banking, booking systems, multimedia, and analytics.
 
-База данных реального времени, это, по сути, обычная база данных с добавленной способностью генерировать ответы в
-реальном времени. Она использует
-временные ограничения для представления конкретных диапазонов значений, к которым относятся предоставленные данные. По
-сравнению с базой данных реального
-времени традиционная база данных не может работать в условиях, когда существуют преобладающие различия между объектами
-реального мира и их репрезентативными данными.
+A real-time database is essentially a regular database with the added ability to produce responses in real time. It
+uses time constraints to represent specific ranges of values covered by the provided data. A traditional database
+cannot operate well when there are large gaps between real-world objects and their data representation.
 
-База данных реального времени явлется полезной системой для управления и обработки требовательных ко времени запросов,
-возврата действительных временных
-данных и облегчения планирования приоритетов.
+A real-time database is useful for managing time-sensitive requests, returning accurate time-based data, and helping
+with priority planning.
 
-#### Преимущества использования базы данных реального времени
+#### Benefits of real-time databases
 
-- `Обновление времени в режиме реального времени` - Базы данных реального времени могут синхронизировать данные с каждым
-  изменением, в то время как обновление данных через интерфейсы обновляется через запросы. Любые произошедшие изменения
-  отражаются в режиме реального времени на любом устройстве, используемом для извлечения данных.
-- `Автономная Синхронизация` - Автономная синхронизация-одно из ключевых преимуществ использования базы данных реального
-  времени. Такие функции, как сохранение данных на локальном диске, облегчают это, и как только сервер снова
-  подключается к сети, любые реализованные изменения синхронизируются с текущим состоянием сервера.
-- `Разделение и масштабирование данных` - База данных в режиме реального времени позволяет пользователям распределять
-  доступные им данные по различным базам данных в рамках проекта. Они также могут устанавливать плитки для всех
-  экземпляров базы данных.
-- `Доступ к нескольким устройствам` - База данных реального времени позволяет пользователям получать доступ к данным
-  приложений с нескольких устройств и интерфейсов, включая мобильные и WEB-устройства приложений. Это одна из самых
-  важных причин, почему многие компании выбирают базы данных реального времени.
-- `Доступные варианты` - Разработчики и владельцы бизнеса полагаются на возможности базы данных реального времени,
-  поскольку они также вполне доступны. Многие компании предлагают различные варианты цены, и то, что вы должны
-  заплатить, зависит от количества подключений и объема хранимых или загруженных данных.
+- Real-time updates. Data can be synchronized on every change, while traditional interfaces update only on request.
+  Changes appear in real time on any device that accesses the data.
+- Offline sync. Offline synchronization is a key advantage. Features like local disk persistence help, and when the
+  server reconnects, changes are synced with the current server state.
+- Data partitioning and scaling. Real-time databases allow users to distribute data across multiple databases within a
+  project and set shards for each instance.
+- Multi-device access. Real-time databases allow access from multiple devices and interfaces, including mobile and web.
+- Affordable options. Many companies offer pricing options based on the number of connections and the volume of stored
+  or downloaded data.
 
-### Firebase [&uarr;](#Readme)
+### Firebase [&uarr;](#databases)
 
-#### Firebase — Cloud Firestore
+#### Firebase - Cloud Firestore
 
-Облачное Хранилище Firebase-это облачная база данных NoSQL, используемая для хранения и синхронизации данных для
-разработки
-на стороне клиента и сервера. Он используется для разработки WEB, серверных и мобильных приложений и облегчает
-синхронизацию данных
-в реальном времени между приложениями.
+Firebase Cloud Firestore is a NoSQL cloud database used to store and sync data for client and server development. It is
+used for web, server, and mobile apps and enables real-time sync between applications.
 
-Firestore предлагает интеграцию с Firebase и Google Cloud, а собственные SDK могут помочь получить доступ к WEB и
-мобильным приложениям.
-Он дает пользователям возможность использовать Java, Go, Unity, C++ и другие программы. Node.js SDK и обеспечивают
-поддержку RPC и REST API.
-Firestore- это база данных, обеспечивающая повышенную производительность, автоматическое масштабирование, простоту
-использования и отличную надежность.
+Firestore integrates with Firebase and Google Cloud, and its SDKs support web and mobile apps. It supports Java, Go,
+Unity, C++, and more. Node.js SDKs support RPC and REST APIs. Firestore provides high performance, automatic scaling,
+ ease of use, and strong reliability.
 
-Основные Характеристики
+Key features:
 
-- Работает в Режиме Реального Времени
+- Real-time operation
 - NoSQL
-- Масштабируемость
+- Scalability
 - REST API
-- Мультирегиональность
+- Multi-region support
 
-Цена
+Pricing:
 
-- Firestore-это проект с закрытым исходным кодом;
-- Есть бесплатный план;
-- Оплата происходит по модели использования.
+- Closed-source project
+- Free tier available
+- Usage-based pricing
 
-#### Firebase — The Realtime Database
+#### Firebase - The Realtime Database
 
-Firebase-это популярная бэкенд-компания, предоставляющая различные готовые функции бэкенда и API. База данных NoSQL
-использует
-протокол JSON document protocol для хранения данных. Firebase стала лучшим выбором для многих компаний и разработчиков
-благодаря своей практичности.
-Она снижает требования к управлению серверами и созданию API и предлагает большое количество удобных вариантов
-настройки.
+Firebase is a popular backend company that provides ready-made backend features and APIs. Its NoSQL database uses a JSON
+ document protocol for storage. Firebase became popular because it reduces server management and API development
+requirements and offers many configuration options.
 
-База Данных Реального Времени Firebase, это облачная база данных NoSQL, которая позволяет пользователям эффективно
-выполнять синхронизацию
-и хранение данных в реальном времени. Доступ к базе данных также возможен, когда приложение находится в автономном
-режиме. Сохраненные данные
-в формате JSON могут быть синхронизированы между клиентами.
+The Firebase Realtime Database is a NoSQL cloud database that enables efficient real-time synchronization and storage.
+It also works offline. Stored JSON data can be synchronized across clients.
 
-Основные Характеристики
+Key features:
 
-- Синхронизация JSON в Реальном Времени
+- Real-time JSON sync
 - NoSQL
-- Масштабируемость
+- Scalability
 - REST API
-- Работа в оффлайн
+- Offline support
 
-Цена
+Pricing:
 
-- База данных реального времени- это проект с закрытым исходным кодом;
-- Доступен бесплатный уровень;
-- Оплата происходит по модели использования.
+- Closed-source project
+- Free tier available
+- Usage-based pricing
 
-## Column DB [&uarr;](#Readme)
+## Column DB [&uarr;](#databases)
 
-База данных, в которой данные группируются не по строкам, а по столбцам. В ней «соседними» являются не данные из двух
-столбцов одной и той же строки,
-а данные из одного и того же столбца, но из разных строк.
+A column database groups data by columns instead of rows. Adjacent values are from the same column across different
+rows, not from different columns of the same row.
 
-Как и традиционные строчные СУБД, колоночные могут использовать языки запросов к базам данных, такие как SQL.
+Like row-based DBMS, column DBs can use SQL.
 
-Рассмотрим простую таблицу:
+Example table:
 
 ![img_2.png](images%2Fimg_2.png)
 
-В строковой базе данных эта таблица будет храниться в виде:
+In a row-based database, this table is stored as:
 
     001, Vladimir, Ivanov, 34, 15 000
     002, Dmitry, Sidorov, 56, 21 000
     003, Aleksandr, Petrov, 43, 19 000
 
-В колоночной базе данных та же информация будет иметь следующую структуру:
+In a column database, the same data is stored as:
 
     001, 002, 003
     Vladimir, Dmitry, Aleksandr
@@ -1256,723 +948,534 @@ Firebase-это популярная бэкенд-компания, предос
     36, 54, 43
     15 000, 21 000, 19 000
 
-Важным свойством колоночных СУБД является высокая скорость и гибкость выполнения сложных запросов. Действительно, в
-«строчной» СУБД при поиске
-и считывании значений сканируется вся таблица по строкам и столбцам, а затем извлекаются строки целиком, даже в том
-случае, если нужно только
-одно значение каждой из них. Колоночные базы данных позволяют искать значения по отдельным столбцам и извлекать только
-те значения, которые требуются.
+A key property of column DBs is high speed and flexibility for complex queries. In row-based DBs, queries scan rows and
+columns, and entire rows are extracted even if you need only one value. Column databases allow you to scan specific
+columns and read only required values.
 
-Это свойство колоночных СУБД делает их особенно перспективными для использования в OLAP-системах и при работе с большими
-данными. Кроме этого,
-колоночные базы данных могут быть сжаты сильнее, чем строчные, что позволяет более эффективно использовать дисковое
-пространство.
+This makes column DBs especially promising for OLAP systems and big data. Column databases can be compressed more than
+row-based databases, which saves disk space.
 
-Колоночные СУБД появились и развивались параллельно со строчными. Первой коммерческой колоночной СУБД считается TAXIR (
-1969), ориентированная
-на хранение и поиск биологических данных.
+Column DBs emerged alongside row-based DBs. The first commercial column DB was TAXIR (1969), focused on biological data
+storage and search.
 
-### Cassandra [&uarr;](#Readme)
+### Cassandra [&uarr;](#databases)
 
-Apache Cassandra – это нереляционная отказоустойчивая распределенная СУБД, рассчитанная на создание высокомасштабируемых
-и надёжных хранилищ огромных массивов данных,
-представленных в виде хэша. Проект был разработан на языке Java в корпорации Facebook в 2008 году, и передан фонду
-Apache Software Foundation в 2009.
-Эта СУБД относится к гибридным NoSQL-решениям, поскольку она сочетает модель хранения данных на базе семейства
-столбцов (ColumnFamily) с концепцией
-key-value (ключ-значение).
+Apache Cassandra is a non-relational, fault-tolerant distributed DBMS designed for highly scalable, reliable storage of
+massive data sets. It was developed in Java at Facebook in 2008 and donated to the Apache Software Foundation in 2009.
+It is a hybrid NoSQL solution that combines a column-family model with key-value concepts.
 
-Модель данных Cassandra состоит из следующих элементов:
+The Cassandra data model includes:
 
-- `столбец или колонка (column)` – ячейка с данными, включающая 3 части – имя (column name) в виде массива байтов, метку
-  времени (timestamp) и само значение (value) также в виде байтового массива. С каждым значением связана метка времени —
-  задаваемое пользователем 64-битное число, которое используется для разрешения конфликтов во время записи: чем оно
-  больше, тем новее считается столбец. Это учитывается при удалении старых колонок.
-- `строка или запись (row)` – именованная коллекция столбцов;
-- `семейство столбцов (column family)` – именованная коллекция строк;
-- `пространство ключей (keyspace)` – группа из нескольких семейств столбцов, собранных вместе. Оно логически группирует
-  семейства столбцов и обеспечивает изолированные области имен.
+- column: a data cell with name (bytes), timestamp, and value (bytes). The timestamp is user-defined and resolves write
+  conflicts: the larger value is the newer column. This matters when deleting old columns.
+- row: a named collection of columns.
+- column family: a named collection of rows.
+- keyspace: a group of column families, providing isolation and logical grouping.
 
-Кассандра предоставляет следующие возможности:
+Cassandra provides:
 
-- `распределение данных между узлами кластера прозрачно для пользователей` – каждый сервер может принимать любой
-  запрос (на чтение, запись или удаление данных), пересылая его на другой узел, если запрашиваемая информацию хранится
-  не здесь;
-- пользователи могут сами определить `необходимое количество реплик`, создание и управление которыми обеспечит
-  Cassandra;
-- `настраиваемый пользователями уровень согласованности данных` по каждой операции хранения и считывания;
-- `высокая скорость записи` (около 80-360 МБ/с на узел) – данные записываются быстрее, чем считываются за счет того, что
-  их большая часть хранится в оперативной памяти ответственного узла, и любые обновления сперва выполняются в памяти, а
-  только потом – в файловой системе. Чтобы избежать потери информации, все транзакции фиксируются в специальном журнале
-  на диске. При этом, в отличие от обновления данных, записи в журналы фиксации только добавляются, что исключает
-  задержку при вращении диска. Кроме того, если не требуется полная согласованность записей, Cassandra записывает данные
-  в достаточное число узлов без разрешения конфликтов несоответствия, которые разрешаются только при первом считывании.
-- `гибкая масштабируемость` – можно построить кластер даже на сотню узлов, способный обрабатывать петабайты данных.
+- transparent data distribution across cluster nodes: any server can accept any request and forward it to the correct
+  node if needed.
+- configurable replication factor.
+- configurable consistency level per operation.
+- high write speed (around 80-360 MB/s per node). Data is written faster than it is read because most is kept in
+  memory. Updates are applied in memory first, then flushed to disk. To avoid data loss, transactions are logged to a
+  commit log on disk. Unlike updates, commit logs are append-only, which avoids disk rotation delays. If full
+  consistency is not required, Cassandra writes to enough nodes without resolving conflicts, which are handled on first
+  read.
+- flexible scalability. Clusters can scale to hundreds of nodes and petabytes of data.
 
-Таким образом, отсутствие центрального узла лишает Кассандру главного недостатка, свойственного системам master/slave, в
-которых отказывает весь кластер
-при сбое главного сервера (Master Node). В кластере Cassandra все узлы равноценны между собой и, если один из них
-отказал, его функции возьмет на себя
-какой-то из оставшихся. Благодаря такой децентрализации Apache Cassandra отлично подходит для географически
-распределенных систем с высокой доступностью,
-расположенных в разных датацентрах. Однако, при всех преимуществах такой гибко масштабируемой архитектуры, она
-обусловливает особенности операций чтения и записи,
-а также накладывает ряд существенных ограничений на использование этой СУБД в реальных Big Data проектах.
+Because there is no central node, Cassandra avoids the main master/slave failure mode. All nodes are equal, and if one
+fails, others take over. This decentralization makes Cassandra suitable for geo-distributed, highly available systems
+across data centers. However, this architecture impacts read/write patterns and introduces limitations in real Big Data
+projects.
 
-![кас3.png](images%2F%D0%BA%D0%B0%D1%813.png)
+![kas3.png](images%2F%D0%BA%D0%B0%D1%813.png)
 
-### HBase [&uarr;](#Readme)
+### HBase [&uarr;](#databases)
 
-Apache HBase – это нереляционная, распределенная база данных с открытым исходным кодом, написанная на языке Java по
-аналогии BigTable от Google.
+Apache HBase is an open-source, non-relational distributed database written in Java, modeled after Google BigTable.
 
-Модель данных HBase отличается от классических реляционных СУБД, реализуясь по типу ключ-значение – <table, RowKey,
-Column Family, Column, timestamp> -> Value:
+The HBase data model differs from classic relational DBMS. It is key-value based:
 
-- данные организованы в таблицы, проиндексированные первичным ключом (RowKey);
-- для каждого первичного ключа может храниться неограниченный набор атрибутов (колонок);
-- Колонки организованны в группы колонок (Column Family). Обычно в одну группу объединяют колонки с одинаковым шаблоном
-  использования и хранения. Список и названия групп колонок фиксирован и имеет четкую схему. На уровне группы колонок
-  задаются такие параметры как time to live (TTL) и максимальное количество хранимых версий.
-- Для каждого атрибута может храниться несколько различных версий. Разные версии имеют разный штамп времени (timestamp,
-  ts).
-- Записи физически хранятся в порядке, отсортированном по первичному ключу. При этом информация из разных колонок
-  хранится отдельно, благодаря чему можно считывать данные только из нужного семейства колонок, таким образом, ускоряя
-  операцию чтения.
-- Атрибуты, принадлежащие одной группе колонок и соответствующие одному ключу, физически хранятся как отсортированный
-  список. Любой атрибут может отсутствовать или присутствовать для каждого ключа. Отсутствие атрибута не влечет никаких
-  накладных расходов на хранение пустых значений.
-- Если разница между штампом времени (timestamp) для определенной версии и текущим временем больше TTL, такая запись
-  помечается к удалению. Аналогично, если количество версий для определённого атрибута превысило максимальное количество
-  версий.
+- data is organized into tables indexed by a RowKey.
+- each RowKey can have an unlimited number of attributes (columns).
+- columns are grouped into column families. Families group columns with similar access patterns. The list and names of
+  families are fixed. At the family level, you define TTL and max versions.
+- each attribute can have multiple versions, each with a different timestamp.
+- rows are stored sorted by RowKey. Data from different columns is stored separately, so you can read only a needed
+  column family and speed up reads.
+- attributes in one column family for a given key are stored as a sorted list. An attribute can be missing with no
+  storage overhead.
+- if the difference between the version timestamp and the current time exceeds TTL, the record is marked for deletion.
+  If the number of versions exceeds the limit, older versions are removed.
 
 ![hbase_1.png](images%2Fhbase_1.png)
 
-Высокая доступность данных и отказоустойчивость HBase обеспечиваются благодаря следующем особенностям этой
-распределенной СУБД класса NoSQL:
+High availability and fault tolerance are achieved via:
 
-- развертывание на нескольких экземплярах HMaster и ZooKeeper;
-- распределение данных по многим узлам гарантирует, что сбой одного из них не приведет к потере доступности данных;
-- формат HFile, хранящий данные непосредственно в HDFS, можно читать и записывать с помощью многих инструментов Apache
-  стека Big Data (например, Hive, Pig, MapReduce, Tez), что позволяет практически в режиме реального времени
-  анализировать данные, не копируя их в другие хранилища.
+- multiple HMaster and ZooKeeper instances.
+- data distribution across nodes so one node failure does not reduce availability.
+- HFile format stored in HDFS can be read and written by many tools in the Apache Big Data stack (Hive, Pig, MapReduce,
+  Tez), enabling near real-time analytics without copying data.
 
-## Key-Value [&uarr;](#Readme)
+## Key-Value [&uarr;](#databases)
 
-База данных на основе пар «ключ‑значение» – это тип нереляционных баз данных, в котором для хранения данных используется
-простой метод «ключ‑значение».
-База данных на основе пар «ключ‑значение» хранит данные как совокупность пар «ключ‑значение», в которых ключ служит
-уникальным идентификатором. Как ключи,
-так и значения могут представлять собой что угодно: от простых до сложных составных объектов. Базы данных с
-использованием пар «ключ‑значение» поддерживают
-высокую разделяемость и обеспечивают беспрецедентное горизонтальное масштабирование, недостижимое при использовании
-других типов баз данных.
+A key-value database is a non-relational database type where data is stored as key-value pairs. The key is a unique
+identifier. Keys and values can be simple or complex objects. Key-value databases support high partitioning and provide
+unmatched horizontal scalability compared to other database types.
 
-На следующей диаграмме показан пример данных, хранящихся в виде пар «ключ‑значение» в DynamoDB.
+The diagram below shows key-value data in DynamoDB.
 
 ![PartitionKey.8dd0530a7f6d66d101f31de30db515564f4cf28a.png](images%2FPartitionKey.8dd0530a7f6d66d101f31de30db515564f4cf28a.png)
 
-#### Примеры использования
+#### Use cases
 
-`Хранилище сессий`
+`Session store`
 
-Основанное на сессиях приложение (например, интернет‑приложение) запускает сессию, когда пользователь входит в систему.
-Оно активно до тех пор, пока
-пользователь не выйдет из системы или не истечет время сессии. В течение этого периода приложение хранит все связанные с
-сессией данные либо в основной
-памяти, либо в базе данных. Данные сессии могут включать информацию профиля пользователя, сообщения, индивидуальные
-данные и темы, рекомендации,
-таргетированные рекламные кампании и скидки. Каждая сессия пользователя имеет уникальный идентификатор. Данные сессий
-всегда запрашиваются только
-по первичному ключу, поэтому для их хранения отлично подходит быстрое хранилище пар «ключ‑значение». В целом базы данных
-на основе пар «ключ‑значение» могут
-снижать накладные расходы в расчете на страницу по сравнению с реляционными базами данных.
+A session-based app (for example, a web app) starts a session when a user signs in. It remains active until the user
+signs out or the session expires. During that period the app stores session data in memory or in a database. Session
+data can include profile info, messages, personalization data, targeted campaigns, and discounts. Each session has a
+unique ID. Sessions are always fetched by the primary key, so a fast key-value store is a perfect fit. In general,
+key-value databases reduce per-page overhead compared to relational databases.
 
-`Корзина интернет‑магазина`
+`Shopping cart`
 
-Во время праздничного сезона покупок сайт интернет‑магазина может получать миллиарды заказов за считаные секунды.
-Используя базы данных на основе пар «ключ‑значение»,
-можно обеспечить необходимое масштабирование при существенном увеличении объемов данных и чрезвычайно интенсивных
-изменениях состояния. Такие базы данных позволяют
-одновременно обслуживать миллионы пользователей благодаря распределенным обработке и хранению данных. Базы данных на
-основе пар «ключ‑значение» также обладают
-встроенной избыточностью, что позволяет справляться с потерей узлов хранилища.
+During holiday sales, an e-commerce site can receive billions of orders in seconds. Key-value databases can scale to
+handle large volumes of data and rapid state changes. They enable serving millions of users via distributed processing
+and storage. Key-value databases also include built-in redundancy, which helps survive storage node loss.
 
-### Redis [&uarr;](#Readme)
+### Redis [&uarr;](#databases)
 
-Redis (Remote Dictionary Service) — это опенсорсный сервер баз данных типа ключ-значение.
+Redis (Remote Dictionary Service) is an open-source key-value database server.
 
-Redis — это база данных, размещаемая в памяти, которая используется, в основном, в роли кеша, находящегося перед другой,
-«настоящей» базой данных,
-вроде MySQL или PostgreSQL. Кеш, основанный на Redis, помогает улучшить производительность приложений. Он эффективно
-использует скорость работы с данными,
-характерную для памяти, и смягчает нагрузку центральной базы данных приложения, связанную с обработкой следующих данных:
+Redis is an in-memory database used mostly as a cache in front of a "real" database like MySQL or PostgreSQL. A Redis
+cache improves application performance. It leverages memory speed and reduces load on the primary database for data
+such as:
 
-- Данные, которые редко меняются, к которым часто обращается приложение.
-- Данные, не относящиеся к критически важным, которые часто меняются.
+- Data that rarely changes but is frequently accessed.
+- Non-critical data that changes often.
 
-Примеры таких данных могут включать в себя сессионные кеши или кеши данных, а так же содержимое панелей управления —
-вроде списков лидеров и отчётов,
-включающих в себя данные, агрегированные из разных источников.
+Examples include session caches, data caches, and admin dashboards such as leaderboards or reports that aggregate data
+from multiple sources.
 
-Традиционный подход к использованию Redis выглядит следующим образом: клиент обращается к приложению, а оно получает
-необходимые для выполнения его запроса данные.
-Сначала (пункт 1 на рисунке) приложение обращается к кешу Redis представленному главной базой данных (Main). Если данные
-в кеше есть, произошло попадание кеша,
-выполняется обычный возврат данных. Если произошёл промах кеша (пункт 2), система обращается к постоянному хранилищу (в
-данном случае — базе данных MySQL).
-Данные из него (пункт 3) загружаются в кеш, после чего ими сможет воспользоваться приложение.
+The traditional Redis flow looks like this: the client requests data from the app, and the app retrieves it. First, the
+app checks the Redis cache (main). If the data is present, it is returned immediately. If it is a cache miss, the system
+reads from persistent storage (for example MySQL). That data is then loaded into the cache so the app can use it.
 
 ![68f25fd1cedc89b95d18190a3e0a89bd.jpeg](images%2F68f25fd1cedc89b95d18190a3e0a89bd.jpeg)
 
-Но во многих случаях Redis гарантирует достаточно высокий уровень сохранности данных, что позволяет использовать эту
-СУБД в роли настоящей основной базы данных.
-А добавление в систему плагинов Redis и различных конфигураций высокой доступности (High Availability, HA) делает базу
-данных Redis крайне интересной для определённых
-сценариев использования и рабочих нагрузок.
+In many cases Redis provides enough durability to serve as the primary database. Adding Redis plugins and high
+availability configurations makes it attractive for certain workloads.
 
-Ещё одна важная особенность Redis заключается в том, что эта СУБД размывает границы между кешем и хранилищем данных. Тут
-важно понять то, что чтение данных из памяти
-и работа с данными, находящимися в памяти, гораздо быстрее чем те же операции, выполняемые традиционными СУБД,
-использующими обычные жёсткие диски (HDD) или
-твердотельные накопители (SSD).
+Another key feature of Redis is that it blurs the line between cache and storage. Reading and working with in-memory
+data is much faster than the same operations on traditional DBMS using HDDs or SSDs.
 
-Изначально Redis чаще всего сравнивали с Memcached, с системой, в которой тогда не было и намёка на долговременное
-хранение данных.
+Originally Redis was most often compared to Memcached, which at the time had no persistent storage.
 
-### DynamoDB [&uarr;](#Readme)
+### DynamoDB [&uarr;](#databases)
 
-DynamoDB — система управления базами данных класса NoSQL в формате «ключ — значение», предлагаемая Amazon.com как часть
-пакета Amazon Web Services.
+DynamoDB is a NoSQL key-value database offered by Amazon as part of AWS.
 
-Поставляется только как платформенная служба из публичного облака Amazon. Отличается среди служб Amazon тем, что
-позволяет подписчикам оплачивать требуемую
-производительность (throughput), а не потребляемую ёмкость хранения (storage). DynamoDB автоматически распределяет
-данные и трафик в подходящем числе серверов,
-использующих твердотельные накопители, предоставляя заданную производительность. Может быть интегрирована с Hadoop
-средствами сервиса Elastic MapReduce.
+It is available only as a managed service in the public AWS cloud. Unlike many AWS services, it lets customers pay for
+required throughput rather than storage capacity. DynamoDB automatically distributes data and traffic across a suitable
+number of SSD-backed servers to provide the requested performance. It can integrate with Hadoop via Elastic MapReduce.
 
-Эта база разбита на partitions – ячейки, которые можно назвать узлами. Каждый узел – это SSD объемом 200 ГБ. Однако
-таких узлов множество. Все данные определенным образом распределяются между ними. И здесь DynamoDB дает несколько
-преимуществ:
+The database is split into partitions (nodes). Each node is a 200 GB SSD. There are many nodes, and data is distributed
+across them. DynamoDB offers several advantages:
 
-- пропускная способность до 7 миллионов транзакций в секунду (при идеальных условиях);
-- Eventually Consistency на уровне 10 мс (опять же, при условии идеальной организации данных);
-- автоматическая репликация данных;
-- автоматическое масштабирование БД.
+- throughput up to 7 million transactions per second (under ideal conditions)
+- eventual consistency around 10 ms (under ideal data organization)
+- automatic data replication
+- automatic database scaling
 
-DynamoDB отличает оптимизированная схема работы при пиковых нагрузках. В SQL-модели следует заложить высокие
-вычислительные мощности вдоль красной линии на графике ниже.
-Хотя на практике они могут и не использоваться. DynamoDB обладает более гибкими возможностями. База выбирает мощности по
-кривой, что соответствует реальной нагрузке
-«здесь и сейчас». Это экономит ресурсы, уменьшает затраты на базу данных и является идеальным подходом для проектов с
-вычислениями.
+DynamoDB uses an optimized scheme for peak loads. In SQL models, you must provision capacity for peak load, even if it
+is unused. DynamoDB scales along the actual load curve, which saves resources and reduces cost.
 
-Принцип работы DynamoDB достаточно прост: сначала выполняется хеширование данных или разбивание на ячейки. Такая
-операция проходит по принципу Constant Time, то есть
-без задержки при любом количестве запросов. При обращении в БД запрос хешируется с определенного ключа. Так база
-понимает, в какой конкретно ячейке искать необходимые данные.
+The DynamoDB process is simple: data is hashed and partitioned into cells. This happens in constant time. On each
+request, the key is hashed to locate the correct partition.
 
-## Graph DBs [&uarr;](#Readme)
+## Graph DBs [&uarr;](#databases)
 
-Графовые базы данных (Graph databases) – это нереляционные системы (NoSQL), которые определяют корреляции между сложно
-взаимосвязанными
-сущностями. Такая структура позволяет обойти ограничения реляционных БД и уделяет больше внимания отношениям между
-данными.
+Graph databases are non-relational (NoSQL) systems that model correlations between complex, interconnected entities.
+They focus on relationships rather than just data, which helps avoid relational limitations.
 
-Графовая база данных позволяет аккуратно определять взаимосвязи и дает ответы на сложные вопросы о том, как точки данных
-соотносятся друг с другом.
+A graph database defines relationships cleanly and can answer complex questions about how data points relate to each
+other.
 
-Графовая база данных – это нереляционный тип баз данных, основанный на топографической структуре сети. Идея этой БД
-восходит к математической теории графов. Графы представляют наборы данных в виде узлов, ребер и свойств.
+A graph database is a non-relational DB type based on network topology, inspired by graph theory. Graphs represent data
+as nodes, edges, and properties.
 
-- Узлы, или точки (nodes) – это экземпляры или сущности данных; ими является любой объект, который вы планируете
-  отслеживать. Например, люди, заказчики, подразделения и т.д.
-- Ребра, или линии (edges) – это важнейшие концепции в графовых БД. Они отображают взаимосвязь между узлами. Эти связи
-  имеют направление и могут быть одно- или двунаправленными.
-- Свойства (properties) содержат описательную информацию, связанную с узлами. В некоторых случаях свойства бывают и у
-  ребер.
+- Nodes are data entities. They can be any objects you track, such as people, customers, or departments.
+- Edges are the core concept of graph DBs. They represent relationships between nodes. These links have direction and
+  can be one-way or two-way.
+- Properties are descriptive information attached to nodes (and sometimes edges).
 
 ![1.png](images%2F1.png)
 
-Узлы с пояснительными свойствами создают взаимосвязи, представленные через ребра.
+Nodes with descriptive properties form relationships represented by edges.
 
-Графовые БД предлагают концептуальное представление данных, тесно связанных с реальным миром. Моделировать сложные связи
-гораздо проще, поскольку отношениям между точками данных уделяется такое же внимание, как и самим данным.
+Graph DBs provide a conceptual model closely aligned with the real world. Modeling complex relationships is easier
+because relationships get the same attention as the data itself.
 
-#### Сравнение графовых и реляционных баз данных
+#### Graph vs relational databases
 
-Графовые БД не создавались для замены реляционных БД. Стандартом отрасли на текущий момент считаются реляционные БД. Но
-перед этим важно понять, что может предложить та или иная разновидность систем.
+Graph DBs were not created to replace relational databases. RDBMS are still the industry standard. It is important to
+understand what each model offers.
 
-Реляционные базы данных обеспечивают структурированный подход к данным, а графовые БД считают более гибкими и
-ориентированы на быстрое понимание взаимосвязей между данными.
+Relational databases provide a structured approach to data. Graph databases are more flexible and oriented toward fast
+understanding of relationships.
 
 ![2.png](images%2F2.png)
 
-Графовые и реляционные БД имеют свою область применения. Сложные взаимосвязи лучше реализовать через графовые БД,
-поскольку их возможности превосходят традиционные реляционные СУБД. При создании моделей баз данных в реляционных
-системах MySQL или PostgreSQL требуется тщательное планирование, а в графовых используется более естественный и гибкий
-подход к данным.
+Graph and relational DBs have different use cases. Complex relationships are better handled in graph DBs because their
+capabilities exceed traditional RDBMS. Modeling data in MySQL or PostgreSQL requires careful planning, while graph DBs
+use a more natural and flexible approach.
 
-В таблице ниже приведены ключевые отличия между графовыми и реляционными БД:
+Key differences:
 
 ![Screenshot from 2023-03-19 14-02-32.png](images%2FScreenshot%20from%202023-03-19%2014-02-32.png)
 
-#### Как работают графовые базы данных?
+#### How graph databases work
 
-Графовые базы данных одинаково относятся к данным и взаимосвязям между ними. Связанные узлы физически связываются, и эта
-связь рассматривается как часть данных.
+Graph databases treat data and relationships as first-class. Related nodes are physically connected, and the
+relationship is stored as part of the data.
 
-При таком моделировании данных вы можете запрашивать взаимосвязи также, как и сами данные. Вместо вычисления и запросов
-на подключение, графовые БД считывают взаимосвязи напрямую из хранилища.
+You can query relationships just like data. Instead of computing joins, graph DBs read relationships directly from
+storage.
 
-По гибкости, производительности и адаптивности графовые БД близки к другим нереляционным моделям данных. В них, как и в
-других нереляционных БД, отсутствуют схемы, что делает данную модель гибкой и легко изменяемой.
+In flexibility, performance, and adaptability, graph DBs are close to other non-relational models. Like other NoSQL
+DBs, they often have no fixed schema, making them easy to evolve.
 
-#### Примеры использования графовых баз данных
+#### Graph database use cases
 
-- `Рекомендательные сервисы в режиме реального времени`. Динамичные рекомендации по продуктам и электронным товарам
-  улучшают пользовательский опыт и максимизируют прибыль. Из известных компаний можно упомянуть Netflix, eBay и Walmart.
-- `Управление основными данными`. Привязка всех данных к одной общей точке обеспечивает постоянство и точность данных.
-  Управление основными данными крайне важно для крупномасштабных компаний мирового уровня.
-- `GDPR и соблюдение нормативных требований`. С графами гораздо проще управлять безопасностью и отслеживать перемещение
-  данных. Базы данных снижают вероятность утечки информации и обеспечивают большую согласованность при удалении данных,
-  чем повышается общее доверие к конфиденциальной информации.
-- `Управление цифровыми ресурсами`. Объем цифрового контента просто огромен и постоянно растет. Графовые БД предлагают
-  масштабируемую и простую модель данных, позволяющую отслеживать цифровые ресурсы: документы, расчеты, контракты и т.д.
-- `Контекстно-зависимые сервисы`. Графы помогают в предоставлении сервисов, приближенных к актуальным характеристиками
-  мира. Будь то предупреждения о стихийных бедствиях, информация о пробках или рекомендации по товарам для конкретного
-  местоположения, – графовые базы данных предлагают логическое решение для реальных обстоятельств.
-- `Выявление мошенничества`. Поиск подозрительных закономерностей и раскрытие мошеннических платежных схем выполняется в
-  режиме реального времени. Выявление и изоляция частей графа позволяет быстрее обнаружить мошенническое поведение.
-- `Семантический поиск`. Обработка естественного языка бывает неоднозначной. Семантический поиск помогает определить
-  значение ключевых слов и выдает более подходящие варианты, которые, в свою очередь проще отобразить с помощью графовых
-  БД.
-- `Сетевое управление`. Сети – это не что иное, как связанные графы. Графовые БД снижают время, необходимое для
-  оповещения сетевого администратора о проблемах в сети.
-- `Маршрутизация`. Информация передается по сети за счет поиска оптимальных маршрутов, и это делает графовые БД
-  идеальным вариантом для маршрутизации.
+- Real-time recommendations. Dynamic product recommendations improve UX and maximize revenue. Examples include Netflix,
+  eBay, and Walmart.
+- Master data management. A single source of truth improves data consistency. This is critical for large enterprises.
+- GDPR and compliance. Graphs make it easier to manage security and trace data movement. Databases reduce leakage risk
+  and improve deletion consistency.
+- Digital asset management. Large volumes of digital content require scalable models to track documents, contracts,
+  calculations, etc.
+- Context-aware services. Graphs help deliver context-sensitive services such as disaster alerts, traffic data, or
+  location-based recommendations.
+- Fraud detection. Suspicious patterns and fraudulent schemes can be detected in real time by isolating graph parts.
+- Semantic search. NLP is ambiguous; semantic search helps interpret keywords and returns better results, which graphs
+  can represent well.
+- Network management. Networks are graphs. Graph DBs reduce the time to notify admins about network issues.
+- Routing. Information flows through networks by finding optimal paths, which makes graph DBs ideal for routing.
 
-#### Плюсы и минусы графовых баз данных
+#### Pros and cons of graph databases
 
-Вот несколько плюсов графовых баз данных:
+Pros:
 
-- Гибкая и адаптивная структура
-- Четкое представление взаимосвязей между сущностями
-- Запросы выводят результаты в реальном времени. Скорость зависит от количества связей
+- Flexible and adaptive structure
+- Clear representation of relationships
+- Real-time query results (speed depends on number of relationships)
 
-Ниже перечислены основные минусы системы:
+Cons:
 
-- Отсутствует стандартизированный язык запросов. Язык зависит от используемой платформы
-- Графы не подходят для систем на основе транзакций
-- Небольшая база пользователей; при возникновении проблема сложно получить поддержку
+- No standardized query language; it depends on the platform.
+- Graphs are not a good fit for transaction-heavy systems.
+- Small user base; support can be harder to find.
 
-### JanusGraph [&uarr;](#Readme)
+### JanusGraph [&uarr;](#databases)
 
-`JanusGraph` – это распределенная, масштабируемая система графовых БД с открытым кодом и широким набором возможностей по
-интеграции и аналитике больших данных. Ниже приведен перечень основных функций JanusGraph:
+JanusGraph is a distributed, scalable open-source graph DB with strong integration and big data analytics. Key
+features:
 
-- Поддержка ACID-транзакций с возможностью одновременного обслуживания тысяч пользователей
-- Несколько вариантов хранения графических данных, включая Cassandra и HBase
-- Встроенный сложный поиск, а также дополнительная (опциональная) поддержка Elasticsearch
-- Полная интеграция Apache Spark для расширенной аналитики данных
-- JanusGraph использует полный по Тьюрингу язык запросов для обхода графов
+- ACID transactions with thousands of concurrent users
+- Multiple storage backends, including Cassandra and HBase
+- Built-in advanced search, with optional Elasticsearch support
+- Full Apache Spark integration for analytics
+- A Turing-complete query language for graph traversal
 
-### Neo4j [&uarr;](#Readme)
+### Neo4j [&uarr;](#databases)
 
-`Neo4j` (Network Exploration and Optimization 4 Java, что переводится как «исследование сети и оптимизация для Java») –
-это графовая база данных, написанная на Java с нативным хранением и обработкой графов. Основные возможности:
+Neo4j (Network Exploration and Optimization for Java) is a graph database written in Java with native graph storage and
+processing. Key capabilities:
 
-- Масштабируемость БД за счет разделения данных на части – сегменты
-- Высокая доступность благодаря непрерывному резервному копированию и последовательным обновлениям
-- Высокий уровень безопасности: несколько экземпляров баз данных можно разделить, оставив их на одном выделенном сервере
-- Neo4j использует Cypher – язык запросов для графовых БД, который очень удобен для программирования
+- Scalability via partitioning data into segments
+- High availability through continuous backups and rolling upgrades
+- Strong security: multiple database instances can be isolated on one dedicated server
+- Cypher query language designed for graph development
 
-### DGraph [&uarr;](#Readme)
+### DGraph [&uarr;](#databases)
 
-`DGraph` (Distributed graph, что переводится как «распределенный граф») – это распределенная система графовых БД с
-открытым исходным кодом и хорошей масштабируемостью. Вот несколько интересных возможностей DGraph:
+DGraph (Distributed graph) is a distributed, open-source graph database with strong scalability. Highlights:
 
-- Горизонтальная масштабируемость для работы в реальной среде с ACID-транзакциями
-- DGraph – это свободно распространяемая система с поддержкой множества открытых стандартов
-- Язык запросов – GraphQL, который был разработан для API
+- Horizontal scalability with ACID transactions
+- Open-source system supporting many open standards
+- GraphQL query language designed for APIs
 
-### DataStax Enterprise Graph [&uarr;](#Readme)
+### DataStax Enterprise Graph [&uarr;](#databases)
 
-`DataStax Enterprise Graph` – это распределенная графовая БД на базе Cassandra. Она оптимизирована под предприятия.
-Несколько функций:
+DataStax Enterprise Graph is a distributed graph DB built on Cassandra, optimized for enterprise use. Features:
 
-- DataStax обеспечивает постоянную доступность для корпоративных нужд
-- База данных легко интегрируется с автономной платформой Apache Spark
-- Полная интеграция аналитики и поиска в реальном времени
-- Масштабируемость за счет наличия нескольких центров обработки данных
-- Поддержка Gremlin и CQL для запросов
+- Constant availability for enterprise workloads
+- Easy integration with standalone Apache Spark
+- Full integration of real-time analytics and search
+- Multi-datacenter scalability
+- Gremlin and CQL query support
 
 ==============================================================================================================================
 ==============================================================================================================================
 
-# Relational Databases [&uarr;](#Readme)
+# Relational Databases [&uarr;](#databases)
 
-`Реляционная база данных` – это набор данных с предопределенными связями между ними. Эти данные организованны в виде
-набора таблиц, состоящих из столбцов
-и строк. В таблицах хранится информация об объектах, представленных в базе данных. В каждом столбце таблицы хранится
-определенный тип данных,
-в каждой ячейке – значение атрибута. Каждая стока таблицы представляет собой набор связанных значений, относящихся к
-одному объекту или сущности.
-Каждая строка в таблице может быть помечена уникальным идентификатором, называемым первичным ключом, а строки из
-нескольких таблиц могут быть связаны
-с помощью внешних ключей. К этим данным можно получить доступ многими способами, и при этом реорганизовывать таблицы БД
-не требуется.
+A relational database is a set of data with predefined relationships. Data is organized as tables of rows and columns.
+Tables store information about objects represented in the database. Each column stores a specific data type, each cell
+stores an attribute value. Each row is a set of related values for a single object or entity. Each row has a unique
+identifier called a primary key, and rows from different tables can be linked by foreign keys. Data can be accessed in
+many ways, and the tables do not need to be reorganized.
 
-Важные аспекты реляционных БД:
+Key aspects of relational databases:
 
-- `SQL (Structured Query Language)` – основной интерфейс работы с реляционными базами данных. SQL стал стандартом
-  Национального института стандартов США (ANSI) в 1986 году. Стандарт ANSI SQL поддерживается всеми популярными ядрами
-  реляционных БД. Некоторые из ядер также включают расширения стандарта ANSI SQL, поддерживающие специфичный для этих
-  ядер функционал. SQL используется для добавления, обновления и удаления строк данных, извлечения наборов данных для
-  обработки транзакций и аналитических приложений, а также для управления всеми аспектами работы базы данных.
-- `Целостность данных` – это полнота, точность и единообразие данных. Для поддержания целостности данных в реляционных
-  БД используется ряд инструментов. В их число входят первичные ключи, внешние ключи, ограничения «Not NULL», «Unique»,
-  «Default» и «Check». Эти ограничения целостности позволяют применять практические правила к данным в таблицах и
-  гарантировать точность и надежность данных. Большинство ядер БД также поддерживает интеграцию пользовательского кода,
-  который выполняется в ответ на определенные операции в БД.
-- `Транзакция в базе данных` – это один или несколько операторов SQL, выполненных в виде последовательности операций,
-  представляющих собой единую логическую задачу. Транзакция представляет собой неделимое действие, то есть она должна
-  быть выполнена как единое целое и либо должна быть записана в базу данных целиком, либо не должен быть записан ни один
-  из ее компонентов. В терминологии реляционных баз данных транзакция завершается либо действием COMMIT, либо ROLLBACK.
-  Каждая транзакция рассматривается как внутренне связный, надежный и независимый от других транзакций элемент.
-- `Соответствие требованиям ACID` - Для соблюдения целостности данных все транзакции в БД должны соответствовать
-  требованиям `ACID`, то есть быть атомарными, единообразными, изолированными и надежными.
+- SQL (Structured Query Language). The main interface for relational databases. SQL became an ANSI standard in 1986.
+  ANSI SQL is supported by all popular relational engines, and many add extensions. SQL is used to insert, update,
+  delete, query, and manage all aspects of a database.
+- Data integrity. This means completeness, accuracy, and consistency of data. It is enforced with primary keys, foreign
+  keys, and constraints like NOT NULL, UNIQUE, DEFAULT, and CHECK. Many engines also support user-defined code that
+  runs in response to DB operations.
+- Transactions. A transaction is one or more SQL statements executed as a single logical unit. It is atomic: it either
+  fully succeeds and is committed, or no part is written. A transaction ends with COMMIT or ROLLBACK. Each
+  transaction is reliable, coherent, and independent from others.
+- ACID compliance. To preserve integrity, all DB transactions must satisfy ACID: Atomicity, Consistency, Isolation,
+  Durability.
 
-### PostgreSQL [&uarr;](#Readme)
+### PostgreSQL [&uarr;](#databases)
 
-`PostgreSQL` — это популярная свободная объектно-реляционная система управления базами данных.
-`PostgreSQL` базируется на языке SQL и поддерживает многочисленные возможности.
+PostgreSQL is a popular open-source object-relational DBMS based on SQL with many advanced features.
 
-СУБД отличается высокой надёжностью и хорошей производительностью, поддерживает транзакции (ACID), репликация
-реализована встроенными механизмами.
-При этом система расширяемая — можно создавать свои типы данных и индексов, а также расширять поведение при помощи
-языков программирования.
+It is reliable and performant, supports ACID transactions, and includes built-in replication. The system is extensible:
+you can create custom data types, indexes, and extend behavior using programming languages.
 
-Из дополнительных возможностей PostgreSQL хочется отдельно отметить тот факт, что эта СУБД позволяет работать не только
-со структурированными и нормализованными,
-но и со слабоструктурированными данными (в форматах json / jsonb), при этом эти данные индексируются и работа с ними
-действительно удобна. Особенную ценность
-эти возможности обретают при разработке систем, где модели данных должны быть кастомизуемыми в режиме реального времени
-на уровне GUI — в интернет-магазинах,
-где у товаров может быть множество разнообразных характеристик, в системах электронного документооборота и в других
-бизнес-приложениях.
+PostgreSQL can work not only with structured and normalized data, but also with semi-structured data (json/jsonb).
+These data types can be indexed and are convenient to work with. This is especially valuable for systems where data
+models must be customized in real time at the UI layer (for example, e-commerce product attributes and document
+management systems).
 
-Преимущества PostgreSQL:
+PostgreSQL advantages:
 
-- поддержка БД неограниченного размера;
-- мощные и надёжные механизмы транзакций и репликации;
-- расширяемая система встроенных языков программирования и поддержка загрузки C-совместимых модулей;
-- наследование;
-- легкая расширяемость.
+- support for unlimited database size
+- powerful and reliable transaction and replication mechanisms
+- extensible programming language system and support for C-compatible modules
+- inheritance
+- easy extensibility
 
-Текущие ограничения PostgreSQL:
+Current PostgreSQL limits:
 
-- Нет ограничений на максимальный размер базы данных
-- Нет ограничений на количество записей в таблице
-- Нет ограничений на количество индексов в таблице
-- Максимальный размер таблицы — 32 Тбайт
-- Максимальный размер записи — 1,6 Тбайт
-- Максимальный размер поля — 1 Гбайт
-- Максимум полей в записи250—1600 (в зависимости от типов полей)
+- no limit on database size
+- no limit on rows per table
+- no limit on indexes per table
+- max table size: 32 TB
+- max row size: 1.6 TB
+- max field size: 1 GB
+- max columns per row: 250-1600 (depending on column types)
 
-#### Особенности PostgreSQL:
+#### PostgreSQL features
 
-- `Функции` в PostgreSQL являются блоками кода, исполняемыми на сервере, а не на клиенте БД. Хотя они могут писаться на
-  чистом SQL, реализация дополнительной логики, например, условных переходов и циклов, выходит за рамки собственно SQL и
-  требует использования некоторых языковых расширений. Функции могут писаться с использованием различных языков
-  программирования. PostgreSQL допускает использование функций, возвращающих набор записей, который далее можно
-  использовать так же, как и результат выполнения обычного запроса. Функции могут выполняться как с правами их
-  создателя, так и с правами текущего пользователя. Иногда функции отождествляются с хранимыми процедурами, однако между
-  этими понятиями есть различие.
-- `Триггеры` в PostgreSQL определяются как функции, инициируемые DML-операциями. Например, операция INSERT может
-  запускать триггер, проверяющий добавленную запись на соответствия определённым условиям. При написании функций для
-  триггеров могут использоваться различные языки программирования. Триггеры ассоциируются с таблицами. Множественные
-  триггеры выполняются в алфавитном порядке.
-- `Механизм правил` в PostgreSQL представляет собой механизм создания пользовательских обработчиков не только
-  DML-операций, но и операции выборки. Основное отличие от механизма триггеров заключается в том, что правила
-  срабатывают на этапе разбора запроса, до выбора оптимального плана выполнения и самого процесса выполнения. Правила
-  позволяют переопределять поведение системы при выполнении SQL-операции к таблице.
-- `Индексы` в PostgreSQL следующих типов: B-дерево, хэш, R-дерево, GiST, GIN. При необходимости можно создавать новые
-  типы индексов, хотя это далеко не тривиальный процесс.
-- `Многоверсионность` поддерживается в PostgreSQL — возможна одновременнуя модификация БД несколькими пользователями с
-  помощью механизма Multiversion Concurrency Control (MVCC). Благодаря этому соблюдаются требования ACID, и практически
-  отпадает нужда в блокировках чтения.
-- `Расширение` PostgreSQL для собственных нужд возможно практически в любом аспекте. Есть возможность добавлять
-  собственные преобразования типов, типы данных, домены (пользовательские типы с изначально наложенными ограничениями),
-  функции (включая агрегатные), индексы, операторы (включая переопределение уже существующих) и процедурные языки.
-- `Наследование` в PostgreSQL реализовано на уровне таблиц. Таблицы могут наследовать характеристики и наборы полей от
-  других таблиц (родительских). При этом данные, добавленные в порождённую таблицу, автоматически будут участвовать (
-  если это не указано отдельно) в запросах к родительской таблице.
+- Functions are server-side code blocks, not client-side. They can be written in SQL, but complex logic (loops,
+  conditionals) requires procedural language extensions. Functions can return sets of rows and can run with definer or
+  invoker rights. They are sometimes confused with stored procedures, but differ.
+- Triggers are functions invoked by DML operations. For example, INSERT can trigger a function that validates the new
+  row. Triggers are associated with tables and run in alphabetical order if multiple triggers exist.
+- The rules system allows user-defined handlers not only for DML but also for SELECT. Unlike triggers, rules run during
+  query rewriting, before planning and execution. Rules can override the behavior of SQL operations on tables.
+- Index types include B-tree, hash, R-tree, GiST, and GIN. Custom index types can be created, but it is complex.
+- Multiversion concurrency control (MVCC) enables concurrent updates by multiple users while maintaining ACID. This
+  often removes the need for read locks.
+- PostgreSQL is extensible in almost every aspect: custom type conversions, data types, domains (types with constraints),
+  functions (including aggregates), indexes, operators (including overrides), and procedural languages.
+- Table inheritance is supported. Child tables inherit parent columns and properties. Data in child tables can be
+  included in parent table queries unless explicitly excluded.
 
-#### Использование в веб-проектах
+#### Use in web projects
 
-В разработке простых сайтов PostgreSQL используется несколько реже, чем MySQL / MariaDB, но всё же эта пара с заметным
-отрывом опережает по частоте использования
-остальные системы управления базами данных. При этом в разработке сложных сайтов и веб-приложений PostgreSQL опережает
-по использованию MySQL и MariaDB.
-Большинство фреймворков (например, Ruby on Rails, Yii, Symfony, Django) поддерживают использование PostgreSQL в
-разработке.
+For simple websites, PostgreSQL is slightly less common than MySQL/MariaDB, but those two dominate overall. In complex
+web apps, PostgreSQL is used more often than MySQL/MariaDB. Most frameworks (Ruby on Rails, Yii, Symfony, Django)
+ support PostgreSQL.
 
-### MySQL [&uarr;](#Readme)
+### MySQL [&uarr;](#databases)
 
-MySQL — одна из наиболее используемых систем управления базами данных. MySQL управляет реляционными базами данных, то
-есть такими, в которых таблицы связаны между собой.
+MySQL is one of the most widely used DBMS. It manages relational databases where tables are linked.
 
-MySQL работает по принципу клиент-сервер. Компьютер пользователя (клиент) отправляет запрос. Сервер баз данных его
-обрабатывает и предоставляет ответ. Именно поэтому
-часто можно услышать понятие MySQL-сервер. Это сервер, на котором хранится база данных.
+MySQL follows a client-server model: the client sends a request, the database server processes it and returns a
+response. This is why you often hear the term "MySQL server".
 
-Система MySQL написана на языках программирования C и C++. Для работы MySQL используется язык структурированных запросов
-SQL.
-Что такое SQL
+MySQL is written in C/C++. It uses SQL for queries.
 
-SQL (Structured Query Language) — это язык программирования, при помощи которого можно управлять информацией: добавлять,
-модифицировать, удалять и получать данные.
-Запросы к базе данных формируются на языке SQL.
+#### What is SQL
 
-SQL используется не только в MySQL. Многие РСУБД (реляционные системы управления базами данных) используют этот язык для
-работы с данными. Например:
+SQL (Structured Query Language) is used to manage data: insert, modify, delete, and query. SQL is used by many RDBMS
+engines, including:
 
-- Microsoft SQL Server,
-- PostgreSQL,
-- Oracle Database,
-- MariaDB,
-- SQLite.
+- Microsoft SQL Server
+- PostgreSQL
+- Oracle Database
+- MariaDB
+- SQLite
 
-SQL используется в запросах при обращении к базе данных. Знание SQL позволит вам работать с любой реляционной базой
-данных, которая использует этот язык.
+Knowing SQL lets you work with any relational database that uses it.
 
-#### Чем отличается WHERE от HAVING
+#### Difference between WHERE and HAVING
 
-Основное отличие WHERE от HAVING заключается в том, что WHERE сначала выбирает строки, а затем группирует их и вычисляет
-агрегатные
-функции (таким образом, она отбирает строки для вычисления агрегатов), тогда как HAVING отбирает строки групп после
-группировки и вычисления
-агрегатных функций. Как следствие, предложение WHERE не должно содержать агрегатных функций; не имеет смысла
-использовать агрегатные функции
-для определения строк для вычисления агрегатных функций. Предложение HAVING, напротив, всегда содержит агрегатные
-функции. (Строго говоря, вы
-можете написать предложение HAVING, не используя агрегаты, но это редко бывает полезно. То же самое условие может
-работать более эффективно на стадии WHERE.)
+WHERE filters rows before grouping and aggregate computation. HAVING filters groups after aggregation. Therefore,
+WHERE should not contain aggregate functions, while HAVING typically does. HAVING without aggregates is possible but
+rare and usually less efficient than a WHERE condition.
 
-#### Основные отличия MyISAM и InnoDB. Преимущества и недостатки.
+#### Main differences between MyISAM and InnoDB
 
-MySQL поддерживает два самых популярных движка InnoDB и MyISAM, но в чем же их отличия?
-
-Давайте посмотрим более подробно и более понятно.
-
-В таблице ниже я попробовал показать разницу между MyISAM и InnoDB собрав данные с официальных и неофициальных
-источников вместе:
+MySQL supports two popular engines: InnoDB and MyISAM. Key differences are shown below:
 
 ![img_3.png](images%2Fimg_3.png)
 
-Более детальное описание терминов:
+Terminology:
 
-- `Транзакция (Transaction)` – блок операторов SQL, который в случае ошибки в одном запросе, возвращается к предыдущему
-  состоянию (Rollback), и только в случае выполнения всех запросов подтверждается (Commit);
-- `Внешние ключи` – это способ связать записи в двух таблицах по определенным полям так, что при обновлении поля в
-  родительской автоматически происходит определенное изменение поля в дочерней (создается ключ в дочерней таблице,
-  который ссылается на родительскую);
-- `Блокировка на уровне строк` — в ситуации когда процессу нужно обновить строку в таблице, то он блокирует только эту
-  строку, позволяя другим обновлять другие строки параллельно;
-- `Deadlock` — ситуация в многозадачной среде или СУБД, при которой несколько процессов находятся в состоянии
-  бесконечного ожидания ресурсов, захваченных самими этими процессами;
+- Transaction: a block of SQL statements that either fully rolls back on error or is committed.
+- Foreign keys: link records between tables so updates in the parent can cascade to the child.
+- Row-level locking: when a process updates a row, it locks only that row and allows other rows to be updated.
+- Deadlock: a situation where multiple processes wait indefinitely for resources held by each other.
 
-Выводы:
+Conclusions:
 
-- MyISAM стоит использовать, если нужен полнотекстовый поиск до версии MySQL 5.6.4
-- MyISAM подойдет, когда в таблице очень мало записей и большое количество чтений.
-- Во всех остальных случаях нужно использовать InnoDB.
+- Use MyISAM if you need full-text search before MySQL 5.6.4.
+- Use MyISAM when tables are small and reads are heavy.
+- In all other cases, use InnoDB.
 
-#### В каких случаях стоит использовать составной индекс, в каких - нет.
+#### When to use a composite index
 
-Составной индекс – это индекс, построенный по нескольким колонкам. Такие индексы имеет смысл использовать, когда в одном
-запросе
-фигурируют более одной колонки. Mysql поддерживает составные индексы для любых типов таблиц.
+A composite index is built on multiple columns. It makes sense when a query filters by more than one column. MySQL
+supports composite indexes for all table types.
 
-1. Фильтрация по нескольким колонкам
+1. Filtering by multiple columns
 
 ```sql
 SELECT * FROM table WHERE date = '2020-10-10' AND name = 'Den'
 ```
 
-Наиболее эффективный индекс будет таким:
+The most effective index:
 
 ```sql
 CREATE INDEX date_name ON table(date, name)
 ```
 
-2. Фильтрация и сортировка
+2. Filtering and sorting
 
 ```sql
 SELECT * FROM table WHERE name = 'Den' ORDER BY date
 ```
 
-Наиболее эффективный индекс будет таким:
+The most effective index:
 
 ```sql
 CREATE INDEX date_name ON table(name, date)
 ```
 
-Первой должна идти колонка, по которой фильтруем
+Put the filtered column first.
 
-Количество колонок в индексе может быть любое:
+Number of columns can be any:
 
 ```sql
-    SELECT * FROM table
-    WHERE date = '2020-10-10' AND type = 2 AND name = 'Den'
-    ORDER BY amount DESC
-    CREATE INDEX date_name ON table(date, type, name, amount)
+SELECT * FROM table
+WHERE date = '2020-10-10' AND type = 2 AND name = 'Den'
+ORDER BY amount DESC
+CREATE INDEX date_name ON table(date, type, name, amount)
 ```
 
-#### Уязвимости бд, варианты взлома, шифрование паролей - Пару вопросов про безопасность, как защититься от CSRF, от SQL-Injection. Как вы сохраняете пароли в своих проектах.
+#### DB vulnerabilities and security questions
 
 https://habr.com/ru/company/acribia/blog/413157/
 
-#### В чем заключается оптимизация БД, и в частности MySQL.
+#### What is DB optimization, especially MySQL
 
 https://eternalhost.net/blog/hosting/optimizatsiya-mysql
 
 ![SQL-Cheat-Sheet-Summary-Full.png](images%2FSQL-Cheat-Sheet-Summary-Full.png)
 
-### MariaDB [&uarr;](#Readme)
+### MariaDB [&uarr;](#databases)
 
-MariaDB — это система управления базами данных, которая является преемницей, ответвлением или улучшенной копией MySQL.
-MySQL — это одна из самых популярных
-СУБД на сегодняшний день, которая регулируется и лицензируется компанией Оракл. В качестве реальной альтернативы ей была
-разработана СУБД MariaDB, которая
-обладает теми же функциями,что и MySQL, только улучшенными, а также распространяется с открытым исходным кодом и со
-свободной лицензией.
+MariaDB is a DBMS that is a successor, fork, or improved version of MySQL. MySQL is one of the most popular DBMS and
+is licensed by Oracle. MariaDB was created as a real alternative. It provides the same functions as MySQL, but with
+improvements, and is open source under a free license.
 
-Особенности Мария ДБ, которые отличают ее от MySQL:
+MariaDB features that differ from MySQL:
 
-- Более высокая производительность, новые возможности по управлению базами данных и намного меньшее количество ошибок в
-  коде.
-- Использует более производительный оптимизатор запросов и более безопасные индексы для алгоритмов хранения информации.
-- Система сохранения информации InnoDB была заменена на XtraDB. Помимо этого, добавлены алгоритмы хранения информации:
-  Aria, PBXT, FederatedX, OQGraph, IBMDB 21, Toku DB, Cassandra, Connect и др.
-- Поддерживает большое количество функциональных команд, которые не поддерживаются в MySQL, что делает MariaDB намного
-  привлекательнее и гибче.
+- Higher performance, new database management capabilities, and fewer bugs.
+- More efficient query optimizer and safer indexes.
+- InnoDB was replaced with XtraDB. Additional storage engines were added: Aria, PBXT, FederatedX, OQGraph, IBMDB2,
+  TokuDB, Cassandra, Connect, and more.
+- Supports many functional commands not available in MySQL, which makes MariaDB more flexible.
 
-Функциональные и технические особенности Мария ДБ:
+Functional and technical features:
 
-- Распространяется под лицензиями GPL, LGPL, BSD.
-- Обладает широким набором инструментов для сохранения информации, который можно выбирать в процессе работы.
-- В качестве основного языка программирования для запросов Мария ДБ использует самый популярный язык — SQL.
-- MariaDB — это работа во всех популярных операционных системах.
-- Поддерживает работу многих серверных языков программирования, например: PHP, Python, Perl, Java, Node.js, Ruby,
-  JavaScript, C# и др.
-- Поддерживает набор кластерных технологий Galera.
+- Licensed under GPL, LGPL, BSD.
+- A wide set of storage engines that can be chosen per workload.
+- SQL is the main query language.
+- Runs on all popular operating systems.
+- Supports many server-side languages: PHP, Python, Perl, Java, Node.js, Ruby, JavaScript, C#, and others.
+- Supports Galera clustering technologies.
 
-Интересный факт: главным разработчиком и автором MariaDB является гражданин Финляндии Микаэль Видениус. Он же придумал и
-разработал MySQL. Обе эти СУБД названы в честь его дочерей:
+Interesting fact: the main developer of MariaDB is Michael "Monty" Widenius from Finland, the creator of MySQL. Both
+DBMS are named after his daughters:
 
-- MySQL названа в честь его старшей дочери My (финское имя);
-- MariaDB названа в честь его младшей дочери Mariа.
+- MySQL is named after his older daughter My.
+- MariaDB is named after his younger daughter Maria.
 
-Еще один интересный факт: нумерация версий MariaDB идентично соответствует нумерации версий MySQL. То есть и в той и в
-другой СУБД используется
-одинаковая система нумерации. Таким образом, если рассмотреть какую-то версию Мария ДБ, например MariaDB 5.5, тогда мы
-увидим, что она идентична
-по функциям MySQL 5.5. Такая «идентичность» в нумерации продолжалась вплоть до MariaDB 10.0, далее эта СУБД пошла
-собственным путем развития,
-демонстративно отделившись от привязанности к нумерации версий MySQL.
+Another fact: MariaDB version numbering was identical to MySQL for a long time. For example, MariaDB 5.5 matched MySQL
+5.5. This remained until MariaDB 10.0, after which MariaDB diverged from MySQL versioning.
 
-### MS SQL [&uarr;](#Readme)
+### MS SQL [&uarr;](#databases)
 
-SQL Server является одной из наиболее популярных систем управления базами данных (СУБД) в мире. Данная СУБД подходит для
-самых различных проектов: от небольших
-приложений до больших высоконагруженных проектов.
+SQL Server is one of the most popular DBMS in the world. It suits projects ranging from small apps to large
+high-load systems.
 
-SQL Server долгое время был исключительно системой управления базами данных для Windows, однако начиная с версии 16 эта
-система доступна и на Linux.
+SQL Server was long limited to Windows, but since version 16 it is also available on Linux.
 
-SQL Server характеризуется такими особенностями как:
+SQL Server features:
 
-- Производительность. SQL Server работает очень быстро.
-- Надежность и безопасность. SQL Server предоставляет шифрование данных.
-- Простота. С данной СУБД относительно легко работать и вести администрирование.
+- Performance. It is fast.
+- Reliability and security. It provides data encryption.
+- Simplicity. It is relatively easy to use and administer.
 
-Центральным аспектом в MS SQL Server, как и в любой СУБД, является база данных. База данных представляет хранилище
-данных, организованных определенным способом.
-Нередко физически база данных представляет файл на жестком диске, хотя такое соответствие необязательно. Для хранения и
-администрирования баз данных применяются
-системы управления базами данных (database management system) или СУБД (DBMS). И как раз MS SQL Server является одной из
-такой СУБД.
+The central concept in SQL Server, as in any DBMS, is the database itself. A database is a data store organized in a
+specific way. Physically it can be a file, but it does not have to be. Databases are managed by a DBMS, and SQL Server
+is one such system.
 
-Выделяются две разновидности языка SQL: PL-SQL и T-SQL.
+There are two SQL variants: PL/SQL and T-SQL.
 
-- PL-SQL используется в таких СУБД как Oracle и MySQL.
-- T-SQL (Transact-SQL) применяется в SQL Server.
+- PL/SQL is used in Oracle and MySQL.
+- T-SQL (Transact-SQL) is used in SQL Server.
 
-Собственно поэтому в рамках текущего руководства будет рассматриваться именно T-SQL.
+In this context, we focus on T-SQL.
 
-В зависимости от задачи, которую выполняет команда T-SQL, он может принадлежать к одному из следующих типов:
+Depending on the task, T-SQL commands fall into these categories:
 
-- `DDL (Data Definition Language / Язык определения данных)`. К этому типу относятся различные команды, которые создают
-  базу данных, таблицы, индексы, хранимые процедуры и т.д. В общем определяют данные.
+- DDL (Data Definition Language): commands that create database objects such as databases, tables, indexes, stored
+  procedures, etc.
+  - CREATE: create database objects
+  - ALTER: modify database objects
+  - DROP: delete database objects
+  - TRUNCATE: delete all data from tables
 
-- В частности, к этому типу мы можем отнести следующие команды:
+- DML (Data Manipulation Language): commands for selecting, inserting, updating, and deleting data.
+  - SELECT: read data
+  - UPDATE: update data
+  - INSERT: insert data
+  - DELETE: delete data
 
--
-    - `CREATE`: создает объекты базы данных (саму базу даных, таблицы, индексы и т.д.)
+- DCL (Data Control Language): commands that manage access rights.
+  - GRANT: grant access permissions
+  - REVOKE: revoke access permissions
 
--
-    - `ALTER`: изменяет объекты базы данных
+### Oracle [&uarr;](#databases)
 
--
-    - `DROP`: удаляет объекты базы данных
+Oracle Database is an object-relational DBMS created by Oracle. It has many versions and editions. This section focuses
+on the structure and core concepts of Oracle Database.
 
--
-    - `TRUNCATE`: удаляет все данные из таблиц
+#### Oracle databases: instances and entities
 
-- `DML (Data Manipulation Language / Язык манипуляции данными).` К этому типу относят команды на выбору данных, их
-  обновление, добавление, удаление - в общем все те команды, с помощью которыми мы можем управлять данными.
-
-- К этому типу относятся следующие команды:
-
--
-    - `SELECT`: извлекает данные из БД
-
--
-    - `UPDATE`: обновляет данные
-
--
-    - `INSERT`: добавляет новые данные
-
--
-    - `DELETE`: удаляет данные
-
-- `DCL (Data Control Language / Язык управления доступа к данным)`. К этому типу относят команды, которые управляют
-  правами по доступу к данным. В частности, это следующие команды:
-
--
-    - `GRANT`: предоставляет права для доступа к данным
-
--
-    - `REVOKE`: отзывает права на доступ к данным
-
-### Oracle [&uarr;](#Readme)
-
-Oracle Database — это объектно-реляционная СУБД (система управления базами данных), созданная компанией Oracle. В
-настоящее время она имеет множество
-разных версий и типов. Однако в этой статье мы поговорим не о видах баз данных Oracle, а о структуре и основных
-концепциях, которые относятся к СУБД Oracle Database.
-
-#### Базы данных Oracle: экземпляры и сущности
-
-СУБД Oracle Database включает в себя физические и логические компоненты. Особого упоминания заслуживает понятие
-экземпляра. Замечено, что некоторые используют
-термины «база данных» и «экземпляр» в качестве синонимов. Да, это взаимосвязанные, но всё же разные вещи. База данных в
-терминологии Oracle — это физическое
-хранилище информации, а экземпляр — это программное обеспечение, которое работает на сервере и предоставляет доступ к
-информации, содержащейся в базе данных Oracle.
-Экземпляр исполняется на конкретном сервере либо компьютере, в то самое время как база данных хранится на дисках,
-подключённых к этому серверу
+Oracle Database includes physical and logical components. The concept of an instance is important. Some people use
+"database" and "instance" as synonyms, but they are related and different. In Oracle terminology, a database is the
+physical storage of information, while an instance is the software running on a server that provides access to the
+information stored in the Oracle database. The instance runs on a specific server or computer, while the database is
+stored on disks attached to that server.

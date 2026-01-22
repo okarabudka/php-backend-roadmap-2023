@@ -1,79 +1,90 @@
-# ALGORITHMS
+# Algorithms
 
-## Список ссылок
+## Links
 
-- [Сравнение алгоритмов сортировки](https://habr.com/ru/post/274017/)
-- [Описание алгоритмов сортировки и сравнение их производительности](https://habr.com/ru/post/335920/)
-- [Сортировка массивов](https://ru.hexlet.io/courses/php-arrays/lessons/sorting/theory_unit)
+- [Sorting algorithm comparison](https://habr.com/ru/post/274017/)
+- [Sorting algorithms overview and performance comparison](https://habr.com/ru/post/335920/)
+- [Array sorting](https://ru.hexlet.io/courses/php-arrays/lessons/sorting/theory_unit)
 - [Bubble Sort Visualization](https://zenozeng.github.io/bubble-sort-visualization/)
 - [Comparison Sorting Algorithms](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
 
-## Алгоритмы [&uarr;](#ALGORITHMS)
+## Algorithms [&uarr;](#algorithms)
 
-Мы смело оперируем фабриками, синглтонами и декораторами, но забываем о такой фундаментальной части программирования, как классические алгоритмы. Ведь если присмотреться к их реализации, то это тоже своего рода паттерны. С институтской скамьи можно вспомнить, к примеру, nested sets, b-tree, сортировку «пузырьком». Реализация многих алгоритмов давно устоялась.
+We freely use factories, singletons, and decorators, but often forget about fundamental topics like classic
+algorithms. Many of them are patterns in their own right. From university you may remember nested sets, B-trees, and
+bubble sort. The implementation of many algorithms has long been standardized.
 
-## Рекурсия
+## Recursion
 
-В общем смысле `рекурсия` — это отображение чего-либо внутри самого себя. Рекурсивные алгоритмы используют рекурсивные функции, обладающие данным свойством.
+In general, recursion is a structure where something refers to itself. Recursive algorithms use recursive functions
+that have this property.
 
-Полезное практическое применение рекурсии — в сортировке и преобразовании массивов деревьев.
+A practical use of recursion is sorting and transforming tree-like arrays.
 
-Существует два варианта реализации рекурсивных функций: простой и сложный:
+There are two kinds of recursion:
 
-- В `простом` случае рекурсивная функция вызывает саму себя.
-- В `сложном` случае функция вызывает другую функцию, которая вызывает исходную функцию, с которой всё начиналось.
+- Simple: a function calls itself.
+- Complex: a function calls another function, which calls the original function.
 
-Рассмотрим пример из жизни. Если взять два больших зеркала и поставить их друг напротив друга, то можно увидеть бесконечный коридор из изображений зеркал. Каждое зеркало несёт в себе функцию отражения пространства расположенного перед ним. Поэтому здесь мы имеем пример сложной рекурсии (функция вызывает другую функцию, которая вызывает исходную).
+Example: if you place two large mirrors facing each other, you see an infinite corridor of reflections. Each mirror
+reflects the space in front of it, so this is an example of complex recursion.
 
-### Глубина рекурсии
+### Recursion depth
 
-В связи с понятием рекурсии возникает понятие глубины рекурсии, то есть степени вложенности её отображений. Глубина рекурсии может быть равна бесконечности, в этом случае говорят о бесконечной рекурсии - в реальных условиях запуск программы приведёт к Segmentation fault, так как произойдёт переполнение стека вызова в силу ограничений на выделенную под него память. Понимая это, следует избегать таких конструкций при разработке. В PHP функции не могут вызывать друг друга бесконечно, так как это неизбежно приведёт к падению программы. Рекурсивный вызов должен завершиться по достижении степени вложенности n.
+Recursion depth is the number of nested calls. It can be infinite, which leads to infinite recursion. In practice, the
+program will crash with a segmentation fault due to stack overflow. Avoid such constructs. In PHP, functions cannot call
+ each other infinitely without crashing. A recursive call must terminate at some depth n.
 
-### Рекурсивные алгоритмы на PHP
+### Recursive algorithms in PHP
 
-- Нахождение факториала
-- Вычисление последовательности Фибоначчи
-- Поиск максимального элемента в массиве
-- Вычисление перестановок Ханойских башен
-- Рассчёт вариантов размена суммы монетами
-- Рекурсивный обход дерева
+- Factorial
+- Fibonacci sequence
+- Maximum element in an array
+- Tower of Hanoi permutations
+- Coin change combinations
+- Recursive tree traversal
 
-## Сравнение алгоритмов сортировки [&uarr;](#ALGORITHMS)
+## Sorting algorithm comparison [&uarr;](#algorithms)
 
-`Сортировка массивов` — самая базовая алгоритмическая задача, которую нередко спрашивают на собеседованиях. В реальном коде массивы сортируют, используя уже готовые функции стандартной библиотеки. Тогда для чего задают подобные вопросы? Обычно собеседующий хочет узнать следующее:
+Array sorting is a basic algorithmic task often asked in interviews. In production, arrays are sorted with standard
+library functions. Why ask about it? Interviewers typically want to know:
 
-- Насколько вы вообще в курсе о существовании алгоритмов.
-- Способны ли вы программировать.
-- Как работает ваше алгоритмическое мышление.
+- Whether you know algorithms exist
+- Whether you can program
+- How your algorithmic thinking works
 
-### Виды алгоритмов сортировки
+### Types of sorting algorithms
 
-- `Selection sort (сортировка выбором)` – суть алгоритма заключается в проходе по массиву от начала до конца в поиске минимального элемента массива и перемещении его в начало. Сложность такого алгоритма O(n^2).
+- Selection sort: scan the array for the minimum element and move it to the front. Complexity O(n^2).
 
-- `Bubble sort (сортировка пузырьком)` – данный алгоритм меняет местами два соседних элемента, если первый элемент массива больше второго. Так происходит до тех пор, пока алгоритм не обменяет местами все неотсортированные элементы. Сложность данного алгоритма сортировки равна O(n^2).
+- Bubble sort: swap adjacent elements if the first is greater than the second. Repeat until sorted. Complexity O(n^2).
 
-- `Insertion sort (сортировка вставками)` – алгоритм сортирует массив по мере прохождения по его элементам. На каждой итерации берется элемент и сравнивается с каждым элементом в уже отсортированной части массива, таким образом находя «свое место», после чего элемент вставляется на свою позицию. Так происходит до тех пор, пока алгоритм не пройдет по всему массиву. На выходе получим отсортированный массив. Сложность данного алгоритма равна O(n^2).
+- Insertion sort: iterate through the array, inserting each element into the sorted part. Complexity O(n^2).
 
-- `Quick sort (быстрая сортировка)` – суть алгоритма заключается в разделении массива на два под-массива, средней линией считается элемент, который находится в самом центре массива. В ходе работы алгоритма элементы, меньшие чем средний, будут перемещены влево, а большие вправо. Такое же действие будет происходить рекурсивно и с под-массива, они будут разделяться на ещё два под-массива до тех пор, пока не останется один элемент. На выходе получим отсортированный массив. Сложность алгоритма зависит от входных данных и в лучшем случае будет равняться O(n*log₂n). В худшем случае O(n²). Существует также среднее значение, это O(n*log₂n).
+- Quick sort: split the array into two sub-arrays by a pivot (often the middle element). Elements smaller than the pivot
+  move left, larger move right. This repeats recursively. Average complexity O(n*log2(n)), worst-case O(n^2).
 
-- `Comb sort (сортировка расческой)` – идея работы алгоритма крайне похожа на сортировку обменом, но главным отличием является то, что сравниваются не два соседних элемента, а элементы на промежутке, к примеру, в пять элементов. Это обеспечивает избавление мелких значений в конце, что способствует ускорению сортировки в крупных массивах. Первая итерация совершается с шагом, рассчитанным по формуле (размер массива)/(фактор уменьшения), где фактор уменьшения равен приблизительно 1.247330950103979, или округлено до 1.3. Вторая и последующие итерации будут проходить с шагом (текущий шаг)/(фактор уменьшения) и будут происходить до тех пор, пока шаг не будет равен единице. Практически в любом случае сложность алгоритма равняется O(n*log₂n).
+- Comb sort: similar to exchange sort, but compares elements at a gap (for example, 5 elements apart). This helps move
+  small values faster. The gap starts at (array size)/(shrink factor), where the shrink factor is about 1.2473 (often
+  rounded to 1.3). The gap is divided by the shrink factor until it reaches 1. Typical complexity O(n*log2(n)).
 
-Для сортировки неотсортированного массива наиболее оптимальным из представленных алгоритмов является `быстрая сортировка`. Несмотря на более длительное время выполнения алгоритм потребляет меньше памяти, что может быть важным в крупных проектах.
+For unsorted arrays, quick sort is usually the best among these. It uses less memory and is fast for large inputs.
 
-Однако такие алгоритмы как `сортировка выбором`, `обменом` и `вставками` могут лучше подойти для научных целей, например, в обучении, где не нужно обрабатывать огромное количество данных.
+Selection, bubble, and insertion sorts can be useful for teaching and small data sets.
 
-При частично отсортированном массиве результаты не сильно отличаются, все алгоритмы сортировки показывают время примерно на 2-3 миллисекунды меньше. Однако при сортировке частично отсортированного массива `быстрая сортировка` срабатывает намного быстрее и потребляет меньшее количество памяти.
+On partially sorted arrays, performance differences shrink, but quick sort is still typically faster and uses less
+memory.
 
-Эти примеры показывают основные методы сортировки в PHP, от простых, таких как пузырьковая сортировка, до более эффективных, таких как быстрая сортировка и сортировка слиянием.
+These examples show PHP implementations of sorting algorithms, from simple to more efficient.
 
-### 1. Сортировка пузырьком (Bubble Sort)
+### 1. Bubble Sort
 ```php
 function bubbleSort($array) {
     $n = count($array);
     for ($i = 0; $i < $n - 1; $i++) {
         for ($j = 0; $j < $n - $i - 1; $j++) {
             if ($array[$j] > $array[$j + 1]) {
-                // Меняем местами элементы
+                // Swap elements
                 $temp = $array[$j];
                 $array[$j] = $array[$j + 1];
                 $array[$j + 1] = $temp;
@@ -87,7 +98,7 @@ $array = [64, 34, 25, 12, 22, 11, 90];
 print_r(bubbleSort($array));
 ```
 
-### 2. Сортировка выбором (Selection Sort)
+### 2. Selection Sort
 ```php
 function selectionSort($array) {
     $n = count($array);
@@ -98,7 +109,7 @@ function selectionSort($array) {
                 $minIndex = $j;
             }
         }
-        // Меняем местами
+        // Swap
         $temp = $array[$minIndex];
         $array[$minIndex] = $array[$i];
         $array[$i] = $temp;
@@ -110,7 +121,7 @@ $array = [64, 25, 12, 22, 11];
 print_r(selectionSort($array));
 ```
 
-### 3. Сортировка вставками (Insertion Sort)
+### 3. Insertion Sort
 ```php
 function insertionSort($array) {
     $n = count($array);
@@ -131,7 +142,7 @@ $array = [12, 11, 13, 5, 6];
 print_r(insertionSort($array));
 ```
 
-### 4. Быстрая сортировка (Quick Sort)
+### 4. Quick Sort
 ```php
 function quickSort($array) {
     if (count($array) < 2) {
@@ -153,7 +164,7 @@ $array = [10, 7, 8, 9, 1, 5];
 print_r(quickSort($array));
 ```
 
-### 5. Сортировка слиянием (Merge Sort)
+### 5. Merge Sort
 ```php
 function mergeSort($array) {
     if (count($array) <= 1) {
@@ -191,41 +202,47 @@ $array = [12, 11, 13, 5, 6, 7];
 print_r(mergeSort($array));
 ```
 
-## Структуры данных [&uarr;](#ALGORITHMS)
+## Data structures [&uarr;](#algorithms)
 
-Структуры данных — программная единица, позволяющая хранить и обрабатывать множество однотипных и/или логически связанных данных в вычислительной технике. Данные можно представить по-разному. В зависимости от того, что это за данные и что вы собираетесь с ними делать, одно представление подойдёт лучше других.
+Data structures are programming units for storing and processing multiple related data items. Data can be represented
+in different ways. Depending on the data and what you want to do, one representation will work better than another.
 
-Рекомендуется ознакомиться с алгоритмами хотя бы на базовом уровне. Так как структуры данных реализованы с помощью алгоритмов, алгоритмы - с помощью структур данных.
+It is recommended to learn algorithms at least at a basic level. Data structures are implemented with algorithms, and
+algorithms are implemented with data structures.
 
-### Основные структуры данных
+### Core data structures
 
-- Списки
-- Хеш-таблица
-- Стек
-- Очередь
-- Граф
-- Связный список
-- Деревья
-- Двоичное дерево поиска
+- Lists
+- Hash table
+- Stack
+- Queue
+- Graph
+- Linked list
+- Trees
+- Binary search tree
 
-В разделе PHP ранее были описаны некоторые структуры данных:
+Some structures were described earlier in the PHP section:
 
-- [x] [SPL классы](learn-a-language-php.md#SPL-классы-)
-- [x] [Какие структуры данных вы знаете?](learn-a-language-php.md#Какие-структуры-данных-вы-знаете?-)
-- [x] [Разница стека и очереди](learn-a-language-php.md#Разница-стэка-и-очереди.-)
+- [x] [SPL classes](learn-a-language-php.md#spl-classes)
+- [x] [What data structures do you know?](learn-a-language-php.md#what-data-structures-do-you-know)
+- [x] [Stack vs queue](learn-a-language-php.md#stack-vs-queue)
 
-## Некоторые вопросы по алгоритмам
+## Some algorithm questions
 
-### Структуры данных
+### Data structures
 
-1. Разница между Array (массивом) и LinkedList (связным списком).
-2. Принцип работы массивов, списков, словарей и их использование для решения практических задач.
-3. Какие компромиссы между объёмом занимаемой памяти и быстродействием имеют место в базовых структурах данных, какие операции и почему легче выполнять для массивов, а какие — для списков. Нужно привести и объяснить способы реализации хеш-таблиц и разрешений коллизий в них. Приоритетные очереди и способы их реализации.
-4. Знать и понимать продвинутые структуры данных: B-деревья, биномиальные и фибоначчи-кучи, красно-чёрные деревья, «выворачивающиеся» (Splay) деревья, слоёные списки (skip lists), префиксные и суффиксные деревья и т.п.
+1. Difference between Array and LinkedList.
+2. How arrays, lists, dictionaries work and how to use them for practical tasks.
+3. Trade-offs between memory usage and performance in basic structures. Which operations are easier on arrays vs lists,
+   and why. Implementation of hash tables and collision resolution. Priority queues and their implementations.
+4. Advanced data structures: B-trees, binomial and Fibonacci heaps, red-black trees, splay trees, skip lists, prefix
+   and suffix trees, etc.
 
-### Алгоритмы
+### Algorithms
 
-1. Найти среднее значение чисел в массиве.
-2. Знать основные алгоритмы сортировки, поиска, обхода и выборки данных.
-3. Деревья и графы. Простые «жадные» алгоритмы и алгоритмы вида «разделяй-и-властвуй» (вроде QuickSort). Необходимо понять смысл обозначения уровней в этой матрице.
-4. Распознать и программно решить задачи динамического программирования, хорошо знать алгоритмы работы с графами, вычислительные алгоритмы. Распознать класс сложности задачи и т.п.
+1. Find the average value of numbers in an array.
+2. Know the main algorithms for sorting, searching, traversal, and selection.
+3. Trees and graphs. Greedy algorithms and divide-and-conquer algorithms (like QuickSort). Understand the meaning of
+   levels in the matrix.
+4. Recognize and solve dynamic programming tasks, know graph algorithms and computational algorithms. Recognize problem
+   complexity classes, etc.

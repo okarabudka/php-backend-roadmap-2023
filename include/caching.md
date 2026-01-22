@@ -1,6 +1,6 @@
 # Caching
 
-#### Ссылки
+#### Links
 
 - https://habr.com/ru/company/ruvds/blog/503800/
 - https://developer.mozilla.org/ru/docs/Web/HTTP/Caching
@@ -9,644 +9,459 @@
 - https://habr.com/ru/company/oleg-bunin/blog/316652/
 - https://for-each.dev/lessons/b/-memcached-vs-redis/
 
-# Кэширование
+## Caching
 
-Кэширование (или кэш) – это некий промежуточный буфер, в котором хранятся данные. Благодаря кэшированию страница сайта
-не воссоздается заново для каждого пользователя. Кэширование позволяет осуществлять работу с большим количеством данных
-в максимально сжатые сроки и при ограниченных ресурсах (серверных и пользовательских).
+Caching is an intermediate buffer for data. It allows a page to be served without regenerating it for every user.
+Caching helps handle large amounts of data quickly with limited resources (server and client).
 
-Сайт может хранить данные для ускорения обработки последующих запросов на четырёх уровнях:
+A site can cache data at four levels:
 
-    клиентский;
-    сетевой;
-    серверный;
-    уровень приложения.
+    client
+    network
+    server
+    application
 
 ## Client-side
 
-### HTTP-кеширование
+### HTTP caching
 
-Заголовки HTTP отвечают за определение возможности кэширования ответа и за определение срока хранения данных.
+HTTP headers control whether a response can be cached and how long it can be stored.
 
-Cache-control - указывает, скролько по времени ответ может находиться в кэше. Браузер отправит повторный запрос на
-хранение данных, если срок хранения истечёт или пользователь целенаправленно обновит страницу.
+Cache-Control specifies how long a response can stay in cache. The browser will revalidate if the cache expires or the
+user forces a refresh.
 
-Last-Modified или Etag - эти заголовки нужны для проверки возможности повторного использования данных. Статус ответа
-304 указывает, что содержимое не изменилось и повторная загрузка не требуется.
+Last-Modified and ETag are used to validate cached data. A 304 response means the content has not changed and does not
+need to be re-downloaded.
 
-#### Приватный (private) кеш браузера
+#### Private browser cache
 
-Приватный кеш предназначен для отдельного пользователя. Вы, возможно, уже видели параметры кеширования в настройках
-своего браузера.
-Кеш браузера содержит все документы, загруженные пользователем по HTTP. Он используется для доступа к ранее загруженным
-страницам
-при навигации назад/вперёд, позволяет сохранять страницы, или просматривать их код, не обращаясь лишний раз к серверу.
-Кроме того,
-кеш полезен при отключении от сети.
+Private cache is for a single user. The browser cache stores documents downloaded over HTTP. It is used for back/forward
+navigation and lets you save or view pages without hitting the server again. It is also useful when offline.
 
-#### Общий (shared) прокси-кеш
+#### Shared proxy cache
 
-Кеш совместного использования — это кеш, который сохраняет ответы, чтобы их потом могли использовать разные
-пользователи. Например,
-в локальной сети вашего провайдера или компании, может быть установлен прокси, обслуживающий множество пользователей,
-чтобы можно
-было повторно использовать популярные ресурсы, сокращая тем самым сетевой трафик и время ожидания.
+A shared cache stores responses for reuse by multiple users. For example, a proxy in a local network can serve many
+users and reuse popular resources, reducing network traffic and latency.
 
 ## CDN [&uarr;](https://habr.com/ru/company/ruvds/blog/503800/)
 
-Согласно Википедии, Сеть Доставки Контента (CDN) — географически распределённая сетевая инфраструктура, позволяющая
-оптимизировать доставку и дистрибуцию контента конечным пользователям в сети Интернет. Иначе говоря, CDN — это
-распределённое хранение и использование кэша.
+A Content Delivery Network (CDN) is a geographically distributed infrastructure that optimizes delivery of content to
+end users. In other words, CDN is distributed cache storage and usage.
 
-CDN — это общее название множества различных технологий, призванных доставлять статический контент как можно ближе и
-быстрее по
-отношению к клиенту. Например, torrent-раздача новой версии Ubuntu — это тоже CDN. А вы становитесь одним из узлов
-раздачи,
-помогая другим пользователям быстрее получить новую версию дистрибутива и не положить основной сайт под нагрузкой.
+CDN is a broad term for technologies that deliver static content as close to the client as possible. For example,
+BitTorrent distribution of a new Ubuntu release is also a CDN: you become a node and help others download faster
+without overloading the main site.
 
-В случае классического понимания речь идёт о специально созданных и предназначенных только для решения подобных задач
-сетях.
-Часто проприетарных. Если вам нужен CDN общего назначения, то вы обращаетесь к кому-то из крупных вендоров, имеющих
-серверы по
-всему миру и достаточные каналы связи. Крупнейшие из них, такие, как Amazon и Google, тянут свои собственные кабели
-связи для
-обеспечения нужной пропускной способности и снижения задержек.
+In the classic sense, CDNs are dedicated networks built for this task, often proprietary. If you need a general CDN,
+you use a vendor with servers worldwide and enough bandwidth. Large vendors like Amazon and Google even run their own
+cables to ensure capacity and low latency.
 
-`CDN решает несколько проблем:`
+CDN solves several problems:
 
-#### Проблема ширины канала
+#### Bandwidth constraints
 
-У вас есть много иллюстраций и видео, которые надо доставить клиенту. Передать однократно несколько Мегабайт не очень
-трудно:
-современные каналы связи позволяют делать это за секунды. Всё становится гораздо хуже, когда к вам на сайт одновременно
-заходят
-вначале несколько десятков, а потом — тысяч посетителей.
+If you have many images and videos, delivering a few megabytes once is easy. The problem starts when tens, then
+thousands of users hit the site at the same time.
 
-Давайте считать. Допустим, у вас один-единственный сервер и у вас типичная страница весом в 1,8 Мегабайта. Клиенты
-приходят к вам
-впервые и с «холодным» кэшем, то есть в браузере нет ранее загруженных материалов с вашего ресурса.
+Suppose your server delivers a typical 1.8 MB page. Users arrive with a cold cache. To serve the page in about three
+seconds, you need 4.8 Mbps per user. With 100 users, that is 480 Mbps. If you also serve a 10 MB video, you need about
+2.7 Gbps.
 
-Чтобы отдать за приемлемые три секунды страницу, нам потребуется ширина канала в 4,8 Мегабита на одного посетителя. Если
-их придет
-100, то это уже 480 Мегабит. А если вдруг потребуется отдать тем же людям небольшой видеофайл размером 10 Мегабайт, то
-нам
-потребуется канал в 2,7 Гигабита.
+This creates two main content types:
 
-Таким образом, у вас появляется два основных типа контента: динамический и статический.
-Статический контент, как следует из названия, не изменяется или меняется крайне редко. Например, это логотип веб-сайта.
-Или залитые
-образы с дистрибутивами ПО.
+- Static content: changes rarely (logos, software images).
+- Dynamic content: generated on the fly (personalized playlists).
 
-Динамический контент отличается тем, что он генерируется сервером «на лету». Обычно это происходит в момент самого
-запроса. Например, при клике на кнопку формируется плей-лист, уникальный для конкретного пользователя.
+CDNs were created to solve static content caching.
 
-Именно для решения проблемы кэширования статического контента и были созданы CDN.
+#### High latency
 
-#### Проблема долгого пинга
+CDNs also reduce latency. A nearby edge server caches static content and can sometimes serve dynamic content. Long
+distance requests add noticeable delay. Hundreds of requests are fine inside a city, but across continents everything
+slows down.
 
-Вторая проблема, которую решает CDN, — это ускорение запросов. Около вас есть локальный сервер, который кэширует
-статический
-контент и иногда сам умеет выдавать динамический. Если вам знакомы тормоза 1С при забегах из Владивостока в Москву или
-особенности
-работы с SAP через какой-нибудь корпоративный VPN в Европе из Новосибирска, то вы понимаете всю глубину боли.
-Сотни запросов незаметны при обычных сетевых задержках внутри города, но, когда расстояния увеличиваются, неиллюзорно
-тормозить
-начинает всё.
+### How a CDN works
 
-`Как работет CDN:`
+1. Pick the closest node
 
-1. Выбираем ближайший узел
+A DNS lookup returns the nearest node. This prevents your browser from pulling content from a faraway location when the
+same file is cached locally. This is usually done with GeoDNS or Anycast. For example, Google DNS (8.8.8.8) routes to
+nearby nodes via optimized routing.
 
-Для начала пользователю при DNS-запросе отдаётся адрес ближайшего к нему узла. Это нужно для того, чтобы ваш браузер не
-полез
-качать фотографию откуда-то из Ванкувера, когда ближайшая к вам копия файла есть в кэше на сервере в вашем городе.
-Обычно это
-делается с помощью GeoDNS, но иногда используется специально сконфигурированный Anycast. Например, всем известный
-8.8.8.8 от
-Google будет вести на ближайший узел, который чаще всего расположен во внутренней сети вашего провайдера. Это возможно
-благодаря
-правильному анонсированию сетей, по которому роутеры провайдера выбирают наиболее короткий маршрут.
+2. Cache
 
-2. Кэшируем
+Caching reduces cross-border traffic and must follow user geography.
 
-Это ключевой момент в работе CDN. Кэширование очень важно для снижения трансграничного трафика, каналы для которого
-совсем не
-резиновые. Более того, очень важно, чтобы кэширование происходило строго в соответствии с географией пользователей.
+3. Deliver dynamic content
 
-3. Доставляем динамику
+Dynamic content is generated by the origin server (for example, a news page customized for a user). It is usually not
+cached because it is unique. Static elements (for example, images) are served from the CDN.
 
-Динамический контент генерируется на стороне вашего origin-сервера. Например, создаётся страница с новостями,
-отсортированными
-под конкретного клиента. Кэшировать всё это очень сложно, так как контент, по сути, уникальный. В большинстве случаев
-динамическое
-содержимое вроде текста «В Лондоне +23 градуса» доставляется от origin-сервера, а статическое вроде картинки с Биг-Беном
-прилетает
-от CDN.
+#### Cache control
 
-#### Управление кэшированием
+A cache must not store sensitive data. For example, payment details should not be cached. That is why you often have to
+re-enter them.
 
-Проблема любого кэша в том, что мало отрегулировать скорость его протухания. Нужно убедиться, что ни промежуточные узлы,
-ни
-браузер не додумаются закэшировать особо чувствительные данные. Например, реквизиты банковской карты. Замечали, что их
-каждый раз
-приходится вводить заново? Вот это оно и работает.
+Use these headers:
 
-Для этого необходимо использовать специальные валидаторы в заголовках веб-страниц:
+cache-control: private
 
-`cache-control: private`
+Content can be cached only by the end client, not by intermediaries like proxies or CDNs.
 
-Заголовок говорит о том, что контент может быть закэширован только конечным клиентом, но не промежуточным узлом, таким,
-как прокси
-или CDN.
+cache-control: public
 
-`cache-control: public`
+Content can be cached by anyone.
 
-Контент может быть кэширован кем угодно.
+cache-control: no-store
 
-`cache-control: no-store`
+Content must never be cached. Useful for sensitive forms like payment details.
 
-Контент не должен быть кэширован никем и никогда. Чаще всего используется для страниц с особо чувствительной
-информацией, например,
-форме ввода реквизитов банковской карты.
+cache-control: no-cache
 
-`cache-control: no-cache`
+Content must be revalidated before use. This is done with ETag. The client sends If-None-Match with its cached ETag. If
+it matches the server, the server replies that the cache can be used; otherwise it sends a new version.
 
-Контент не должен использоваться до тех пор, пока клиент не убедится, что он просматривает последнюю версию. Это
-реализуется за
-счёт хедера ETag, который представляет собой идентификатор, уникальный для конкретного ресурса. По сути, это хэш.
+cache-control: max-age
 
-Клиент при запросе посмотрит, что у него лежит в кэше, и отдаст ETag в заголовке If-None-Match. Если ETag от клиента
-соответствует
-актуальной версии у сервера, то он ответит клиенту, что можно пользоваться кэшем. Иначе пришлёт новую версию.
+Specifies resource lifetime in seconds from first fetch.
 
-`cache-control: max-age`
+In addition to headers, you can manage cache via CDN dashboards or purge it via API.
 
-В этом заголовке указывается срок жизни ресурса в секундах с момента первого получения.
-Помимо управления кэшированием через заголовки, владелец ресурса всегда может внести дополнительные изменения через
-панель управления
-или сбросить кэш, ткнув CDN через API.
+## Server-side
 
-## Сторона сервера:
+OPcache saves opcodes to speed up PHP execution. It is controlled by PHP and configuration.
 
-OpCache -> сохраняет опкоды для увеличения производительности исполнения кода -> данные регулируется непосредственно PHP
-и конфигурацией
+Redis and Memcached store frequently used data to increase read speed. Keys and values are defined by the developer.
 
-Redis, Memcached -> необходим для сохранения часто используемых данных и следовательно увеличивает скорость получения
-данных -> записываемые данные
-и их ключи регулируются разработчиком, который использует данное программное обеспечение
+### OPcache [&uarr;](#caching)
 
-### OPCache [&uarr;](#Caching)
+PHP opens a file, compiles it, then executes it. With many files, opening, reading, and compiling can consume time and
+resources. If files do not change, repeated compilation is wasteful. It is better to compile once and cache the result.
 
-PHP открывает файл с кодом, компилирует его, затем выполняет. Поскольку файлов может быть много, процесс их открытия,
-чтения и компиляции может
-отнимать кучу времени и ресурсов. Если файлы не меняются, то постоянную компиляцию можно не делать. Лучше сделать ее
-один раз и закэшировать
-результат.
+That is what OPcache does. The result of the first compilation is stored in cache, and PHP uses it for subsequent
+requests. When files change, OPcache clears the cache and recompiles. This saves resources with minimal configuration.
+The larger the application, the bigger the gain.
 
-Именно это и делает модуль opCache. Результат первой компиляции будет сохранен в кэш, с которым и будет работать PHP.
-Таким образом это ускорит
-выполнение за счет отсутствия тяжелого процесса компиляции. Когда файлы изменяются, модуль сам сбросит кэш и обеспечит
-перекомпиляцию. Короче,
-этот модуль делает очень полезную экономию ресурсов даже без необходимости его как-то настраивать. Чем сложнее
-приложение, тем выше эффективность
-этой оптимизации.
+OPcache improves PHP performance by storing compiled bytecode in shared memory, eliminating the need to load and parse
+scripts on each request.
 
-OPcache улучшает производительность PHP путём сохранения скомпилированного байт-кода скриптов в разделяемой памяти, тем
-самым избавляя PHP от
-необходимости загружать и анализировать скрипты при каждом запросе.
+### Redis [&uarr;](#caching)
 
-### Redis [&uarr;](#Caching)
+Redis is a high-performance distributed NoSQL data store. Unlike Memcached, which can evict data at any moment, Redis
+can persist data, making it closer to MemcacheDB.
 
-Redis — это высокопроизводительное нереляционное распределённое хранилище данных. В отличие от Memcached, который может
-в любой момент удалить
-ваши данные, вытесняя старые записи новыми, Redis хранит информацию постоянно, таким образом он похож на MemcacheDB.
+Use cases:
 
-Рассмотрим следующие кейсы:
+    caching data
+    queues based on Redis
+    mutex locks
+    rate limiting
+    pub/sub message distribution
 
-    - Кэширование данных
-    - Работа с очередями на базе redis
-    - Организация блокировок (mutex)
-    - Делаем систему rate-limit
-    - Pubsub — делаем рассылки сообщений на клиенты
+#### Data caching
 
-#### Кэширование данных
+Redis is an in-memory key-value store. Access by key is O(1), so reads are fast.
 
-Redis — это in-memory хранилище, то есть данные хранятся в оперативной памяти. Ещё это key-value хранилище, где доступ к
-данным по их ключу имеет
-сложность O(1) — поэтому данные мы получаем очень быстро.
-
-Получение данных из хранилища выглядит следующим образом:
+Reading a value:
 
     public function getValueFromCache(string $key)
     {
         return $this->getRedis()->rawCommand('GET', $key);
     }
 
-Но для того, чтобы данные из кэша получить, их нужно сначала туда положить. Простой пример записи:
+Writing a value:
 
     public function setValueToCache(string $key, $value)
     {
         $this->getRedis()->rawCommand('SET', $key, $value);
     }
 
-Таким образом, мы запишем данные в Redis и сможем их считать по тому же самому ключу в любой нужный нам момент. Но если
-мы будем все время писать в Redis, данные в нем будут занимать все больше и больше места в оперативной памяти. Нам нужно
-удалять нерелевантные данные, контролировать это вручную достаточно проблематично, поэтому пускай redis занимается этим
-самостоятельно. Добавим к нашему ключу TTL (время жизни ключа):
+If you keep writing data, memory usage grows. You need expiration. Add a TTL:
 
     public function setValueToCache(string $key, $value, int $ttl = 3600)
     {
         $this->getRedis()->rawCommand('SET', $key, $value, 'EX', $ttl);
     }
 
-#### Работа с очередями на базе redis
+#### Redis queues
 
-Используя имеющиеся в Redis структуры данных, мы можем запросто реализовать стандартные очереди FIFO или LIFO. Для этого
-используем структуру List
-и методы по работе с ней. Работа с очередями состоит из двух основных действий: отправить задачу в очередь, и взять
-задачу из очереди.
-Отправлять задачи в очередь мы можем из любой части системы. Получением задачи из очереди и ее обработкой обычно
-занимается выделенный процесс,
-который называется консьюмером (consumer).
+Using Redis data structures, you can build FIFO or LIFO queues. Use Lists and their operations. Queue processing has two
+steps: push a task and pop a task. Producers can push tasks from any part of the system. Consumers are dedicated
+processes that pop and process tasks.
 
-Итак, для того, чтобы отправить нашу задачу в очередь, нам достаточно использовать следующий метод:
+Push a task:
 
     public function pushToQueue(string $queueName, $payload)
     {
         $this->getRedis()->rawCommand('RPUSH', $queueName, serialize($payload));
     }
 
-#### Организация блокировок (mutex)
+#### Mutex locks
 
-Mutex (блокировка) — это механизм синхронизации доступа к shared ресурсу нескольких процессов, тем самым гарантируя, что
-только один процесс будет
-взаимодействовать с этим ресурсом в единицу времени. Этот механизм часто применяется в биллинге и других системах, где
-важно соблюдать потоковую
-безопасность (thread safety).
+A mutex is a synchronization mechanism that ensures only one process can access a shared resource at a time. This is
+common in billing and other thread-safe systems.
 
-Для реализации mutex на базе Redis прекрасно подойдет стандартный метод SET с дополнительными параметрами:
+Redis SET with parameters can implement a mutex:
 
     public function lock(string $key, string $hash, int $ttl = 10): bool
     {
         return (bool)$this->getRedis()->rawCommand('SET', $key, $hash, 'NX', 'EX', $ttl);
     }
 
-где параметрами для установки mutex являются:
+Parameters:
 
-    $key — ключ идентифицирующий mutex;
-    $hash — генерируем некую подпись, которая идентифицирует того, кто поставил mutex. Мы же не хотим, чтобы кто-то в другом месте случайно снял блокировку и вся наша логика рассыпалась.
-    $ttl — время в секундах, которое мы отводим на блокировку (на тот случай, если что-то пойдет не так, например процесс, поставивший блокировку, по какой-то причине умер и не снял ее, чтобы это блокировка не висела бесконечно).
+    $key: identifies the mutex
+    $hash: a signature identifying the owner of the lock
+    $ttl: lock duration in seconds, to avoid deadlocks if a process dies
 
-Достаточно частая задача, когда мы хотим ограничить количество запросов к нашему апи. Например на один API endpoint от
-одного аккаунта мы хотим принимать не более 100 запросов в минуту. Эта задача легко решается с помощью нашего любимого
-Redis:
+#### Rate limiting
+
+Suppose you want to limit requests to an API endpoint to 100 requests per minute per account. Redis makes this easy:
 
     public function isLimitReached(string $method, int $userId, int $limit): bool
     {
         $currentTime = time();
-        $timeWindow = $currentTime - ($currentTime % 60); //Так как наш rate limit имеет ограничение 100 запросов в минуту,
-        
-        //то округляем текущий timestamp до начала минуты — это будет частью нашего ключа,																									//по которому мы будем считать количество запросов
-        $key = sprintf('api_%s_%d_%d', $method, $userId, $timeWindow); //генерируем ключ для счетчика, соответственно каждую минуту он будет меняться исходя из $timeWindow
-        $count = $this->getRedis()->rawCommand('INCR', $key); //метод INCR увеличивает значение по указанному ключу, и возвращает новое значение.
-        
-        //Если ключа не существует, он будут инициализирован со значением 0 и после этого увеличен
-        $this->getRedis()->rawCommand('EXPIRE', $key, 60); // Обновляем TTL нашему ключу, выставляя его в минуту, для того, чтобы не накапливать не актуальные данные
-        if ($count > $limit) { //limit достигнут
+        $timeWindow = $currentTime - ($currentTime % 60); // align to the start of the minute
+        $key = sprintf('api_%s_%d_%d', $method, $userId, $timeWindow); // a per-minute counter key
+        $count = $this->getRedis()->rawCommand('INCR', $key); // increment and return new value
+        $this->getRedis()->rawCommand('EXPIRE', $key, 60); // set TTL to 60 seconds
+        if ($count > $limit) {
             return true;
         }
 
         return false;
     }
 
-Таким простым методом мы можем лимитировать количество запросов к нашему API, базовый каркас нашего контроллера мог бы
-выглядеть следующим образом:
+A controller might look like:
 
     class FooController {
-    
+
         public function actionBar()
         {
             if ($this->isLimitReached(__METHOD__, $this->getUserId(), 100)) {
                 throw new Exception('API method max limit reached');
             }
-    
-            $this->doSomeLogick();
+
+            $this->doSomeLogic();
         }
     }
 
-#### Делаем систему rate-limit
+#### Pub/Sub message broadcast
 
-Pub/sub — интересный механизм, который позволяет, с одной стороны, подписаться на канал и получать сообщения из него, с
-другой стороны — отправлять
-в этот канал сообщение, которое будет получено всеми подписчиками. Наверное у многих, кто работал с вебсокетами,
-возникла аналогия с этим механизмом,
-они действительно очень похожи. Механизм pub/sub не гарантирует доставки сообщений, он не гарантирует консистентности,
-поэтому не стоит его
-использовать в системах, для которых важны эти критерии. Однако рассмотрим этот механизм на практическом примере.
-Предположим, что у нас есть
-большое количество демонизированных команд, которыми мы хотим централизованно управлять. При инициализации нашей команды
-мы подписываемся на канал,
-через который будем получать сообщения с инструкциями. С другой стороны у нас есть управляющий скрипт, который
-отправляет сообщения с инструкциям
-в указанный канал. К сожалению, стандартный PHP работает в одном блокирующем потоке; для того, чтобы реализовать
-задуманное, используем ReactPHP и
-реализованный под него клиент Redis.
+Pub/Sub lets you subscribe to a channel and receive messages, and publish messages to that channel. It does not
+guarantee delivery or consistency, so it is not suitable when those are critical. It is similar to WebSockets.
 
-Подписка на канал:
+Imagine multiple daemon processes that you want to control centrally. Each daemon subscribes to a channel to receive
+commands. A control script publishes commands to the channel. PHP is single-threaded, so you can use ReactPHP and a
+Redis client for this.
+
+Subscribe to a channel:
 
     class FooDaemon {
-    
+
         private $throttleParam = 10;
-    
+
         public function run()
         {
-            $loop = React\EventLoop\Factory::create(); //инициализируем event-loop ReactPHP
-            $redisClient = $this->getRedis($loop); //инициализируем клиента Redis для ReactPHP
-            $redisClient->subscribe(__CLASS__); // подписываемся на нужный нам канал в Redis, в нашем примере название канала соответствует названию класса
-            $redisClient->on('message', static function($channel, $payload) { //слушаем события message, при возникновении такого события, получаем channel и payload
-                switch (true) { // Здесь может быть любая логика обработки сообщений, в качестве примера пускай будет так:
-                    case \is_int($payload): //Если к нам пришло число – обновим параметр $throttleParam на полученное значение
+            $loop = React\EventLoop\Factory::create();
+            $redisClient = $this->getRedis($loop);
+            $redisClient->subscribe(__CLASS__);
+            $redisClient->on('message', static function($channel, $payload) {
+                switch (true) {
+                    case is_int($payload):
                         $this->throttleParam = $payload;
                         break;
-                    case $payload === 'exit': //Если к нам пришла команда 'exit' – завершим выполнение скрипта
+                    case $payload === 'exit':
                         exit;
-                    default: //Если пришло что-то другое, то просто залогируем это
+                    default:
                         $this->log($payload);
                         break;
                 }
             });
-    
+
             $loop->addPeriodicTimer(0, function() {
-                $this->doSomeLogick(); // Здесь в бесконечном цикле может выполняться какая-то логика, например чтение задач из очереди и их процессинг
+                $this->doSomeLogic();
             });
-    
-            $loop->run(); //Запускаем наш event-loop
+
+            $loop->run();
         }
     }
 
-Отправка сообщения в канал — более простое действие, мы можем сделать это абсолютно из любого места системы одной
-командой:
+Publish a message:
 
     public function publishMessage($channel, $message)
     {
         $this->getRedis()->publish($channel, $message);
     }
 
-В результате такой отправки сообщения в канал, все клиенты, которые подписаны на данный канал, получат это сообщение.
+All subscribers to the channel receive the message.
 
-#### Pubsub — делаем рассылки сообщений на клиенты
+### Memcached [&uarr;](#caching)
 
-### Memcached [&uarr;](#Caching)
+Memcached is software that provides in-memory caching based on a hash table. When a page is generated, it is stored in
+RAM, so subsequent requests can retrieve it without regenerating the page, saving time and server resources.
 
-Memcached - программное обеспечение, реализующее сервис кэширования данных в оперативной памяти на основе хеш-таблицы.
-Проще говоря, когда страница
-сгенерирована, она через memcached помещается в оперативную память, и при последующем обращении к странице незачем её
-генерировать снова, затрачивая
-время и ресурсы сервера - она попросту берётся из memcached.
+Memcached does not provide data isolation. Within a single server, any user can modify or delete any cached data. While
+it typically stores non-critical data, this can still affect site behavior.
 
-Сама технология memcached не предполагает разделение данных, тем более - разделение доступа. В рамках одного веб-сервера
-любой пользователь может
-использовать memcached, в том числе модифицировать и удалять любые данные. Несмотря на то, что в memcached не хранят
-критичные данные, это может
-не самым положительным образом сказаться на работе сайта.
+Memcached features: very fast regardless of data volume, simple interface (set/get/TTL), atomic operations (incr/decr,
+append/prepend), easy scaling across servers, and a node failure just becomes a cache miss.
 
-Возможности memcached: он очень быстрый, вне зависимости от количества данных, которые мы храним, у него простой
-интерфейс — можно засетить (set)
-данные, можно получить, через время жизни удалить ключ и т.д.; в memcached поддерживаются атомарные операции —
-incr/decr, append/prepend; позволяет
-легко расширять количество серверов, и даже падение одного из серверов просто рассчитывается как непопадание в кэш, т.е.
-просто нет данных в кэше.
+Memcached limitations: key length max 250 bytes, value size max 1 MB. Keys can be lost due to TTL expiry, memory limits,
+or server failures.
 
-Ограничения memcached: длина ключей максимум 250 байт, объем данных, который можно хранить под одним ключом,
-ограничивается 1 Мб. Потеря ключей в
-memcached может случаться по времени жизни, по лимиту памяти, либо при отказе сервера.
+Memcached is great for server-side caching: intermediate data (serialized) or user-facing fragments and pages. For full
+page caching, it is often easier to use web server caching, but if disk I/O is high, Memcached can work directly with
+web servers (nginx has a module) so the backend writes data to cache and the web server reads it directly.
 
-Для серверного кеширования Memcached подходит очень хорошо — кешировать можно как промежуточные данные (в
-сериализованном виде), так и данные,
-которые непосредственно «отдаются» пользователям — фрагменты страниц или даже страницы целиком. В случае кеширования
-страниц целиком, как правило,
-проще реализовать отдачу подобного рода статики на уровне веб-сервера, однако если нагрузка на дисковую подсистему
-высока, то стоит помнить, что
-Memcached может напрямую работать с веб-сервером (для nginx, например, есть соответствующий модуль), что позволяет на
-уровне бекенда писать данные
-в кеш, а получать этот кеш можно непосредственно веб-сервером без обращения к бекенду.
+The Memcached API includes basic functions: server selection, connection setup, add/delete/update/get by key.
 
-В API memcached есть только базовые функции — это выбор сервера, установка и разрыв соединений, добавление, удаление,
-обновление и получение
-значения по заданному ключу.
+Memcached works well in clusters. Distribution is done by hashing keys to pick a server. A server failure is treated as
+ a cache miss, which reduces performance but does not cause critical errors.
 
-Memcached отлично работает в кластере. Распределение реализуется путем сегментирования данных по ключам (по аналогии с
-сокетами хеш-таблицы).
-Клиент, используя ключ данных, вычисляет его хеш и использует его для выбора соответствующего сервера. Ситуация сбоя
-сервера интерпретируется как
-промах кэша, что несколько снижает производительность, но никак не мешает дальнейшей работе с ПО (то есть критичных
-ошибок не вызывает).
+### Redis vs Memcached
 
-### Redis против Memcached
+Memcached is a distributed in-memory cache designed for simplicity, often used as a cache or session store.
 
-Memcached — это система кэширования с распределенной памятью, разработанная для простоты и простоты использования и
-хорошо подходящая
-в качестве кэша или хранилища сеансов.
+Redis is an in-memory data structure store with rich functionality. It can be used as a cache, database, message broker,
+and queue.
 
-Redis — это хранилище структур данных в памяти, которое предлагает богатый набор функций. Он полезен в качестве кэша,
-базы данных,
-брокера сообщений и очереди.
-
-Разница между Redis и Memcached заключается в том, что когда дело доходит до хранения данных, Redis использует
-определенные типы
-данных, тогда как Memcached использует только строки. Redis поддерживает сохранение на диск, что означает, что данные в
-его базе
-данных могут быть сохранены и восстановлены в случае сбоя или перезагрузки сервера Redis. Memcached не имеет встроенной
-поддержки
-сохранения данных на диск.
+Key difference: Redis supports data types beyond strings and can persist data to disk, so it can survive crashes or
+restarts. Memcached does not have built-in persistence.
 
 Redis:
 
-- больше возможностей: очереди, транзакции, различные типы данных
-- позволяет хранить до 515 mb в значениях
-- поддерживает master-slave репликацию
-- можно использовать как постоянное хранилище данных
-- производительность сравнима с Memcached
+- more capabilities: queues, transactions, data types
+- can store values up to 512 MB
+- supports master-slave replication
+- can be used as persistent storage
+- performance is comparable to Memcached
 
 Memcached:
 
-- быстрее чем Redis но на практике эта разница практически незаметна
-- хорош в качестве кэша, но есть множество задач с которыми Redis справится не хуже а для некоторых и лучше чем
-  Memcached в силу своих возможностей
+- faster than Redis, but the difference is usually negligible
+- good as a cache; Redis often performs as well or better for many tasks
 
-#### Сходства
+#### Similarities
 
-Субмиллисекундная задержка
+Sub-millisecond latency
 
-    И Memcached, и Redis предлагают время отклика меньше миллисекунды, сохраняя данные в памяти.
+    Both Memcached and Redis provide response times under 1 ms by keeping data in memory.
 
-Разделение данных
+Data partitioning
 
-    Точно так же обе базы данных в памяти позволяют распределять данные между несколькими узлами.
+    Both allow data distribution across multiple nodes.
 
-Поддержка языков программирования
+Language support
 
-    Кроме того, оба поддерживают все основные языки программирования, включая Java, Python, JavaScript, C и Ruby.
+    Both support major languages including Java, Python, JavaScript, C, and Ruby.
 
-Очистка кэша
+Cache clearing
 
-    Memcached позволяет очистить кеш с помощью команды flush_all . Точно так же Redis позволяет нам удалять все из кеша с помощью таких команд, как FLUSHDB и FLUSHALL .
+    Memcached clears cache with flush_all. Redis clears with FLUSHDB and FLUSHALL.
 
-Масштабирование
+Scalability
 
-    Оба решения для кэширования предлагают высокую масштабируемость для обработки больших данных, когда спрос растет в геометрической прогрессии.
+    Both scale well for large data volumes and growing demand.
 
-#### Отличия
+#### Differences
 
-Командная строка
+Command line
 
-    Memcached позволяет нам запускать команды , подключаясь к серверу с помощью telnet:
-    
+    Memcached can be managed via telnet:
+
         $ telnet 10.2.3.4 5678
         Trying 10.2.3.4...
         Connected to 10.2.3.4.
-        
+
         $ stats
         STAT pid 14868
         STAT uptime 175931
         STAT time 1220540125
         // ...
-    
-    В отличие от Memcached, Redis поставляется с выделенным интерфейсом командной строки, redis-cli , позволяющим нам выполнять команды :
-    
+
+    Redis includes a dedicated CLI, redis-cli:
+
         $ redis-cli COMMAND
-         
-    Здесь мы выполнили COMMAND , чтобы вывести список всех команд, предоставляемых Redis.
 
-Сброс дискового ввода/вывода
+Disk persistence
 
-    Memcached обрабатывает дамп диска только с помощью сторонних инструментов, таких как libmemcached-tools, или ответвлений, таких 
-    как memcached-dd .
-    
-    Однако Redis предоставляет легко настраиваемые механизмы по умолчанию, такие как RDB (файл базы данных Redis) или AOF (файлы только
-    для добавления) для дампа диска. Это может быть полезно для архивации и восстановления.
-    
-    Используя redis-cli, мы можем выполнить синхронную команду SAVE , чтобы сделать снимок данных в памяти:
-    
+    Memcached requires third-party tools (libmemcached-tools, memcached-dd) for disk dumps.
+
+    Redis provides built-in persistence: RDB snapshots and AOF append-only files. For example:
+
         $ redis-cli SAVE
         OK
 
-Структуры данных
+Data structures
 
-    Memcached хранит пары ключ-значение в виде строки и имеет ограничение размера 1 МБ на значение. 
-    Однако Redis также поддерживает другие структуры данных, такие как list, set и hash, и может хранить значения размером до 512 МБ .
+    Memcached stores only string key-value pairs with a 1 MB limit. Redis supports lists, sets, hashes, and can store
+    values up to 512 MB.
 
-Репликация
+Replication
 
-    Memcached поддерживает репликацию со сторонними ответвлениями, такими как repcached .
-    
-    В отличие от Memcached, Redis предоставляет нам функциональные возможности для увеличения количества кластеров 
-    путем репликации основного хранилища для лучшей масштабируемости и высокой доступности.
-    
-    Во-первых, мы можем использовать команду REPLICAOF для создания реплики главного сервера Redis. Затем мы выполняем 
-    команду PSYNC на реплике, чтобы инициировать репликацию с мастера.
+    Memcached supports replication via third-party forks like repcached.
 
-Транзакции
+    Redis supports built-in replication. You can create a replica with REPLICAOF and sync with PSYNC.
 
-    Memcached не поддерживает транзакции, хотя его операции атомарны.
-    
-    Redis предоставляет готовую поддержку транзакций для выполнения команд.
-    
-    Мы можем запустить транзакцию с помощью команды MULTI . Затем мы можем использовать команду EXEC для выполнения следующих последующих команд. 
-    Наконец, Redis предоставляет команду WATCH для условного выполнения транзакции.
+Transactions
 
-Публикация и подписка на сообщения
+    Memcached does not support transactions, though operations are atomic.
 
-    Memcached не поддерживает публикацию/подписку на сообщения «из коробки».
-    
-    Redis, с другой стороны, предоставляет функциональные возможности для публикации и подписки на сообщения с использованием очередей сообщений публикации/ подписки .
-    
-    Это может быть полезно при разработке приложений, требующих общения в реальном времени, таких как чаты, каналы социальных сетей и взаимодействие с сервером.
-    
-    Redis поставляется со специальными командами, такими как PUBLISH , SUBSCRIBE и UNSUBSCRIBE для публикации сообщения в канале, подписки и отмены подписки клиента на указанные каналы соответственно.
+    Redis supports transactions with MULTI, EXEC, and WATCH.
 
-Геопространственная поддержка
+Pub/Sub
 
-    Геопространственная поддержка полезна для реализации функций на основе местоположения для наших приложений. В отличие от Memcached, 
-    Redis поставляется со специальными командами для управления геопространственными данными в реальном времени .
-    
-    Например, команда GEODIST вычисляет расстояние между двумя геопространственными элементами. Аналогично, команда GEORADIUS возвращает
-    все записи в указанном радиусе.
+    Memcached does not support pub/sub out of the box.
 
-Архитектура
+    Redis supports pub/sub with commands like PUBLISH, SUBSCRIBE, and UNSUBSCRIBE. This is useful for real-time apps
+    like chats, social feeds, and server interactions.
 
-    Redis использует одно ядро и показывает лучшую производительность, чем Memcached, при хранении небольших наборов данных, если измерять количество ядер.
-    
-    Memcached реализует многопоточную архитектуру, используя несколько ядер . Поэтому для хранения больших наборов данных Memcached может работать лучше, чем Redis.
-    
-    Еще одним преимуществом многопоточной архитектуры Memcached является ее высокая масштабируемость, достигаемая за счет использования нескольких вычислительных ресурсов.
-    
-    Redis может масштабироваться горизонтально с помощью кластеризации, что сравнительно сложнее в настройке и эксплуатации. Кроме того, мы можем использовать Jedis или Lettuce , 
-    чтобы включить кластер Redis с помощью приложения Java.
+Geospatial support
 
-Использование памяти
+    Memcached has no geospatial features.
 
-    Memcached имеет более высокий коэффициент использования памяти, чем Redis, при сравнении структуры данных String.
-    Несмотря на это, когда Redis использует хэш-структуру, он обеспечивает более высокую скорость использования памяти, чем Memcached.
+    Redis supports geospatial commands like GEODIST and GEORADIUS.
 
-#### Когда использовать Memcached
+Architecture
 
-Поскольку Redis новее и имеет больше возможностей, чем Memcached, Redis почти всегда лучший выбор. Тем не менее,
-Memcached может быть
-предпочтительнее при кэшировании относительно небольших и статических данных, таких как фрагменты кода HTML. Управление
-внутренней памятью
-Memcached, хотя и не столь сложное, как решение Redis, более эффективно в простейших случаях использования, поскольку
-оно потребляет сравнительно
-меньше ресурсов памяти для метаданных. Строки (единственный тип данных, поддерживаемый Memcached) идеально подходят для
-хранения данных, которые
-только читаются, потому что строки не требуют дальнейшей обработки.
+    Redis is single-threaded and often faster for small data sets per core.
 
-Тем не менее, эффективность управления памятью Memcached быстро уменьшается, когда размер данных является динамическим,
-после чего память Memcached
-может стать фрагментированной. Кроме того, большие наборы данных часто включают в себя сериализованные данные, которые
-всегда требуют большего
-пространства для хранения. Хотя Memcached эффективно ограничивается хранением данных в его сериализованной форме,
-структуры данных в Redis могут
-сохранять любой аспект данных изначально, тем самым уменьшая накладные расходы на сериализацию.
+    Memcached is multi-threaded, so it can perform better on large data sets. Its multi-threaded design also makes
+    scaling straightforward by adding CPU resources.
 
-Второй сценарий, в котором Memcached имеет преимущество перед Redis, находится в масштабировании. Поскольку Memcached
-многопоточен, вы можете легко
-увеличить его, предоставив ему больше вычислительных ресурсов, но вы потеряете часть или все кэшированные данные (в
-зависимости от того, используете
-ли вы постоянное хеширование). Redis, который в основном однопоточный, может масштабироваться горизонтально посредством
-кластеризации без потери
-данных. Кластеризация представляет собой эффективное масштабирующее решение, но его сравнительно сложно создавать и
-управлять им.
+    Redis scales horizontally via clustering, which can be harder to operate. Java clients like Jedis or Lettuce can
+    be used to enable Redis clustering.
 
-#### Когда использовать Redis
+Memory usage
 
-Вам почти всегда придётся использовать Redis из-за своих структур данных. С Redis в качестве кеша вы получаете богатый
-функционал (например,
-возможность тонкой настройки содержимого кеша и долговечность) и бОльшую эффективность в целом. Как только вы
-используете структуры данных,
-повышение эффективности становится огромным для конкретных сценариев приложений.
+    Memcached uses memory more efficiently than Redis for strings. However, Redis can be more memory-efficient when
+    using hashes.
 
-Превосходство Redis проявляется почти во всех аспектах управления кешем. Кэши используют механизм, называемый выселением
-данных (синоним:вытеснение
-данных), чтобы освободить место для новых данных, удалив старые данные из памяти. Механизм выселения данных Memcached
-использует алгоритм
-Least Recent Used (LRU) и несколько произвольно вытесняет данные, похожие по размеру на новые данные.
+#### When to use Memcached
 
-Redis, напротив, позволяет осуществлять мелкомасштабный контроль за выселением, позволяя вам выбирать из шести различных
-политик выселения.
-Redis также использует более сложные подходы к управлению памятью и выбору кандидата на выселение. Redis поддерживает
-как пассивное, так и активное
-выселение, когда данные вытесняются только тогда, когда требуется больше места или применяется упреждающее вытеснение.
-Memcached, с другой стороны,
-обеспечивает пассивное выселение.
+Redis is newer and more capable, so it is often the better choice. However, Memcached can be preferable for caching
+small, static data such as HTML fragments. Its internal memory management is simpler but more efficient in basic
+scenarios because it uses less metadata memory. Strings (the only Memcached type) are ideal for read-heavy workloads.
 
-Redis дает вам большую гибкость в отношении объектов, которые вы можете кэшировать. Хотя Memcached ограничивает имена
-ключей до 250 байтов и работает
-только с обычными строками, Redis позволяет имена и значения ключей размером до 512 Мбайт каждый, и они могут быть
-бинарными. Кроме того, Redis
-имеет пять основных структур данных на выбор, открывая миру возможности для разработчика приложений посредством
-интеллектуального кэширования и
-манипулирования кэшированными данными.
+Memcached memory efficiency drops when data size is dynamic, leading to fragmentation. Large data sets often include
+serialized data, which consumes more storage. Redis data structures can store data natively, reducing serialization
+overhead.
 
+Memcached also scales easily due to multi-threading, but scaling can lose some cached data unless you use consistent
+hashing. Redis is mainly single-threaded but scales via clustering without data loss, though clustering is harder to
+build and operate.
 
+#### When to use Redis
 
+You will almost always use Redis because of its data structures. Redis as a cache offers rich functionality (fine-grain
+control of cache contents and durability) and better overall efficiency. As soon as you use data structures, the gains
+can be large for specific application scenarios.
+
+Redis outperforms Memcached in cache management. Caches use eviction to free space by removing old data. Memcached uses
+LRU and evicts items based on size. Redis allows fine-grained eviction policies (six different policies). Redis supports
+both passive and active eviction; Memcached uses passive eviction only.
+
+Redis allows more flexibility in cacheable objects. Memcached limits key names to 250 bytes and stores only strings.
+Redis allows keys and values up to 512 MB and supports binary data. Redis provides multiple data structures that enable
+intelligent caching and manipulation of cached data.
