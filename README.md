@@ -1,4 +1,4 @@
-# Readme
+# README
 
 ## Contents
 
@@ -9,29 +9,21 @@
     - [ ] [Other](#other)
 
 - [**Backend Developer Roadmap:**](#backend-developer-roadmap)
-    - [ ] [Internet](#internet)
+    - [ ] [Web Fundamentals](#web-fundamentals)
     - [ ] [OS and General Knowledge](#os-and-general-knowledge)
     - [ ] [Learn a Language](#learn-a-language)
     - [ ] [Frameworks](#frameworks)
     - [ ] [Algorithms](#algorithms)
     - [ ] [Version Control Systems](#version-control-systems)
     - [ ] [Databases](#databases)
-    - [ ] [Learn about APIs](#learn-about-apis)
-    - [ ] [Caching](#caching)
+    - [ ] [APIs and Authentication](#apis-and-authentication)
+    - [ ] [Performance and Scalability](#performance-and-scalability)
     - [ ] [Web Security](#web-security)
-    - [ ] [Testing](#testing)
-    - [ ] [CI/CD](#ci-cd)
-    - [ ] [Software Design and Architecture](#software-design-and-architecture)
+    - [ ] [Quality and Delivery](#quality-and-delivery)
+    - [ ] [Architecture and Patterns](#architecture-and-patterns)
     - [ ] [Design and Development Principles](#design-and-development-principles)
-    - [ ] [Architectural Patterns](#architectural-patterns)
-    - [ ] [Search Engines](#search-engines)
-    - [ ] [Message Brokers](#message-brokers)
+    - [ ] [Messaging and Realtime](#messaging-and-realtime)
     - [ ] [Containerization vs Virtualization](#containerization-vs-virtualization)
-    - [ ] [WebSockets](#websockets)
-    - [ ] [Server-Sent Events](#server-sent-events)
-    - [ ] [Web Servers](#web-servers)
-    - [ ] [Building for Scale](#building-for-scale)
-    - [ ] [Regular Expressions](#regular-expressions)
     - [ ] [Tasks](#tasks)
 
 - [**Frontend Developer Roadmap:**](#frontend-developer-roadmap)
@@ -73,7 +65,7 @@ Methods:
 
 ## Backend Developer Roadmap [&uarr;](#contents)
 
-### Internet [&uarr;](#contents)
+### Web Fundamentals [&uarr;](#contents)
 
 - [x] [How the Internet Works](include/internet.md#how-the-internet-works)
 - [x] [Types of Network Protocols](include/internet.md#types-of-network-protocols)
@@ -83,6 +75,10 @@ Methods:
 - [x] [Domain Names](include/internet.md#domain-names)
 - [x] [DNS](include/internet.md#dns)
 - [x] [Proxy Servers](include/internet.md#proxy-servers)
+- [x] [Server Software](include/web-servers.md#server-software)
+- [x] [Nginx](include/web-servers.md#nginx)
+- [x] [Apache](include/web-servers.md#apache)
+- [x] [Apache vs Nginx: comparing their feature sets](include/web-servers.md#apache-vs-nginx-comparing-their-feature-sets)
 
 ### OS and General Knowledge [&uarr;](#contents)
 
@@ -163,16 +159,22 @@ Methods:
     - [x] [MS SQL](include/databases.md#ms-sql)
     - [x] [Oracle](include/databases.md#oracle)
 
-### Learn about APIs [&uarr;](#contents)
+- Search engines:
+    - [x] [Elasticsearch](include/search-engines.md#elasticsearch)
+    - [x] [Sphinx](include/search-engines.md#sphinx)
+    - [x] [Manticore](include/search-engines.md#manticore)
+    - [x] [Solr](include/search-engines.md#solr)
+
+### APIs and Authentication [&uarr;](#contents)
 
 - [x] [REST](include/learn-about-apis.md#rest)
-- [x] [REST and SOAP](include/learn-about-apis.md#rest-and-soap)
+- [x] [REST vs SOAP (comparison)](include/learn-about-apis.md#rest-and-soap)
 - [x] [SOAP](include/learn-about-apis.md#soap)
 - [x] [JSON APIs](include/learn-about-apis.md#json-apis)
 - [x] [gRPC](include/learn-about-apis.md#grpc)
 
-- [x] [Swagger](include/learn-about-apis.md#swagger)
 - [x] [GraphQL](include/learn-about-apis.md#graphql)
+- [x] [OpenAPI (Swagger)](include/learn-about-apis.md#openapi-specs)
 
 - Authentication:
     - [x] [Cookie-based](include/learn-about-apis.md#cookie-based)
@@ -184,18 +186,34 @@ Methods:
     - [x] [SAML](include/learn-about-apis.md#saml)
 
 - [x] [HATEOAS](include/learn-about-apis.md#hateoas)
-- [x] [OpenAPI Specs](include/learn-about-apis.md#openapi-specs)
 
-### Caching [&uarr;](#contents)
+### Performance and Scalability [&uarr;](#contents)
 
-- [x] [Client-side](include/caching.md#client-side)
-- [x] [CDN](include/caching.md#cdn)
+- Caching:
+    - [x] [Client-side](include/caching.md#client-side)
+    - [x] [CDN](include/caching.md#cdn)
+    - Server-side:
+        - [x] [OPcache](include/caching.md#opcache)
+        - [x] [Redis](include/caching.md#redis)
+        - [x] [Memcached](include/caching.md#memcached)
+        - [x] [Redis vs Memcached](include/caching.md#redis-vs-memcached)
 
-- Server-side:
-    - [x] [OPcache](include/caching.md#opcache)
-    - [x] [Redis](include/caching.md#redis)
-    - [x] [Memcached](include/caching.md#memcached)
-    - [x] [Redis vs Memcached](include/caching.md#redis-vs-memcached)
+- Building for scale:
+    - [x] [Building for Scale](include/building-for-scale.md)
+    - [x] [Instrumentation](include/building-for-scale.md#instrumentation)
+    - [x] [Backend Monitoring](include/building-for-scale.md#backend-monitoring)
+    - [x] [Frontend Monitoring](include/building-for-scale.md#frontend-monitoring)
+    - [x] [Telemetry](include/building-for-scale.md#telemetry)
+    - [x] [Mitigation Strategies](include/building-for-scale.md#mitigation-strategies)
+        - [x] [Graceful Degradation](include/building-for-scale.md#graceful-degradation)
+        - [x] [Throttling](include/building-for-scale.md#throttling)
+        - [x] [Backpressure](include/building-for-scale.md#backpressure)
+        - [x] [Load Shifting](include/building-for-scale.md#load-shifting)
+        - [x] [Circuit Breaker](include/building-for-scale.md#circuit-breaker)
+    - [x] [Migration Strategies](include/building-for-scale.md#migration-strategies)
+    - [x] [Horizontal/Vertical Scaling](include/building-for-scale.md#horizontal-vertical-scaling)
+    - [x] [Observability](include/building-for-scale.md#observability)
+    - [x] [PHP Performance Boosting Techniques](include/building-for-scale.md#php-performance-boosting-techniques)
 
 ### Web Security [&uarr;](#contents)
 
@@ -208,19 +226,22 @@ Methods:
 - [x] [Server Security](include/web-security-knowledge.md#server-security)
 - [x] [Hash Algorithms](include/web-security-knowledge.md#hash-algorithms)
 
-### Testing [&uarr;](#contents)
+### Quality and Delivery [&uarr;](#contents)
 
 - [x] [Integration Testing](include/testing.md#integration-testing)
 - [x] [Unit Testing](include/testing.md#unit-testing)
 - [x] [Functional Testing](include/testing.md#functional-testing)
-
-### CI/CD [&uarr;](#contents)
-
 - [x] [Deployment](include/ci-cd.md)
 
-### Software Design and Architecture [&uarr;](#contents)
+### Architecture and Patterns [&uarr;](#contents)
 
 - [x] [Architecture](include/software-design-and-architecture.md)
+- [x] [Monolithic Apps and Microservices](include/architectural-patterns.md#monolithic-apps-and-microservices)
+- [x] [Hexagonal Architecture](include/architectural-patterns.md#hexagonal-architecture)
+- [x] [SOA](include/architectural-patterns.md#soa)
+- [x] [Serverless](include/architectural-patterns.md#serverless)
+- [x] [Service Mesh](include/architectural-patterns.md#service-mesh)
+- [x] [Twelve-Factor Apps](include/architectural-patterns.md#twelve-factor-apps)
 
 ### Design and Development Principles [&uarr;](#contents)
 
@@ -232,27 +253,13 @@ Methods:
 - [x] [CQRS](include/design-and-development-principles.md#cqrs)
 - [x] [Event Sourcing](include/design-and-development-principles.md#event-sourcing)
 
-### Architectural Patterns [&uarr;](#contents)
-
-- [x] [Monolithic Apps and Microservices](include/architectural-patterns.md#monolithic-apps-and-microservices)
-- [x] [Hexagonal Architecture](include/architectural-patterns.md#hexagonal-architecture)
-- [x] [SOA](include/architectural-patterns.md#soa)
-- [x] [Serverless](include/architectural-patterns.md#serverless)
-- [x] [Service Mesh](include/architectural-patterns.md#service-mesh)
-- [x] [Twelve-Factor Apps](include/architectural-patterns.md#twelve-factor-apps)
-
-### Search Engines [&uarr;](#contents)
-
-- [x] [Elasticsearch](include/search-engines.md#elasticsearch)
-- [x] [Sphinx](include/search-engines.md#sphinx)
-- [x] [Manticore](include/search-engines.md#manticore)
-- [x] [Solr](include/search-engines.md#solr)
-
-### Message Brokers [&uarr;](#contents)
+### Messaging and Realtime [&uarr;](#contents)
 
 - [x] [RabbitMQ](include/message-brokers.md#rabbitmq)
 - [x] [Kafka](include/message-brokers.md#kafka)
 - [x] [Key Differences Between Apache Kafka and RabbitMQ](include/message-brokers.md#key-differences-between-apache-kafka-and-rabbitmq)
+- [x] [WebSockets](include/websockets.md)
+- [x] [Short polling, long polling, WebSockets, and server-sent events](include/server-sent-events.md#short-polling-long-polling-websockets-and-server-sent-events)
 
 ### Containerization vs Virtualization [&uarr;](#contents)
 
@@ -260,43 +267,6 @@ Methods:
 - [x] [Kubernetes](include/containerization-vs-virtualization.md#kubernetes)
 - [x] [LXC](include/containerization-vs-virtualization.md#lxc)
 
-### WebSockets [&uarr;](#contents)
-
-- [x] [WebSockets](include/websockets.md)
-
-### Server-Sent Events [&uarr;](#contents)
-
-- [x] [Short polling, long polling, WebSockets, and server-sent events](include/server-sent-events.md#short-polling-long-polling-websockets-and-server-sent-events)
-
-### Web Servers [&uarr;](#contents)
-
-- [x] [Server Software](include/web-servers.md#server-software)
-- [x] [Nginx](include/web-servers.md#nginx)
-- [x] [Apache](include/web-servers.md#apache)
-- [x] [Apache vs Nginx: comparing their feature sets](include/web-servers.md#apache-vs-nginx-comparing-their-feature-sets)
-
-### Building for Scale [&uarr;](#contents)
-
-- [x] [Building for Scale](include/building-for-scale.md)
-- [x] [Instrumentation](include/building-for-scale.md#instrumentation)
-- [x] [Backend Monitoring](include/building-for-scale.md#backend-monitoring)
-- [x] [Frontend Monitoring](include/building-for-scale.md#frontend-monitoring)
-- [x] [Telemetry](include/building-for-scale.md#telemetry)
-- [x] [Mitigation Strategies](include/building-for-scale.md#mitigation-strategies)
-    - [x] [Graceful Degradation](include/building-for-scale.md#graceful-degradation)
-    - [x] [Throttling](include/building-for-scale.md#throttling)
-    - [x] [Backpressure](include/building-for-scale.md#backpressure)
-    - [x] [Load Shifting](include/building-for-scale.md#load-shifting)
-    - [x] [Circuit Breaker](include/building-for-scale.md#circuit-breaker)
-- [x] [Migration Strategies](include/building-for-scale.md#migration-strategies)
-- [x] [Horizontal/Vertical Scaling](include/building-for-scale.md#horizontal-vertical-scaling)
-- [x] [Observability](include/building-for-scale.md#observability)
-- [x] [PHP Performance Boosting Techniques](include/building-for-scale.md#php-performance-boosting-techniques)
-
-### Regular Expressions [&uarr;](#contents)
-
-- [x] [Regular Expressions](include/regular-expressions.md#regular-expressions)
-- [x] [Regular Expression Functions in PHP](include/regular-expressions.md#regular-expression-functions-in-php)
 
 ### Tasks [&uarr;](#contents)
 
@@ -312,8 +282,15 @@ Methods:
 - [x] [Coding Standards](include/other-info.md#coding-standards)
 - [x] [Steps to Optimize a Website](include/other-info.md#steps-to-optimize-a-website)
 - [x] [Key Differences Between Scripting and Compiled Languages](include/other-info.md#key-differences-between-scripting-and-compiled-languages)
+- [x] [Regular Expressions](include/regular-expressions.md#regular-expressions)
+- [x] [Regular Expression Functions in PHP](include/regular-expressions.md#regular-expression-functions-in-php)
 
 ## Frontend Developer Roadmap [&uarr;](#contents)
 
+### JavaScript [&uarr;](#contents)
+
 - [ ] [JavaScript](include/javascript.md)
+
+### JavaScript Tasks [&uarr;](#contents)
+
 - [ ] [JavaScript Tasks](include/tasks-javascript.md)
