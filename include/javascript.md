@@ -1,149 +1,148 @@
-# Readme
+# JavaScript
 
-JavaScript ↑
+## JavaScript Fundamentals [&uarr;](#javascript)
 
-Познакомиться с такими понятиями как:
+Get familiar with:
 
-- Переменные
-- Типы данных
-- Функции
-- Рекурсия
-- Замыкания
-- Область видимости
-- Объекты
-- События
+- Variables
+- Data types
+- Functions
+- Recursion
+- Closures
+- Scope
+- Objects
+- Events
 - DOM
 
-Адаптивный/отзывчивый веб-дизайн ↑
+## Responsive Web Design [&uarr;](#javascript)
 
-Усвоить понятия:
+Learn the concepts:
 
-- Адаптивный веб-дизайн
-- Отзывчивый веб-дизайн
+- Adaptive web design
+- Responsive web design
 - Media queries
 - Mobile first
 - Graceful degradation
 - RESS
 
-JavaScript библиотеки ↑
+## JavaScript Libraries [&uarr;](#javascript)
 
-Цель - познакомиться с наиболее популярными библиотеками JavaScript. Знать где и когда их применять.
+Goal: get familiar with popular JavaScript libraries and know where and when to use them.
 
-Список библиотек:
+List:
 
 - jQuery
 - ReactJS
-- Underscore - набор полезных функций
-- Modernizr - обнаруживает HTML5 и CSS3 функции в браузере пользователя
-- Babel - компилятор для написания JavaScript следующего поколения
+- Underscore - a set of useful functions
+- Modernizr - detects HTML5 and CSS3 features in the user's browser
+- Babel - a compiler for next-generation JavaScript
 - Three - 3D
-- WOW - анимация при прокрутки страницы
-- Moment - Работа с датой и временем
-- Mocha - написание тестов
+- WOW - animation on scroll
+- Moment - date and time handling
+- Mocha - writing tests
 
-Препроцессоры CSS ↑
+## CSS Preprocessors [&uarr;](#javascript)
 
-Усвоить понятия:
+Learn the concepts:
 
-- Переменные
-- Миксины
-- Функции
-- Импорт
-- Минификация
+- Variables
+- Mixins
+- Functions
+- Imports
+- Minification
 
-Список препроцессоров CSS:
+List of CSS preprocessors:
 
 - Sass/Scss
 - Less
 - Stylus
 
-Сборщик проектов ↑
+## Build Tools [&uarr;](#javascript)
 
-Сборщик проектов — небольшое приложение, которое используется для автоматизации скучных и рутинных задач, которые
-приходится постоянно выполнять в процессе разработки проекта. Такие задачи включают в себя, к примеру, запуск модульных
-тестов, конкатенацию файлов, минификацию, препроцессинг CSS.
+A build tool is a small application used to automate tedious and repetitive tasks in project development. These tasks
+include running unit tests, concatenating files, minifying, and preprocessing CSS.
 
-Сборщики проектов:
+Build tools:
 
 - Gulp
 - Grunt
 - Webpack
 - Vite
 
-Пакетный менеджер ↑
+## Package Managers [&uarr;](#javascript)
 
-Список пакетных менеджеров:
+List of package managers:
 
 - Bower
 - npm
 - Yarn
 
-CSS фреймворки ↑
+## CSS Frameworks [&uarr;](#javascript)
 
-Список фреймворков:
+List of frameworks:
 
 - Bootstrap
 - Skeleton
 - Foundation
 
-JavaScript фреймворки ↑
+## JavaScript Frameworks [&uarr;](#javascript)
 
-Существуют разные фреймворки, не нужно изучать всё сразу, необходимо взять несколько фреймворков за основу.
+There are many frameworks, and you do not need to learn everything at once. Pick a few as a baseline.
 
-Список фреймворков:
+List of frameworks:
 
 - Angular
 - Vue
 - Svelte
 - Ember
 
-Одностраничное приложение ↑
+## Single-Page Applications (SPA) [&uarr;](#javascript)
 
-Одностраничное приложение или SPA (single page application) - сайт или веб-приложение, использующий единственный
-HTML-документ как оболочку для всех веб-страниц и организующий взаимодействие с пользователем через динамически
-подгружаемые HTML, CSS, JavaScript, обычно посредством AJAX.
+A single-page application (SPA) is a site or web app that uses a single HTML document as a shell for all pages and
+organizes user interaction through dynamically loaded HTML, CSS, and JavaScript, usually via AJAX.
 
-Изучить:
+Study:
 
-- JavaScript фреймворки
-- Роутинг
-- Шаблонизатор
-- API, например REST
+- JavaScript frameworks
+- Routing
+- Templating
+- APIs, for example REST
 - AJAX
 
-Области видимости
-Нативный js (селекторы, события)
+## Topics to Revisit [&uarr;](#javascript)
 
-ООП
-Замыкания.
-Регулярные выражения
-Vue
+- Scope
+- Vanilla JS (selectors, events)
+- OOP
+- Closures
+- Regular expressions
+- Vue
+- Long polling
+- Short polling
+- Server-sent events
 
-Long Poling
-Short Poling
-Sent event
+## Ajax [&uarr;](#javascript)
 
-### Ajax [&uarr;](#Other-tasks)
+AJAX stands for Asynchronous JavaScript and XML and allows asynchronous fetching of content from a server without
+reloading the page. It lets you update parts of a page without a full refresh.
 
-AJAX расшифровывается как асинхронный JavaScript и XML и позволяет асинхронно извлекать контент с внутреннего сервера
-без
-обновления страницы. Таким образом, он позволяет обновлять содержимое веб-страницы без перезагрузки.
-
-Общий вызов AJAX работает примерно так:
+A typical AJAX call works like this:
 
 ![](images/how-to-use-ajax-with-php-and-jquery.jpg)
 
-Давайте быстро пройдемся по обычному потоку AJAX:
+A typical AJAX flow:
 
-    1. Сначала пользователь, как обычно, открывает веб-страницу синхронным запросом.
-    2. Затем пользователь нажимает на элемент DOM - обычно кнопку или ссылку - который инициирует асинхронный запрос к серверу. Конечный пользователь не заметит этого, поскольку вызов выполняется асинхронно и не обновляет браузер. Однако вы можете распознать эти AJAX-вызовы с помощью такого инструмента, как Firebug.
-    3. В ответ на запрос AJAX сервер может вернуть данные строки XML, JSON или HTML.
-    4. Данные ответа анализируются с использованием JavaScript.
-    5. Наконец, проанализированные данные обновляются в DOM веб-страницы.
+1. The user opens a web page with a normal synchronous request.
+2. The user clicks a DOM element, usually a button or a link, which triggers an asynchronous request to the server.
+   The end user does not notice because the call is asynchronous and does not refresh the browser. You can detect these
+   calls with a tool like Firebug.
+3. The server returns XML, JSON, or HTML data.
+4. The response data is processed with JavaScript.
+5. The processed data updates the DOM on the page.
 
-### Pjax [&uarr;](#Other-tasks)
+## Pjax [&uarr;](#javascript)
 
-PJAX это виджет в Yii2 позволяющий обновлять вам только заданный участок страницы, без перезагрузки всего содержимого.
+PJAX is a Yii2 widget that updates only a specific part of the page without reloading all content.
 
-Pjax это js скрипт, он не связан с сервером и понятия не имеет что там происходит.
-Он ждет ответ из которого надо взять контейнер с определенным селектором.
+Pjax is a JS script that is not connected to the server and does not know what happens there. It waits for a response
+and extracts a container with a specific selector from it.

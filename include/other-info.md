@@ -1,496 +1,425 @@
-# Readme
+# Other Info
 
-#### Список ссылок
+#### Links
 
-- [Статический анализ кода](https://doka.guide/tools/static-analysis/)
-- [Что такое код-ревью](https://doka.guide/tools/code-review/)
+- [Static code analysis](https://doka.guide/tools/static-analysis/)
+- [What is code review](https://doka.guide/tools/code-review/)
 - [Comments that are easy to grok and grep](https://conventionalcomments.org/)
-- [Что такое технический долг](https://doka.guide/js/technical-debt/)
-- [PSR Стандарты](https://habr.com/ru/post/458484/)
+- [What is technical debt](https://doka.guide/js/technical-debt/)
+- [PSR standards](https://habr.com/ru/post/458484/)
 - [PSR-1: Basic Coding Standard](https://www.php-fig.org/psr/psr-1/)
 - [PSR-4: Autoloader](https://www.php-fig.org/psr/psr-4/)
 - [PSR-12: Extended Coding Style](https://www.php-fig.org/psr/psr-12/)
 
-### Composer [&uarr;](#Readme)
+## Composer [&uarr;](#other-info)
 
-`Composer` — менеджер пакетов для PHP.
+Composer is a package manager for PHP.
 
-Composer, менеджер зависимостей для PHP, был выпущен около 10 лет назад, а недавно опубликовали новую версию, 2.0. За
-эти годы Composer получил множество новых функций и не отставал от стандартов PHP. Вторая версия совместима со старыми
-проектами, но привнесет еще несколько замечательных новых функций.
+Composer, the dependency manager for PHP, was released about 10 years ago, and recently Composer 2.0 was published.
+Over the years Composer gained many new features and kept pace with PHP standards. Version 2 is backward compatible but
+adds several improvements.
 
-Список улучшений:
+### Speed and optimization
 
-#### Ускорение и оптимизация
+Performance improved. It no longer considers already installed packages for some operations, so updates are faster. It
+also uses memory and CPU more efficiently.
 
-В этом релизе была улучшена производительность. Теперь он не учитывает уже установленные пакеты, в результате обновление
-проходит намного быстрее.
-Также улучшили работу с памятью и процессором.
+The install command is smarter. It does not touch the vendor folder until it can guarantee all packages are installed.
+This avoids wasted time removing packages on errors.
 
-Команда установки стала умнее. Теперь она не изменяет папку vendor до тех пор, пока не гарантирует, что все пакеты
-установлены.
-Это позволяет избежать потери времени на их удаление в случае ошибок во время процесса.
+One of the best features is parallel downloads, now supported out of the box. You no longer need extra packages like
+hirak/prestissimo.
 
-Одной из лучших функций, для меня, стала параллельная загрузка, которая теперь поддерживается из коробки, и нам не нужно
-устанавливать
-дополнительные пакеты, как hirak/prestissimo, чтобы это работало.
+### Offline support
 
-#### Поддержка оффлайн
+Composer can run in offline mode. This can be useful for benchmarks or when connectivity is an issue.
 
-Composer представил возможность использовать его в оффлайн режиме. Это может быть интересно для бенчмарков или при
-возникновении проблем с
-подключением к интернету
+### --dry-run for require and remove
 
-#### Поддержка --dry-run для “require” и “remove”
+This option was already available for updates (composer update --dry-run). It shows what would happen without applying
+changes.
 
-Эта опция уже была доступна при обновлении пакетов (composer update --dry-run. Она позволяет нам увидеть, что произойдет
-при запуске команды,
-просто отображая данные в терминале, без реальных изменений в вашем проекте или папке vendor.
+Composer 2.x adds it to `composer require` and `composer remove`.
 
-Composer 2.* дает возможность использовать опцию с composer require и composer remove что делает нашу жизнь проще
+### Preventing issues when running as root
 
-#### Предотвращение проблем при работе от root
+When running as root, Composer now requires confirmation to prevent mistakes.
 
-При выполнении команд от пользователя root теперь требуется подтверждение, чтобы предотвратить наши ошибки.
+### Canonical repositories
 
-#### Канонические репозитории
+This solves a problem when the same package exists in multiple repositories. Composer 1.x searched repositories in
+order and used the first match. That could produce unexpected results when different versions existed in different
+repos.
 
-Эта функция решает определенную проблему, с которой сталкиваются несколько разработчиков при использовании одного и того
-же пакета в разных репозиториях. Composer 1.0 следовал определенному порядку при установке/обновлении своих пакетов. Он
-начал искать пакеты в своем списке репозиториев до тех пор, пока пакет не будет найден (также последняя версия).
+In Composer 2.x, all repositories are canonical by default. Composer 1.x treated them as non-canonical unless you
+configured otherwise:
 
-Иногда это было не совсем ожидаемое поведение при работе с различными версиями пакетов в других репозиториях (
-используемых одним и тем же проектом). Представьте себе, что иногда вы хотите загрузить пакет из своего частного
-репозитория, а не из packagist, в котором есть пакет с тем же именем.
-
-По умолчанию, в composer 2.x, все репозитории являются каноническими. Composer 1.x рассматривал все репозитории как
-неканонические, и для того, чтобы поменять поведение вручную, вы можете сделать
-
+```json
+{
+  "repositories": [
     {
-        "repositories": [
-            {
-                "type": "composer",
-                "url": "https://example.org",
-                "canonical": false
-            }
-        ]
+      "type": "composer",
+      "url": "https://example.org",
+      "canonical": false
     }
+  ]
+}
+```
 
-Игнорировать определенное требование платформы
+### Ignore specific platform requirements
 
-    Если по какой-то причине вы хотите проигнорировать какое-либо определенное требование платформы, вы можете просто запустить команду: composer install --ignore-platform-req php
+If you want to ignore a specific platform requirement, run:
 
-    Она пропустит требование для PHP или конкретной версии. Если вы собираетесь игнорировать все требования, вам следует использовать команду, уже доступную в предыдущих версиях --ignore-platform-reqs
+```
+composer install --ignore-platform-req php
+```
 
-#### Difference between composer install and composer update
+This skips the PHP requirement or a specific version. To ignore all requirements, use `--ignore-platform-reqs`.
 
-The main difference between composer install and composer update is that composer install installs all the dependencies
-as specified in the composer.lock file at the version specified, without updating anything, while composer update
-updates your dependencies as they are specified in the composer.json file.
+### Difference between composer install and composer update
 
-To go into further detail, composer update will read composer.json, remove installed packages that are no longer
-required, check the availability of the latest versions of the required packages, install the latest versions of the
-packages, and update composer.lock to store the installed package versions.
+The main difference is that `composer install` installs dependencies exactly as specified in composer.lock, while
+`composer update` updates dependencies based on composer.json.
 
-On the other hand, composer install will check if composer.lock file exists; if not, it will run composer update and
-create it. It will then read composer.lock file and install the packages specified in it.
+`composer update` reads composer.json, removes packages that are no longer required, checks for the latest versions,
+installs them, and updates composer.lock.
 
-In terms of use cases, composer update is mostly used in the development phase to upgrade project packages according to
-what is specified in composer.json. composer install is primarily used in the deploying phase to install the application
-on a production server or on a testing environment, using the same dependencies stored in the composer.lock file created
-by composer update.
+`composer install` checks whether composer.lock exists; if not, it runs `composer update` to create it. Then it installs
+exactly the versions listed in composer.lock.
 
-### Стандарты написания кода [&uarr;](#Readme)
+Use cases: `composer update` is usually used during development to upgrade dependencies. `composer install` is usually
+used in deployment to install the exact locked versions in production or testing.
 
-### Восемь общих правил
+## Coding Standards [&uarr;](#other-info)
 
-Существуют правила, которые подойдут для написания кода на любом языке программирования. Только следование им уже
-повысит качество вашего кода.
+### Eight common rules
 
-- Придумывайте понятные и читаемые названия. Избегайте русских слов в латинской транскрипции. Только английские слова,
-  обозначающие суть.
-- Делайте отступы на каждом уровне и отделяйте логические блоки пустой строкой.
-- Сокращайте вложенность кода и убирайте дублирование.
-- Контролируйте длину. Рекомендуем для функций не более 20 строк, для метода не более 50 строк, для класса не более 300
-  строк, для файла — не более 1000 строк. Также ограничивайте длину одной строки до видимого значения на экране. Мягкое
-  ограничение составляет 120 символов.
-- Комментируйте и документируйте код. Это позволит зафиксировать всю необходимую информацию.
-- Используйте рефакторинг. Следуйте принципу «рефакторинг — раньше и рефакторинг — чаще». Советуем также прочитать книгу
-  «Рефакторинг. Улучшение проекта существующего кода» Мартина Фаулера.
-- Работайте в системе контроля версий, например, Git. Это бесплатно и удобно. Обучиться работать в ней можно за 11
-  занятий на видеокурсе «Git. Быстрый старт».
-- Изучайте Open Source код. Вы сможете увидеть, как пишут ведущие разработчики и воспользоваться лучшими практиками в
-  программировании
+These rules apply to almost any language and will improve code quality:
 
-### Статический анализ кода
+- Use clear, readable names. Avoid transliterated words. Use English words that describe intent.
+- Indent at each level and separate logical blocks with blank lines.
+- Reduce nesting and remove duplication.
+- Control length. Recommended: functions under 20 lines, methods under 50 lines, classes under 300 lines, files under
+  1000 lines. Limit line length to what fits on screen; a soft limit is 120 characters.
+- Comment and document code to capture necessary information.
+- Use refactoring. Follow the rule "refactor earlier and refactor often." Consider reading "Refactoring" by Martin
+  Fowler.
+- Use version control, for example Git. Learn it in a short course if needed.
+- Study open source code. You will see how strong developers write and can adopt best practices.
 
-Часто можно сказать, насколько код программы корректен, даже не запуская её. Процесс исследования исходного кода без
-запуска называют статическим анализом или линтингом, а программу, которая это делает — статическим анализатором или
-линтером.
+### Static code analysis
 
-Линтер — это программа, которая разбирает исходный код на стандартизированные кусочки, а потом даёт эти кусочки на
-проверку специальным плагинам. Плагин получает разобранный участок кода и проверяет его на корректность по ряду правил,
-которые определены в этом плагине.
+You can often evaluate code correctness without running it. This is static analysis or linting, and the tool is a
+linter.
 
-Самый популярный линтер для JavaScript — это ESLint. Он находит участки кода, которые могут потенциально привести к
-ошибкам, и сообщает об этом.
+A linter parses code into standardized pieces and passes them to plugins that check rules. The most popular JavaScript
+linter is ESLint. It finds code that may cause errors and reports it.
 
-Чтобы воспользоваться ESLint, нужно установить его через менеджер зависимостей в папке проекта.
+To use ESLint:
 
-    npm install --save-dev eslint
+```
+npm install --save-dev eslint
+```
 
-После установки нужно инициализировать конфигурационный файл .eslintrc.json.
+Initialize configuration:
 
-    npx eslint --init
+```
+npx eslint --init
+```
 
-В созданный файл можно добавлять правила, по которым линтер будет работать. Обычно используют стандартную конфигурацию,
-поверх которой добавляют правила, подходящие для конкретного проекта.
+Then add rules in .eslintrc.json. Usually you extend a standard config and customize it:
 
-    { // ...
-    "extends": "eslint:recommended", // ... }
+```json
+{
+  "extends": "eslint:recommended"
+}
+```
 
-Теперь можно добавить в package.json новый скрипт, который будет запускать статический анализ.
+Add a lint script to package.json:
 
-    { // ...
-    "scripts": {
+```json
+{
+  "scripts": {
     "lint": "eslint ./**/*.js"
-    } // ... }
+  }
+}
+```
 
-После запуска линтера командой `npm run lint`, в консоли появится результат его работы.
+Run it with `npm run lint`.
 
-На самом деле, статически проанализировать можно почти любой язык программирования. Поэтому, при разработке
-веб-приложений часто не останавливаются на использовании ESLint, а добавляют ещё Stylelint — линтер для стилей. Он умеет
-работать не только с CSS, но и почти с любым языком описания стилей, например, CSS-in-JS, SCSS или Stylus.
+Static analysis exists for almost every language. In web development, teams often add Stylelint for styles. It supports
+CSS and other style languages like CSS-in-JS, SCSS, and Stylus.
 
-Автоматический запуск:
+Automation options:
 
-- запускают линтер на серверах и показывают результат программисту, этот подход называют CI, он широко применяется в
-  индустрии;
-- добавляют автоматический вызов линтера при создании нового коммита в репозитории;
-- интегрируют статический анализ в среду разработки, так можно получать рекомендации прямо во время написания кода и
-  сразу на них реагировать.
+- Run linters in CI and show results to developers.
+- Run linters before creating a commit.
+- Integrate linting into the editor to get suggestions while coding.
 
 ### PSR
 
-`PSR (PHP Standards Recommendations)` — описывает общие концепции, которые уже были проверены и отработаны.
+PSR (PHP Standards Recommendations) describe common, proven conventions.
 
-Список PSR стандартов расширяется новыми, а сами стандарты делятся на категории:
+PSR standards are grouped into categories:
 
-- Автозагрузка,
-- Интерфейсы,
+- Autoloading
+- Interfaces
 - HTTP
-- Стиль кодирования
+- Coding style
 
-каждому из которых присваивается определенный статус:
+Each standard has a status:
 
-- Принят
-- Устаревший
-- Черновик
-- Заброшенный
+- Accepted
+- Deprecated
+- Draft
+- Abandoned
 
-#### Стиль кодирования:
+#### Coding style
 
-Цель следующих PSR стандартов уменьшить когнитивное искажение при чтении кода от разных авторов.
+The goal of these standards is to reduce cognitive overhead when reading code from different authors.
 
 - PSR-1: Basic Coding Standard
-- PSR-2 — Coding Style Guide Устарел
+- PSR-2: Coding Style Guide (deprecated)
 - PSR-12: Extended Coding Style Guide
 
-Описанные выше спецификации достаточно объемные, поэтому мы рассмотрим только базовые из PSR-1:
+PSR-1 highlights:
 
-- Использование только тэгов <?php и <?=
-- Только UTF-8 без BOM для php кода
-- Не стоит мешать разный функционал в одном файле (1 файл = 1 класс)
-- Пространство имен и классы должны следовать [PSR-0, PSR-4]
-- Классы объявляются в `StudlyCase`
-- Константы объявляются в ТАКОМ_ВИДЕ
-- Методы объявляются в `camelCase`
+- Use only `<?php` and `<?=` tags.
+- Use UTF-8 without BOM for PHP files.
+- Do not mix unrelated functionality in one file (1 file = 1 class).
+- Namespaces and classes follow PSR-0 and PSR-4.
+- Classes use StudlyCase.
+- Constants use UPPER_CASE.
+- Methods use camelCase.
 
-На самом деле, нет смысла помнить про кажный пункт о переносе скобки, пробеле, табе и т.п., так как существует различный
-функционал, который позволяет автоматически проверить и отформатировать кодовую базу по стандарту PSR-2/PSR-12:
+You do not need to memorize every whitespace rule. Tools can check and format code automatically for PSR-2/PSR-12:
 
-- Ручной режим: можно использовать reformat code в phpStorm.
-- Более продвинутый вариант: использовать какой-нибуть кодснифер, например PHP CS Fixer (часто используется в CI, чтобы
-  не принимать коммиты с неотформатированным кодом).
+- Manual: use "Reformat Code" in PhpStorm.
+- Advanced: use a code sniffer, for example PHP CS Fixer (often used in CI to reject non-formatted commits).
 
-### Код-ревью
+### Code review
 
-Код-ревью — это область, где особенно ярко проявляются софт-скиллы инженеров. Провести хорошее код-ревью сложнее, чем
-написать хороший код.
+Code review is where soft skills show up. A good review is harder than writing good code.
 
-Отправка изменений на код-ревью происходит через пул-реквесты. Для прохождения код-ревью нужно получить одобрение одного
-или нескольких коллег.
-Способ выбора коллег для проведения ревью зависит от процессов внутри компании.
+Changes are reviewed via pull requests. To pass review, you need approval from one or more colleagues. How reviewers are
+chosen depends on company processes.
 
-`Пул-реквест (PR)` — это предложение слить изменения в ветке разработчика с другой веткой. Иногда их называют
-мёрж-реквестами (MR).
+A pull request (PR) is a proposal to merge changes from a developer branch into another branch. It is sometimes called
+a merge request (MR).
 
 #### Conventional comments
 
-Conventional comments предлагает формат, где сообщение описывается как:
+Conventional Comments propose a format:
 
-    <label> [decorations]: <subject>
-    [discussion]
+```
+<label> [decorations]: <subject>
+[discussion]
+```
 
-- `label` - тип комментария;
-- `subject` - основная мысль комментария;
-- `decorations` (опционально) - дополнительные лэйблы для комментария. Они окружены скобками;
-- `discussion` (опционально) - здесь содержатся подтверждающие заявления, контекст, рассуждения и все остальное, чтобы
-  помочь сообщить "почему" и "последующие шаги" для разрешения замечания;
+- label: comment type
+- subject: main point
+- decorations (optional): extra labels in parentheses
+- discussion (optional): context, reasoning, and next steps
 
-Например:
+Example:
 
-    question (non-blocking): На этом этапе имеет значение, какой поток выиграл?
-    Может быть, чтобы предотвратить состояние гонки, мы должны продолжать зацикливаться, пока все они не выиграют?
+```
+question (non-blocking): At this point, does it matter which thread wins?
+Maybe to avoid a race condition we should keep looping until all win?
+```
 
-Настоятельно рекомендуется использовать следующие лэйблы:
+Recommended labels:
 
-- `praise` - «Похвала» подчёркивает что-то положительное. Попробуйте оставить хотя бы один такой комментарий. Не
-  оставляйте ложных похвал (которые на самом деле могут нанести вред).
-- `nitpick` - «Придирки» - это небольшие, но необходимые изменения. Придирчивые комментарии значительно помогают
-  направить внимание читателя на комментарии, требующие большего внимания.
-- `suggestion` - «Предложения» предоставляют способы по совершенствованию в определённой теме. Важно быть предельно
-  ясным в том, что предлагается и почему именно это улучшение. Рассмотрите возможность использовать блокирующие и не
-  блокирующие декорации для последующего информирования о ваших намерениях.
-- `issue` - «Проблемы» высвечивают конкретные трудности рассматриваемого вопроса. Если вы не уверены, существует
-  проблема или нет - рассмотрите возможность оставить question.
-- `question` - «Вопросы» допустимы, если у вас есть потенциальная проблема, но не уверены уместна она или нет. Обращение
-  к автору с просьбой о разъяснении или расследовании может привести к быстрому урегулированию этого вопроса.
-- `thought` - «Мысли» представляют собой идею, которая всплыла в процессе ревью. Эти замечания по своей природе не
-  блокируют, но они чрезвычайно ценны и могут привести к более целенаправленным предложениям и возможностям
-  наставничества.
-- `chore` - «Рутинная работа» - это небольшие задачи которые необходимо выполнить до того как пулреквест (или другая
-  форма ревью) «официально» будут приняты. Обычно в таких комментариях упоминаются какие-то общие процессы. Постарайтесь
-  оставить ссылку в описании на процесс, чтобы автор мог понять как именно выполнять рутинную работу.
+- praise: highlight something positive. Leave at least one. Avoid fake praise.
+- nitpick: small but necessary changes. Helps focus attention.
+- suggestion: ideas for improvement. Be clear about what and why. Consider blocking vs non-blocking.
+- issue: concrete problems. If unsure, use question.
+- question: potential issue that needs clarification.
+- thought: an idea during review. Non-blocking but can lead to better suggestions.
+- chore: small tasks required before a PR is officially accepted. Link to the process if possible.
 
-Декорации дают дополнительный контекст для комментария:
+Decorations add context:
 
-- `(non-blocking)` - комментарий с такой декорацией не должен препятствовать принятию рассматриваемого пулреквеста. Это
-  полезно для команд, которые рассматривают блокирование комментариев по умолчанию.
-- `(blocking)` - комментарий с такой декорацией должен препятствовать принятию рассматриваемого вопроса до тех пор, пока
-  он не будет решён. Это полезно для команд, которые считают, что комментарии не блокируются по умолчанию.
-- `(if-minor)` - эта декорация даёт автору некоторую свободу действий, которая заключается в том, что он может разрешить
-  комментарий только в том случае, если изменения окажутся незначительными или тривиальными.
+- (non-blocking): should not block the PR.
+- (blocking): must be resolved before approval.
+- (if-minor): the author may resolve it only if changes are minor.
 
-### Шаги по оптимизации сайта [&uarr;](#Readme)
+## Steps to Optimize a Website [&uarr;](#other-info)
 
-#### Бэкенд и запросы к бд:
+### Backend and DB queries
 
-- анализируем лог sql запросов
-- Убираем запросы в цикле
-- В запрашиваемых данных из БД в массиве select оставляем только нужные.
-- Если время запроса превышает 0.001 секунду - оптимизируем запрос, думаем над созданием индексов
-- Проверяем, настроено ли кэширование и параметры, от которого оно зависит.
+- Analyze SQL query logs.
+- Remove queries inside loops.
+- Select only required fields in SQL.
+- If query time exceeds 0.001 seconds, optimize the query and consider indexes.
+- Ensure caching is configured and its parameters are correct.
 
-#### Конфигурация и производительность сервера:
+### Server configuration and performance
 
-- Версия Mysql должна быть не ниже выше 5.7, версия PHP - не ниже 7.0
-- Желательно наличие акселератора PHP (OPcache, XCache, APC и другого). Лучше всего OPcache
+- MySQL version should be at least 5.7; PHP version should be at least 7.0.
+- Use a PHP accelerator if possible (OPcache, XCache, APC). OPcache is best.
 
-#### Фронтенд - работа со скриптами, стилями, статикой, изображениями и пр:
+### Frontend - scripts, styles, static assets, images
 
-Проверяем сайт через:
+Check the site with:
 
-- https://developers.google.com/speed/pagespeed/insights/ - оценка для мобильных устройств и декстопа должна находится в
-  зелёной зоне
-- https://tools.pingdom.com/ - вес страницы не должен превышать 2-3 Mb
-- В консоли Chrome в панели audits показатели должны быть выше 60%
+- https://developers.google.com/speed/pagespeed/insights/ - mobile and desktop scores should be in the green zone
+- https://tools.pingdom.com/ - page weight should not exceed 2-3 MB
+- Chrome DevTools audits should be above 60%
 
-Что должно быть реализовано:
+What should be implemented:
 
-- Статическая информация должна кэшироваться браузером (проверить настройки в .htaccess)
-- Для загрузки картинок, не входящих в первый экран, обязательно использовать lazy-load. Это так же касается вторых,
-  третьих и тд картинок на слайдерах
-- Картинки должны быть оптимизированы для веба и отресайзены на нужные размеры
-- Использовать для картинок тэг picture
-- Минификация / обфускация js скриптов
-- Количество подгружаемых на странице js-скриптов должно быть ограничего, т.к. стандартно браузеры могут загружать файлы
-  не более чем в 6-10 потоков с одного хоста. Т.е. работать будет быстрее, если собрать несколько мелких js в один
-  большой, чем загружать 40 маленьких отдельно.
-- Сторонние стандартные библиотеки лучше подгружать извне, т.к. существует вероятность, что браузер пользователя уже их
-  выкачал и закэшировал
+- Static content should be cached by the browser (check .htaccess settings).
+- Use lazy loading for images not in the first viewport (including later slides).
+- Optimize and resize images for the web.
+- Use the picture tag for images.
+- Minify and obfuscate JS.
+- Limit the number of JS files loaded on a page. Browsers usually load only 6-10 files per host in parallel. It is
+  faster to bundle many small files into one.
+- Load common third-party libraries from CDNs so the browser might reuse cached copies.
 
-### принципиальное различие скриптовых и “обычных” языков [&uarr;](#Other-tasks)
+## Key Differences Between Scripting and Compiled Languages [&uarr;](#other-info)
 
-`Скриптовый язык программирования` — язык программирования, разработанный для записи «сценариев»,
-последовательностей операций, которые пользователь может выполнять на компьютере.
-Интерпертируется с помощью интерпретатора. Имеет динамическую типизацию.
+A scripting language is designed to write scripts - sequences of operations a user can execute on a computer. It is
+interpreted by an interpreter and usually has dynamic typing.
 
-`Интерпретация` — пооператорный (покомандный, построчный) анализ, обработка и тут же выполнение исходной программы
-или запроса (в отличие от компиляции, при которой программа транслируется без её выполнения).
+Interpretation is line-by-line analysis and execution of the source program or request, as opposed to compilation where
+code is translated without execution.
 
-### htaccess
+## .htaccess
 
-.htaccess — это локальный конфигурационный файл веб-сервера Apache, который позволяет управлять настройками сайта. В
-отличие от главного конфигурационного
-файла, который позволяет выполнять настройку веб-сервера в целом, .htaccess даёт возможность изменять настройки для
-отдельно взятых папок и пользователей.
+.htaccess is a local configuration file for Apache that lets you manage site settings. Unlike the main config file that
+controls the whole server, .htaccess lets you adjust settings for specific directories or users.
 
-Действие команд из файла .htaccess распространяется на файлы и подкаталоги, расположенные в одной директории с этим
-файлом. Если для какой-либо вложенной
-директории нужны иные инструкции, в ней также можно создать файл .htaccess. Если файл .htaccess расположен в корневой
-директории сервера, его действие
-распространяется на весь сервер, кроме тех директорий, где находится другой файл .htaccess. Лишь модуль mod rewrite
-имеет свою специфику наследования.
+Commands in .htaccess apply to files and subdirectories in the same directory. You can add another .htaccess in a nested
+directory for different rules. If .htaccess is in the server root, its rules apply to the whole server except directories
+with their own .htaccess. The mod_rewrite module has special inheritance rules.
 
-С помощью .htaccess можно частично управлять настройками PHP: Директивы и настройки PHP указываются в файле .htaccess
-аналогично формату php.ini,
-но перед каждой строкой настроек PHP должно стоять управляющее слово php_value или php_flag.
+You can also manage some PHP settings via .htaccess. PHP directives are written in the same format as php.ini, but each
+line must start with php_value or php_flag.
 
-Также с помощью .htaccess можно выполнить следующие действия:
+Other .htaccess use cases:
 
-- настроить 301 редирект с одного домена на другой, для отдельного IP, с http на https и наоборот;
-- заблокировать поисковых ботов, которые создают лишнюю нагрузку на СPU сайта;
-- настроить сжатие и кэширование для статических файлов;
-- защитить админку сайта;
+- Set up 301 redirects (domain to domain, IP-specific, http to https, etc).
+- Block search bots that overload the server CPU.
+- Configure compression and caching for static files.
+- Protect the admin area.
 
-#### mod_rewrite
+### mod_rewrite
 
-mod_rewrite — это модуль для веб-сервера Apache, предназначенный для преобразования URL-ов. Модуль использует в своей
-работе правила,
-которые могут быть описаны как в конфигурации сервера (httpd.conf), так и в файлах .htaccess непосредственно в файловой
-структуре Вашего сайта.
+mod_rewrite is an Apache module for URL rewriting. Rules can be described in server configuration (httpd.conf) or in
+.htaccess files inside the site structure.
 
-### Настройка HTTPS с выпуском сертификата
+## HTTPS Setup with a Certificate
 
 https://rudocs.ispmanager.com/ispmanager-lite/ustanovka-ssl-sertifikata
 
-#### LAMP
+## LAMP
 
-LAMP – это аббревиатура от операционной системы Linux, веб-сервера Apache, сервера баз данных MySQL и языка
-программирования PHP.
-Все четыре из этих технологий имеют открытый исходный код, что означает, что они поддерживаются сообществом и свободно
-доступны для использования всеми.
+LAMP stands for Linux (OS), Apache (web server), MySQL (database), and PHP (programming language). All four are
+open-source and supported by the community.
 
-### работа по ssh
+## SSH Basics
 
-SSH – это протокол передачи данных, позволяющий производить безопасное и защищённое управление операционной системой и
-данными.
+SSH is a protocol for secure remote management of an OS and data.
 
-1. Запусти терминал
-2. Введи команду: `ssh u1234567@123.123.123.123`
+1. Open a terminal.
+2. Run: `ssh u1234567@123.123.123.123`
 
-Где:
+Where:
 
-- u1234567 — логин учётной записи
-- 123.123.123.123 — IP-адрес сервера
+- u1234567 is the account login
+- 123.123.123.123 is the server IP
 
-Существует несколько разных способов входа на сервер SSH:
+SSH authentication methods:
 
-    Аутентификация с помощью пароля
-    Аутентификация с использованием пары ключей
+- Password authentication
+- Key pair authentication
 
-Преимущества и недостатки каждого способа:
+Pros and cons of each:
 
-Аутентификация с помощью пароля:
+Password authentication:
 
-    Проста в использовании.
-    Не требует дополнительной настройки.
-    Менее безопасна, чем аутентификация с использованием пары ключей.
-    Может быть подвержена атакам перебора паролей.
+- Simple to use.
+- No extra setup.
+- Less secure than key pairs.
+- Vulnerable to brute-force attacks.
 
-Аутентификация с использованием пары ключей:
+Key pair authentication:
 
-    Более безопасна, чем аутентификация с помощью пароля.
-    Может быть настроена для автоматического входа на сервер без ввода пароля.
-    Не подвержена атакам перебора паролей.
-    Требует настройки на стороне клиента и сервера.
-    Если закрытый ключ будет скомпрометирован, злоумышленники получат доступ к серверу без ввода пароля.
+- More secure than passwords.
+- Can be set up for passwordless login.
+- Not vulnerable to brute-force attacks.
+- Requires setup on client and server.
+- If the private key is compromised, attackers can access the server without a password.
 
-### работа с процессами
+## Working with Processes
 
-просмотр списка процессов
-убийство процесса
-перезапуск служб
+- View process list
+- Kill a process
+- Restart services
 
-### CRON
+## Cron
 
 https://rebrainme.com/blog/linux/kak-poluchit-spisok-zadanij-cron-v-linux/
 
-Чтобы настроить время и интервал запуска скрипта, используется команда crontab:
+To configure script schedules, use crontab:
 
-    crontab -e
+```
+crontab -e
+```
 
-Чтобы задать конкретное время исполнения скрипта в cron, используется следующий синтаксис:
+Cron syntax:
 
-    *минута *час *день *месяц *день_недели /путь к файлу
+```
+*min *hour *day *month *day_of_week /path/to/file
+```
 
-Для обозначения даты и времени используются цифры или * (означает, что нужно выполнять скрипт каждую единицу времени,
-например,
-если * заменяется час, то скрипт должен запускаться каждый час, если * используется вместо числового обозначения дня —
-то каждый день).
-Путь до файла следует указывать обязательно полностью, начиная с корневого файла.
+You can use numbers or * (meaning every unit of time). If * replaces the hour, the script runs every hour. Always use
+full absolute paths.
 
-Пусть, к примеру, наш скрипт cron запускает каждую неделю в среду в 14 часов 45 минут.
+Example: run every Wednesday at 14:45:
 
-    45 14 * * 3 /usr/local/ping/todo
+```
+45 14 * * 3 /usr/local/ping/todo
+```
 
-Отсчет дней недели начинается понедельника, воскресенье считается седьмым или нулевым днем.
+Days start on Monday; Sunday is day 0 or 7.
 
-Большинство Cron (например, Vixie-Cron — по умолчанию в Debian/Ubuntu, Cronie — по умолчанию в Fedora, Solaris Cron…)
-предоставляют
-список запланированных заданий cron для текущего пользователя через команду:
+Most cron implementations (Vixie-Cron on Debian/Ubuntu, Cronie on Fedora, Solaris Cron, etc.) list scheduled jobs for
+current user with:
 
-    crontab -l
+```
+crontab -l
+```
 
-или для другого пользователя через:
+Or for another user:
 
-    crontab -u username -l
+```
+crontab -u username -l
+```
 
-### как описываются права unix - бинарный и целочисленный формат
+## Unix Permissions: Binary and Octal
 
-При создании файла ему всегда назначается основная группа владельца. В дальнейшем владелец может назначить файлу группу,
-в которую входит сам.
+When creating a file, it is assigned a primary group. The owner can later assign another group.
 
-Права доступа включают право на чтение (R__ead), запись (__W__rite) и исполнение (e__X__ecute). Существует три набора
-прав __rwx для владельца
-файла (U__ser), группы файла (__G__roup) и остальных (__O__ther). Традиционно права записываются в виде строки из трёх
-троек __rwx. Тройки расположены слева
-направо в порядке ugo. Отсутствующее право помечается прочерком. Набор прав также может быть представлен в виде
-трёхзначного восьмеричного числа, в
-котором 1 соответствует наличию права, а 0 отсутствию. Например, rwxr-xr-- эквивалентно 7548. Утилита stat позволяет
-выдать права доступа к файлу
-в восьмеричном виде путём задания формата %a. Например, для каталога /tmp установлены все права для всех и sticky bit:
+Permissions include read (r), write (w), and execute (x). There are three permission sets: for the owner (user), the
+file's group, and others. Permissions are written as three triplets: rwx rwx rwx. Missing permissions are dashes.
+Permissions can also be represented as an octal number. For example, rwxr-xr-- is 754. The `stat` utility can show
+permissions in octal via `%a`. For example, /tmp has full permissions for all plus sticky bit:
 
-    $> stat --format=%a /tmp
-    1777
+```
+$ stat --format=%a /tmp
+1777
+```
 
-Права доступа проверяются в момент выполнения системных вызовов, связанных с доступом к файлам и каталогам, таких как
-creat(), open(), unlink(), exec().
-Из трёх наборов прав выбирается тот, который наиболее точно характеризует пользователя, пытающегося получить доступ к
-файлу. Права для владельца перекрывают
-ему права для группы и прочих, для остальных членов группы права для группы перекрывают права для прочих.
+Permissions are checked during system calls like creat(), open(), unlink(), exec(). The most specific permission set is
+used: owner overrides group and others, group overrides others.
 
-### абсолютный и относительный пути
+## Absolute and Relative Paths
 
-В операционной системе Linux может быть несколько видов путей к файлу. Давайте рассмотрим какие бывают пути в linux:
+Linux uses several path types:
 
-- `Полный`, абсолютный путь linux от корня файловой системы - этот путь вы уже видели в примере выше, он начинается от
-  корня "/" и описывает весь путь к файлу;
-- `Относительный` путь linux - это путь к файлу относительно текущей папки, такие пути часто вызывают путаницу.
-- `Путь относительно домашний папки текущего пользователя`. - путь в файловой системе, только не от корня, а от папки
-  текущего пользователя `~/`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Full (absolute) path from the filesystem root. This starts with `/` and includes the full path.
+- Relative path from the current directory.
+- Path relative to the current user's home directory, starting with `~/`.

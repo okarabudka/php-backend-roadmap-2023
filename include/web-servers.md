@@ -1,184 +1,153 @@
-# Readme
+# Web Servers
 
-#### Список ссылок
+#### Links
 
-- [Веб-сервер](https://doka.guide/tools/web-server/)
-- [Веб-сервер Apache](https://doka.guide/tools/apache-web-server/)
-- [Веб-сервер Nginx](https://doka.guide/tools/nginx-web-server/)
-- [Apache vs Nginx: практический взгляд](https://habr.com/ru/post/267721/)
+- [Web server](https://doka.guide/tools/web-server/)
+- [Apache web server](https://doka.guide/tools/apache-web-server/)
+- [Nginx web server](https://doka.guide/tools/nginx-web-server/)
+- [Apache vs Nginx: a practical view](https://habr.com/ru/post/267721/)
+- [Threads, processes, modules](http://algolist.ru/web/servers.php)
 
+## Server Software [&uarr;](#web-servers)
 
-- [Треды, процессы, модули](http://algolist.ru/web/servers.php)
+Web servers include Apache and Nginx. A web server is a program that accepts user requests, processes them, and sends
+responses back over the application-layer HTTP protocol.
 
-### Серверное ПО [&uarr;](#devmap)
+A programming language interpreter.
 
-Веб-сервер - Apache, Nginx. Веб-сервер — это специальная программа, которая принимает запросы пользователей,
-обрабатывает их и отправляет ответ обратно по протоколу прикладного уровня HTTP.
+DBMS - database management systems: MySQL, PostgreSQL, MS SQL, Oracle, Redis, MongoDB, and so on.
 
-Интерпретатор языка программирования
+Search engines - Elasticsearch / Sphinx - allow search and filtering faster than in relational DBMS. Kibana visualizes
+Elasticsearch data as part of the Elasticsearch, Logstash, and Kibana stack (ELK Stack). Sphinx is a full-text search
+engine.
 
-СУБД — система управления базами данных: MySQL, PostgreSQL, MS SQL, Oracle, Redis, MongoDB и т.д.
+Elasticsearch (ES) is a scalable search engine that can also be considered a non-relational (NoSQL) database. It is
+mostly used for full-text search with filters and analyzers.
 
-Поисковые системы — ElasticSearch / Sphinx — позволяют осуществлять поиск и фильтрацию быстрее, нежели это возможно с
-использованием реляционных СУБД. Kibana - для визуализации данных, полученных из Elasticsearch - это в рамках настройки
-хранилища для логов на базе Elasticsearch, Logstash и Kibana, которое называют ELK Stack. Sphinx - движок
-полнотекстового поиска.
+Caching servers are systems that store results of request processing and reuse them on repeated requests to speed up
+page generation. Examples: Memcached and Redis.
 
-Elasticsearch (далее ES) — масштабируемая поисковая система, которую также можно отнести к нереляционным (noSQL) базам
-данных. В основном используется для полнотекстового поиска с фильтрами и анализаторами.
+Backup software - backups must be created regularly and automatically, and stored on a separate server from production
+systems.
 
-Кеширующие сервера — системы, «запоминающие» результат обработки запросов и использующие эти данные при повторных
-обращениях для ускорения генерации страниц — Memcached и Redis.
+Code accelerators speed up program execution. Common PHP accelerators include APC, eAccelerator, and XCache.
 
-Софт для резервного копирования — бэкапы должны создаваться регулярно и автоматически, а также хранится не на том же
-сервере, где расположены «боевые данные».
+Monitoring and alerting are systems that collect key performance metrics and report problems.
 
-Ускорители исполнения программного кода. Служат для повышения производительности, часто используемые ускорители для PHP:
-APC, eAccellerator, XCache.
+## Nginx [&uarr;](#web-servers)
 
-Мониторинг и оповещения — системы, собирающие важные метрики производительности системы и сообщающие о проблемах.
+Nginx was designed specifically to address Apache performance limitations. Nginx performance and scalability are due to
+its event-driven architecture, which is very different from Apache. In Nginx, each worker process can handle thousands
+of HTTP connections simultaneously. As a result, Nginx is a lightweight, scalable, high-performance implementation. This
+architecture makes handling large and fluctuating loads more predictable in terms of RAM usage, CPU usage, and latency.
 
-### Nginx [&uarr;](#Readme)
+Nginx also has a rich feature set and can perform different server roles:
 
-`Nginx` был разработан специально для устранения ограничений производительности веб-серверов `Apache`.
-Производительность и
-масштабируемость `Nginx` обусловлены архитектурой, управляемой событиями. Он значительно отличается от подхода `Apache`.
-В
-`Nginx` каждый рабочий процесс может одновременно обрабатывать тысячи HTTP-соединений. Следовательно, `Nginx` - это
-легковесная, масштабируемая и высокопроизводительная реализация. Эта архитектура делает обработку больших и
-флуктуирующих нагрузок на данные гораздо более предсказуемой с точки зрения использования ОЗУ, использования ЦП и
-задержки.
+- reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP
+- load balancer and HTTP cache
+- front proxy for Apache and other web servers, combining Apache flexibility with Nginx performance for static content
 
-`Nginx` также имеет богатый набор функций и может выполнять различные роли сервера:
+## Apache [&uarr;](#web-servers)
 
-- Обратный прокси-сервер для протоколов `HTTP, HTTPS, SMTP, POP3 и IMAP`
-- Балансировщик нагрузки и `HTTP-кеш`
-- Интерфейсный прокси для `Apache` и других веб-серверов, сочетающий гибкость `Apache` с хорошей производительностью
-  статического контента Nginx
+Apache is free software for hosting a web server. It performs well on large projects.
 
-### Apache [&uarr;](#Readme)
+mod_rewrite is an Apache module for rewriting URLs. It uses rules that can be defined in the server configuration
+(httpd.conf) or in .htaccess files inside your site structure. Rules are defined using regular expressions.
 
-`Apache` – это свободное программное обеспечение для размещения веб-сервера. Он хорошо показывает себя в работе с
-масштабными проектами.
+Apache was designed to deliver web content accessed over the internet. It is known for its key role in the early growth
+of the internet. Apache is open-source software developed and maintained by a community and runs on many operating
+systems. The architecture includes the Apache core and modules. The core provides basic server functionality, so it
+accepts connections and manages concurrency. Modules implement request-specific functionality. A particular Apache
+deployment can be configured to include various modules such as security features, dynamic content processing, or basic
+HTTP request handling.
 
-`mod_rewrite` — это модуль для веб-сервера `Apache`, предназначенный для преобразования URL-ов. Модуль использует в
-своей
-работе правила, которые могут быть описаны как в конфигурации сервера (`httpd.conf`), так и в файлах `.htaccess`
-непосредственно в файловой структуре Вашего сайта. Правила описываются в виде регулярных выражений
+The "one server does everything" model was key to Apache's early success. However, as traffic and the number of web
+pages grew and performance constraints appeared, tuning Apache for real-world traffic became more complex.
 
-`Apache` был разработан для доставки веб-контента, доступ к которому осуществляется через Интернет. Он известен тем, что
-играл ключевую роль в начальном росте интернета. `Apache` - это программное обеспечение с открытым исходным кодом,
-разработанное и поддерживаемое открытым сообществом разработчиков и работающее в самых разных операционных системах.
-Архитектура включает в себя ядро `Apache` и модули. Основной компонент предоставляет базовую серверную функцию, поэтому
-он
-принимает соединения и управляет параллелизмом. Различные модули соответствуют различным функциям, которые выполняются
-по каждому запросу. Конкретное развертывание `Apache` может быть сконфигурировано для включения различных модулей, таких
-как функции безопасности, управление динамическим контентом или для базовой обработки HTTP-запросов.
+## Apache vs Nginx: comparing their feature sets [&uarr;](#web-servers)
 
-Модель «один сервер делает все» стала ключом к раннему успеху `Apache`. Однако по мере увеличения уровня трафика и
-увеличения количества веб-страниц и ограничения производительности настройка Apache на работу с реальным трафиком
-усложнялась.
+### Simplicity
 
-### Apache против Nginx: сравнение их богатых наборов функций [&uarr;](#Readme)
+Building and updating applications on Apache is very straightforward. The "one connection per process" model makes it
+very easy to insert modules at any point in the web serving logic. Developers can add code so that if it fails, only the
+worker process running that code is affected. All other connections continue without interruption.
 
-#### Простота
+Nginx, on the other hand, has a more complex architecture, so module development is not as easy. Nginx module
+developers must be careful to create efficient, accurate code without failures, and integrate it with the event-driven
+core to avoid blocking operations.
 
-Разрабатывать и обновлять приложения на `Apache` очень просто. Модель «одно соединение на процесс» позволяет очень легко
-вставлять модули в любой точке логики веб-обслуживания. Разработчики могут добавлять код таким образом, что в случае
-сбоев будет затронут только рабочий процесс, выполняющий код. Обработка всех других соединений будет продолжаться без
-помех.
+### Performance
 
-`Nginx`, с другой стороны, имеет сложную архитектуру, поэтому разработка модулей не легка. Разработчики модулей `Nginx`
-должны быть очень осторожны, чтобы создавать эффективный и точный код, без сбоев, и соответствующим образом
-взаимодействовать со сложным ядром, управляемым событиями, чтобы избежать блокирования операций.
+Performance is measured by how the server delivers large volumes of content to the client browser. Content can be
+static or dynamic. Let's look at the numbers for static content.
 
-#### Производительность
+Nginx is about 2.5 times faster than Apache according to a performance test with up to 1000 concurrent connections.
+Another test with 512 concurrent connections showed that Nginx is roughly twice as fast and uses less memory. Nginx has
+a clear advantage for static content. If you need to serve concurrent static content, Nginx is often the preferred
+choice.
 
-Производительность измеряется тем, как сервер доставляет большие объемы контента в браузер клиента, и это важный фактор.
-Контент может быть статическим или динамическим. Давайте посмотрим статистику по этому вопросу. Статический контент
+### Dynamic content
 
-`Nginx` работает в 2,5 раза быстрее, чем `Apache`, согласно тесту производительности, выполняемому до 1000 одновременных
-подключений. Другой тест с 512 одновременными подключениями показал, что `Nginx` примерно в два раза быстрее и
-потребляет
-меньше памяти. Несомненно, `Nginx` имеет преимущество перед `Apache` со статическим контентом. Поэтому, если вам нужно
-обслуживать одновременный статический контент, `Nginx` является предпочтительным выбором.
+Speedemy tests show that for dynamic content, Apache and Nginx performance is the same. The likely reason is that most
+request processing time is spent in the PHP runtime rather than the core web server. The PHP runtime is quite similar
+for both web servers.
 
-#### Динамический контент
+Apache can handle dynamic content by embedding a language processor such as PHP in each of its worker instances. This
+lets it execute dynamic content directly on the web server without relying on external components. These dynamic
+processors can be enabled via dynamically loaded modules.
 
-Результаты тестов Speedemy показали, что для динамического контента производительность серверов `Apache` и `Nginx` была
-одинаковой. Вероятная причина этого заключается в том, что почти все время обработки запросов расходуется в среде
-выполнения PHP, а не в основной части веб-сервера. Среда выполнения PHP довольно похожа для обоих веб-серверов.
+Nginx does not handle dynamic content natively. To process PHP and other dynamic requests, Nginx must pass the request
+to an external processor and wait for the rendered content. However, this method has advantages: because the dynamic
+interpreter is not built into the worker process, its overhead applies only to dynamic content.
 
-`Apache` также может обрабатывать динамический контент, встраивая процессор языка, подобного PHP, в каждый из его
-рабочих
-экземпляров. Это позволяет ему выполнять динамический контент на самом веб-сервере, не полагаясь на внешние компоненты.
-Эти динамические процессоры могут быть включены с помощью динамически загружаемых модулей.
+### OS support
 
-`Nginx` не имеет возможности обрабатывать динамический контент изначально. Чтобы обрабатывать PHP и другие запросы на
-динамический контент, `Nginx` должен перейти на внешний процессор для выполнения и дождаться отправки визуализированного
-контента. Однако этот метод также имеет некоторые преимущества. Поскольку динамический интерпретатор не встроен в
-рабочий процесс, его издержки будут присутствовать только для динамического содержимого.
+Apache runs on UNIX, Linux, and BSD systems and fully supports Microsoft Windows. Nginx also runs on several modern
+Unix-like systems and supports Windows, but its Windows performance is not as stable as on UNIX platforms.
 
-#### Поддержка ОС
+### Security
 
-`Apache` работает во всех операционных системах, таких как UNIX, Linux или BSD, и полностью поддерживает Microsoft
-Windows. `Nginx` также работает на нескольких современных Unix-подобных системах и поддерживает Windows, но его
-производительность в Windows не так стабильна, как на платформах UNIX. Безопасность
+Both Apache and Nginx are secure web servers. The Apache Security Team provides support and coordinates vulnerability
+handling. It is important to configure servers correctly and understand what each setting does.
 
-И `Apache`, и `Nginx` являются безопасными веб-серверами. `Apache` Security Team существует, чтобы предоставить помощь и
-советы проектам `Apache` по вопросам безопасности и координировать обработку уязвимостей безопасности. Важно правильно
-настроить серверы и знать, что делает каждый параметр в настройках.
+### Flexibility
 
-#### Гибкость
+Web servers can be extended with modules. Apache has long supported dynamic modules, so all Apache modules can be
+loaded dynamically.
 
-Веб-серверы могут быть настроены путем добавления модулей. `Apache` долго загружал динамические модули, поэтому все
-модули
-`Apache` поддерживают это.
+Nginx Plus (a load balancer, web server, and content cache built on Nginx open source) also uses a modular
+architecture. New features can be added via software modules that can be loaded into a running Nginx Plus instance on
+demand. Dynamic modules add features such as IP geolocation, image resizing, and Lua scripts in the Nginx Plus event
+processing model. Modules are created both by Nginx, Inc. and by third-party developers.
 
-`Nginx` Plus (`Nginx` Plus - это программный балансировщик нагрузки, веб-сервер и кэш контента, построенный на основе
-открытого исходного кода `Nginx`) также использует модульную архитектуру. Новые функции и возможности могут быть
-добавлены
-с программными модулями, которые могут быть подключены к работающему экземпляру `Nginx` Plus по требованию. Динамические
-модули добавляют в `Nginx` Plus такие функции, как геолокация пользователей по IP-адресу, изменение размеров изображений
-и
-встраивание сценариев Lua в модель обработки событий `Nginx` Plus. Модули создаются как `Nginx`, Inc., так и сторонними
-разработчиками.
+Most of the required core functionality (for example, proxying, caching, and load distribution) is supported by both
+web servers.
 
-Большинство необходимых функциональных возможностей основного модуля (например, прокси, кэширование, распределение
-нагрузки) поддерживаются обоими веб-серверами.
+### Support and documentation
 
-#### Поддержка и документация
+Available help and support matter. Because Apache has been popular for so long, support is widespread. There is a large
+library of first- and third-party documentation for core Apache and task-focused scenarios involving Apache integration
+with other software.
 
-Важным моментом, который следует учитывать, является доступная справка и поддержка веб-серверов среди прочего
-программного обеспечения. Поскольку `Apache` был популярен так долго, поддержка сервера довольно распространена
-повсеместно. Для главного сервера и для основанных на задачах сценариев, связанных с подключением `Apache` к другому
-программному обеспечению, имеется большая библиотека документации первого и стороннего производителя.
+Along with documentation, many tools and web projects include bootstrap tooling for Apache environments. This can be
+built into the projects themselves or packaged by your distribution maintainers.
 
-Наряду с документацией многие инструменты и веб-проекты содержат инструменты для начальной загрузки в среде `Apache`.
-Это
-может быть включено в сами проекты или в пакеты, поддерживаемые отделом упаковки вашего дистрибутива.
+Apache typically receives strong third-party support simply because of its market share and longevity.
 
-`Apache`, как правило, получает большую поддержку от сторонних проектов просто из-за своей доли рынка и
-продолжительности
-времени, в течение которого он был доступен.
+In the past, comprehensive English-language documentation for Nginx was hard to find because much of its early
+development and documentation was in Russian. Today, documentation is solid, and the Nginx site has many resources for
+administration and third-party documentation.
 
-В прошлом для `Nginx` было трудно найти исчерпывающую англоязычную документацию из-за того, что большая часть ранней
-разработки и документации была на русском языке. Однако на сегодняшний день документация заполнена, и на сайте `Nginx`
-имеется множество ресурсов для администрирования и доступной документации от третьих лиц.
+### Nginx and Apache working together
 
-#### `Nginx` и `Apache` - Совместная работа
+For many applications, Nginx and Apache complement each other well. A common deployment pattern is to run Nginx open
+source software as a proxy server (or Nginx Plus as an application delivery platform) in front of an Apache-based web
+application. Nginx does the heavy HTTP work - serving static files, caching content, and offloading slow HTTP
+connections - so Apache can run application code in a safe environment.
 
-Для многих приложений `Nginx` и `Apache` хорошо дополняют друг друга. Очень распространенным начальным шаблоном является
-развертывание программного обеспечения `Nginx` с открытым исходным кодом в качестве прокси-сервера (или `Nginx` Plus в
-качестве платформы доставки приложений) перед веб-приложением на основе `Apache`. `Nginx` выполняет тяжелую работу,
-связанную с HTTP - обслуживает статические файлы, кэширует содержимое и разряжает медленные HTTP-соединения - так что
-сервер `Apache` может выполнять код приложения в безопасной и защищенной среде.
+## Load balancing for application servers (HAProxy) [&uarr;](#web-servers)
 
-### балансировка нагрузки на сервера приложений (`haproxy`) [&uarr;](#devmap)
+HAProxy, or High Availability Proxy, is a TCP/HTTP load balancer. It distributes workload across servers to maximize
+performance and optimize resource usage. HAProxy supports flexible health checks, failover handling, and recovery.
 
-HAProxy, или High Availability Proxy, является программным балансировщиком нагрузки TCP/HTTP. Он распределяет рабочую
-нагрузку по серверам для обеспечения максимальной производительности и оптимизации использования ресурсов. HAProxy
-поддерживает гибко настраиваемые методы проверки доступности, обработки отказов и восстановления после них.
-
-HAProxy устанавливается на отдельный сервер, который принимает клиентские запросы и перенаправлять их на веб-сервера
-`Nginx`.
+HAProxy is installed on a separate server that receives client requests and forwards them to Nginx web servers.

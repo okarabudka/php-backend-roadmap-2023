@@ -1,19 +1,17 @@
-## Приспособленец (Flyweight)
+## Flyweight
 
-Паттерн Flyweight относится к структурным паттернам уровня объекта.
+The Flyweight pattern is a structural object-level pattern.
 
-Паттерн Flyweight используется для эффективной поддержки большого числа мелких объектов, он позволяет повторно
-использовать мелкие объекты в различном контексте.
+Flyweight is used to efficiently support a large number of small objects. It allows reusing small objects in different
+contexts.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс FlyweightFactory, являющейся модифицированным паттерном фабрики, для создания приспособленцев;
-2. Базовый абстрактный класс Flyweight, для описания общего интерфейса приспособленцев;
-3. Класс ConcreteFlyweight реализующий приспособленца, который будет замещать собой одинаковые мелкие объекты.
+1. FlyweightFactory class, a modified factory pattern for creating flyweights.
+2. Base abstract Flyweight class to describe the common flyweight interface.
+3. ConcreteFlyweight class implementing a flyweight that replaces identical small objects.
 
-Суть в том, что мы можем запрашивать приспособленцев у фабрики по запросу, в свою очередь она будет отдавать те объекты,
-которые уже были созданы, или создавать новые. Это означает, что мы будем использовать уже созданные объекты, а не
-создавать ещё больше, если объекты под наши нужны уже имеются. 
-
+The idea is that you can request flyweights from the factory, and it will return objects that already exist or create
+new ones. This means you reuse existing objects instead of creating more when the needed ones already exist.

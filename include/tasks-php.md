@@ -1,11 +1,11 @@
-# Readme
+# PHP Tasks
 
-#### написать пример применения анонимных классов
+#### Write an example of anonymous classes
 
 ```php
-// Анонимные классы полезны, когда нужно создать простые, одноразовые объекты. 
+// Anonymous classes are useful for simple one-off objects.
 
-// Использование явного класса
+// Using a named class
 class Logger
 {
     public function log($msg)
@@ -16,7 +16,7 @@ class Logger
 
 $util->setLogger(new Logger());
 
-// Использование анонимного класса
+// Using an anonymous class
 $util->setLogger(new class {
     public function log($msg)
     {
@@ -25,35 +25,35 @@ $util->setLogger(new class {
 });
 ```
 
-#### array_walk и замыкания
+#### array_walk and closures
 
 ```php
-    $fruits = [
-        "d" => "lemon", 
-        "a" => "orange", 
-        "b" => "banana", 
-        "c" => "apple"
-        ];
-    
-    array_walk($fruits, function($item, $key) {
-        echo $key . ' => ' . $item . "\n";
-    });
+$fruits = [
+    "d" => "lemon",
+    "a" => "orange",
+    "b" => "banana",
+    "c" => "apple"
+];
+
+array_walk($fruits, function($item, $key) {
+    echo $key . ' => ' . $item . "\n";
+});
 ```
 
-#### yield, fibers, корутины
+#### yield, fibers, coroutines
 
 ```php
 function generate() {
     $fruits = [
-		"d" => "lemon", 
-		"a" => "orange", 
-		"b" => "banana", 
-		"c" => "apple"
-	];
+        "d" => "lemon",
+        "a" => "orange",
+        "b" => "banana",
+        "c" => "apple"
+    ];
 
-	foreach($fruits as $fruit){
-		yield $fruit;
-	}
+    foreach ($fruits as $fruit) {
+        yield $fruit;
+    }
 }
 
 $generator = generate();
@@ -74,16 +74,16 @@ $string = 'April 15, 2003';
 $pattern = '/(\w+) (\d+), (\d+)/i';
 $replacement = '${1}1,$3';
 echo preg_replace($pattern, $replacement, $string);
-//prints April1,2003
+// prints April1,2003
 ```
 
-#### Написать пример паттерна Singelton
+#### Write a Singleton pattern example
 
 ```php
 
 ```
 
-#### Написать функцию вычисления факториала (рекурсия / итерация)
+#### Write a factorial function (recursion / iteration)
 
 ```php
 function factorial($n): float|int
@@ -91,10 +91,10 @@ function factorial($n): float|int
     return $n < 2 ? 1 : $n * factorial($n - 1);
 }
 
-echo factorial(5); //120
+echo factorial(5); // 120
 ```
 
-#### Сортировка пузырьком, сложность алгоритма
+#### Bubble sort, algorithm complexity
 
 ```php
 function bubbleSort($coll)
@@ -102,8 +102,8 @@ function bubbleSort($coll)
     $size = count($coll);
     do {
         $swapped = false;
-        // Перебираем массив и меняем местами элементы, если предыдущий
-        // больше, чем следующий
+        // Iterate the array and swap elements if the previous one
+        // is greater than the next
         for ($i = 0; $i < $size - 1; $i++) {
             if ($coll[$i] > $coll[$i + 1]) {
                 $temp = $coll[$i];
@@ -112,10 +112,9 @@ function bubbleSort($coll)
                 $swapped = true;
             }
         }
-        // Уменьшаем счетчик на 1, т.к. самый большой элемент уже находится
-        // в конце массива
+        // Decrease size by 1, because the largest element is now at the end
         $size--;
-    } while ($swapped); // продолжаем, пока swapped === true
+    } while ($swapped); // continue while swapped === true
 
     return $coll;
 }
@@ -131,19 +130,19 @@ print_r(bubbleSort([3, 2, 10, -2, 0]));
 // => )
 ```
 
-#### В чем отличие между результатами выполнения
+#### Difference between results of
 
 ```php
-$aparts = $aparts + $filedata;             
+$aparts = $aparts + $filedata;
 $aparts = array_merge($aparts, $filedata);
 
-//Если вы хотите дополнить первый массив элементами второго без перезаписи 
-//элементов первого массива и без переиндексации, используйте оператор объединения массивов +
-//Ключи из первого массива будут сохранены. Если ключ массива существует в обоих массивах, то будет использован 
-//элемент из первого массива, а соответствующий элемент из второго массива будет проигнорирован.
+// If you want to append elements of the second array to the first without
+// overwriting the first array elements and without reindexing, use the + operator.
+// Keys from the first array are preserved. If a key exists in both arrays,
+// the element from the first array is used and the element from the second is ignored.
 ```
 
-#### Факториал
+#### Factorial
 
 ```php
 function factorial($n): float|int
@@ -154,21 +153,17 @@ function factorial($n): float|int
 echo factorial(6) . "\n";
 ```
 
-#### Рекурсия
+#### Recursion
 
-У нас есть набор типов упаковок с лимонадом и каждый тип упаковки вмещает в себя определенное количество бутылок.
-Необходимо определить сколько нужно упаковок продать клиенту, который хочет купить определенное количество банок
-лимонада.
-Если количество банок меньше чем вмещает самая маленькая упаковка - возвращаем одну упаковку так как поштучно банки не
-продаются.
+We have a set of lemonade package types, and each type holds a certain number of bottles.
+We need to determine how many packages to sell to a customer who wants to buy a certain number of bottles.
+If the number of bottles is less than the smallest package, return one package because we do not sell bottles
+individually.
 
 ```php
-
-
 /*
-решение с набором типов упаковок в виде констант
+solution with a set of package types as constants
 */
-
 
 const BIG = 20;
 const MIDDLE = 6;
@@ -176,63 +171,61 @@ const SMALL = 2;
 
 function packCount($bottles = 0, $count = 0): int
 {
-	switch($bottles){
-		case $bottles >= BIG:
-			$count += intdiv($bottles, BIG);
-			if($bottles % BIG > 0){
-				$count += packCount($bottles % BIG);
-			}
-			break;
-		case $bottles >= MIDDLE:
-			$count += intdiv($bottles, MIDDLE);
-			if($bottles % MIDDLE > 0){
-				$count += packCount($bottles % MIDDLE);
-			}
-			break;
-		case $bottles >= SMALL:
-			$count += intdiv($bottles, SMALL);
-			if($bottles % SMALL > 0){
-				$count += packCount($bottles % SMALL);
-			}
-			break;
-		case $bottles < SMALL && $bottles > 0:
-			return 1;
-			break;
-		default:
-			return 0;
-	}
-	return $count;
+    switch ($bottles) {
+        case $bottles >= BIG:
+            $count += intdiv($bottles, BIG);
+            if ($bottles % BIG > 0) {
+                $count += packCount($bottles % BIG);
+            }
+            break;
+        case $bottles >= MIDDLE:
+            $count += intdiv($bottles, MIDDLE);
+            if ($bottles % MIDDLE > 0) {
+                $count += packCount($bottles % MIDDLE);
+            }
+            break;
+        case $bottles >= SMALL:
+            $count += intdiv($bottles, SMALL);
+            if ($bottles % SMALL > 0) {
+                $count += packCount($bottles % SMALL);
+            }
+            break;
+        case $bottles < SMALL && $bottles > 0:
+            return 1;
+        default:
+            return 0;
+    }
+    return $count;
 }
 
 echo packCount(55) . " \n\n";
 
 /*
-решение с набором типов упаковок в виде динамичного параметра
+solution with a set of package types as a dynamic parameter
 */
 
 function packCount2(int $bottles, array $packs): int
 {
-	
-	$count = 0;
-	
-	arsort($packs);
-	
-	foreach($packs as $key=>$pack){
-		if($bottles >= $pack){
-			$count += intdiv($bottles, $pack);
-			
-			if($bottles % $pack > 0){
-				$count += packCount2($bottles % $pack, array_splice($packs, $key));
-			}
-			return $count;
-		}
-	}
-	
-	if($bottles > 0){
-		return 1;
-	}
-	
-	return $count;
+    $count = 0;
+
+    arsort($packs);
+
+    foreach ($packs as $key => $pack) {
+        if ($bottles >= $pack) {
+            $count += intdiv($bottles, $pack);
+
+            if ($bottles % $pack > 0) {
+                $count += packCount2($bottles % $pack, array_splice($packs, $key));
+            }
+            return $count;
+        }
+    }
+
+    if ($bottles > 0) {
+        return 1;
+    }
+
+    return $count;
 }
 
 echo packCount2(55, [20, 2, 6]) . " \n\n\n";

@@ -1,26 +1,25 @@
 <?php
 /**
- * Паттерн Посредник (Mediator)
+ * Mediator pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Mediator, описывает интерфейс для просредника
+ * Base abstract class Mediator describes the mediator interface
  */
 abstract class Mediator
 {
     /**
-     * Общение с коллегами
+     * Communication with colleagues
      *
-     * @param string $msg - сообщение
+     * @param string $msg - message
      */
     public abstract function send($msg);
 }
 
 /**
- * Базовый абстрактный класс Colleague, описывает интерфейс процесса взаимодействия
- * объектов-коллег с объектом типа Mediator;
+ * Base abstract class Colleague describes interaction between colleagues and the Mediator.
  */
 abstract class Colleague
 {
@@ -30,9 +29,9 @@ abstract class Colleague
     protected $mediator;
 
     /**
-     * Установить посредника
+     * Set mediator
      *
-     * @param Mediator $mediator - посредник
+     * @param Mediator $mediator - mediator
      */
     public function __construct(Mediator $mediator)
     {
@@ -41,7 +40,7 @@ abstract class Colleague
 }
 
 /**
- * ConcreteMediator, реализует посредника
+ * ConcreteMediator implements the mediator
  */
 class ConcreteMediator extends Mediator
 {
@@ -61,9 +60,9 @@ class ConcreteMediator extends Mediator
     public $shop;
 
     /**
-     * Общение с коллегами
+     * Communication with colleagues
      *
-     * @param string $msg - сообщение
+     * @param string $msg - message
      */
     public function send($msg)
     {
@@ -80,7 +79,7 @@ class ConcreteMediator extends Mediator
 }
 
 /**
- * Farmer, реализует коллегу Фермер
+ * Farmer implements colleague Farmer
  */
 class Farmer extends Colleague
 {
@@ -95,7 +94,7 @@ class Farmer extends Colleague
     public $money = 5000;
 
     /**
-     * Фермер выращивает помидоры
+     * Farmer grows tomatoes
      *
      * @param int $tomato
      */
@@ -107,7 +106,7 @@ class Farmer extends Colleague
     }
 
     /**
-     * Отдать помидоры
+     * Give tomatoes
      *
      * @return int
      */
@@ -121,7 +120,7 @@ class Farmer extends Colleague
 
 
 /**
- * Cannery, реализует коллегу Завод
+ * Cannery implements colleague Factory
  */
 class Cannery extends Colleague
 {
@@ -136,8 +135,8 @@ class Cannery extends Colleague
     public $money = 10000;
 
     /**
-     * Завод перерабатывает помидоры в кетчуп
-     * 4 помидорки на упаковку кетчупа
+     * Factory processes tomatoes into ketchup
+     * 4 tomatoes per ketchup package
      *
      * @param int $tomato
      */
@@ -148,7 +147,7 @@ class Cannery extends Colleague
     }
 
     /**
-     * Отдать кетчуп
+     * Give ketchup
      *
      * @return int
      */
@@ -161,7 +160,7 @@ class Cannery extends Colleague
 }
 
 /**
- * Shop, реализует коллегу Магазин
+ * Shop implements colleague Shop
  */
 class Shop extends Colleague
 {
@@ -171,7 +170,7 @@ class Shop extends Colleague
     public $money = 15000;
 
     /**
-     * Магазин продает кетчуп по 80 рублей
+     * Shop sells ketchup for 80 rubles
      *
      * @param int $ketchup
      */

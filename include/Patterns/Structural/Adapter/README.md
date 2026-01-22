@@ -1,82 +1,74 @@
-## Адаптер (Adapter)
+## Adapter
 
-Паттерн Adapter относится к структурным паттернам уровня класса.
+The Adapter pattern is a structural class-level pattern.
 
-Часто в новом проекте разработчики хотят повторно использовать уже существующий код. Например, имеющиеся классы могут
-обладать нужной
-функциональностью и иметь при этом несовместимые интерфейсы. В таких случаях следует использовать паттерн Adapter.
+In new projects, developers often want to reuse existing code. Existing classes may provide the needed functionality
+but have incompatible interfaces. In such cases, use the Adapter pattern.
 
-Смысл работы этого паттерна в том, что если у вас есть класс и его интерфейс не совместим с кодом вашей системы, то что
-бы разрешить
-этот конфликт, мы не изменяем код этого класса, а пишем для него адаптер. Другими словами Adapter адаптирует
-существующий код к
-требуемому интерфейсу (является переходником).
+The idea is that if you have a class whose interface is incompatible with your system, you do not change that class.
+Instead, you write an adapter for it. Adapter adapts existing code to the required interface (acts as a connector).
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Интерфейс ITarget, описывающий целевой интерфейс (тот интерфейс с которым наша система хотела бы работать);
-2. Класс Adaptee, который наша система должна адаптировать под себя;
-3. Класс Adapter, адаптер реализующий целевой интерфейс.
+1. ITarget interface describing the target interface (the one our system wants to work with).
+2. Adaptee class that our system must adapt.
+3. Adapter class that implements the target interface.
 
-## Применимость
+## Applicability
 
-### Когда вы хотите использовать сторонний класс, но его интерфейс не соответствует остальному коду приложения.
+### When you want to use a third-party class, but its interface does not match the rest of the app.
 
-    Адаптер позволяет создать объект-прокладку, который будет превращать вызовы приложения в формат, понятный стороннему классу.
+    Adapter lets you create a wrapper object that converts app calls into a format the third-party class understands.
 
-### Когда вам нужно использовать несколько существующих подклассов, но в них не хватает какой-то общей функциональности, причём расширить суперкласс вы не можете.
+### When you need to use several existing subclasses, but they lack some shared functionality and you cannot extend the superclass.
 
-    Вы могли бы создать ещё один уровень подклассов и добавить в них недостающую функциональность. Но при этом придётся дублировать один и тот же код в обеих ветках подклассов.
+    You could create another level of subclasses and add missing functionality there, but you would duplicate the same
+    code in both branches.
 
-    Более элегантным решением было бы поместить недостающую функциональность в адаптер и приспособить его для работы с суперклассом. Такой адаптер сможет работать со всеми подклассами иерархии. Это решение будет сильно напоминать паттерн Декоратор.
+    A more elegant solution is to place the missing functionality into an adapter and make it work with the superclass.
+    Such an adapter can work with all subclasses in the hierarchy. This looks very similar to Decorator.
 
-## Шаги реализации
+## Implementation steps
 
-1. Убедитесь, что у вас есть два класса с несовместимыми интерфейсами:
-   полезный сервис — служебный класс, который вы не можете изменять (он либо сторонний, либо от него зависит другой
-   код);
-   один или несколько клиентов — существующих классов приложения, несовместимых с сервисом из-за неудобного или
-   несовпадающего интерфейса.
+1. Make sure you have two classes with incompatible interfaces:
+   a useful service - a class you cannot modify (third-party or depended on by other code),
+   and one or more clients that are incompatible with the service due to an inconvenient interface.
 
-2. Опишите клиентский интерфейс, через который классы приложения смогли бы использовать класс сервиса.
+2. Describe a client interface through which the app classes could use the service class.
 
-3. Создайте класс адаптера, реализовав этот интерфейс.
+3. Create an adapter class implementing this interface.
 
-4. Поместите в адаптер поле, которое будет хранить ссылку на объект сервиса. Обычно это поле заполняют объектом,
-   переданным в конструктор адаптера. В случае простой адаптации этот объект можно передавать через параметры методов
-   адаптера.
+4. Add a field in the adapter to hold a reference to the service object. Usually this field is set via the adapter
+   constructor. For simple adaptation, you can pass the service object via adapter method parameters.
 
-5. Реализуйте все методы клиентского интерфейса в адаптере. Адаптер должен делегировать основную работу сервису.
+5. Implement all methods of the client interface in the adapter. The adapter should delegate the main work to the
+   service.
 
-6. Приложение должно использовать адаптер только через клиентский интерфейс. Это позволит легко изменять и добавлять
-   адаптеры в будущем.
+6. The application should use the adapter only through the client interface. This makes adapters easy to change or add
+   later.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Отделяет и скрывает от клиента подробности преобразования различных интерфейсов.
+    + Separates and hides interface conversion details from the client.
 
-    - Усложняет код программы из-за введения дополнительных классов.
+    - Adds complexity due to additional classes.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Мост` проектируют загодя, чтобы развивать большие части приложения отдельно друг от друга. `Адаптер` применяется
-   постфактум, чтобы заставить несовместимые классы работать вместе.
+1. Bridge is designed in advance to develop large parts of an app independently. Adapter is applied after the fact to
+   make incompatible classes work together.
 
-2. `Адаптер` меняет интерфейс существующего объекта. `Декоратор` улучшает другой объект без изменения его интерфейса.
-   Причём `Декоратор` поддерживает рекурсивную вложенность, чего не скажешь об `Адаптере`.
+2. Adapter changes the interface of an existing object. Decorator enhances another object without changing its
+   interface. Decorator supports recursive nesting, Adapter does not.
 
-3. `Адаптер` предоставляет классу альтернативный интерфейс. `Декоратор` предоставляет расширенный интерфейс.
-   `Заместитель` предоставляет тот же интерфейс.
+3. Adapter provides an alternative interface for a class. Decorator provides an extended interface. Proxy provides the
+   same interface.
 
-4. `Фасад` задаёт новый интерфейс, тогда как `Адаптер` повторно использует старый. `Адаптер` оборачивает только один
-   класс, а `Фасад` оборачивает целую подсистему. Кроме того, `Адаптер` позволяет двум существующим интерфейсам работать
-   сообща, вместо того, чтобы задать полностью новый.
+4. Facade defines a new interface, while Adapter reuses an old one. Adapter wraps a single class, while Facade wraps a
+   whole subsystem. Adapter can also make two existing interfaces work together instead of creating a new one.
 
-5. `Мост`, `Стратегия` и `Состояние` (а также слегка и Ада`птер) имеют схожие структуры классов — все они построены на
-   принципе «композиции», то есть делегирования работы другим объектам. Тем не менее, они отличаются тем, что решают
-   разные проблемы. Помните, что паттерны — это не только рецепт построения кода определённым образом, но и описание
-   проблем, которые привели к данному решению.
-
-
+5. Bridge, Strategy, and State (and to some extent Adapter) have similar class structures - they are all built on
+   composition, delegating work to other objects. They differ in the problems they solve. Patterns are not only code
+   recipes but also descriptions of the problems that led to these solutions.

@@ -1,2393 +1,1950 @@
-#### Список ссылок
+# PHP
 
-- [PHP — эволюция синтаксиса](https://wp-kama.ru/id_6310/php-evolution.html#php-8-1)
-- [PHP: Список изменений](https://www.php.net/manual/ru/doc.changelog.php)
+#### Links
+
+- [PHP syntax evolution](https://wp-kama.ru/id_6310/php-evolution.html#php-8-1)
+- [PHP: change log](https://www.php.net/manual/ru/doc.changelog.php)
 - [PHP Versions](https://php.watch/versions)
 - [PHP | endoflife.date](https://endoflife.date/php)
-- [Что нового в PHP 8.0](https://www.php.net/releases/8.0/ru.php)
-- [Что нового в PHP 8.1](https://www.php.net/releases/8.1/ru.php)
-- [Что нового в PHP 8.2](https://www.php.net/releases/8.2/ru.php)
-- [Вышел PHP 8.2: разбираем главные изменения](https://habr.com/ru/company/hexlet/blog/705194/)
-
-
-- [Справочник языка ¶](https://www.php.net/manual/ru/langref.php)
+- [What's new in PHP 8.0](https://www.php.net/releases/8.0/ru.php)
+- [What's new in PHP 8.1](https://www.php.net/releases/8.1/ru.php)
+- [What's new in PHP 8.2](https://www.php.net/releases/8.2/ru.php)
+- [PHP 8.2 released: key changes](https://habr.com/ru/company/hexlet/blog/705194/)
+- [Language reference](https://www.php.net/manual/ru/langref.php)
 - [PHP Reflection API](https://php.zone/oop-v-php-prodvinutyj-kurs/php-reflection-api-uchimsya-primenyat)
-- [Лекция-дайджест по PHP SPL](https://devenergy.ru/archives/288)
+- [SPL digest lecture](https://devenergy.ru/archives/288)
+- [Data structures (via PHP SPL)](https://medium.com/@alexawesome/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%BD%D0%B0-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B5-php-spl-9a98bc08b6c0)
+- [Data structures](https://www.php.net/manual/ru/spl.datastructures.php)
+- [Handling exceptions and errors in PHP](https://maxsite.org/page/exception-in-php)
+- [Anonymous functions](https://www.php.net/manual/ru/functions.anonymous.php)
+- [Pseudo-types and variables used in documentation](http://php.adamharvey.name/manual/ru/language.pseudo-types.php)
+- [Asynchrony, concurrency, parallelism, multithreading](https://habr.com/ru/post/667590/)
+- [How to use AJAX in PHP and jQuery](https://code.tutsplus.com/ru/tutorials/how-to-use-ajax-in-php-and-jquery--cms-32494)
+- [Generator syntax](https://www.php.net/manual/ru/language.generators.syntax.php)
+- [Real-world generator examples](https://badtry.net/primiery-ispolzovaniia-ghienieratorov-v-php/)
+- [Event-driven architecture](https://habr.com/ru/post/699492/)
+- [Interfaces and signature compatibility](https://habr.com/ru/post/328890/)
+- [OOP principles](https://habr.com/ru/company/otus/blog/525336/)
+- [OOP in PHP](https://maxsite.org/page/php-oop)
+- [Variable scope](https://www.php.net/manual/ru/language.variables.scope.php)
+- [Visibility of properties, methods, and constants](https://www.php.net/manual/ru/language.oop5.visibility.php)
+- [Interfaces vs abstract classes](https://www.dev-notes.ru/articles/interfaces-vs-abstract-classes-in-php/)
+- [Overloading](https://www.php.net/manual/ru/language.oop5.overloading.php)
+- [Constructors and destructors](https://www.php.net/manual/ru/language.oop5.decon.php)
+- [Traits](https://www.php.net/manual/ru/language.oop5.traits.php)
+- [PHP: the static keyword](https://habr.com/ru/post/259627/)
+- [Anonymous classes](http://micmap.org/php-by-example/manual/ru/language.oop5.anonymous.html)
 
+## PHP: Hypertext Preprocessor (or simply PHP)
 
-- [Структуры данных(на примере PHP SPL)](https://medium.com/@alexawesome/%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%BD%D0%B0-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%B5-php-spl-9a98bc08b6c0)
-- [Структуры данных](https://www.php.net/manual/ru/spl.datastructures.php)
-- [Обработка исключений и ошибок в PHP](https://maxsite.org/page/exception-in-php)
-- [Анонимные функции](https://www.php.net/manual/ru/functions.anonymous.php)
-- [Псевдотипы и переменные, используемые в этой документации](http://php.adamharvey.name/manual/ru/language.pseudo-types.php)
-- [Асинхронность, конкурентность, параллельность, многопоточность — разбираемся «по понятиям» :)](https://habr.com/ru/post/667590/)
-- [Как использовать AJAX в PHP и jQuery](https://code.tutsplus.com/ru/tutorials/how-to-use-ajax-in-php-and-jquery--cms-32494)
-- [Синтаксис генераторов](https://www.php.net/manual/ru/language.generators.syntax.php)
-- [Реальные примеры использования генераторов в PHP](https://badtry.net/primiery-ispolzovaniia-ghienieratorov-v-php/)
-- [Event-driven архитектура (она же событийно-ориентированная)](https://habr.com/ru/post/699492/)
+- [Cookies and sessions](#cookies-and-sessions)
+- [PHP versions](#php-versions)
+- [Reflection API](#reflection-api)
+- [What are PEAR and PECL?](#what-are-pear-and-pecl)
+- [Error handling](#error-handling)
+- [Data types in PHP](#data-types-in-php)
+- [Pseudotypes](#pseudotypes)
+- [Anonymous functions and closures](#anonymous-functions-and-closures)
+- [Name 5 array functions](#name-5-array-functions)
+- [Array sorting functions](#array-sorting-functions)
+- [!empty() vs isset()](#empty-vs-isset)
+- [include vs require](#include-vs-require)
+- [Misc](#misc)
 
+## Design
 
-- [Всё, что вы хотели узнать об интерфейсах, совместимости сигнатур](https://habr.com/ru/post/328890/)
-- [Принципы объектно-ориентированного программирования](https://habr.com/ru/company/otus/blog/525336/)
-- [ООП в PHP](https://maxsite.org/page/php-oop)
-- [Область видимости переменной](https://www.php.net/manual/ru/language.variables.scope.php)
-- [Область видимости свойства, метода или константы](https://www.php.net/manual/ru/language.oop5.visibility.php)
-- [PHP: Интерфейсы vs Абстрактные классы](https://www.dev-notes.ru/articles/interfaces-vs-abstract-classes-in-php/)
-- [Перегрузка](https://www.php.net/manual/ru/language.oop5.overloading.php)
-- [Конструкторы и деструкторы](https://www.php.net/manual/ru/language.oop5.decon.php)
-- [Трейты](https://www.php.net/manual/ru/language.oop5.traits.php)
-- [PHP: ключевое слово «static»](https://habr.com/ru/post/259627/)
-- [Анонимные классы](http://micmap.org/php-by-example/manual/ru/language.oop5.anonymous.html)
+- [What is MVC and what are its benefits?](#what-is-mvc-and-what-are-its-benefits)
+- [Should there be logic in the controller, and why?](#should-there-be-logic-in-the-controller-and-why)
 
-### PHP: Hypertext Preprocessor (or simply PHP)
+## Data Structures
 
-* [ ] [**куки** и **сессии**](#PHP-versions-)
-* [ ] [PHP versions](#PHP-versions-)
-* [ ] [Reflection API](#Reflection-API-)
-* [ ] [Что такое PEAR и PECL?](#Что-такое-PEAR-и-PECL?)
-* [ ] [Обработка ошибок](#Обработка-ошибок)
-* [ ] [Типы данных в PHP](#Типы-данных-в-PHP)
-* [ ] [Псевдотипы](#Псевдотипы)
-* [ ] [Анонимные функции, замыкания](#Анонимные-функции,-замыкания)
-* [ ] [Назовите 5 различных функций для работы с массивами.](#Назовите-5-различных-функций-для-работы-с-массивами.)
-* [ ] [Функции сортировки массивов - несколько штук](#Функции-сортировки-массивов---несколько-штук)
-* [ ] [!empty() vs isset()](#!empty()-vs-isset())
-* [ ] [отличие include от require.](#отличие-include-от-require.)
-* [ ] [Разное](#Разное)
+- [SPL Classes](#spl-classes)
+- [What data structures do you know?](#what-data-structures-do-you-know)
+- [Stack vs Queue](#stack-vs-queue)
 
-###ПРОЕКТИРОВАНИЕ
+## DB
 
-* [ ] [Что такое MVC и какие преимущества его использования?](#Что-такое-MVC-и-какие-преимущества-его-использования?-)
-* [ ] [логика в контроллере, должна ли быть и почему](#логика-в-контроллере,-должна-ли-быть-и-почему)
+- [Are you familiar with ORM and ActiveRecord?](#are-you-familiar-with-orm-and-activerecord)
+- [What is PDO and prepared statements?](#what-is-pdo-and-prepared-statements)
 
-###СТРУКТУРЫ ДАННЫХ
+## OOP
 
-* [ ] [SPL классы](#SPL-классы)
-* [ ] [Какие структуры данных вы знаете?](#Какие-структуры-данных-вы-знаете?-)
-* [ ] [Разница стэка и очереди.](#Разница-стэка-и-очереди.)
+- [Three OOP principles](#three-oop-principles)
+- [OOP in PHP](#oop-in-php)
+- [Visibility](#visibility)
+- [Interface vs abstract class](#interface-vs-abstract-class)
+- [Multiple constructors in a class](#multiple-constructors-in-a-class)
+- [Traits - why](#traits-why)
+- [Can you do multiple inheritance in PHP?](#can-you-do-multiple-inheritance-in-php)
+- [Static properties and methods](#static-properties-and-methods)
 
-###DB
+## Asynchrony, concurrency, parallelism, multithreading in PHP
 
-* [ ] [Знакомы ли с ORM, ActiveRecord?](#Знакомы-ли-с-ORM,-ActiveRecord?)
-* [ ] [что такое PDO и подготовленные запросы](#что-такое-PDO-и-подготовленные-запросы)
+- [Asynchrony, concurrency, parallelism, multithreading in PHP](#asynchrony-concurrency-parallelism-and-multithreading-in-php)
+- [Event loop](#event-loop)
+- [Event-driven in Symfony - is it async?](#event-driven-in-symfony---is-it-async)
+- [Distributed asynchrony](#distributed-asynchrony)
+- [Cooperative multitasking with generators and coroutines](#cooperative-multitasking-with-generators-and-coroutines)
+- [yield](#yield)
+- [Coroutines](#coroutines)
+- [Fibers](#fibers)
+- [The blocking code problem](#the-blocking-code-problem)
+- [Real parallelism - processes](#real-parallelism---processes)
+- [Multithreading](#multithreading)
+- [Swoole and its go-routines](#swoole-and-its-go-routines)
 
-###ООП
+## Cookies and Sessions
 
-* [ ] [3 принципа ООП.](#3-принципа-ООП.)
-* [ ] [Особенности ООП в PHP.](#Особенности-ООП-в-PHP.)
-* [ ] [Области видимости](#Области-видимости)
-* [ ] [Чем интерфейс отличается от абстрактного класса?](#Чем-интерфейс-отличается-от-абстрактного-класса?)
-* [ ] [Несколько конструкторов в классе](#Несколько-конструкторов-в-классе)
-* [ ] [Трейты - зачем](#Трейты---зачем)
-* [ ] [Можно ли сделать множестенное наследование в PHP](#Можно-ли-сделать-множестенное-наследование-в-PHP)
-* [ ] [Статические свойства и методы](#Статические-свойства-и-методы)
+In PHP, cookies and sessions are mechanisms for storing user data, but they work differently and are used for different
+purposes.
 
-### Асинхронность, конкурентность, параллельность, многопоточность в PHP
+### 1. Data storage location
 
-* [ ] [Асинхронность, конкурентность, параллельность, многопоточность в PHP](#Асинхронность,-конкурентность,-параллельность,-многопоточность-в-PHP)
-* [ ] [Event loop - цикл событий](#Event-loop---цикл-событий)
-* [ ] [Event-driven в Symfony - это асинхронность?](#Event-driven-в-Symfony---это-асинхронность?)
-* [ ] [Распределенная асинхронность](#Распределенная-асинхронность)
-* [ ] [Кооперативная многозадачность на примере генераторов и корутин](#Кооперативная-многозадачность-на-примере-генераторов-и-корутин)
-* [ ] [yield](#yield)
-* [ ] [Корутины](#Корутины)
-* [ ] [Файберы](#Файберы)
-* [ ] [Проблема блокирующего кода](#Проблема-блокирующего-кода)
-* [ ] [Реальное параллельное исполнение - процессы](#Реальное-параллельное-исполнение---процессы)
-* [ ] [Многопоточность](#Многопоточность)
-* [ ] [Swoole и его go-рутины](#Swoole-и-его-go-рутины)
+- Cookies: data is stored on the client (user browser). The browser sends cookies with each request to the same domain.
+- Sessions: data is stored on the server. The client stores only the session ID as a cookie (or in the URL), which
+  links the user to the server-side session.
 
-###  **куки** и **сессии**
+### 2. Security
 
-- [ Чем куки отличаются от сессии в PHP?](https://qna.habr.com/q/154437)
-- [Анонимные классыPHP: использование механизмов Cookies и Session](https://weblecture.ru/node/152)
+- Cookies: less secure because they are stored on the client and can be modified or stolen (for example via XSS).
+- Sessions: more secure because data is stored on the server. The client only gets the session ID.
 
-В PHP **куки** и **сессии** — это механизмы хранения данных о пользователе, но они работают по-разному и используются для разных целей.
+### 3. Lifetime
 
-#### 1. **Местоположение хранения данных:**
-- **Куки (Cookies)**: Данные хранятся на стороне клиента (в браузере пользователя). Браузер отправляет куки на сервер с каждым запросом на тот же домен.
-- **Сессии (Sessions)**: Данные хранятся на сервере. На стороне клиента хранится только идентификатор сессии в виде куки (или передается в URL), который связывает пользователя с соответствующей сессией на сервере.
+- Cookies: can be long-lived, even years, until deleted by the user or expired.
+- Sessions: usually live until the browser is closed or the session expires on the server.
 
-#### 2. **Безопасность:**
-- **Куки**: Менее безопасны, так как хранятся на стороне клиента и могут быть изменены пользователем или украдены через уязвимости, такие как XSS (межсайтовый скриптинг).
-- **Сессии**: Более безопасны, поскольку данные хранятся на сервере, и пользователь не имеет прямого доступа к ним. Только идентификатор сессии передается пользователю, а сами данные остаются на сервере.
+You can set cookie lifetime via Expires (date/time) or Max-Age (seconds). A session cookie lives only for the session
+and is removed when the client closes.
 
-#### 3. **Время жизни:**
-- **Куки**: Могут быть настроены на долгое время жизни, даже на несколько лет, пока их не удалит пользователь или они не истекут по заданной дате.
-- **Сессии**: Обычно живут до закрытия браузера или до момента, пока сервер не завершит сессию (время жизни сессии можно настраивать).
+If the `expire` parameter is not set, the cookie lives until the browser closes. If it is set, the cookie deletes itself
+when the time is reached.
 
-- Мы можем устанавливать длительность жизни cookies либо через атрибут Expires, указывая конкретную дату и время, либо через атрибут Max-age, указывая время жизни в секундах с момента установки куки. Сессионная же кука, как следует из названия, живет во время сессии - как только вы закроете клиент (в случае с вебом - браузер), кука удалится.
+### 4. Data size
 
-- expire - время "жизни" переменной (целое число). Если данный параметр не указать, то Cookie будут "жить" до конца сессии, то есть до закрытия браузера. Если время указано, то, когда оно наступит, Cookie самоуничтожится.
+- Cookies: typically limited to 4 KB.
+- Sessions: no hard size limit, constrained only by server resources.
 
-#### 4. **Объем хранимых данных:**
-- **Куки**: Ограничены по размеру, обычно 4 КБ на куку.
-- **Сессии**: Не имеют таких ограничений по объему, так как данные хранятся на сервере. Однако объем данных ограничен только ресурсами сервера.
+### 5. Usage
 
-#### 5. **Использование:**
-- **Куки**: Часто используются для хранения таких данных, как информация о пользователе (например, его имя или настройки), а также для реализации постоянной авторизации (запомнить пользователя на долгий срок).
-- **Сессии**: Обычно используются для временного хранения данных во время взаимодействия пользователя с веб-приложением (например, корзина покупок или временные данные пользователя).
+- Cookies: store long-lived user data, preferences, or "remember me" auth.
+- Sessions: store temporary user data during interaction (shopping cart, temporary auth state).
 
-#### Пример:
-- **Куки** могут быть полезны для сохранения информации о пользователе на долгое время (например, чтобы "запомнить" пользователя при повторных посещениях сайта).
-- **Сессии** подходят для временного хранения данных, связанных с пользователем, во время его активного взаимодействия с веб-сайтом (например, когда пользователь авторизован в течение одной сессии).
+### Example
 
-### PHP versions [&uarr;](#PHP)
+- Cookies are useful for long-term user info (remember a user).
+- Sessions are useful for temporary data during an active session.
 
-#### PHP 1 (Personal Home Page Tools)
+## PHP Versions
 
-PHP был разработан Расмусом Лердорфом в 1995 году. В то время этот термин все еще обозначал инструменты для персональной
-домашней
-страницы и первоначально задумывался как замена набора сценариев Perl, написанных Лердорфом для регистрации обращений к
-его онлайн-резюме.
+### PHP 1 (Personal Home Page Tools)
 
-#### PHP / FI (PHP 2)
+PHP was developed by Rasmus Lerdorf in 1995. The name still referred to personal home page tools and was originally a
+replacement for Perl scripts used to log visits to his online resume.
 
-Лердорф создал более обширную версию на языке программирования C, на котором PHP разрабатывается и по сей день.
-Наконец-то
-выпущенный PHP / FI (FI означает интерпретатор форм) был очень похож на Perl, хотя и более ограничен.
+### PHP / FI (PHP 2)
 
-#### PHP 3
+Lerdorf built a larger version in C, which PHP is still written in today. The released PHP/FI (FI means Form
+Interpreter) was similar to Perl but more limited.
 
-Энди Гутманс и Зеев Сураски в 1997 году переписали PHP 3. По их мнению, выпущенный к настоящему времени код PHP / F2 был
-неадекватным для электронной коммерции. Теперь Лердорф сотрудничал с Гутом и Сураски, и поэтому разработку PHP / FI он
-прекратил. По мнению разработчиков, версия PHP 3 значительно продвинула в распространении языка веб-скриптов PHP.
+### PHP 3
 
-#### PHP 4
+Andi Gutmans and Zeev Suraski rewrote PHP 3 in 1997. The earlier PHP/FI code was considered inadequate for ecommerce.
+Lerdorf joined Gutmans and Suraski, and PHP/FI development stopped. PHP 3 was a major step in popularizing PHP as a web
+scripting language.
 
-Компания Zend Technologies Ltd., основанная Гутмансом и Сураски, впоследствии разработала Zend Engine 1, который лежит
-в основе реализации стандарта PHP 4. PHP 4 улучшил скорость выполнения сложных приложений и безопасность при
-использовании
-глобальных переменных. Также были представлены поддержка многих других веб-серверов, управление сеансами и буферизация
-вывода,
-а также ряд новых языковых конструкций.
+### PHP 4
 
-В конце 1990-х годов Всемирная паутина значительно расширилась, и возникла острая необходимость в языке сценариев для
-создания
-динамических веб-страниц. PHP стал более популярным для веб-разработки, чем предыдущий стандарт Perl. Его специализация
-делала
-его более простым в освоении. С 2008 года разработка и поддержка PHP 4 была прекращена.
+Zend Technologies (founded by Gutmans and Suraski) developed Zend Engine 1, which underlies PHP 4. PHP 4 improved
+execution speed, security with globals, support for more web servers, session management, output buffering, and more.
 
-#### PHP 5
+In the late 1990s the web grew rapidly and needed a scripting language for dynamic pages. PHP became more popular for
+web development than Perl and was easier to learn. Support for PHP 4 ended in 2008.
 
-Пятая версия PHP была выпущена разработчиками 13 июля 2004 года. Изменения включают обновление ядра Zend (Zend Engine
-2), что существенно
-увеличило эффективность интерпретатора. Введена поддержка языка разметки XML. Полностью переработаны функции ООП,
-которые стали во многом
-схожи с моделью, используемой в Java. В частности, введён деструктор, открытые, закрытые и защищённые члены и методы,
-окончательные члены и
-методы, интерфейсы и клонирование объектов. Нововведения, однако, были сделаны с расчётом сохранить наибольшую
-совместимость с кодом на
-предыдущих версиях языка. На данный момент последней стабильной веткой является PHP 5.6, которая содержит ряд изменений
-и дополнений:
+### PHP 5
 
-- Увеличена скорость работы, примерно на 10-20%
-- Введено пространство имён
-- Позднее статическое связывание и специальный метод __callStatic()
-- Лямбда-функции и замыкания
-- Добавление расширений: intl, phar, fileinfo и sqlite3
-- Опциональный сборщик мусора
-- Был написан драйвер MySQLnd для самой популярной у PHP разработчиков базы данных MySQL. С появлением нативного
-  драйвера скорость работы с Mysql значительно увеличилась, также новый драйвер доступен уже в стандартной сборке(ранее
-  это было невозможно из-за лицензии, связанной с libmysql)
-- Прекращение поддержки версий операционной системы до Windows 2000 (Windows 98, NT4, и.т.д.)
-- Новые синтаксические конструкции, такие как NOWDOC, ограниченный GOTO, короткий вид тернарного оператора «?:»
+PHP 5 was released on July 13, 2004. It introduced Zend Engine 2, improved interpreter efficiency, added XML support,
+and significantly reworked OOP to be more like Java. It introduced destructors, visibility, final members, interfaces,
+cloning, and more. Changes aimed to keep backward compatibility. The last stable branch is PHP 5.6, which included:
+
+- Performance improvements of about 10-20%
+- Namespaces
+- Late static binding and __callStatic()
+- Lambda functions and closures
+- Extensions: intl, phar, fileinfo, sqlite3
+- Optional garbage collector
+- MySQLnd driver for MySQL, improving performance and included by default
+- Dropped support for OS versions before Windows 2000 (Windows 98, NT4, etc)
+- New syntax like NOWDOC, limited GOTO, short ternary operator
 
 PHP 5.3:
 
-- `?:` — сокращение тернарного оператора
-- `$func = function() use (){ }` — анонимные (лямбда) функции
-- `method()->var` — получение объекта из метода/функции
-- `<<<'DOC'` — поддержка NOWDOC
-- `namespace` — поддержка пространств имен
-- `__DIR__` — новая магическая константа
-- `$class::$foo` — динамичное указание класса
-- `const` — ключевое слово для создания констант вне классов
-- `static::method()` — статическое связывание
-- `goto hell;` — оператор goto
-- `__callStatic(), __invoke()` — магические методы
+- `?:` short ternary operator
+- `$func = function() use () { }` anonymous functions
+- `method()->var` object from method/function
+- `<<<'DOC'` NOWDOC support
+- `namespace`
+- `__DIR__` magic constant
+- `$class::$foo` dynamic class name
+- `const` for constants outside classes
+- `static::method()` late static binding
+- `goto hell;` goto operator
+- `__callStatic(), __invoke()` magic methods
 
 PHP 5.4:
 
-- `<?=` — короткая запись вывода на экран работает всегда
-- `[1,2]` — запись массива, без слова array
-- `trait Class {}` — примеси (трейты)
-- `foo()[0]` — быстрое получение элемента массива
-- `(new Foo)->method()` — доступ к элементу объекта при его создании
-- `Class::{'foo'}()` — динамичное указание метода
-- `callable` — новый тип для аргументов функции/метода
-- `@` — улучшена производительность
+- `<?=` short echo always available
+- `[1,2]` short array syntax
+- `trait Class {}` traits
+- `foo()[0]` array dereference
+- `(new Foo)->method()` access object on creation
+- `Class::{'foo'}()` dynamic method name
+- `callable` type hint
+- `@` improved performance
 
 PHP 5.5:
 
-- `[1,3,4][2], "foobar"[2]` — разыменования созданных массивов/строк
-- `empty()` — можно применять к результатам функций и выражений
-- `list()` в foreach
-- `finally` — в конструкции try/catch
-- `Class::class` — для получение имени класса в пространствах
-- `yield` — создание генераторов
-- `API для хэширования паролей`
+- `[1,3,4][2]`, `"foobar"[2]` array/string dereference
+- `empty()` works on expressions
+- `list()` in foreach
+- `finally` in try/catch
+- `Class::class` class name
+- `yield` generators
+- Password hashing API
 
 PHP 5.6:
 
-- `const PLUS = 1 + 2;` — скалярные выражения в константах/свойствах/аргументах функции
-- `const ARR = ['a', 'b'];` — константа может хранить массив
-- `func( ...$args ) или func( ...[2, 3] )` — запаковка/распаковка параметров функции
-- `**` — оператор возведения в степень
-- `use function и use const` — импорт функций и констант в пространство
+- `const PLUS = 1 + 2;` scalar expressions in constants
+- `const ARR = ['a', 'b'];` array constants
+- `func(...$args)` or `func(...[2, 3])` argument unpacking
+- `**` exponentiation operator
+- `use function` and `use const` imports
 
-#### PHP 6
+### PHP 6
 
-Шестая версия PHP находилась в стадии разработки с октября 2006 года. В ней уже было сделано множество нововведений,
-как, например,
-исключение из ядра регулярных выражений POSIX и «длинных» суперглобальных массивов, удаление директив safe_mode,
-magic_quotes_gpc и r
-egister_globals из конфигурационного файла php.ini.
+PHP 6 development started in 2006 and included many changes such as removing POSIX regex, removing long superglobals,
+and removing safe_mode, magic_quotes_gpc, and register_globals from php.ini.
 
-Основные усилия были сосредоточены на поддержке Юникода. Однако в марте 2010 года разработка PHP6 была признана
-бесперспективной
-из-за сложностей с поддержкой Юникода. Исходный код PHP6 перемещён на ветвь, а основной линией разработки стала версия
-5.4.
+The main focus was Unicode support, but in 2010 PHP 6 was abandoned due to complexity. The PHP 6 code moved to a branch
+and PHP 5.4 became the main line.
 
-#### PHP 7
+### PHP 7
 
-В 2014 году было проведено голосование, по результатам которого следующая версия получила название PHP 7.
-Выход новой версии планировался в середине октября 2015 года. В марте 2015 года Zend представили инфографику, в которой
-описаны основные
-нововведения PHP 7.
+In 2014, a vote chose the name PHP 7. The release was planned for October 2015. Zend presented an infographic with key
+changes.
 
-PHP 7 имеет на 30 процентов меньшее время выполнения, чем PHP 5, из-за новой реализации хеш-таблиц. Кроме того,
-благодаря
-различным изменениям в ядре PHP новая версия занимает меньше места на диске, чем PHP 5. Такие компоненты, как парсер,
-лексер и
-генератор байт-кода, также претерпели некоторые изменения. Версия 7.0 была выпущена 3 декабря 2015 года. В декабре 2016
-года
-был выпущен PHP 7.1. В декабре 2017 вышла версия 7.2, а в ноябре 2019 — версия 7.4.
+PHP 7 runs about 30% faster than PHP 5 due to new hash tables. It also uses less memory. The parser, lexer, and bytecode
+generator changed. PHP 7.0 released in December 2015, 7.1 in December 2016, 7.2 in December 2017, and 7.4 in November
+2019.
 
-Новая версия основывается на экспериментальной ветви PHP, которая изначально называлась phpng (PHP Next Generation —
-следующее поколение),
-и разрабатывалась с упором на увеличение производительности и уменьшение потребления памяти. В новой версии добавлена
-возможность указывать
-тип возвращаемых из функции данных, добавлен контроль передаваемых типов для данных, а также новые операторы.
+PHP 7 was based on the experimental phpng branch (PHP Next Generation), focused on speed and lower memory usage. It
+added return type declarations, argument type enforcement, and new operators.
 
 PHP 7:
 
-- `$a ?? ''` — isset и получение значения
-- `$a <=> $b` — три сравнения сразу: больше, равно, меньше
-- `define( 'FOO', [1,2] );` — массив в define константе
-- `use name\space\{A, B, C as c};` — группировка импорта
-- `int, float, bool` — новые типы параметров функции/метода
-- `int, float, bool, array` — типы возврата функции/метода
-- `foo()(), $a::$b::$c, $$foo->bar` — единый синтаксис: СЛЕВА НАПРАВО
-- `foreach` — изменена логика работы
-- `$class = new class{}` — анонимные классы
-- `yield ... return 99;` — возврат выражений в генераторах
-- `yield from func()` — делегирование генераторов
+- `$a ?? ''` null coalescing
+- `$a <=> $b` spaceship operator (three-way compare)
+- `define('FOO', [1,2]);` array constants in define
+- `use name\space\{A, B, C as c};` grouped imports
+- `int, float, bool` parameter types
+- `int, float, bool, array` return types
+- `foo()(), $a::$b::$c, $$foo->bar` uniform variable syntax (left to right)
+- `foreach` behavior changes
+- `$class = new class {}` anonymous classes
+- `yield ... return 99;` generator returns
+- `yield from func()` generator delegation
 
 PHP 7.1:
 
-- `?string` — Обнуляемый тип (и null тип)
-- `void` — возвращаемый тип
-- `['key'=>$var] = ['key'=>'Значение']` — Деструктурирование массивов
-- `list( 'id'=>$id ) = $data` — поддержка ключей в list()
-- `Closure::fromCallable()` — новый статический метод Closure
-- `private const` — Область видимости констант в классах
-- `iterable` — новый псевдо-тип
-- `?int = null` — тип передаваемых/возвращаемых значений
-- `$string[-1]` — отрицательное значение смещения в строках
-- `catch (First | Second $e)` — обработка нескольких исключений в одном блоке catch
+- `?string` nullable types
+- `void` return type
+- `['key' => $var] = ['key' => 'Value']` array destructuring
+- `list('id' => $id) = $data` list() with keys
+- `Closure::fromCallable()`
+- `private const` visibility for class constants
+- `iterable` pseudo-type
+- `?int = null` nullable arguments/returns
+- `$string[-1]` negative string offsets
+- `catch (First | Second $e)` multi-catch
 
 PHP 7.2:
 
-- `Закрывающая запятая для любых списков`
+- Trailing comma for any list syntax
 
 PHP 7.3:
 
-- `Heredoc и Nowdoc` ― Улучшен синтаксис
-- `list( &$a )` — cсылки в list()
-- `is_countable()` — функция
-- `array_(key|value)_(first|last)()` — новые функции
+- Improved heredoc and nowdoc syntax
+- `list(&$a)` references in list()
+- `is_countable()`
+- `array_(key|value)_(first|last)()` new functions
 
 PHP 7.4:
 
-- `[ ...$arr ]` — распаковка массива внутри массива
-- `public int $id` — типизация для свойств класса
-- `fn( $x ) => $x` — стрелочные функции
-- `covariance & contravariance`
-- `??=` — coalesce assign оператор
-- `299_792` — знак _ в числах
-- `WeakReference` — слабые ссылки
-- `strip_tags( $str, ['a', 'p'] )`
-- `__serialize() __unserialize()` — магические методы
-- `array_merge()` — вызов без аргументов
-- `Исключения из __toString()`
+- `[ ...$arr ]` array unpacking inside arrays
+- `public int $id` typed properties
+- `fn($x) => $x` arrow functions
+- Covariance and contravariance
+- `??=` coalesce assign operator
+- `299_792` numeric separators
+- `WeakReference`
+- `strip_tags($str, ['a', 'p'])`
+- `__serialize()` and `__unserialize()`
+- `array_merge()` with no arguments
+- Exceptions from `__toString()`
 
-#### PHP 8
+### PHP 8
 
-PHP 8 была выпущена в конце ноября 2020 года. Версия поддерживает современную компиляцию, которая повышает почти на 50 %
-производительность в микро-тестах. Например, PHP 8 предоставляет расширение WeakRefs, которая обеспечивает
-ресурсосберегающую
-обработку объектов. Помимо этого, поддерживаются произвольные типы объединения.
+PHP 8 was released in late November 2020. It supports JIT, which improves micro-benchmark performance. PHP 8 provides
+WeakRefs for memory-efficient object handling and supports union types.
 
-PHP8.0:
+PHP 8.0:
 
-- `Union Types`. В PHP 8 разработчики могут указывать, что аргумент функции или возвращаемое значение может быть одним
-  из нескольких возможных типов, а не только одним конкретным типом. Например, функция, ожидающая в качестве аргумента
-  целое число или число float, теперь может быть определена как принимающая тип union "int|float".
-- `JIT`. JIT, или Just-In-Time компиляция ― это технология, значительно повышающая скорость выполнения кода в языках
-  программирования. Механизм JIT в PHP 8 компилирует машинный код непосредственно перед его исполнением. Движок JIT
-  также способен определять части кода, которые выполняются чаще всего, и компилировать их в машинный код, повышая общую
-  производительность приложения.
-- `$country = $session?->user?->getAddress()?->country;` - `Nullsafe-оператор` - Вместо нулевых (null) условий проверки
-  теперь вы можете использовать цепочку вызовов с новым nullsafe оператором. Когда оценка одного элемента в цепочке
-  завершается неудачно, выполнение всей цепочки прерывается, и вся цепочка принимает значение null.
-- `htmlspecialchars($string, double_encode: false);` - `Именованные аргументы` - Указывайте только обязательные
-  параметры, пропуская необязательные. Аргументы не зависят от порядка и самодокументированы.
-- `Атрибуты` - Атрибуты предоставляют возможность добавления метаданных с нативным синтаксисом PHP в классы удобным
-  способом. Данная опция позволяет разделить абстрактную реализацию некоторой функции и ее кодовое использование.
-  Атрибуты – это новые возможности и технически более совершенный способ добавлять дополнительную информацию и
-  конфигурацию.
-- `Слабые карты (weak maps)`. Слабые карты предоставляют возможность связывать объекты с метаданными, не мешая при этом
-  сборщику мусора удалять объекты из памяти. Это полезно в сценариях, когда вам нужно связать некоторые данные с
-  объектом, но при этом автоматически удалять объект, когда он больше не нужен. Данные также будут автоматически удалены
-  вместе с объектом. Это поможет предотвратить утечки памяти и повысить производительность в долгоиграющих процессах.
-  Например, слабая карта может быть использована для запоминания результата вычислений.
-- `Поддержка выражений Match`. Выражение Match позволяет сопоставить заданное значение с набором возможных случаев и
-  соответствующих им действий. Синтаксис похож на оператор switch, но с большей гибкостью в плане шаблонов, которые
-  могут быть сопоставлены. Выражения Match могут применять различные типы шаблонов, такие как литералы, переменные и
-  другие, а также иметь несколько условий и действий в одном операторе.
-- `Продвижение свойств конструктора (Constructor property promotion)`. Теперь можно определять и инициализировать
-  свойства объектов непосредственно в методе конструктора, сокращая объем необходимого кода и улучшая его читабельность.
-- `Saner string to number comparisons` - При сравнении с числовой строкой PHP 8 использует сравнение чисел. Иначе число
-  преобразуется в строку и используется сравнение строк.
-- `str_contains, str_starts_with, str_ends_with` - Поиск по строкам
-- `Allow ::class on objects` - Теперь можно использовать класс на объектах. То есть если в «семерке» создаем экземпляр
-  класса и хотим получить его класс, нам нужно было вызвать метод get_class. Теперь же можно получить класс через
-  статическое свойство class, получить к нему доступ и не вызывать дополнительные функции.
-- `Static return type`
-- `Weak Map` - Восьмая версия дополнена классом WeakMaps, позволяющим сохранять ссылку на объект. При этом сам объект
-  можно свободно удалить.
-- `Deprecate left-associative ternary operator` - Левоассоциативный тернарный оператор. Теперь такие вложенные «монстры»
-  будут выдавать ошибку. Их давно уже пора было запретить, и наконец это сделали. Можно написать нормальные If-ы или
-  использовать match.
-- `Change the precedence of the concatenation operator` - Изменение приоритета оператора конкатенации. В восьмой версии
-  поменялся приоритет оператора конкатенации. Если раньше сначала надо было конкатенировать, потом складывать, то сейчас
-  конкатенация идет уже после сложения.
-- `Allow trailing comma in parameter list` -
-- `Stringable`
-- `Throw is an Expression` - В прежних версиях перехват исключения был возможен с предварительным сохранением его в
-  переменной. При этом не имело значения, использовалась ли переменная. PHP 8 позволяет перехватывать исключения,
-  указание переменной при том не требуется. При этом следует иметь ввиду, что тип нужно указывать обязательно: PHP 8 не
-  предусматривает возможность оставлять пустой catch.
-- `Stable sorting`
-- `Non-capturing catches` - В PHP 8 можно ловить исключение в catch-блоке без переменной. Иными словами, можно просто
-  написать, какой тип исключений мы ловим, и если эту переменную никак не используем, то просто здесь говорим, что у нас
-  выводится строка сообщением и все. То есть если мы не хотим никак обрабатывать эти данные, чтобы не засорять память,
-  мы просто не используем здесь переменные.
-- `Ensure correct signatures of magic methods`
-- `Always available JSON extension`
-- `Stricter type checks for arithmetic/bitwise operators`
-- `Validation for abstract trait methods` - Валидация абстрактных методов в трейтах. Теперь, если объявить трейт с
-  абстрактным публичным методом «тест», который принимает интеджер в качестве параметра, и в классе применить этот
-  трейт, но при этом написать переопределение метода со string, то теперь это выдаст ошибку.
-- `Fields types and links`
-- `Mixed Type v2`
+- Union types. A function argument or return can be `int|float`, for example.
+- JIT (Just-In-Time compilation) speeds up code by compiling to machine code at runtime.
+- `$country = $session?->user?->getAddress()?->country;` nullsafe operator for chained calls.
+- `htmlspecialchars($string, double_encode: false);` named arguments.
+- Attributes add metadata with native syntax.
+- Weak maps associate objects with metadata without preventing GC.
+- Match expressions: flexible value matching, similar to switch but more expressive.
+- Constructor property promotion: define and initialize properties in the constructor.
+- Saner string-to-number comparisons.
+- `str_contains`, `str_starts_with`, `str_ends_with`.
+- Allow `::class` on objects (no need for get_class).
+- Static return type.
+- WeakMap class.
+- Deprecate left-associative ternary operator.
+- Change precedence of concatenation operator.
+- Allow trailing comma in parameter list.
+- `Stringable`.
+- `throw` is an expression; catch without a variable is allowed if you do not use it.
+- Stable sorting.
+- Non-capturing catches.
+- Ensure correct signatures of magic methods.
+- Always available JSON extension.
+- Stricter type checks for arithmetic/bitwise operators.
+- Validation for abstract trait methods.
+- Field types and links.
+- `mixed` type v2.
 
-PHP8.1:
+PHP 8.1:
 
-- `Поддержка перечислений` - Используйте перечисления вместо набора констант, чтобы валидировать их автоматически во
-  время выполнения кода.
-- `Readonly-свойства` - Readonly-свойства нельзя изменить после инициализации (т.е. когда им было присвоено значение).
-  Они будут крайне полезны при реализации объектов типа VO и DTO.
-- `Callback-функции как объекты первого класса` - С помощью нового синтаксиса любая функция может выступать в качестве
-  объекта первого класса. Тем самым она будет рассматриваться как обычное значение, которое можно, например, сохранить в
-  переменную.
-- `Расширенная инициализация объектов` - Объекты теперь можно использовать в качестве значений параметров по умолчанию,
-  статических переменных и глобальных констант, а также в аргументах атрибутов.
-- `Пересечение типов` - function count_and_iterate(Iterator&Countable $value) {} - Теперь в объявлении типов параметров
-  можно указать, что значение должно относиться к нескольким типам одновременно. В данный момент пересечения типов
-  нельзя использовать вместе с объединёнными типами, например, A&B|C.
-- `Тип возвращаемого значения never` - function redirect(string $uri): never {} - Функция или метод, объявленные с типом
-  never, указывают на то, что они не вернут значение и либо выбросят исключение, либо завершат выполнение скрипта с
-  помощью вызова функции die(), exit(), trigger_error() или чем-то подобным.
-- `Окончательные константы класса` - Теперь константы класса можно объявить как окончательные (final), чтобы их нельзя
-  было переопределить в дочерних классах.
-- `Файберы` - это примитивы для реализации облегчённой невытесняющей конкурентности. Они являются средством создания
-  блоков кода, которые можно приостанавливать и возобновлять, как генераторы, но из любой точки стека. Файберы сами по
-  себе не предоставляют возможностей асинхронного выполнения задач, всё равно должен быть цикл обработки событий. Однако
-  они позволяют блокирующим и неблокирующим реализациям использовать один и тот же API.
-- `Поддержка распаковки массивов со строковыми ключами` - PHP раньше поддерживал распаковку массивов с помощью
-  оператора ..., но только если массивы были с целочисленными ключами. Теперь можно также распаковывать массивы со
-  строковыми ключами.
+- Enums.
+- Readonly properties for immutable objects like VO/DTO.
+- First-class callable syntax.
+- Extended object initialization: objects allowed as default values and attribute arguments.
+- Intersection types: `Iterator&Countable`.
+- `never` return type for functions that do not return.
+- Final class constants.
+- Fibers for cooperative concurrency.
+- Array unpacking with string keys.
 
-PHP8.2:
+PHP 8.2:
 
-- `Readonly-классы` - readonly class BlogData {}
-- `Типы в виде дизъюнктивной нормальной формы (ДНФ)` - public function bar((A&B)|null $entity) { } - ДНФ позволяет
-  совместить объединение и пересечение типов, при этом обязательно типы пересечения следует сгруппировать скобками.
-- `Самостоятельные типы null, false и true`
-- `Новый модуль "Random"` - Модуль "random" предлагает новый объектно-ориентированный API для генерации случайных чисел.
-- `Константы в трейтах` - Нельзя получить доступ к константе через имя трейта, но можно через класс, который использует
-  этот трейт.
-- `Динамические свойства объявлены устаревшими` - Чтобы помочь избежать ошибок и опечаток, больше не рекомендуется
-  определять динамические свойства, только если сам класс явно не разрешит это при помощи
-  атрибута #[\AllowDynamicProperties]. В экземплярах stdClass по-прежнему можно использовать динамические свойства.
+- Readonly classes: `readonly class BlogData {}`
+- DNF types: `public function bar((A&B)|null $entity) { }`
+- Standalone `null`, `false`, and `true` types
+- New `Random` module
+- Trait constants (accessible via classes, not traits)
+- Dynamic properties deprecated unless `#[\AllowDynamicProperties]`
 
-### Reflection API [&uarr;](#PHP)
+## Reflection API
 
-Поговорим для начала о том, что же вообще такое рефлексия (от англ. reflection - отражение) в программировании.
-Этот термин пришёл к нам из психологии. Там данное слово означает способность человека к самоанализу, оценке своих
-поступков, мыслей и прочего вот этого всего.
-Кроме того, человек в процессе всего этого может ещё и изменять свою точку зрения, что приведёт к изменению его
-поведения.
+Reflection in programming lets a program inspect and modify its own structure and behavior at runtime. The term comes
+from psychology: self-analysis and changing behavior based on it.
 
-    Рефлексия означает процесс, во время которого программа может отслеживать 
-    и модифицировать собственную структуру и поведение во время выполнения.
+Reflection allows a program to track and modify its structure during execution.
 
-В PHP имеется очень мощный набор инструментов, позволяющий реализовать рефлексию.
-Рассмотрим некоторые инструменты для рефлексии, о которых мы уже знаем.
-Языковые конструкции self и static, магические константы __DIR__ и __CLASS__, функции get_defined_vars(),
-func_get_args() или eval().
+PHP has a powerful reflection toolkit. Language features like `self`, `static`, `__DIR__`, `__CLASS__`,
+`get_defined_vars()`, `func_get_args()`, or `eval()` are reflection tools.
 
-    В конце концов возможность создавать объект класса, имя которого хранится в переменной:
+You can instantiate a class from a variable:
+
     $obj = new $className();
-    
-    а затем и вызов метода, название которого так же хранится в переменной:
+
+And call a method by name:
+
     $obj->$methodName();
 
-Всё это рефлексия, всё это используется для того, чтобы влиять на поведение программы непосредственно во время её
-выполнения.
+PHP has a full Reflection API for classes, interfaces, functions, methods, and modules. It also allows reading doc
+comments.
 
-PHP включает в себя полноценный Reflection API, который предоставляет возможность проводить интроспекцию классов,
-интерфейсов, функций, методов и модулей.
-Кроме того, Reflection API позволяет получать doc-блоки комментариев функций, классов и методов.
+Reflection classes:
 
-PHP Reflection API – это набор специальных классов-рефлекторов, позволяющих вывести рефлексию на новый уровень.
-С помощью этих классов мы можем создавать объекты-рефлекторы для разных типов данных в PHP, которые позволят творить с
-ними всё что только вздумается.
+- ReflectionClass: info about a class
+- ReflectionFunction: info about a function
+- ReflectionParameter: info about a function or method parameter
+- ReflectionClassConstant: info about a class constant
 
-PHP даёт вам ключ к любому запертому ящику, таким образом мы имеем ключи
-для следующего:
+## What Are PEAR and PECL?
 
-    ReflectionClass: сообщает информацию о классе.
-    ReflectionFunction: сообщает информацию о функции.
-    ReflectionParameter: извлекает информацию о параметрах функции или метода.
-    ReflectionClassConstant: сообщает информацию о константе класса.
+- PEAR (PHP Extension and Application Repository) is an open-source PHP class library. It is effectively a predecessor
+  to Composer. It adds external PHP libraries system-wide rather than per project.
+- PECL (PHP Extension Community Library) is a repository of PHP modules written in C, available through PEAR. It was
+  created to host modules removed from the core distribution. Modules in PECL are compiled extensions. For example, you
+  can install a memcache API via PECL or via OS packages.
 
-### Что такое PEAR и PECL? [&uarr;](#PHP)
+Personally, it is better to install via OS packages if possible because the package manager tracks dependencies and
+updates. If you install via PECL, be ready for manual reinstalls.
 
-    PEAR - (PHP Extension and Application Repository) — это библиотека классов PHP с открытым исходным кодом.
-    PEAR - это по сути предшественник Composer. Добавляет внешние библиотечки PHP, но на уровне системы, а не одного проекта.
+## Error Handling
 
-    PECL (англ. PHP Extension Community Library) — это репозиторий модулей для PHP, написанных на C, доступных через систему пакетов PEAR.
-    PECL был создан, когда возникла проблема удаления некоторых модулей из стандартной поставки PHP.
-    В PECL находится ряд модулей к PHP, которые по каким-либо причинам (морально устарели, не прошли тестирование,
-    имеются более функциональные аналоги) не входят в стандартную поставку PHP.
-    PECL - это компилируемые расширения языка. Можно поставить API для memcache через него, а можно и через пакет в Ubuntu/Debian.
+```php
+try {
+    // protected code
+} catch (Exception $e) {
+    // handle exception
+} finally {
+    // always runs
+}
+```
 
-    Лично я считаю, что лучше добавлять как пакет, если есть возможность, поскольку aptitude знает о зависимостях между пакетами и при обновлении проблем не должно быть. 
-    А если через PECL поставили, то готовьтесь к ручной переустановке.
+Not all errors are exceptions.
 
-### Обработка ошибок [&uarr;](#PHP)
+PHP errors are predefined constants like E_ERROR, E_WARNING, E_NOTICE. E_WARNING is not an exception because the
+program can continue. Exceptions represent abnormal situations you want to catch and handle.
 
-    try {
-    ... защищённый участок кода ...
-    } catch (Exception $e) {
-    ... код, если возникла исключительная ситуация ...
-    } finally {
-    ... код с гарантированный выполнением ...
-    }
+For example, division by zero is invalid input handling, not necessarily a fatal crash.
 
-Не все ошибки — исключения
+## Data Types in PHP
 
-    В PHP все ошибки имеют тип в виде предопределённых констант: E_ERROR, E_WARNING, E_NOTICE и т.д.
-    Так вот ошибки E_WARNING не являются исключительной ситуацией, поскольку программа может продолжить своё выполнение дальше.
-    Это важное понимание того, что такое исключения — отслеживание аварийных ситуаций, чтобы продолжить дальнейшее выполнение программы.
-    То есть когда мы пытаемся поделить число на ноль, то это всего лишь некорректная обработка входящих данных, которая не может привести к полному краху.
+PHP has ten basic data types:
 
-### Типы данных в PHP [&uarr;](#PHP)
+- `bool` (boolean)
+- `int` (integer)
+- `float` (float)
+- `string`
+- `array`
+- `object`
+- `callable`
+- `mixed`
+- `resource`
+- `null` (no value)
 
-В PHP есть десять базовых типов данных:
+The first four are scalar types: bool, int, float, string.
 
-- `bool` - (логический тип)
-- `int` - (целые числа)
-- `float` - (дробные числа)
-- `string` - (строки)
-- `array` - (массивы)
-- `object` - (объекты)
-- `callable` - (функции)
-- `mixed` - (любой тип)
-- `resource` - (ресурсы)
-- `null` - (отсутствие значения)
+## Pseudotypes
 
-Из этих типов данных первые четыре являются скалярными: bool, int, float, string.
-Скалярный тип данных включает в себя числовые и строковые данные, а также ссылки.
+- `mixed`: can accept many types (not necessarily all).
+- `number`: int or float.
+- `callback`: used before `callable` was introduced in PHP 5.4; same meaning.
+- `array|object`: array or object.
+- `void`: return value is useless. As a parameter, means no parameters. Since PHP 7.1, allowed as return type.
 
-### Псевдотипы [&uarr;](#PHP)
+## Anonymous Functions and Closures
 
-- `mixed` - mixed говорит о том, что параметр может принимать много (но необязательно все) типов.
-- `number` - говорит о том, что параметр может быть либо integer, либо float.
-- `callback` - Псевдотип callback использовался в этой документации до того, как был введен тип callable в PHP 5.4. Он
-  означает в точности то же самое.
-- `array|object` - указывает, что параметр может быть как массивом array, так и объектом object.
-- `void` - означает, что возвращенное значение бесполезно. void в списке параметров означает, что функция не принимает
-  параметров. Начиная с PHP 7.1, void разрешается использовать в качестве подсказки возвращаемого типа функции.
+Anonymous functions (closures) allow creating functions without names. They are useful as callbacks and for many other
+cases.
 
-### Анонимные функции, замыкания [&uarr;](#PHP)
+Anonymous functions are implemented with the `Closure` class. They return instances of this class, which provides
+methods to control the closure after creation.
 
-    Анонимные функции, также известные как замыкания (closures), позволяют создавать функции, не имеющие определенных имен. 
-    Они наиболее полезны в качестве значений callback-параметров, но также могут иметь и множество других применений.
+```php
+$message = 'hello';
 
-    Анонимные функции реализуются с использованием класса Closure.
-    Анонимные функции выдают объекты этого типа. Класс получил методы, позволяющие контролировать анонимную функцию после её создания.
-
-
-    $message = 'привет';
-    
-    $example = function () use ($message) {
+$example = function () use ($message) {
     var_dump($message);
-    };
-    $example();
+};
+$example();
+```
 
-Автоматическое связывание $this
+Automatic binding of `$this`:
 
-    class Test
+```php
+class Test
+{
+    public function testing()
     {
-        public function testing()
-        {
-            return function() {
-                var_dump($this);
-            };
-        }
+        return function() {
+            var_dump($this);
+        };
     }
-    
-    $object = new Test;
-    $function = $object->testing();
-    $function();
+}
 
-### Назовите 5 различных функций для работы с массивами. [&uarr;](#PHP)
+$object = new Test;
+$function = $object->testing();
+$function();
+```
 
-- `array_chunk` - Разбивает массив на несколько меньших массивов заданного размера
-- `array_combine` - Создает массив из двух заданных массивов - массива индексов элементов и массива значений
-- `array_diff` - Формирует массив из тех элементов первого заданного массива, которые отсутствуют в остальных заданных в
-  качестве аргументов функции массива
-- `array_intersect` - Формирует массив из элементов, которые присутствуют во всех заданных массивах
-- `array_key_exists` - Проверяет наличие заданного индекса в массиве
-- `array_keys` - Возвращает массив из индексов заданного массива
-- `array_merge` - Объединяет несколько массивов в один
-- `array_pop` - Возвращает последний элемент массива, одновременно удаляя элемент из массива
-- `array_push` - Добавляет заданные элементы в конец массива
+## Name 5 Array Functions
 
-### Функции сортировки массивов - несколько штук [&uarr;](#PHP)
+- `array_chunk` - splits an array into chunks of a given size
+- `array_combine` - combines an array of keys with an array of values
+- `array_diff` - elements in the first array that are not in others
+- `array_intersect` - elements that exist in all arrays
+- `array_key_exists` - checks if a key exists
+- `array_keys` - returns keys
+- `array_merge` - merges arrays
+- `array_pop` - removes and returns last element
+- `array_push` - adds elements to the end
 
-- `arsort` - Сортирует массив по убыванию его значений, сохраняя индексы неизменными
-- `asort` - Сортирует массив по возрастанию его значений, сохраняя индексы неизменными
-- `krsort` - Сортирует массив по убыванию его индексов
-- `ksort` - Сортирует массив по возрастанию его индексов
-- `sort` - Сортирует массив по возрастанию значений его элементов с перенумерацией его индексов
-- `usort` - Сортирует массив с использование заданной функции сравнения элементов массива
-- `rsort` - Сортирует массив по убыванию значений его элементов с перенумерацией его индексов
+## Array Sorting Functions
 
-### !empty() vs isset() [&uarr;](#PHP)
+- `arsort` - sort by values descending, preserve keys
+- `asort` - sort by values ascending, preserve keys
+- `krsort` - sort by keys descending
+- `ksort` - sort by keys ascending
+- `sort` - sort by values ascending, reindex
+- `usort` - sort with a custom comparison function
+- `rsort` - sort by values descending, reindex
 
-    isset() - определяет, установлена ли переменная. Если переменная существует и её значение не null, то функция вернёт true, иначе - false.
-    
-    empty() - проверяет переменную на существование и на пустоту. Если переменная существует, и в ней есть не пустое значение или true, 
-    то функция вернёт false, иначе true.
+## !empty() vs isset()
 
-### отличие include от require. [&uarr;](#PHP)
+- `isset()` checks if a variable is set and not null. Returns true if it exists and is not null.
+- `empty()` checks existence and emptiness. Returns false if the variable exists and has a non-empty value or true.
 
-    Обе функции одинаковы, но они имеют одно различие. Разница в том, что функция include() выдает предупреждение, но скрипт продолжит выполнение,
-    а функция require() выдает предупреждение и фатальную ошибку, т. е. скрипт не будет продолжать выполнение.
+## include vs require
 
-### Разное
+Both include and require are similar. The difference is that `include()` raises a warning and the script continues,
+while `require()` raises a warning and a fatal error, so the script stops.
 
-#### Глобальные переменные
+## Misc
 
-В языке программирования PHP существует понятие глобальных переменных (globally variables). Но для начала следует
-вспомнить о переменных локальных.
-Последние определены внутри пользовательской функции (внутри подпрограммы), причем на нее вы сможете ссылаться лишь в
-этой функции. Таким образом,
-локальная variable доступна лишь внутри той функции, в которой она определена (доступна в локальной области видимости).
+### Global variables
 
-Суперглобальные переменные — Встроенные переменные, которые всегда доступны во всех областях
+PHP has global variables, but first recall local variables. A local variable is defined inside a function and is
+accessible only within that function.
 
-Некоторые предопределённые переменные в PHP являются "суперглобальными", что означает, что они доступны в любом месте
-скрипта. Нет необходимости использовать синтаксис
-global $variable; для доступа к ним в функциях и методах.
+Superglobals are built-in variables always available in all scopes. You do not need `global $variable` to access them.
 
-Суперглобальными переменными являются:
+Superglobals include:
 
-    $GLOBALS
-    $_SERVER
-    $_GET
-    $_POST
-    $_FILES
-    $_COOKIE
-    $_SESSION
-    $_REQUEST
-    $_ENV
+- `$GLOBALS`
+- `$_SERVER`
+- `$_GET`
+- `$_POST`
+- `$_FILES`
+- `$_COOKIE`
+- `$_SESSION`
+- `$_REQUEST`
+- `$_ENV`
 
-#### Правила именования переменных
+### Variable naming rules
 
-В именовании переменных можно выделить три основных подхода, которые иногда комбинируют друг с другом. Все эти подходы
-проявляют себя, когда имя переменной состоит
-из нескольких слов:
+There are three common styles, often combined, for multi-word names:
 
-- `kebab-case` — составные части переменной разделяются дефисом. Например: my-super-var.
-- `snake_case` — для разделения используется подчеркивание. Например: my_super_var.
-- `CamelCase` — каждое слово в переменной пишется с заглавной буквы. Например: MySuperVar.
-- `lowerCamelCase` — каждое слово в переменной пишется с заглавной буквы, кроме первого. Например: mySuperVar.
+- `kebab-case` - words separated by hyphens, e.g. my-super-var.
+- `snake_case` - words separated by underscores, e.g. my_super_var.
+- `CamelCase` - each word capitalized, e.g. MySuperVar.
+- `lowerCamelCase` - like CamelCase, but first letter is lowercase, e.g. mySuperVar.
 
-В PHP используется CamelCase и его вариация lowerCamelCase, при котором первая буква первого слова — строчная. Именно
-lowerCamelCase применяется для переменных.
-Это значит, что имена соединяются друг с другом, при этом все имена кроме первого становятся с заглавной
-буквы: $userName. С тремя словами это выглядит так: $mySuperVariable.
+In PHP, CamelCase and lowerCamelCase are used. Variables use lowerCamelCase. Words are concatenated, with each word
+except the first capitalized: `$userName`. With three words: `$mySuperVariable`.
 
-Другое общепринятое правило гласит: не используйте транслит для имён, только английский язык. Если вы испытываете
-сложности с английским, то пользуйтесь переводчиком.
-Со временем, копаясь в чужом коде, вы сформируете правильные понятия для именования.
+A common rule: avoid transliteration, use English. Use a translator if needed. Over time you will learn standard naming
+conventions.
 
-Названия должны не только передавать смысл, но и соответствовать синтаксическим правилам, которые обычно никак не
-проверяются на уровне языка, но нужны во время разработки.
+Names should convey meaning and follow language syntax rules, even if not enforced by the compiler.
 
-#### тернарные операторы
+### Ternary operators
 
 https://stitcher.io/blog/shorthand-comparisons-in-php
 
-#### Отображение ошибок
+### Error display
 
-Как включить показ ошибок PHP?
+How to enable PHP error display:
 
-1. Через .htaccess
+1) Via .htaccess
 
-В файл .htaccess добавляем код:
+Add to .htaccess:
 
-    php_flag display_errors on
-    php_value error_reporting 2047
+```
+php_flag display_errors on
+php_value error_reporting 2047
+```
 
-2. Через php.ini
+2) Via php.ini
 
-В файле php.ini устанавливаем такое значение для следующих директив:
+Set in php.ini:
 
-    display_errors = On
-    error_reporting = E_ALL
+```
+display_errors = On
+error_reporting = E_ALL
+```
 
-3. Через PHP-скрипт
+3) Via PHP script
 
-Для этого используется функция error_reporting() и вот примеры ее использования:
+Use `error_reporting()`:
 
-    // Выключить отчеты об ошибках
-    error_reporting(0);
+```php
+// Disable error reporting
+error_reporting(0);
 
-    // Добавлять в отчет все PHP ошибки
-    error_reporting(E_ALL);
+// Report all errors
+error_reporting(E_ALL);
 
-    // Аналогично error_reporting(E_ALL);
-    ini_set('error_reporting', E_ALL);
+// Same as error_reporting(E_ALL)
+ini_set('error_reporting', E_ALL);
 
-    // Показывать в отчете часть ошибок ошибок
-    error_reporting(E_ERROR | E_WARNING | E_PARSE);
+// Report some errors
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-    // Аналогично предыдущему, но будут показываться еще ошибки связанные с перенеменными
-    error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+// Same as above, plus E_NOTICE
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
-    // Будут показываться все ошибки кроме E_NOTICE
-    error_reporting(E_ALL & ~E_NOTICE);
+// Report all errors except E_NOTICE
+error_reporting(E_ALL & ~E_NOTICE);
+```
 
-После отладки PHP-скриптов рекомендуется отключать показ ошибок.
+After debugging, disable error display.
 
-#### логи ошибок на сервере
+### Server error logs
 
-Все параметры РНР — в том числе, версия — задаются в файле php.ini, в нем же включается ведение лога программных ошибок.
-Если для сервера используется какая-либо панель управления — логирование можно включить в ней, если настройки сделаны
-вручную, то и ведение лога нужно включать вручную.
+All PHP settings, including version, are in php.ini. Logging can be enabled there or via the control panel.
 
-Делается это следующим образом:
+Example:
 
-    display_errors = Off
-    log_errors = On
-    error_log = /var/log/php-errors.log
+```
+display_errors = Off
+log_errors = On
+error_log = /var/log/php-errors.log
+```
 
-При активации display_errors ошибки будут выводится на экран, в директиве error_log задается путь к файлу, в который
-будет писаться информация необходимая для отладки проекта.
+When display_errors is enabled, errors are shown on screen. `error_log` sets the log file path for debugging.
 
-#### три отличия хэш функций от функций шифрования
+### Three differences between hash functions and encryption
 
-`Хеширование и шифрование` – это те самые два слова, которые часто используются взаимозаменяемо, но порой неправильно.
+Hashing and encryption are often used interchangeably, but they are different.
 
-`Хэш` – значение или число, сгенерированное из последовательности текста.
+A hash is a value generated from input text. A fixed-length output changes significantly with small input changes.
+Strong hashing is one-way: you cannot recover the original input.
 
-Получающаяся строчка или число фиксированной длины будут значительно различаться в зависимости от незначительных
-изменений на входе.
+Popular hashing algorithms:
 
-Лучшие алгоритмы хеширования разработаны так, чтобы было невозможно возвратить хэш в свою оригинальную
-последовательность.
+- `MD5` is widely known. It produces a 16-byte hash represented as a 32-character hex string. MD5 has known weaknesses
+  and many collisions, so it is outdated.
+- `SHA` has SHA-0, SHA-1, and SHA-2. SHA-0 is rarely used. SHA-1 produces a 20-byte hash. SHA-2 is stronger; SHA-256 or
+  higher is recommended for security-critical cases.
 
-Популярные алгоритмы:
+When should you use hashing?
 
-`MD5` – наиболее широко известная функция хеширования.
+Hashing is ideal for storing passwords because hashes are one-way. With a strong algorithm and a salt, it is hard to
+reverse.
 
-Этот алгоритм производит 16-битное значение хэша, обычно выражаемую 32 значным шестнадцатеричным числом.
+Store passwords as salted hashes. When a user logs in, hash the input and compare to the stored hash. If they match, the
+password is correct.
 
-Недавно несколько слабых мест были обнаружены в MD5 и радужные таблицы были изданы [ большие и общедоступные ], которые
-в свою очередь позволяли людям полностью изменять хэш MD5. Поэтому данный алгоритм считается несколько устаревшим. Так
-же можно отметить значительное число коллизий.
+Hashing is also great for comparing stored values without keeping plaintext. Examples: verify last digits of a card, or
+compare file hashes to detect changes.
 
-`SHA` – есть три различных алгоритма `SHA – SHA-0, SHA-1 и SHA-2`.
+Encryption transforms data into unreadable text of variable length.
 
-`SHA-0` очень редко используется, поскольку он имел уязвимость, которая была исправлена в SHA-1.
+The main principle of encryption is that there is a recipient who can decrypt.
 
-`SHA-1` – обычный используемый алгоритм SHA и производит 20-битное значение хэша.
+The key difference: encrypted data can be decrypted back to the original with the right key.
 
-`SHA-2` состоит из ряда 6 алгоритмов хеширования и считается самым сильным.
+There are two main types: symmetric and public-key (asymmetric) encryption.
 
-`SHA-256` или выше рекомендуется для ситуаций, где безопасность жизненно важна. SHA-256 производит 32-битные значения
-хэша.
+In symmetric encryption, the same key encrypts and decrypts.
 
-Когда должно использоваться хэширование?
+In public-key encryption, one key encrypts (public) and one decrypts (private). The public key is available to anyone
+who wants to encrypt, but only the recipient has the private key to decrypt.
 
-`Хеширование` – идеальный способ сохранить пароли, поскольку значения хеша, по сути своей природы, односторонние в своем
-роде.
+Popular algorithms:
 
-Храня пароли в формате хеша, для злоумышленника с доступом к необработанным данным очень трудно инвертировать его (
-использование сильного алгоритма хеширования, и надлежащий модификатор [ соль в народе ], чтобы сгенерировать его).
+- `AES` is the gold standard for symmetric encryption, typically with 256-bit keys.
+- `PGP` is a popular public-key encryption algorithm.
 
-При хранении пароля хешируйте его с солью, и затем с любыми будущими попытками входа в систему, хешируйте пароль,
-который вводит пользователь, и сравните его с сохраненным хешем.
+When should you use encryption?
 
-Если эти два хэша совпадают, то фактически бесспорно, что пользователь, вводящий пароль, вводил правильный.
+Use encryption when you need the recipient to decrypt the message. For secure messages, use encryption, not hashing.
 
-`Хеширование` – великолепное решение для использования в любом виде, если вы хотите сравнить значение с хранимой суммой,
-но не можете сохранить ее простое представление из соображений безопасности.
+If the original data must not be known, use hashing because it is safer.
 
-Другой вариант использования заключается в том, что напрмиер можно проверять, что последние несколько цифр кредитной
-карты совпадают с вводом данных пользователем или сравнением хеша файла, который у нас есть с хешем сохраненного файла в
-базе данных, чтобы удостовериться, что они идентичны.
+For internet communication:
 
-`Шифрование` преобразует какие-либо данные в серию нечитабельных людскому глазу знаков, которые не имеют фиксированной
-длины.
+- encryption is used to prevent others from reading your message
+- hashing is used to prevent silent modification of your message
 
-Прежде всего – какой главный принцип шифрования? Правильно – наличие получателя – приемника если позволите.
-
-`Основное отличие между шифрованием и хешированием` – то, что зашифрованные последовательности могут быть повернуты
-назад в их оригинальную расшифрованную форму, если конечно соответствующий ключ имеется.
-
-Есть два основных типа шифрования, `симметричное шифрования` и `шифрования на основе открытых ключей`.
-
-В `симметричном` ключевом шифровании ключ,необходимый чтобы и зашифровать и расшифровать является одним и тем же ключом.
-
-Именно так, пожалуй, и думает большинство людей, когда они слышат о шифровании.
-
-У шифрования на основе `открытй ключей` для сравнения есть два различных ключа, один шифрует последовательность (
-открытый ключ) и один расшифровывает ее (закрытый ключ).
-
-Открытый ключ доступен для любого пользователя, который хочет зашифровать сообщения, однако только у намеченного
-получателя есть доступ к частному ключу, а значит и возможность расшифровать сообщения, доселе ему предназначенные.
-
-Популярные алгоритмы:
-
-`AES` – “золотой стандарт”, когда речь заходит о способе симметричного шифрования и рекомендуется для большинства
-случаев 256 битным размером ключа.
-
-`PGP` – самый популярный алгоритм шифрования на основе открытых ключей.
-
-Когда должно использоваться шифрование?
-
-`Шифрование должно использоваться`, когда существует необходимость расшифровать получаемое сообщение.
-
-Например, если бы вы хотите послать безопасное сообщения кому-то вы должны использовать шифрование вместо хеширования,
-поскольку сообщение ничего не даст получателю, если он не сможет расшифровать его.
-
-Если сами данные не должны быть известны в начальном виде, то хеширование рекомендуется к использованию в данном случае,
-поскольку это более безопасно.
-
-Таким образом, при передаче сообщения через интернет:
-
-- шифрование используется, чтобы ваше сообщение не смог прочитать никто посторонний;
-- хеширование используется, чтобы никто не смог незаметно изменить ваше сообщение.
-
-#### ООП - жизненный цикл объекта
+### OOP - object lifecycle
 
 https://newobj.ru/oop/chapter.php?n=2-2
 
-Объект (object), или объект класса, или экземпляр класса (instance) – в узком смысле слова – это адресуемая одним
-адресом область памяти
-для хранения значений всех полей класса.
+An object (instance) is an addressable memory area that stores values of all fields of a class.
 
-Любой объект в программе: 1) создается; 2) «живет»; 3) удаляется. Согласно приведенному определению, создание объекта –
-это выделение и
-инициализация памяти для хранения значений полей объекта, а удаление объекта – это освобождение памяти, используемой для
-хранения значений
-полей объекта.
+Any object has a lifecycle: 1) created, 2) lives, 3) deleted. Creating an object allocates and initializes memory for
+fields. Deleting an object frees that memory.
 
-#### написание тех аудита
+### Writing a tech audit
 
-Тех. аудит - это краткое резюме по текущему состоянию проекта, с указанием серьезных и простых ошибок, которые должен
-доделать исполнитель, чтобы работа считала выполненной
+A tech audit is a short summary of the current project state with major and minor issues the executor must fix for the
+work to be considered complete.
 
-- валидность кода и соответствие официальной документации фраймворка;
-- работоспособность и скорость загрузки;
-- проверка кода на безопасность и уязвимости;
+- code validity and compliance with framework docs
+- functionality and load speed
+- security and vulnerability checks
 
-#### проектирование UML
+### UML design
 
 https://habr.com/ru/post/511798/
-
 https://www.jetbrains.com/help/phpstorm/class-diagram.html#analyze_class
 
-Когда большинство проектов давно находятся на стадии поддержки, а не разработки, то поддержание документации в
-актуальном виде зачастую не
-проводится. Тогда довольно полезно будет получить диаграмму UML по существующему коду. Это также необходимо в случае,
-если предпроектная
-документация велась не полностью или проектированию подвергались не все части системы. Вопрос особенно актуален, когда
-появляется новый
-разработчик.
+Most projects are in maintenance, so docs become outdated. Generating UML diagrams from existing code is useful. It is
+also necessary when the initial documentation is incomplete or did not cover all system parts. This is especially
+useful when a new developer joins.
 
-###ПРОЕКТИРОВАНИЕ
+## What is MVC and what are its benefits?
 
-### Что такое MVC и какие преимущества его использования? [&uarr;](#PHP)
+MVC is a pattern that splits app logic into three parts:
 
-MVC — это шаблон программирования, который позволяет разделить логику приложения на три части:
+- Model: gets data from controller, performs operations, passes data to view.
+- View: gets data from model and renders it to the user.
+- Controller: handles user actions, validates data, passes to model.
 
-    Model (модель). Получает данные от контроллера, выполняет необходимые операции и передаёт их в вид.
-    View (вид или представление). Получает данные от модели и выводит их для пользователя.
-    Controller (контроллер). Обрабатывает действия пользователя, проверяет полученные данные и передаёт их модели.
+The pattern evolved. For example, HMVC and MVVM appeared.
 
-Впоследствии шаблон проектирования стал эволюционировать. Например, была представлена иерархическая версия HMVC; MVVM.
+HMVC (Hierarchical Model-View-Controller) is an extension of MVC. Each MVC triad is a layer in a hierarchy. Each triad
+is independent and can call another controller. This helps with scalability, development speed, and code reuse.
 
-HMVC (англ. Hierarchical model–view–controller) — Иерархические Модель-Вид-Контроллер, одно из расширений архитектурного
-паттерна MVC,
-позволяющее решить некоторые проблемы масштабируемости приложений, имеющих классическую MVC-архитектуру.
-Согласно парадигме HMVC, каждая отдельная MVC триада используется в качестве слоя в иерархической структуре. При этом,
-каждая триада в этой
-иерархии независима от других, и может обратиться к контроллеру другой триады. Такой подход существенно облегчает и
-ускоряет разработку сложных
-приложений, облегчает их дальнейшую поддержку и масштабирование, способствует повторному использованию кода.
+MVVM (Model-View-ViewModel) was introduced in 2005 by John Gossman as a modification of Presentation Model. It separates
+model and view so they can change independently. For example, a developer handles data logic while a designer works on
+UI.
 
-Model-View-ViewModel (MVVM) — шаблон проектирования архитектуры приложения. Представлен в 2005 году Джоном Госсманом (
-John Gossman)
-как модификация шаблона Presentation Model.
-Используется для разделения модели и её представления, что необходимо для их изменения отдельно друг от друга.
-Например, разработчик задаёт логику работы с данными, а дизайнер работает с пользовательским интерфейсом.
+## Should there be logic in the controller, and why?
 
-### логика в контроллере, должна ли быть и почему [&uarr;](#PHP)
+A controller is a glue layer. It should be thin but not thinner than necessary.
 
-На самом деле контроллер связующее звено. Он должен быть тонким, но не более чем нужно.
-Сами по себе контроллеры берут на себя, например, валидацию входных данных, построение http ответа и тд.
-Все логика должна выносится в сервисы. Чтобы вы понимали, сервис - это просто класс, зачастую, без хранения состояния и
-с единственным методом,
-который содержит бизнес логику. Из контроллера будет вызываться метод этого сервиса, тот будет возвращать результат.
-Контроллер будет преобразовывать этот результат в нужный формат, дабы отдать его пользователь в нужном виде.
-Сервисы можно не использовать в небольших приложениях.
+Controllers handle input validation, HTTP response building, and similar tasks. Business logic should be moved into
+services. A service is usually a stateless class with one method that contains business logic. The controller calls the
+service and transforms its result for the user.
 
-И стоит рассказать в данном контексте о модели. Она может быть простой и смешиваться с энвироментом в виде эктив
-рекордс.
-Или сложной. Иметь сверху обёртку в виде реализации сервисов, связывающих её с внешним миром, например, репозиториями,
-внешними приходящими данными и т.д.
-В контроллер стоит вынести приём данных из внешних источников, работу с правами, реакцию на события (логирование,
-отправка почты и т.д.).
-Причём реакция - это не обязательно исполнение действий напрямую, но так же постановка их в очередь для обработчика.
+In small apps, services may be unnecessary.
 
-И вот от сложности самой модели и её обёртки зависит тонкость контроллера.
-Чем проще реализация модели, тем толще контроллер.
+Regarding the model: it can be simple and mixed with the environment via Active Record, or more complex with service
+wrappers that connect it to the outside world, repositories, and incoming data.
 
-В небольших приложениях в контроллеры наваливают бизнес логику, чтобы не тратить время на построение архитектуры. Оно
-себя оправдывает.
-Да мы лишаем себя возможности модульных тестов, но функциональные остаются рабочими. И это является противоречием
-назначению контроллера.
-В проектах средней величины уже пытаются выносить бизнес логику в сервисы. Сервисный слой это и есть модель из множества
-классов.
-В контроллере вызывается один-два из этих сервисов и данные передаются в представление. И все бы хорошо, связующее звено
-для сервисов..., но
-это грамотно завуалированная бизнес логика, которую отчетливо видно лишь в крупных проектах.
+The controller should handle input from external sources, permissions, and reactions to events (logging, email, etc).
+Reactions can be direct actions or queueing tasks for a worker.
 
-В гораздо больших проектах количество различных сервисов возрастает в разы, контроллер превращается в один большой
-экшен, который сам является сервисом,
-чтобы тратить меньше времени на поиск необходимого куска кода.
+The complexity of the model and its wrapper defines how thin the controller is. The simpler the model, the thicker the
+controller.
 
-###СТРУКТУРЫ ДАННЫХ
+In small apps, controllers often contain business logic to save time. This sacrifices unit tests but functional tests
+still work, which contradicts the controller's purpose.
 
-### SPL классы [&uarr;](#PHP)
+In medium apps, teams move business logic into services. The service layer is a model composed of many classes. The
+controller calls one or two services and passes data to the view. This often becomes hidden business logic visible only
+in large projects.
 
-Стандартная библиотека PHP (SPL) — это набор интерфейсов и классов, предназначенных для решения стандартных задач.
+In large projects, the number of services grows significantly, and the controller can become a huge action that itself
+acts as a service, just to reduce time spent searching for code.
 
-SPL предоставляет ряд стандартных структур данных, итераторов для оббегания объектов, интерфейсов, стандартных
-исключений,
-некоторое количество классов для работы с файлами и предоставляет ряд функций, например spl_autoload_register().
+## SPL Classes
 
-В библиотеке SPL содержатся такие структуры данных:
+The Standard PHP Library (SPL) is a set of interfaces and classes for standard tasks.
 
-    Двусвязные списки
-        SplDoublyLinkedList — Двусвязные списки
-            SplStack — Стек
-            SplQueue — Очередь
+SPL provides standard data structures, iterators, interfaces, exceptions, classes for file handling, and functions like
+`spl_autoload_register()`.
 
-    Кучи
-        SplHeap — Куча
-            SplMaxHeap — Сортировка кучи по убыванию
-            SplMinHeap — Сортировка кучи по возрастанию
-        SplPriorityQueue — Приоритетные очереди
+SPL data structures include:
 
-    Массивы
-        SplFixedArray — Массив с ограниченной длиной
+- Doubly linked lists
+  - SplDoublyLinkedList
+    - SplStack
+    - SplQueue
+- Heaps
+  - SplHeap
+    - SplMaxHeap
+    - SplMinHeap
+  - SplPriorityQueue
+- Arrays
+  - SplFixedArray
+- Map
+  - SplObjectStorage
 
-    Карта
-        SplObjectStorage — Хранилище объектов
+## What Data Structures Do You Know?
 
-### Какие структуры данных вы знаете? [&uarr;](#PHP)
+SplDoublyLinkedList - doubly linked list (DLL)
 
-SplDoublyLinkedList - Двусвязный список ( DLL )
+A doubly linked list stores a reference to the previous and next node. Imagine standing in a queue and seeing only the
+person in front and behind you. That is how elements link in a DLL. Inserting into the list is like someone cutting in
+line and you forgetting who was before you (and they forget about you).
 
-    SplDoublyLinkedList — двусвязный список. Каждый узел такого списка хранит ссылку на предыдущий и на следующий за ним узел. 
-    Представьте, что вы находитесь в очереди и при этом можете видеть только человека перед вами и позади вас. 
-    Это аналогия отношения связи между элементами в SplDoublyLinkedList. Вставка элемента в список соответствует ситуации, когда кто-то влез в очередь, а вы вдруг забыли, кто стоял перед вами (и этот кто-то забыл о вас).
-    Двусвязный список позволяет эффективно обходить и добавлять большие наборы данных без необходимости повторного хеширования.
+A linked list is a dynamic structure of nodes, each holding data and references to the next and/or previous node. Its
+advantage over arrays is structural flexibility: element order does not match memory order, and traversal is defined by
+links.
 
-    Вообще, связный список — это базовая динамическая структура данных, состоящая из узлов, каждый из которых содержит как данные, так и ссылки 
-    на следующий и/или предыдущий узел списка. Зачем они нужны? Их преимущество перед массивом — это структурная гибкость: порядок элементов 
-    может не совпадать с порядком расположения данных в памяти, а обход всегда явно задаётся внутренними связями.
-    Списки бывают трёх типов : одно-, дву- и XOR связные.
+Lists can be singly, doubly, or XOR-linked.
 
-    Линейный однонаправленный список — это структура данных, состоящая из элементов одного типа, связанных между собой последовательно посредством 
-    указателей. Каждый элемент списка имеет указатель на следующий элемент. Последний элемент списка указывает на NULL. Элемент, на который нет 
-    указателя, является первым (головным) элементом списка. Здесь ссылка в каждом узле указывает на следующий узел в списке. В односвязном списке 
-    можно передвигаться только в сторону конца списка. Узнать адрес предыдущего элемента, опираясь на содержимое текущего узла, невозможно.
-    
-    Двусвязный список — это список, ссылки в каждом узле которого указывают на предыдущий и на последующий узел. По двусвязному списку можно 
-    эффективно передвигаться в любом направлении — как к началу, так и к концу. В этом списке проще производить удаление и перестановку элементов, 
-    так как легко доступны адреса тех элементов списка, указатели которых направлены на изменяемый элемент.
+A singly linked list has nodes that point to the next node. The last node points to NULL. You can only move forward and
+cannot find the previous node from the current one.
 
-Мы же рассмотрим встроенную в SPL структуру данных — двусвязный список. В SPL он является основой для двух крайне важных
-и интересных структур.
-Это стэк и очередь.
+A doubly linked list has nodes that point to both previous and next nodes. You can traverse both directions, and
+removal and reordering are easier because neighbors are accessible.
 
-    Сам класс обеспечивает основные возможности двусвязного списка. Не секрет, что есть два принципа работы с элементами списка — FIFO и LIFO. 
-    В DLL можно работать по любому из этих принципов. Это и позволяет реализовывать стэк и очередь.
-    
-    Все операции итератора, удаления, добавления и т.п. имеют алгоритмическую сложность O(1), что является очень дешёвой операцией.
-    
-    Вот операции, которые предоставляет SPL класс DLL
-    count ( void ) — Подсчитывает количество элементов в двусвязном списке
-    current ( void ) — Возвращает текущий элемент массива
-    isEmpty ( void ) — Проверяет, является ли двусвязный список пустым
-    key ( void ) — Возвращает индекс текущего узла
-    next ( void ) — Перемещает итератор к следующему элементу
-    prev ( void ) — Перемещает итератор к предыдущему элементу
-    push ( mixed $value ) — Помещает элемент в конец двусвязного списка
-    rewind ( void ) — Возвращает итератор в начало
-    serialize ( void ) — Сериализует хранилище
+In SPL, the doubly linked list is a base for two key structures: stack and queue.
 
-SplQueue и SplStack
+The class supports both FIFO and LIFO, which allows implementing stack and queue.
 
-    SplQueue и SplStack очень похожи на SplDoublyLinkedList. Обе эти структуры, по сути, представляют собой двусвязные списки с разными флагами 
-    итераторов(IT_MODE_LIFO — Last In First Out — последним пришёл, первым ушёл; и IT_MODE_FIFO — First In First Out — первым пришёл, первым ушёл), 
-    которые регулируют порядок обработки узлов и что делать с этими элементами после того, как они будут обработаны. 
-    Ещё одно отличие между этими структурами заключается в том, что интерфейс SplQueue содержит более интуитивно понятные методы enqueue() и dequeue()
-    в отличие от методов push() и pop() у SplStack.
+Iterator, delete, add, and similar operations are O(1), which is cheap.
+
+SPL operations on DLL include:
+
+- count() - number of elements
+- current() - current element
+- isEmpty() - check if empty
+- key() - current index
+- next() - move to next
+- prev() - move to previous
+- push($value) - add to end
+- rewind() - rewind iterator
+- serialize() - serialize storage
+
+SplQueue and SplStack
+
+Both are based on SplDoublyLinkedList but with different iterator modes (LIFO and FIFO) that define order and what to do
+with processed items. SplQueue uses enqueue() and dequeue(), while SplStack uses push() and pop().
 
 SplHeap
 
-    SplHeap — куча, представленная в виде бинарного дерева, каждый узел которого имеет не более двух дочерних узлов. Это абстрактный класс, 
-    требующий расширения с определением метода compare(), позволяющего выполнять сортировку в реальном времени при вставке новых узлов в дерево.
+SplHeap is a heap represented as a binary tree with up to two children per node. It is an abstract class requiring
+compare() for realtime sorting when inserting nodes.
 
-    От SplHeap наследуются два класса: SplMaxHeap – для сортировки массива по убыванию его значений, SplMinHeap – для сортировки массива по возрастанию.
+SplMaxHeap and SplMinHeap
 
-SplMaxHeap и SplMinHeap
-
-    SplMaxHeap и SplMinHeap — конкретные реализации абстрактного класса SplHeap. SplMaxHeapреализует метод compare() таким образом, чтобы дерево 
-    было отсортировано в порядке убывания значений узлов, а SplMinHeap — в порядке возрастания значений.
+Concrete implementations of SplHeap: SplMaxHeap sorts in descending order, SplMinHeap sorts in ascending order.
 
 SplPriorityQueue
 
-    SplPriorityQueue — очередь, похожая на SplHeap, но в отличие от SplHeap сортировка осуществляется на основании значения свойства priority 
-    (приоритет), заданного для каждого узла.
+Similar to SplHeap but sorted by a priority property assigned to each node.
 
 SplFixedArray
 
-    SplFixedArray — массив фиксированной длины, индексами которого могут быть только целые числа. Эти ограничению обеспечивают более высокую 
-    скорость обработки массива, которая достигается, в том числе, благодаря тому, что в SplFixedArray нет хеширования ключей элементов при их добавлении (в отличие от обычных массивов).
+A fixed-length array with integer indices only. It is faster than normal arrays because it avoids key hashing.
 
 SplObjectStorage
 
-    SplObjectStorage — хранилище объектов, предоставляет интерфейс для сопоставления объектов к данным, либо может быть использовано в качестве 
-    контейнера для множества объектов. Позволяет использовать объект в качестве ключа ассоциативного массива и связать его с некоторыми данными.
+An object storage that maps objects to data or acts as a container for objects. It allows objects as keys in an
+associative array.
 
-### Разница стэка и очереди. [&uarr;](#PHP)
+## Stack vs Queue
 
-    Очередь, как и стек — это линейная структура данных, элементы в которой хранятся в последовательном порядке. 
+A queue, like a stack, is a linear data structure with elements stored in order.
 
-    Наиболее часто встречающаяся аналогия для объяснения стека — стопка тарелок. 
-    Вне зависимости от того, сколько тарелок в стопке, мы всегда можем снять верхнюю. 
-    Чистые тарелки точно так же кладутся на верх стопки, и мы всегда будем первой брать ту тарелку, которая была положена последней.
+A common stack analogy is a stack of plates. You always take from the top. Clean plates are put on top, so the last
+added is taken first.
 
-    Очереди очень похожи на стеки. Они также не дают доступа к произвольному элементу, но, в отличие от стека, элементы кладутся (enqueue) и 
-    забираются (dequeue) с разных концов. Такой метод называется «первый вошел, первый вышел» (First-In-First-Out или FIFO). 
-    То есть забирать элементы из очереди мы будем в том же порядке, что и клали. Как реальная очередь или конвейер.
+A queue also prevents access to arbitrary elements, but unlike a stack, you add (enqueue) and remove (dequeue) from
+opposite ends. This is FIFO (First-In-First-Out). You remove in the same order you added, like a real queue or
+conveyor.
 
-    Единственное существенное отличие между стеком и очередью заключается в том, 
-    что в очереди вместо LIFO (Last In First Out — последним пришёл, первым ушёл) , действует принцип FIFO (First In First Out — первым пришёл, первым ушёл)
+The key difference is LIFO for stacks vs FIFO for queues.
 
-###DB
+## Are you familiar with ORM and ActiveRecord?
 
-### Знакомы ли с ORM, ActiveRecord? [&uarr;](#PHP)
+ORM (Object-Relational Mapping) is a general name for frameworks that automatically map databases to code. They try to
+hide the database as much as possible, letting developers operate through a high-level interface instead of writing SQL.
 
-ORM (Object-Relation Mapping) – общее название для фреймворков, позволяющих автоматически связать базу данных с кодом.
-Они стараются скрыть существование базы данных настолько, насколько это возможно. Взамен, программисту дают возможность
-оперировать данными в базе через специальный интерфейс. Вместо построения SQL-запросов, программист вызывает простые
-методы, а всю остальную работу берёт на себя ORM.
+```php
+$user = new App\Models\User();
+$user->name = 'Petr';
+$user->save(); // save to DB
+```
 
-    $user = new App\Models\User();
-    $user->name = 'Petr';
-    $user->save(); // сохранение пользователя в базу
+ORMs vary. Eloquent is a common and simple ORM that implements the Active Record pattern. Each table maps to one model
+class. The class handles both business logic and DB access, usually by inheriting from a base ORM class.
 
-Несмотря на общую цель, ORM бывают очень разными. Eloquent относится к наиболее распространённому и простому типу ORM,
-реализующему шаблон проектирования Active Record. Этот шаблон базируется на идее, что каждой таблице в приложении
-соответствует один класс (модель). Этот класс отвечает как за реализацию бизнес логики, так и за взаимодействие с базой
-данных. Последнее обычно появляется в модели за счёт наследования от базового класса ORM.
+Another pattern is Data Mapper, implemented in Doctrine. It separates entities and DB code into two layers. This is more
+flexible but more complex.
 
-Кроме Active Record существует шаблон Data Mapper, он например, реализован в Doctrine. Этот подход разделяет сущности и
-код, связанный с базой данных, на два независимых слоя. Такой подход гибче, но при этом сложнее в работе.
+Data Mapper is a mediator between persistent storage (often relational DB) and in-memory data (domain layer). The goal
+is to keep the in-memory model and storage independent of each other and of the mapper. A mapper layer can be generic or
+specific to particular entities.
 
-Data Mapper — это паттерн, который выступает в роли посредника для двунаправленной передачи данных между постоянным
-хранилищем данных (часто, реляционной базы данных) и представления данных в памяти (слой домена, то что уже загружено и
-используется для логической обработки). Цель паттерна в том, чтобы держать представление данных в памяти и постоянное
-хранилище данных независимыми друг от друга и от самого преобразователя данных. Слой состоит из одного или более
-mapper-а (или объектов доступа к данным), отвечающих за передачу данных. Реализации mapper-ов различаются по назначению.
-Общие mapper-ы могут обрабатывать всевозоможные типы сущностей доменов, а выделенные mapper-ы будет обрабатывать один
-или несколько конкретных типов.
+The key point vs Active Record is that the model follows the Single Responsibility Principle.
 
-Ключевым моментом паттерна Data Mapper, в отличие от Active Record является то, что модель данных следует Принципу
-Единой Обязанности SOLID.
+The Single Responsibility Principle says each object has one responsibility, fully encapsulated in its class.
 
-Принцип единственной ответственности (англ. single-responsibility principle, SRP) — принцип ООП, обозначающий, что
-каждый объект должен иметь одну ответственность и эта ответственность должна быть полностью инкапсулирована в класс. Все
-его поведения должны быть направлены исключительно на обеспечение этой ответственности.
+A key part of any ORM is a query builder: an abstraction over SQL that makes query building easier. It is usually a
+chain of methods, each representing a SQL part like ORDER, SELECT, or WHERE.
 
-Важная часть любой ORM — это Query Builder (построитель запросов). Это абстракция поверх SQL, которая упрощает генерацию
-запросов. Она обычно выглядит как цепочка функций, каждая из которых отвечает за конкретную часть SQL, например: ORDER,
-SELECT или WHERE.
-
-    $users = App\Models\User::where('state', 'active')
+```php
+$users = App\Models\User::where('state', 'active')
     ->orderBy('name', 'desc')
     ->take(10)
     ->get();
+```
 
-Ещё одна обязанность ORM – изменение схемы базы данных: добавление, удаление и модификация таблиц. Делается это, как
-правило, не на чистом SQL, а с помощью специального языка. Это позволяет работать с ORM, не отвлекаясь на особенности
-конкретных баз данных. ORM сама создаёт правильный SQL-запрос, подходящий под конкретную базу данных:
+ORMs also handle schema changes: create, drop, and modify tables. This is usually done with a DSL, not raw SQL, so you
+can ignore DB differences. The ORM generates DB-specific SQL:
 
-    Capsule::schema()->create('users', function ($table) {
-        $table->bigIncrements('id');
-        $table->string('email')->unique();
-        $table->string('first_name');
-        $table->string('password');
-        $table->string('last_name');
-        $table->timestamps();
-    });
+```php
+Capsule::schema()->create('users', function ($table) {
+    $table->bigIncrements('id');
+    $table->string('email')->unique();
+    $table->string('first_name');
+    $table->string('password');
+    $table->string('last_name');
+    $table->timestamps();
+});
+```
 
-В Eloquent используется подход Database First. Это значит, что для создания новых моделей или изменения поведения
-старых, нужно сначала изменить базу данных, а ORM сама подхватывает изменения и работает с ними. Например, для
-добавления нового свойства достаточно добавить новую колонку. В коде ничего менять не нужно, она автоматически начинает
-работать.
+Eloquent uses a Database First approach: update the DB, and the ORM picks up changes automatically. For example, add a
+column and the model now has that property.
 
-В некоторых ORM встречается подход Code First. В таком случае изменения делаются не в базе, а в коде. А дальше ORM сама
-формирует необходимые изменения для базы данных, подстраивая ее под код
+Some ORMs use Code First: change code, then the ORM updates the DB schema accordingly.
 
-PHP ORM:
+PHP ORM examples:
 
-Doctrine, ORM для PHP 7.1+ Бесплатное ПО (MIT), с открытым исходным кодом
+Doctrine: ORM for PHP 7.1+, MIT license. It is built on DBAL. It uses DQL (Doctrine Query Language), inspired by HQL.
+Doctrine is used in Laravel, Yii, and Symfony. Doctrine 1.* follows Active Record. Example:
 
-    Doctrine — объектно-реляционный проектор (ORM) для PHP 7.1+, который базируется на слое абстракции доступа к БД (DBAL). Одной из ключевых возможностей Doctrine является запись запросов к БД на собственном объектно-ориентированном диалекте SQL, называемом DQL (Doctrine Query Language) и базирующемся на идеях HQL (Hibernate Query Language). 
+```php
+$user = new User();
+$user->name = "john";
+$user->password = "doe";
+$user->save();
+echo "The user with id {$user->id} has been saved.";
+```
 
-    Doctrine ORM применяется во фреймворках Laravel, Yii, Symfony. 
+Doctrine 2.* follows Data Mapper. Example:
 
-    Doctrine версии 1.* следует паттерну Active Record для работы с данными[3]. Для примера, если программист хочет создать пользователя в базе данных, он может больше не использовать SQL, а написать следующий PHP код:
+```php
+$user = new User();
+$user->setName("john");
+$user->setPassword("doe");
+$entityManager->persist($user);
+$entityManager->flush();
+echo "The user with id {$user->getId()} has been saved.";
+```
 
-        $user = new User();
-        $user->name = "john";
-        $user->password = "doe";
-        $user->save();
-        echo "The user with id {$user->id} has been saved.";
+Eloquent is an ActiveRecord ORM for PHP ^7.2, MIT, from Laravel, also available standalone. It maps each DB table to a
+model class used for queries, inserts, and updates.
 
-    Doctrine версии 2.* следует паттерну Data mapper Для создания пользователя может использоваться следующий кодː
+## What is PDO and prepared statements?
 
-        $user = new User();
-        $user->setName("john");
-        $user->setPassword("doe");
-        $entityManager->persist($user);
-        $entityManager->flush();
-        echo "The user with id {$user->getId()} has been saved.";
+Most DBs support prepared statements. Think of them as compiled SQL templates executed multiple times with different
+parameters. They have two main advantages:
 
-Eloquent, ActiveRecord ORM для PHP ^7.2, с открытым исходным кодом (MIT), из фреймворка Laravel. Она также доступна в
-качестве независимого компонента
+- You prepare once and execute many times. The DB parses, compiles, and optimizes the plan once. For complex queries
+  this saves a lot of time and resources.
+- Parameters are escaped automatically. If your app uses prepared statements everywhere, SQL injection is very hard.
+  However, if other query parts are built unsafely, SQL injection is still possible.
 
-    Eloquent - это реализация шаблона ActiveRecord в Laravel для работы с базами данных. Для каждой таблице в базе есть соответствующий класс-модель, который используется для работы с этой таблицей. Модель позволяет запрашивать данные из таблиц, вставлять новые записи и совершать другие действия.
+PDO can emulate prepared statements if the driver does not support them. This lets you use one access method across
+DBMSes.
 
-### что такое PDO и подготовленные запросы [&uarr;](#PHP)
+If a query includes variables, it should always use prepared statements. Placeholders can be positional (`?`) or named
+(`:name`). Examples:
 
-Большинство баз данных поддерживают концепцию подготовленных запросов. Что это такое? Это можно описать, как некий вид
-скомпилированного шаблона SQL запроса, который будет запускаться приложением и настраиваться с помощью входных
-параметров. У подготовленных запросов есть два главных преимущества:
+```php
+$sql = 'SELECT name FROM users WHERE email = ?';
+$sql = 'SELECT name FROM users WHERE email = :email';
+```
 
-    Запрос необходимо однажды подготовить и затем его можно запускать столько раз, сколько нужно, причём как с теми же, так и с отличающимися параметрами. Когда запрос подготовлен, СУБД анализирует его, компилирует и оптимизирует план его выполнения. В случае сложных запросов этот процесс может занимать ощутимое время и заметно замедлить работу приложения, если потребуется много раз выполнять запрос с разными параметрами. При использовании подготовленного запроса СУБД анализирует/компилирует/оптимизирует запрос любой сложности только один раз, а приложение запускает на выполнение уже подготовленный шаблон. Таким образом подготовленные запросы потребляют меньше ресурсов и работают быстрее. 
+To execute, prepare first, then execute with parameters:
 
-    Параметры подготовленного запроса не требуется экранировать кавычками; драйвер это делает автоматически. Если в приложении используются исключительно подготовленные запросы, разработчик может быть уверен, что никаких SQL-инъекций случиться не может (однако, если другие части текста запроса создаются с неэкранированным вводом, то SQL инъекция по-прежнему возможна). 
+```php
+$stmt = $pdo->prepare('SELECT name FROM users WHERE email = ?');
+$stmt->execute(array($email));
 
-Подготовленные запросы также полезны тем, что PDO может эмулировать их, если драйвер базы данных не имеет подобной
-функциональности. Это значит, что приложение может пользоваться одной и той же методикой доступа к данным независимо от
-возможностей СУБД.
+$stmt = $pdo->prepare('SELECT name FROM users WHERE email = :email');
+$stmt->execute(array('email' => $email));
+```
 
-Если же в запрос передаётся хотя бы одна переменная, то этот запрос в обязательном порядке должен выполняться только
-через подготовленные выражения. Что это такое? Это обычный SQL запрос, в котором вместо переменной ставится специальный
-маркер - плейсхолдер. PDO поддерживает позиционные плейсхолдеры (?), для которых важен порядок передаваемых переменных,
-и именованные (:name), для которых порядок не важен. Примеры:
+For named placeholders, keys must match placeholder names.
 
-    $sql = 'SELECT name FROM users WHERE email = ?';
-    $sql = 'SELECT name FROM users WHERE email = :email';
+IMPORTANT: prepared statements are the main reason to use PDO, because they are the only safe way to execute SQL with
+variables.
 
-тобы выполнить такой запрос, сначала его надо подготовить с помощью функции prepare(). Она также возвращает PDO
-statement, но ещё без данных. Чтобы их получить, надо исполнить этот запрос, предварительно передав в него переменные.
-Передать можно двумя способами:
-Чаще всего можно просто выполнить метод execute(), передав ему массив с переменными:
+## Three OOP principles
 
-    $stmt = $pdo->prepare('SELECT name FROM users WHERE email = ?');
-    $stmt->execute(array($email));
+### Object-oriented paradigm
 
-    $stmt = $pdo->prepare('SELECT name FROM users WHERE email = :email');
-    $stmt->execute(array('email' => $email));
+Definition: OOP is a programming paradigm where the core concept is the object, which represents a domain concept.
 
-Как видно, в случае именованных плейсхолдеров в execute() должен передаваться массив, в котором ключи должны совпадать с
-именами плейсхолдеров.
+A system is represented as a set of domain objects that interact. Each object has identity, state, and behavior.
 
-ВАЖНО: Подготовленные выражения - основная причина использовать PDO, поскольку это единственный безопасный способ
-выполнения SQL запросов, в которых участвуют переменные.
+State is all fields and their values. Behavior is all methods. Identity is what makes one object different from another
+(e.g. equals in Java).
 
-###ООП
+### OOP principles
 
-### 3 принципа ООП.  [&uarr;](#PHP)
+- Encapsulation
+- Inheritance
+- Polymorphism
 
-Объектно-ориентированная парадигма
+Encapsulation
 
-    Определение гласит, что «Объектно-ориентированное программирование – это парадигма программирования, в которой основной концепцией является понятие объекта, который отождествляется с предметной областью.»
+Encapsulation means a class or system part is a black box. Users see only the interface (public methods and
+properties), not internal details.
 
-    Таким образом, система представляется в виде набора объектов предметной области, которые взаимодействуют между собой некоторым образом. Каждый объект обладает тремя cоставляющими: идентичность (identity), состояние (state) и поведение (behaviour).
+If class A accesses class B fields directly, class A depends on B's internals. Changing B requires changing A. The logic
+of working with B's state lives in A, making B hard to reuse. This can make reuse only possible for the whole system.
 
-    Состояние объекта — это набор всех его полей и их значений.
+Encapsulation is often underestimated. It reduces coupling and makes independent development easier.
 
-    Поведение объекта — это набор всех методов класса объекта.
+Inheritance
 
-    Идентичность объекта — это то, что отличает один объект класса от другого объекта класса. С точки зрения Java, именно по идентичности определяется метод equals.
+Inheritance allows creating a class from another class, keeping properties and methods of the parent and adding new
+ones.
 
-Принципы объектно-ориентированного программирования
+Inheritance is often overused. It is a strong coupling. Use it carefully and keep hierarchies shallow.
 
-    Инкапсуляция
-    Наследование
-    Полиморфизм
+Polymorphism
 
-Инкапсуляция
+Polymorphism allows using derived classes in contexts intended for the base class. It helps decompose tasks and replace
+if/switch with polymorphism.
 
-    Научное определение гласит, что «Инкапсуляция – это принцип, согласно которому любой класс и в более широком смысле – любая часть системы должны рассматриваться как «черный ящик»: пользователь класса или подсистемы должен видеть только интерфейс (т.е. список декларируемых свойств и методов) и не вникать во внутреннюю реализацию.»
+With interfaces, you know an object has a method with a certain signature. You can rely on that behavior. This ability
+to depend on abstractions, not concrete classes, is polymorphism.
 
-    Таким образом, получается, что если класс A обращается к полям класса B напрямую, это приводит не к тому, что «нарушается информационная безопасность», а к тому, что класс A завязывается на внутренне устройство класса B, и попытка изменить внутреннее устройство класса B приведет к изменению класса А. Более того, класс A не просто так работает с полями класса B, он работает по некоторой бизнес-логике. То есть логика по работе с состоянием класса В лежит в классе А, и когда мы захотим переиспользовать класс В, это не удастся сделать, ведь без кусочка класса А класс В может быть бесполезным, что приведет к тому, что класс В придется отдавать вместе с классом А. Экстраполируя это на всю систему, получается, что переиспользовать можно будет только всю систему целиком.
+## OOP in PHP
 
-    Инкапсуляция является самым недооцененным принципом, который, к сожалению, мало кем интерпретируется правильно. Она позволяет минимизировать число связей между классами и подсистемами и, соответственно, упростить независимую реализацию и модификацию классов и подсистем.
+PHP has a simplified OOP implementation. For pure OOP study, look at Java, C++, or Object Pascal. In PHP, developers
+imitate these languages, which can add complexity because PHP does not fully support some OOP concepts.
 
-Наследование
+PHP was not created as OOP. It started as a functional scripting language for quick HTML inserts. OOP was added in PHP 5
+(2004), and became more usable in 5.3 (2009).
 
-    Наследование — это возможность порождать один класс от другого с сохранением всех свойств и методов класса-предка (суперкласса), добавляя при необходимости новые свойства и
-    методы.
+PHP has two limits: no two functions with the same name, and dynamic typing (PHP 7/8 move toward strict typing).
 
-    Наследование является самым переоцененным принципом. Когда-то считалось, что «У идеального программиста дерево наследования уходит в бесконечность и заканчивается абсолютно пустым объектом», потому как когда-то люди не очень хорошо понимали то, что наследование — это способ выразить такое свойство реального мира как иерархичность, а не способ переиспользовать код, отнаследовав машину от холодильника, потому что у обоих предметов есть ручка. Наследования желательно по возможности избегать, потому что наследование является очень сильной связью. Для уменьшения количества уровней наследования рекомендуется строить дерево «снизу-вверх».
+Functions cannot be overloaded, so ad-hoc polymorphism is absent. The same applies to methods.
 
-Полиморфизм
+In PHP, polymorphism is mostly overriding: a child overrides a parent method.
 
-    Полиморфизм — это возможность использовать классы – потомки в контексте, который был предназначен для класса – предка.
+You often hear "one interface - many implementations" (Bjarne Stroustrup). That is about true polymorphism, which PHP
+lacks. It often leads to mindless code where a class is split into an abstract class and an interface, creating complex
+inheritance without real value.
 
-    За самым садистским определением кроется возможность языка программирования для декомпозиции задачи и рефакторинга if'ов и switch'ей.
-    
-    В примере с интерфейсами – мы знаем, что объекты, реализовавшие какой-то интерфейс обязательно будут иметь метод с определённым набором параметров.     То есть мы можем рассчитывать на то, что этот метод у объекта гарантированно есть и мы можем его вызвать.
+## Visibility
 
-    Благодаря этому свойству объектов мы можем ожидать от них какого-то определенного поведения, если они являются объектами какого-то класса или           реализуют какой-то интерфейс.
+Visibility of properties, methods, or constants (since PHP 7.1) can be defined with public, protected, or private.
 
-    Это свойство, благодаря которому мы можем зависеть не от конкретной реализации (проще говоря конкретного класса), а от абстракции (интерфейса), и       есть – полиморфизм.
+Public is accessible everywhere. Protected is accessible in the class and its descendants. Private is accessible only
+within the defining class.
 
-### Особенности ООП в PHP.
+Properties and methods without a visibility keyword are public. Class constants can also be public/protected/private.
 
-Следует учитывать, что в PHP несколько упрощенная реализация ООП (объектно-ориентированное программирование). Поэтому,
-когда речь идёт об ООП как абстрактной парадигме, то следует использовать какой-то более серьёзный язык, вроде Java, С++
-или Object Pascal. Потому что на этих языкам можно посмотреть практическую реализацию принципов ООП. В PHP программисты
-пытаются подражать другим ЯП, что в итоге приводит к излишней сложности и путанице, поскольку язык сам по себе не
-позволяет сделать «как в теории».
+Objects of the same type (same class) can access each other's private/protected members, because visibility is defined
+by class, not instance.
 
-Нужно понимать, что PHP никогда не создавался как объектно-ориентированный. Это всегда был функциональный скриптовый
-язык, в задачу которого входило быстро выполнить небольшой код-вставку в HTML. ООП в PHP был добавлен по сути только в
-5-й версии (2004 год), да и то в слишком простой форме. Более-менее говорить об ООП в PHP можно лишь с версии 5.3 (2009
-год).
+### Variable scope
 
-В PHP есть два ограничения. Первое — не может быть двух одноименных функций и второе — динамическая типизация, когда
-компилятор сам решает какой тип данных использовать (в PHP 7/8 идёт работа в сторону строгой типизации).
+Scope is the context where a variable is defined. Variables inside functions are local by default.
 
-Поскольку в PHP функции не могут быть перегружены (то есть мы не можем создать две одноименные функции), а значит на
-этом уровне ad-hoc-полиморфизм просто отсутствует. Точно такая же ситуация и в методах классов — невозможно создать
-одноименную функцию.
+### Static variables
 
-Поэтому в PHP полиморфизм рассматривается как переопределение (или перекрытие), то есть когда потомок переопределяет
-метод родительского класса.
+A static variable exists in function scope but keeps its value between calls. Static variables allow recursion patterns.
 
-Часто приходится встречать выражение «Один интерфейс - много реализаций» (сказал Бьёрн Страуструп, автор C++). Выражение
-на само деле подходит лишь к «настоящему» полиморфизму, то есть не реализуемый в PHP. Часто приходится видеть совершенно
-бездумное раздувание кода, когда класс разбивается на абстрактный класс и интерфейс (потому что об этом сказал
-Страуструп...). То есть вместо одной сущности получается сразу несколько. При этом классы получают сложную логику
-наследования.
+A static variable can be initialized with expressions but not function calls.
 
-### Области видимости  [&uarr;](#PHP)
+Since PHP 8.1, when a method with static variables is inherited (not overridden), the static variables are shared
+between parent and child methods, like static properties.
 
-Область видимости свойства, метода или константы (начиная c PHP 7.1.0) может быть определена путём использования
-следующих ключевых слов в объявлении: public, protected или private.
-
-Доступ к свойствам и методам класса, объявленным как public (общедоступный), разрешён отовсюду. Модификатор protected (
-защищённый) разрешает доступ самому классу, наследующим его классам и родительским классам. Модификатор private (
-закрытый) ограничивает область видимости так, что только класс, где объявлен сам элемент, имеет к нему доступ.
-
-Свойства класса могут быть определены как public, private или protected. Свойства, объявленные без явного ключевого
-слова области видимости, определяются как общедоступные (public).
-
-Методы класса могут быть определены как public, private или protected. Методы, объявленные без указания области
-видимости, определяются как public.
-
-Начиная с PHP 7.1.0, константы класса могут быть определены как public, private или protected. Константы, объявленные
-без указания области видимости, определяются как public.
-
-Объекты, которые имеют общий тип (наследуются от одного класса), имеют доступ к элементам с модификаторами private и
-protected друг друга, даже если не являются одним и тем же экземпляром. Это объясняется тем, что реализация видимости
-элементов известна внутри этих объектов.
-
-Область видимости переменной
-
-    Область видимости переменной - это контекст, в котором эта переменная определена. 
-
-    Любая используемая внутри функции переменная по умолчанию ограничена локальной областью видимости функции.
-
-Использование статических (static) переменных
-
-    Другой важной особенностью области видимости переменной является статическая переменная. Статическая переменная существует только в локальной области видимости функции, но не теряет своего значения, когда выполнение программы выходит из этой области видимости. 
-
-    Статические переменные также дают возможность работать с рекурсивными функциями. 
-
-    Статическим переменным можно присвоить значения, являющиеся результатом выражения, но нельзя использовать для этого функцию, так это вызовет ошибку разбора. 
-
-    Начиная с PHP 8.1.0, когда метод, использующий статические переменные, наследуется (но не переопределяется), унаследованный метод теперь будет использовать статические переменные совместно с родительским методом. Это означает, что статические переменные в методах теперь ведут себя так же, как статические свойства. 
-
-    class Foo {
-        public static function counter() {
-            static $counter = 0;
-            $counter++;
-            return $counter;
-        }
+```php
+class Foo {
+    public static function counter() {
+        static $counter = 0;
+        $counter++;
+        return $counter;
     }
-    class Bar extends Foo {}
-    var_dump(Foo::counter()); // int(1)
-    var_dump(Foo::counter()); // int(2)
-    var_dump(Bar::counter()); // int(3), до PHP 8.1.0 int(1)
-    var_dump(Bar::counter()); // int(4), до PHP 8.1.0 int(2)
+}
+class Bar extends Foo {}
+var_dump(Foo::counter()); // int(1)
+var_dump(Foo::counter()); // int(2)
+var_dump(Bar::counter()); // int(3), before 8.1.0 int(1)
+var_dump(Bar::counter()); // int(4), before 8.1.0 int(2)
+```
 
-    PHP использует модификаторы переменных static и global как ссылки. Например, реальная глобальная переменная, внедрённая в область видимости функции указанием ключевого слова global, в действительности создаёт ссылку на глобальную переменную. Это может привести к неожиданному поведению
+PHP uses `static` and `global` as references. A global variable imported into a function via `global` is a reference to
+the global variable, which can cause unexpected behavior.
 
-### Чем интерфейс отличается от абстрактного класса?  [&uarr;](#PHP)
+## Interface vs abstract class
 
-Абстрактные классы в php реализуются добавлением ключевого слово abstract. Абстрактные классы могут иметь свойства и
-методы. Но в отличии от обычных классов, методы в абстрактных классах не имеют тела. Ключевое значение в таких методах —
-необходимость их реализации в дочерних классах.
+Abstract classes are created with `abstract`. They can have properties and methods. But abstract methods have no body
+and must be implemented in child classes.
 
-Интерфейс — это тот же абстрактный класс, но у него нет свойств. Интерфейс объявляется при помощи ключевого слова
-interface.
+An interface is like an abstract class without properties. It is declared with `interface`.
 
-Еще одной важной особенностью является то, что класс может унаследовать только один класс, но может реализовывать сколь
-угодно много интерфейсов.
+A class can inherit only one class but implement many interfaces.
 
-Что такое Интерфейсы
+### Interfaces
 
-    В общих чертах, Интерфейс должен описывать, как будет построен класс реализующий его, это похоже на план, описывающий публичные методы и константы, которые должны быть реализованы.
+An interface describes what a class should implement. It defines public methods and constants.
 
-    Интерфейсы должны:
+Interfaces should:
 
-        Использоваться для определения публичных методов класса.
-        Использоваться для определения констант класса.
+- Define public methods
+- Define class constants
 
-    Интерфейсы не должны:
+Interfaces should not:
 
-        Использоваться сами по себе.
-        Использоваться для определения приватных или защищённых методов класса.
-        Использоваться для определения свойств класса.
+- Be used alone
+- Define private or protected methods
+- Define properties
 
-    Интерфейсы используются для определения публичных методов, которые должен включать класс. Важно помнить, что интерфейс всегда предназначен для реализации классом, поэтому в нём вы определяете только сигнатуру метода
+Interfaces define method signatures only.
 
-    Почему же константы в интерфейсах не получили широкого распространения в промышленном коде, хотя и используются иногда? Причина в том, что их невозможно переопределить в интерфейсе-наследнике или в классе, реализующем данный интерфейс. Константы интерфейсов — самые константные константы в мире :)
+Interface constants are rarely used because they cannot be overridden in child interfaces or implementing classes.
 
-Совместимость сигнатур методов
+### Method signature compatibility
 
-    Для дальнейшего изучения интерфейсов нам с вами нужно узнать о важнейшем понятии, которое незаслуженно обойдено вниманием в мануале по PHP: о понятии «совместимости сигнатур».
+A signature includes:
 
-    Сигнатура — это описание функции (метода), включающее в себя:
+- Visibility
+- Method name
+- Argument list with types, names, defaults, or `...`
+- Return type
 
-        Модификатор доступа
-        Имя функции (метода)
-        Список аргументов, где для каждого аргумента указано:
+Examples:
 
-            Тип
-            Имя
-            Значение по умолчанию
-            либо оператор «три точки»
+```
+function ();
+public function foo($arg = null);
+protected function sum(int $x, int $y, ...$args): int;
+```
 
-        Тип возвращаемого значения
+### Interface inheritance
 
+Interfaces can inherit from each other:
 
-    Примеры:
+```php
+interface First
+{
+    public const PI = 3.14159;
+    public function foo(int $x);
+}
 
-    function ();
-    public function foo($arg = null);
-    protected function sum(int $x, int $y, ...$args): int;
+interface Second extends First
+{
+    public const E = 2.71828;
+    public function bar(string $s);
+}
+```
 
-Наследование интерфейсов
+The child interface inherits methods and constants. It can override a method if the signature is identical or
+compatible.
 
-    Интерфейсы могут наследоваться друг от друга:
+```php
+interface First
+{
+    public function foo(int $x);
+}
 
-    interface First
-    {
-        public const PI = 3.14159;
-        public function foo(int $x);
+interface Second extends First
+{
+    // Allowed but pointless
+    public function foo(int $x);
+
+    // Not allowed: incompatible
+    public function foo(int $x, int $y);
+
+    // Allowed: added optional arg
+    public function foo(int $x, int $y = 0);
+
+    // Allowed: variadic
+    public function foo(int $x, ...$args);
+
+    // Allowed: compatible return type
+    public function foo(int $x, ...$args): int;
+}
+```
+
+### Abstract classes
+
+Abstract classes are similar to interfaces. They are not meant to be instantiated and can contain abstract methods.
+
+An abstract class can:
+
+- Define abstract method signatures
+- Define methods
+- Define constants
+- Define properties
+- Be extended by child classes
+
+An abstract class cannot be used directly.
+
+### How to choose
+
+If you create blueprints that can be used for different house types, you need an interface. If you built a house and
+want variations, you need an abstract class.
+
+Abstract classes group families of classes. For example, an abstract Car class might have Ford and Toyota subclasses
+with shared methods. But a Bicycle should not inherit Car if methods like ChangeOil do not make sense. For such cases,
+interfaces are better.
+
+## Multiple constructors in a class
+
+Overriding is when a method signature in a child matches the parent. Overloading is when one class has methods with the
+same name but different parameters.
+
+In PHP, "overloading" means dynamic properties and methods handled by magic methods.
+
+Overloading methods are called when accessing properties or methods that are not declared or not visible.
+
+PHP overloading differs from classic OOP overloading. Traditional overloading is multiple methods with the same name
+but different parameters.
+
+Property overloading:
+
+- `__set()` runs when writing to inaccessible or nonexistent properties.
+- `__get()` runs when reading inaccessible or nonexistent properties.
+- `__isset()` runs on `isset()` or `empty()` for inaccessible or nonexistent properties.
+- `__unset()` runs on `unset()` for inaccessible or nonexistent properties.
+
+Note:
+
+- Return values of `__set()` are ignored. `__get()` is not called for chained assignments like `$a = $obj->b = 8;`.
+- PHP does not call an overloaded method from within the same overloaded method. For example, `return $this->foo` inside
+  `__get()` will return null and raise E_WARNING if foo is undefined, instead of calling `__get()` again. Overloaded
+  methods can trigger other overloaded methods (e.g. `__set()` calls `__get()`).
+
+Method overloading:
+
+- `__call()` runs when calling inaccessible methods in object context.
+- `__callStatic()` runs when calling inaccessible methods in static context.
+
+Constructors
+
+PHP supports constructors. When a class defines a constructor, it is called on object creation, useful for
+initialization.
+
+Since PHP 8.0, constructor parameters can define properties (constructor property promotion), reducing boilerplate.
+
+```php
+class Point {
+    public function __construct(protected int $x, protected int $y = 0) {
     }
+}
+```
 
-    interface Second
-        extends First
-    {
-        public const E = 2.71828;
-        public function bar(string $s);
-    }
+Constructors in PHP cannot be overloaded.
 
-    Интерфейс-наследник получает от интерфейса-предка в наследство все определенные в предке методы и константы.
+### Static factory methods
 
-    В интерфейсе-наследнике можно переопределить метод из родительского интерфейса. Но только при условии, что либо его сигнатура будет в точности совпадать с сигнатурой родительского, либо будет совместима (см. предыдущий раздел)
+PHP supports only one constructor, but you may want different creation paths based on input. Use static methods as
+wrappers around the constructor.
 
-    interface First
-    {
-        public function foo(int $x);
-    }
+You can make the constructor private or protected to prevent direct calls. Then instances can be created only via
+static methods. Those methods have access to private methods across instances. A private constructor is optional.
 
-    interface Second
-        extends First
-    {
+```php
+class Product {
+    private ?int $id;
+    private ?string $name;
 
-    // Так можно, но бессмысленно
-    public function foo(int $x);  
-
-    // Так нельзя, фатальная ошибка Declaration must be compatible
-    public function foo(int $x, int $y); 
-
-    // Так можно, потому что эта сигнатура совместима с родительской - мы просто добавили необязательный аргумент
-    public function foo(int $x, int $y = 0);  
-    
-    // Так тоже можно, все аргументы после "..." являются необязательными
-    public function foo(int $x, ...$args);  
-
-    // И так тоже можно
-    public function foo(int $x, ...$args): int;  
-
-    }
-
-Что такое Абстрактные классы
-
-    Абстрактные классы PHP очень похожи на интерфейсы PHP; они не предназначены быть классами сами по себе и представляют базовые методы без реализации.
-
-    Абстрактный класс может:
-
-        Использоваться для определения сигнатур методов класса с использованием abstract методов (аналогично интерфейсам).
-        Использоваться для определения методов.
-        Использоваться для определения констант класса.
-        Использоваться для определения свойств класса.
-        Расширятся дочерним классом.
-
-    Абстрактный класс не может:
-
-        Использоваться самостоятельно
-
-Как решить, что использовать
-
-    Это зависит от вашей цели. Сохранив аналогию с домом, если вы создаёте чертежи, которые в дальнейшем можно использовать для проектирования домов разных типов, вам нужен интерфейс.
-
-    Если вы построили дом и вам нужно создать копии с улучшениями, то вам нужен абстрактный класс.
-
-    Различие в применении абстрактного класса и интерфейса — очень тонкий вопрос. Абстрактный класс скорее служит для объединения семейства классов. Например, есть абстрактный класс Автомобиль, и от него наследуются классы Ford, Toyota, у которых есть общие методы (объявленные в абстрактном классе).
-    Но если появляется класс Велосипед, то в нем нет смысла реализовывать, например, метод ПоменятьМасло. Для таких классов лучше описывать интерфейсы.
-
-### Несколько конструкторов в классе  [&uarr;](#PHP)
-
-Переопределением называют случаи, когда сигнатура метода (имя и параметры) в суперклассе и дочернем классе совпадают.
-
-Когда два или более метода в одном классе имеют одинаковое имя, но разные параметры, это называется перегрузкой.
-
-Перегрузка в PHP означает возможность динамически "создавать" свойства и методы. Эти динамические сущности
-обрабатываются с помощью магических методов, которые можно создать в классе для различных видов действий.
-
-Методы перегрузки вызываются при взаимодействии со свойствами или методами, которые не были объявлены или не видны в
-текущей области видимости.
-
-Интерпретация "перегрузки" в PHP отличается от большинства объектно-ориентированных языков. Традиционно перегрузка
-означает возможность иметь несколько одноимённых методов с разным количеством и типами аргументов.
-
-Перегрузка свойств ¶
-
-    Метод __set() будет выполнен при записи данных в недоступные (защищённые или приватные) или несуществующие свойства.
-
-    Метод __get() будет выполнен при чтении данных из недоступных (защищённых или приватных) или несуществующих свойств.
-
-    Метод __isset() будет выполнен при использовании isset() или empty() на недоступных (защищённых или приватных) или несуществующих свойствах.
-
-    Метод __unset() будет выполнен при вызове unset() на недоступном (защищённом или приватном) или несуществующем свойстве. 
-
-    Замечание: 
-
-    Возвращаемое значение __set() будет проигнорировано из-за способа обработки в PHP оператора присваивания. Аналогично, __get() никогда не вызывается при объединении присваиваний, например, подобным образом:
-
-        $a = $obj->b = 8;
-
-    Замечание:
-
-    PHP не будет вызывать перегруженный метод изнутри того же перегруженного метода. Это означает, что, например, написание return $this->foo внутри __get() вернёт null и вызовет ошибку уровня E_WARNING, если не определено свойство foo, вместо того, чтобы вызвать метод __get() во второй раз. Однако методы перегрузки могут неявно вызывать другие методы перегрузки (например, метод __set() вызывает метод __get()). 
-
-Перегрузка методов
-
-     __call() запускается при вызове недоступных методов в контексте объект.
-
-    __callStatic() запускается при вызове недоступных методов в статическом контексте. 
-
-Конструкторы
-
-    PHP позволяет объявлять методы-конструкторы. Классы, в которых объявлен метод-конструктор, будут вызывать этот метод при каждом создании нового объекта, так что это может оказаться полезным, например, для инициализации какого-либо состояния объекта перед его использованием. 
-
-    Начиная с PHP 8.0.0, параметры конструктора можно использовать для задания соответствующих свойств объекта. Это довольно распространённая практика — присваивать свойствам объекта параметры, переданные в конструктор, не производя никаких дополнительных преобразований. Определение свойств класса в конструкторе позволяет значительно сократить количество шаблонного кода для такого случая. 
-
-    class Point {
-        public function __construct(protected int $x, protected int $y = 0) {
-        }
+    private function __construct(?int $id = null, ?string $name = null) {
+        $this->id = $id;
+        $this->name = $name;
     }
 
-`К сожалению, конструкторы, как и остальные методы класса в PHP, не могут быть «перегружены».`
-
-Статические методы создания объекта
-
-    PHP поддерживает только один конструктор для класса. Однако в некоторых случаях есть необходимость создавать объект разными путями в зависимости от разных входных данных. Рекомендуемый способ - использовать статические методы как обёртки над конструктором. 
-
-    Конструктор можно сделать скрытым или защищённым для предотвращения его прямого вызова. В таком случае объект класса можно будет создать только с помощью статических методов. Так как это методы того же класса, они имеют доступ ко всем его скрытым методам, даже если они относятся к разным экземплярам класса. Скрытый конструктор опционален и может присутствовать или отсутствовать по необходимости. 
-
-    
-    class Product {
-
-        private ?int $id;
-        private ?string $name;
-
-        private function __construct(?int $id = null, ?string $name = null) {
-            $this->id = $id;
-            $this->name = $name;
-        }
-
-        public static function fromBasicData(int $id, string $name): static {
-            $new = new static($id, $name);
-            return $new;
-        }
+    public static function fromBasicData(int $id, string $name): static {
+        $new = new static($id, $name);
+        return $new;
     }
+}
 
-    $p1 = Product::fromBasicData(5, 'Widget');
+$p1 = Product::fromBasicData(5, 'Widget');
+```
 
-    fromBasicData() принимает явные параметры, создаёт экземпляр класса через конструктор и возвращает объект.
+`fromBasicData()` takes parameters, creates an instance via the constructor, and returns it.
 
-### Трейты - зачем  [&uarr;](#PHP)
+## Traits - why
 
-PHP реализует метод для повторного использования кода под названием трейт (trait).
+PHP supports a code reuse mechanism called traits.
 
-    Трейт - это механизм обеспечения повторного использования кода в языках с поддержкой только одиночного наследования, таких как PHP. Трейт предназначен для уменьшения некоторых ограничений одиночного наследования, позволяя разработчику повторно использовать наборы методов свободно, в нескольких независимых классах и реализованных с использованием разных архитектур построения классов. Семантика комбинации трейтов и классов определена таким образом, чтобы снизить уровень сложности, а также избежать типичных проблем, связанных с множественным наследованием и смешиванием (mixins).
+A trait is a mechanism for code reuse in languages with single inheritance like PHP. It reduces limitations of single
+inheritance by allowing developers to reuse method sets in multiple independent classes. The semantics are designed to
+reduce complexity and avoid issues with multiple inheritance and mixins.
 
-    Трейт очень похож на класс, но предназначен для группирования функционала хорошо структурированным и последовательным образом. Невозможно создать самостоятельный экземпляр трейта. Это дополнение к обычному наследованию и позволяет сделать горизонтальную композицию поведения, то есть применение членов класса без необходимости наследования. 
+A trait is similar to a class, but it cannot be instantiated on its own. It enables horizontal composition of behavior
+without inheritance.
 
-    trait ezcReflectionReturnInfo {
-        function getReturnType() { /*1*/ }
-        function getReturnDescription() { /*2*/ }
+```php
+trait ezcReflectionReturnInfo {
+    function getReturnType() { /*1*/ }
+    function getReturnDescription() { /*2*/ }
+}
+
+class ezcReflectionMethod extends ReflectionMethod {
+    use ezcReflectionReturnInfo;
+    /* ... */
+}
+
+class ezcReflectionFunction extends ReflectionFunction {
+    use ezcReflectionReturnInfo;
+    /* ... */
+}
+```
+
+Priority
+
+A trait method overrides a base class method. Priority order: current class overrides trait, trait overrides inherited
+method.
+
+Multiple traits
+
+A class can use multiple traits by listing them in `use` separated by commas.
+
+Conflict resolution
+
+If two traits define the same method, it is a fatal error unless resolved.
+
+Use `insteadof` to choose one of conflicting methods. Use `as` to alias a method. `as` does not rename the original
+method.
+
+Changing method visibility
+
+Using `as`, you can change method visibility in the consuming class.
+
+```php
+trait HelloWorld {
+    public function sayHello() {
+        echo 'Hello World!';
     }
+}
 
-    class ezcReflectionMethod extends ReflectionMethod {
-        use ezcReflectionReturnInfo;
-        /* ... */
+// Change visibility of sayHello
+class MyClass1 {
+    use HelloWorld { sayHello as protected; }
+}
+
+// Create an alias with changed visibility
+// sayHello itself stays public
+class MyClass2 {
+    use HelloWorld { sayHello as private myPrivateHello; }
+}
+```
+
+Traits composed of traits
+
+Traits can be used in classes and other traits. A trait can be composed of one or more traits.
+
+Abstract members in traits
+
+Traits can define abstract methods to set requirements for the consuming class. Public, protected, and private
+abstract methods are supported (before PHP 8.0 only public and protected).
+
+Warning: The consuming class fulfills requirements by defining a method with the same name; the signature may differ.
+
+```php
+trait Hello {
+    public function sayHelloWorld() {
+        echo 'Hello'.$this->getWorld();
     }
+    abstract public function getWorld();
+}
 
-    class ezcReflectionFunction extends ReflectionFunction {
-        use ezcReflectionReturnInfo;
-        /* ... */
+class MyHelloWorld {
+    private $world;
+    use Hello;
+    public function getWorld() {
+        return $this->world;
     }
-
-Приоритет
-
-    Наследуемый член из базового класса переопределяется членом, находящимся в трейте. Порядок приоритета следующий: члены из текущего класса переопределяют методы в трейте, которые в свою очередь переопределяют унаследованные методы. 
-
-Несколько трейтов ¶
-
-    В класс можно добавить несколько трейтов, перечислив их в директиве use через запятую. 
-
-Разрешение конфликтов
-
-     Если два трейта добавляют метод с одним и тем же именем, это приводит к фатальной ошибке в случае, если конфликт явно не разрешён.
-
-    Для разрешения конфликтов именования между трейтами, используемыми в одном и том же классе, необходимо использовать оператор insteadof для того, чтобы точно выбрать один из конфликтующих методов.
-
-    Так как предыдущий оператор позволяет только исключать методы, оператор as может быть использован для включения одного из конфликтующих методов под другим именем. Обратите внимание, что оператор as не переименовывает метод и не влияет на какой-либо другой метод. 
-
-Изменение видимости метода
-
-    Используя синтаксис оператора as, можно также изменить видимость метода в использующем трейт классе. 
-
-    trait HelloWorld {
-        public function sayHello() {
-            echo 'Hello World!';
-        }
+    public function setWorld($val) {
+        $this->world = $val;
     }
+}
+```
 
-    // Изменение видимости метода sayHello
-    class MyClass1 {
-        use HelloWorld { sayHello as protected; }
+Properties
+
+Traits can define properties.
+
+```php
+trait PropertiesTrait {
+    public $x = 1;
+}
+
+class PropertiesExample {
+    use PropertiesTrait;
+}
+
+$example = new PropertiesExample;
+$example->x;
+```
+
+Static members
+
+Traits can define static variables, methods, and properties.
+
+Note: Since PHP 8.1, calling static methods or properties directly on a trait is deprecated. Access them via the class
+using the trait.
+
+Constants
+
+Since PHP 8.2, traits can define constants.
+
+If a trait defines a constant, a class cannot define a constant with the same name unless they are compatible (same
+visibility, initial value, and final modifier), otherwise a fatal error occurs.
+
+```php
+trait ConstantsTrait {
+    public const FLAG_MUTABLE = 1;
+    final public const FLAG_IMMUTABLE = 5;
+}
+
+class ConstantsExample {
+    use ConstantsTrait;
+}
+
+$example = new ConstantsExample;
+echo $example::FLAG_MUTABLE; // 1
+```
+
+## Can you do multiple inheritance in PHP?
+
+PHP supports inheriting from only one class. Multiple inheritance is not supported.
+
+If you need multiple inheritance, use interfaces. You cannot inherit properties this way, but if you need that, you
+should probably avoid properties and use methods.
+
+Traits are another alternative.
+
+If asked about multiple inheritance in PHP, you can say "yes" in the sense that interfaces can inherit from multiple
+interfaces:
+
+```php
+interface First
+{
+    public function foo(int $x);
+}
+
+interface Second
+{
+    public function bar(string $s);
+}
+
+interface Third extends First, Second
+{
+    public function baz(array $a);
+}
+```
+
+Rules for signature conflicts in multiple inheritance:
+
+- signatures must match exactly, or
+- the signature of the interface listed first must be compatible with the second (order matters, but it is rare)
+
+## Static properties and methods
+
+The `static` keyword has three meanings in PHP.
+
+### 1) Static local variable
+
+Local variables exist only during a function call. When the function ends, the variable is destroyed. On the next call,
+it is created again.
+
+```php
+function foo() {
+    $a = 0;
+    echo $a;
+    $a = $a + 1;
+}
+
+foo(); // 0
+foo(); // 0
+foo(); // 0
+```
+
+If you add `static` before the assignment:
+
+```php
+function foo() {
+    static $a = 0;
+    echo $a;
+    $a = $a + 1;
+}
+
+foo(); // 0
+foo(); // 1
+foo(); // 2
+```
+
+Effects:
+
+1) Assignment happens only on the first call.
+2) The value is preserved after the function ends.
+3) Subsequent calls reuse the stored value.
+
+Caveats:
+
+1) A static variable can only be assigned constants or constant expressions.
+2) Methods exist in one instance. Example:
+
+```php
+class A {
+    public function foo() {
+        static $x = 0;
+        echo ++$x;
     }
+}
 
-    // Создание псевдонима метода с изменённой видимостью
-    // видимость sayHello не изменилась
-    class MyClass2 {
-        use HelloWorld { sayHello as private myPrivateHello; }
+$a1 = new A;
+$a2 = new A;
+
+$a1->foo(); // 1
+$a2->foo(); // 2
+$a1->foo(); // 3
+$a2->foo(); // 4
+```
+
+Even with many objects, the method exists once. Each call just passes a different `$this`.
+
+### 2) Static properties and methods on classes
+
+PHP allows defining properties and methods on the class itself. Use `static`.
+
+Access them with the scope resolution operator `::`, like `ClassName::$var` or `ClassName::method()`.
+
+Static methods do not have `$this` because they belong to the class, not an instance.
+
+Note: You can call a static method on an object if it does not use `$this`:
+
+```php
+class A {
+    static public function foo() {
+        echo 42;
     }
+}
 
-Трейты, состоящие из трейтов
+$a = new A;
+$a->foo();
+```
 
-    Трейты могут использоваться как в классах, так и в других трейтах. Используя один или более трейтов в определении другого трейта, он может частично или полностью состоять из членов, определённых в этих трейтах. 
+This is allowed in PHP. But accessing a static property via `->` is a fatal error.
 
-Абстрактные члены трейтов
+### 3) Late Static Binding (LSB)
 
-     Трейты поддерживают использование абстрактных методов для того, чтобы установить требования к использующему классу. Поддерживаются общедоступные, защищённые и закрытые методы. До PHP 8.0.0 поддерживались только общедоступные и защищённые абстрактные методы.
-    
-    Предостережение:
+LSB is best explained with an example:
 
-    Конкретный класс исполняет эти требования путём определения конкретного метода с тем же именем; при этом сигнатура метода может отличаться.
+```php
+class Model {
+    public static $table = 'table';
 
-    trait Hello {
-        public function sayHelloWorld() {
-            echo 'Hello'.$this->getWorld();
-        }
-        abstract public function getWorld();
+    public static function getTable() {
+        return self::$table;
     }
+}
 
-    class MyHelloWorld {
-        private $world;
-        use Hello;
-        public function getWorld() {
-            return $this->world;
-        }
-        public function setWorld($val) {
-            $this->world = $val;
-        }
+class User extends Model {
+    public static $table = 'users';
+}
+
+echo User::getTable(); // 'table'
+```
+
+`self` refers to the class where the code is written (Model), so `self::$table` is Model::$table. This is early static
+binding: resolution happens at parse/compile time.
+
+To bind at runtime, use `static` instead of `self`:
+
+```php
+class Model {
+    public static $table = 'table';
+
+    public static function getTable() {
+        return static::$table;
     }
+}
 
-Свойства
+class User extends Model {
+    public static $table = 'users';
+}
 
-    Трейты могут также определять свойства. 
+echo User::getTable(); // 'users'
+```
 
-    trait PropertiesTrait {
-        public $x = 1;
+This is late static binding. PHP also provides `get_called_class()` to get the calling class name.
+
+## Asynchrony, concurrency, parallelism, multithreading in PHP
+
+In short, asynchronous execution means a block of code (a "task") runs not in a fixed order, but in an order determined
+by external conditions such as events or time.
+
+A simple example is JavaScript's setTimeout:
+
+```js
+setTimeout(function () { alert('I will run in 5 seconds'); }, 5000);
+alert('I will run immediately');
+```
+
+## Event loop
+
+PHP does not implement an event loop by default. This is not because PHP is bad and JS is good; PHP lives in a different
+paradigm.
+
+Simplified PHP flow: "request" -> "web server" -> "PHP process" -> "web server" -> "response". In this model, PHP
+wants to finish quickly so the client gets a response. There is no place for an event loop.
+
+But when you write long-running CLI or GUI apps in PHP, delayed execution becomes necessary. Even "if client pressed A"
+becomes asynchronous.
+
+## Event-driven in Symfony - is it async?
+
+Short answer: no.
+
+Framework event systems (Symfony, Laravel, punBB) can give the illusion of async, but they are not. Event-driven
+programming in request/response PHP is a pattern for complex synchronous flow, not async execution. It does not add an
+actual event loop.
+
+This does not apply to distributed asynchrony, described below.
+
+Event-driven programming is a paradigm where program flow is determined by events: user actions, messages from other
+programs, OS events (such as a network packet).
+
+Typically, the main loop has two parts: fetch an event and handle it.
+
+Long event handlers are problematic because the program cannot respond to other events. This is why state-machine
+programming is often used.
+
+State-machine programming treats a program or part of it as a formal automaton. You model complex behavior as
+state-driven objects.
+
+### Where this applies
+
+This architecture works well in large systems with heavy business logic that can be decomposed into sequential or
+parallel steps. It fits cases where you do not need synchronous client interaction. That is most systems.
+
+It does not require rewriting from scratch; it can be introduced into existing microservices or monoliths.
+
+### Tools
+
+This section cannot cover all tools deeply, but here are common ones for event-driven architecture in PHP.
+
+Event channels
+
+To pass data between components/services, use:
+
+- RabbitMQ: popular queue broker with complex routing.
+- Kafka: event streaming platform that handles huge volumes and can replay events from a point in time.
+- Redis: in-memory key-value DB with rich structures; you can build queues or extend with Lua.
+- SQS: if you use cloud infrastructure, SQS or similar is simple and managed by the provider.
+
+Event handlers
+
+The common solution is daemons: background programs that continuously read from a queue and process messages.
+
+PHP was built to die after each request. For long-running workers, you must manage daemons properly: stop at safe points
+and restart automatically if they crash.
+
+## Distributed asynchrony
+
+If you split code into two or more independent services connected by an event bus or queue, you get real asynchrony.
+The bus can be RabbitMQ or Redis Pub/Sub.
+
+Flow:
+
+- An HTTP service receives a request.
+- If business logic needs a deferred action (e.g. send email), it writes an event to a queue and continues.
+- A worker service in CLI loops, receives the event, handles the task, and waits for the next.
+
+This is asynchronous execution, at the cost of more services. In Laravel, this is called Queued Events.
+
+## Cooperative multitasking with generators and coroutines
+
+Assume we have an event loop and can run tasks later. What if tasks are heavy? For example, reading a large file,
+processing it, and writing to a DB. Async execution alone does not help.
+
+We need to split large tasks into quanta and run them in small steps, alternating between tasks. Example: read one line,
+transform it, write it, then read the next line. This is cooperative multitasking (concurrency). Tasks run sequentially
+but give the illusion of parallelism and save resources by processing one line at a time instead of loading the whole
+file.
+
+PHP provides tools for this: generators and coroutines.
+
+## yield
+
+A generator is like a function, but instead of returning one value, it yields many. Any function containing `yield` is a
+generator.
+
+Calling a generator returns an object you can iterate. Each iteration asks for the next value; the generator preserves
+its state between calls.
+
+When values end, the generator finishes and the main code continues like a normal foreach over an array.
+
+In the simplest case, `yield` is like `return`, but it pauses the function instead of ending it. The next call resumes
+from the pause.
+
+The benefit is not just memory savings, but cleaner code that can be consumed via foreach.
+
+A foreach over a generator is a clean wrapper for a loop. The generator lets you turn the loop inside out and access
+values from outside.
+
+This makes generators useful when your data source varies (array, file, DB). Without generators, you would either load
+into memory or duplicate code. Generators allow one foreach-based implementation.
+
+Generators are also good for infinite iterators (even numbers, etc). They implement lazy evaluation.
+
+Example 1: Simple generator
+
+```php
+function gen_one_to_three() {
+    for ($i = 1; $i <= 3; $i++) {
+        // $i keeps its value between calls.
+        yield $i;
     }
+}
 
-    class PropertiesExample {
-        use PropertiesTrait;
+$generator = gen_one_to_three();
+foreach ($generator as $value) {
+    echo "$value\n";
+}
+```
+
+Output:
+
+```
+1
+2
+3
+```
+
+Example 2: Parse large CSV line by line
+
+```php
+function getRows($file) {
+    $handle = fopen($file, 'rb');
+    if ($handle === false) {
+        throw new Exception();
     }
-
-    $example = new PropertiesExample;
-    $example->x;
-
-Статические члены трейта ¶
-
-    В трейтах можно определять статические переменные, статические методы и статические свойства.
-
-    Замечание:
-
-    Начиная с PHP 8.1.0, вызов статического метода или доступ к статическому свойству непосредственно в трейте устарел. К статическим методам и свойствам следует обращаться только в классе, использующем трейт. 
-
-Константы
-
-    Начиная с версии PHP 8.2.0, трейты могут также определять константы. 
-
-    Если трейт определяет константу, то класс не может определить константу с таким же именем, если только они не совместимы (одинаковая область видимости, начальное значение и модификатор final), иначе выбрасывается фатальная ошибка. 
-
-    trait ConstantsTrait {
-        public const FLAG_MUTABLE = 1;
-        final public const FLAG_IMMUTABLE = 5;
+    while (feof($handle) === false) {
+        yield fgetcsv($handle);
     }
+    fclose($handle);
+}
 
-    class ConstantsExample {
-        use ConstantsTrait;
+foreach (getRows('data.csv') as $row) {
+    print_r($row);
+}
+```
+
+Example 3: Line-by-line file reading with generators
+
+```php
+$task1 = function () {
+    $fh = fopen(__DIR__ . '/test.txt', 'r');
+    while (!feof($fh)) {
+        yield trim(fgets($fh));
     }
+};
 
-    $example = new ConstantsExample;
-    echo $example::FLAG_MUTABLE; // 1
+foreach ($task1() as $str) {
+    echo $str . PHP_EOL;
+}
+```
 
-### Можно ли сделать множестенное наследование в PHP  [&uarr;](#PHP)
+## Coroutines
 
-Стоит отметить, что в PHP мы можем унаследовать класс только от одного класса. Множественное наследование не
-поддерживается.
+Generators can also receive values. `yield` can be used as an expression.
 
-Если вам это понадобилось в PHP, значит пора внедрять интерфейсы. Свойства вы так не унаследуете, но опять таки если вам
-это понадобилось, пора от них избавляться в пользу методов.
+Example: "Receive a string, uppercase it, yield it, wait for next string":
 
-Как альтернативу множественному наследованию - можно использовать трейты.
-
-    Если ли в PHP множественное наследование?
-
-    Если вам зададут такой вопрос, смело отвечайте: «да». Интерфейс может наследоваться от нескольких других интерфейсов.
-
-    interface First
-    {
-        public function foo(int $x);
-    }
-
-    interface Second
-    {
-        public function bar(string $s);
-    }
-
-    interface Third
-    extends First, Second
-    {
-        public function baz(array $a);
-    }
-
-    Правила решения конфликтов сигнатур методов при множественном наследовании:
-
-    — либо сигнатуры совпадают полностью
-    — либо сигнатура метода интерфейса, упомянутого в списке предков первым, должна быть совместима с сигнатурой из второго предка (да, порядок упоминания имеет значение, но это очень редкий кейс, просто не принимайте его никогда во внимание)
-
-### Статические свойства и методы  [&uarr;](#PHP)
-
-Ключевое слово static имеет в PHP три различных значения.
-
-Значение первое — статическая локальная переменная
-
-    В PHP переменные локальны. Это значит, что переменная, определенная и получившая значение внутри функции (метода), существует только во время выполнения этой функции (метода). При выходе из метода локальная переменная уничтожается, а при повторном входе — создается заново.
-
-    function foo() {
-        $a = 0;
-        echo $a;
-        $a = $a + 1;
-    }
-
-    foo(); // 0
-    foo(); // 0
-    foo(); // 0
-
-    Однако всё меняется, если мы перед присваиванием поставим ключевое слово static:
-
-    function foo() {
-        static $a = 0;
-        echo $a;
-        $a = $a + 1;
-    }
-
-    foo(); // 0
-    foo(); // 1
-    foo(); // 2
-
-    Ключевое слово static, написанное перед присваиванием значения локальной переменной, приводит к следующим эффектам:
-
-    1) Присваивание выполняется только один раз, при первом вызове функции
-    2) Значение помеченной таким образом переменной сохраняется после окончания работы функции
-    3) При последующих вызовах функции вместо присваивания переменная получает сохраненное ранее значение
-
-    Такое использование слова static называется статическая локальная переменная.
-
-    Подводные камни статических переменных:
-
-    1) Камень первый — статической переменной присваивать можно только константы или константные выражения.
-
-    2) Камень второй — методы существуют в единственном экземпляре. Тут всё чуть сложнее. Для понимания сути приведу код:
-
-    class A {
-        public function foo() {
-            static $x = 0;
-            echo ++$x;
-        }
-    }
-
-    $a1 = new A;
-    $a2 = new A;
-
-    $a1->foo(); // 1
-    $a2->foo(); // 2
-    $a1->foo(); // 3
-    $a2->foo(); // 4
-
-    Вопреки интуитивному ожиданию «разные объекты — разные методы» мы наглядно видим на этом примере, что динамические методы в PHP «не размножаются». Даже если у нас будет сто объектов этого класса, метод будет существовать лишь в одном экземпляре, просто при каждом вызове в него будет пробрасываться разный $this. 
-
-Значение второе — статические свойства и методы классов
-
-    В объектной модели PHP существует возможность задавать свойства и методы не только для объектов — экземпляров класса, но и для класса в целом. Для этого тоже служит ключевое слово static:
-
-    Для доступа к таким свойствам и методам используются конструкции с двойным двоеточием («Paamayim Nekudotayim»), такие как ИМЯ_КЛАССА::$имяПеременной и ИМЯ_КЛАССА:: имяМетода().
-
-    Оператор разрешения области видимости (также называемый "Paamayim Nekudotayim") или просто "двойное двоеточие" - это лексема, позволяющая обращаться к статическим свойствам, константам и переопределённым свойствам или методам класса. 
-
-    Само собой разумеется, что у статических свойств и статических методов есть свои особенности и свои «подводные камни», которые нужно знать:
-
-    1) Особенность первая, банальная — нет $this. Собственно это проистекает из самого определения статического метода — поскольку он связан с классом, а не объектом, в нём недоступна псевдопеременная $this, указывающая в динамических методах на текущий объект. Что совершенно логично.
-
-    2) Особенность вторая — static не аксиома!
-
-    class A {
-        static public function foo() {
-            echo 42;
-        }
-    }
-
-    $a = new A;
-    $a->foo();
-
-    Вот так, да. Статический метод, если он не содержит в коде $this, вполне можно вызывать в динамическом контексте, как метод объекта. Это не является ошибкой в PHP.
-
-    И кстати, всё написанное выше относится только к методам. Использование статического свойства через "->" невозможно и ведет к фатальной ошибке.
-
-Значение третье, кажущееся самым сложным — позднее статическое связывание или LSB (Late Static Binding)
-
-    Понять суть LSB проще всего на несложных примерах:
-
-    class Model {
-        public static $table = 'table';
-
-        public static function getTable() {
-            return self::$table;
-        }
-    }
-
-    class User extends Model {
-        public static $table = 'users';
-    }
-
-    echo User::getTable(); // 'table'
-
-    Ключевое слово self в PHP всегда значит «имя класса, где это слово написано». В данном случае self заменяется на класс Model, а self::$table — на Model::$table.
-
-    Такая языковая возможность называется «ранним статическим связыванием». Почему ранним? Потому что связывание self и конкретного имени класса происходит не в рантайме, а на более ранних этапах — парсинга и компиляции кода. Ну а «статическое» — потому что речь идет о статических свойствах и методах.
-
-    Теперь вы понимаете, почему PHP ведёт себя в этой ситуации неинтуитивно. self был связан с классом Model тогда, когда о классе User еще ничего не было известно, поэтому и указывает на Model.
-
-    Как быть?
-
-    Для решения этой дилеммы был придуман механизм связывания «позднего», на этапе рантайма. Работает он очень просто — достаточно вместо слова «self» написать «static» и связь будет установлена с тем классом, который вызывает данный код, а не с тем, где он написан:
-
-    class Model {
-        public static $table = 'table';
-        
-        public static function getTable() {
-            return static::$table;
-        }
-    }
-
-    class User extends Model {
-        public static $table = 'users';
-    }
-
-    echo User::getTable(); // 'users'
-
-    Это и есть загадочное «позднее статическое связывание».
-
-    Нужно отметить, что для большего удобства в PHP кроме слова «static» есть еще специальная функция get_called_class(), которая сообщит вам — в контексте какого класса в данный момент работает ваш код.
-
-### Асинхронность, конкурентность, параллельность, многопоточность в PHP [&uarr;](#PHP)
-
-Если кратко, то асинхронное выполнение кода - это возможность некий блок кода (иначе говоря, "задачу") выполнить не в
-заранее
-заданном порядке, а в порядке, который зависит от.
-
-От чего? От внешних условий: от наступления определенного события или, к примеру, наступления момента времени.
-
-Самый простой пример, который можно привести, это, конечно, знаменитая функция setTimeout из JS
-
-    setTimeout(function () { alert('Я выполнюсь через 5 секунд'); }, 5000);
-    alert('А я выполнюсь сразу');
-
-### Event loop - цикл событий [&uarr;](#PHP)
-
-Всё дело в том, что PHP изначально не реализует так называемый "цикл обработки событий", или "Event Loop". Не реализует
-не потому,
-что PHP - плохой язык, а JS - хороший, тут вообще не применимы моральные оценки - а потому что PHP зачастую живет в
-другой парадигме.
-
-Как работает PHP, если опустить нюансы? Очень просто, "запрос" - "веб-сервер" - "процесс PHP" - "веб-сервер" - "ответ".
-И даже если
-опустить дурацкую поговорку про то, что "PHP рожден, чтобы умирать", всё равно понятно, что в режиме совместной работы с
-веб-сервером
-программа на PHP заинтересована в том, чтобы заканчивать свою работу как можно быстрее. Какие уж тут циклы событий,
-какая
-асинхронность - чем быстрее процесс отработает, тем быстрее клиент получит ответ!
-
-Но всё меняется, когда мы переходим от модели "веб-сервер + PHP" к написанию долгоиграющих консольных или, чем не шутит
-черт, GUI
-(а такие примеры уже есть) приложений на PHP. В этих случаях необходимость отложенного выполнения кода становится
-очевидной, ведь
-даже простейшая задача вроде "Если клиент нажал А, то..." становится асинхронной!
-
-### Event-driven в Symfony - это асинхронность? [&uarr;](#PHP)
-
-Коротко: нет.
-
-Если рассмотреть встроенный, скажем в Symfony или Laravel или (это классический пример!) punBB механизм "событий", "
-уведомлений"
-и их "обработчиков" - может сложиться ложное впечатление, что всё это - асинхронное выполнение кода.
-
-На самом деле я глубоко убежден, что event-driven программирование на PHP в парадигме конечного процесса "
-запрос-работа-ответ" - это
-средство прежде всего запутать программиста, создав у него иллюзию, что он овладел волшебной асинхронностью. При том,
-что на самом
-деле он овладел искусством создания запутанной лапши вместо кода.
-
-Поэтому - нет. Event-driven это не про асинхронность, это архитектурный паттерн построения синхронных программ, со
-сложным и
-заранее непрогнозируемым потоком исполнения. Никакого цикла генерации и обработки событий этот паттерн не добавляет.
-
-Разумеется, всё сказанное выше не имеет отношения к распределенной асинхронности, о которой речь пойдет дальше.
-
-Событи́йно-ориенти́рованное программи́рование (англ. event-driven programming; в дальнейшем СОП) — парадигма
-программирования, в
-которой выполнение программы определяется событиями — действиями пользователя (клавиатура, мышь, сенсорный экран),
-сообщениями
-других программ и потоков, событиями операционной системы (например, поступлением сетевого пакета).
-
-СОП можно также определить как способ построения компьютерной программы, при котором в коде (как правило, в головной
-функции программы)
-явным образом выделяется главный цикл приложения, тело которого состоит из двух частей: выборки события и обработки
-события.
-
-Как правило, в реальных задачах оказывается недопустимым длительное выполнение обработчика события, поскольку при этом
-программа не
-может реагировать на другие события. В связи с этим при написании событийно-ориентированных программ часто применяют
-автоматное
-программирование.
-
-Автома́тное программи́рование — это парадигма программирования, при использовании которой программа или её фрагмент
-осмысливается как
-модель какого-либо формального автомата. Известна также и другая «парадигма автоматного программирования, состоящая в
-представлении сущностей со сложным поведением в виде автоматизированных объектов управления, каждый из которых
-представляет собой
-объект управления и автомат». При этом о программе, как в автоматическом управлении, предлагается думать, как о системе
-автоматизированных объектов управления.
-
-Где применим данный подход
-
-    Исходя из рассмотренного нами примера, можно сделать вывод, что такая архитектура хорошо показывает себя в больших системах, 
-    где есть тяжелая бизнесс логика, которая может быть декомпозирована на последовательные или параллельные шаги выполнения. 
-    Там, где нам не требуется синхронного взаимодействия с клиентами. То есть в большинстве систем :)
-    
-    Данный подход не требует полного переписывания проекта с нуля, он может внедряться в уже существующих системах, построенных на 
-    (микро)сервисной архитектуре или в монолитах. 
-
-Поговорим про инструменты
-
-В рамках данной статьи будет очень сложно глубоко рассмотреть различные инструменты и провести их сравнительный анализ.
-Однако, я попробую рассмотреть в общих чертах инструменты и технологии, которые мы можем использовать для построения
-событийно-ориентированной архитектуры в рамках PHP-стека.
-
-Каналы событий
-
-Так как нам нужно передавать данные между компонентами/сервисами, будем использовать подходящие для этого инструменты:
-
-    RabbitMQ — популярный брокер очередей, который позволяет строить сложный роутинг сообщений в очередях.
-
-    Kafka — event-streaming платформа, которая позволяет пропускать через себя огромное количество событий, сохранять их и переиспользовать в будущем, а также при необходимости заново обрабатывать, начиная с какого-то определенного события в прошлом.
-
-    Redis — in-memory key-value СУБД, которая из коробки поддерживает кучу структур данных и операций с ними, на основе которых можно строить собственные реализации очередей. А если не хватает функциональности из коробки — её можно расширить самописными Lua-скриптами.
-
-    SQS — если вы пользуетесь облачной инфраструктурой, можно попробовать SQS или его аналоги. Простой инструмент, которым можно пользоваться из коробки, не нужно заморачиваться с установкой и настройкой — берёте и используете. Облачный провайдер берёт заботы по администрированию на себя.
-
-Обработчики событий
-
-А теперь самое интересное: как же нам обрабатывать информацию из очередей? Самым очевидным решением являются демоны —
-программы/скрипты,
-которые работают в фоне в системе, они постоянно считывают информацию из очереди, и при получении сообщения оттуда —
-обрабатывают его.
-
-Все мы знаем, что PHP был создан для того, чтобы постоянно умирать :)
-
-Каждый раз, когда к нам приходит запрос от клиента, мы поднимаем PHP-скрипт, в рамках его выполнения отрабатывает
-бизнес-логика,
-после чего скрипт завершает свою работу.
-
-Нам нужно правильным образом научиться управлять нашими демонами: запускать и останавливать в безопасной точке, чтобы не
-прерывать
-исполнение нашей бизнес-логики где-то на середине задачи. Если наш скрипт по какой то причине умрёт, он должен
-автоматически
-перезапускаться.
-
-### Распределенная асинхронность [&uarr;](#PHP)
-
-Впрочем, всё меняется, если вы раскладываете свой код на >=2 независимых сервиса и соединяете их некой "шиной" или "
-очередью" событий.
-
-В качестве такой "шины событий" может выступать, к примеру, RabbitMQ или, скажем, встроенный в Redis механизм PUB/SUB.
-
-В таком случае мы действительно получаем настоящую асинхронность (ключевые для понимания моменты выделены):
-
-    HTTP-сервис принимает запрос;
-
-    Поняв, что бизнес-логика требует отложенного действия (например: отправки письма пользователю) HTTP-сервис создает в очереди событие, а сам продолжает выполняться дальше;
-
-    Вспомогательный сервис, работая в cli и выполняя бесконечный цикл, получает из очереди уведомление о событии и выполняет связанную с ним задачу, а затем продолжает ждать следующее событие.
-
-Это - асинхронное выполнение кода. Пусть и ценой увеличения количества сервисов в приложении.
-
-Посмотрите, к примеру, как такой подход реализован в том же Laravel, где он называется "Queued Events".
-
-### Кооперативная многозадачность на примере генераторов и корутин [&uarr;](#PHP)
-
-Хорошо, предположим, что мы с вами в совершенстве освоили технику создания Event Loop и научились выполнять задачи
-отложенно. Но как быть, если задачи достаточно объемные? К примеру, задачей может быть чтение большого файла с данными,
-обработка этих данных и запись в базу. Поможет ли асинхронное исполнение оптимизировать производительность? Нет.
-
-Нам нужно найти какой-то способ разбивать крупные задачи на кванты и выполнять их "дискретно", чередуя выполнение
-квантов задач. К примеру - прочитали одну строку из файла (квант задачи №1), преобразовали эти данные в нужный вид (
-квант задачи №2), записали в базу (квант задачи №3), снова вернулись к чтению очередной строки из файла (следующий квант
-задачи №2).
-
-Если мы решим задачу квантования задач - мы получим в итоге так называемую "кооперативную многозадачность" или, иными
-словами, конкурентность. Кванты будут выполняться последовательно, конкурируя за процессорное время, но при этом
-возникнет иллюзия параллельного выполнения задач и неиллюзорная экономия ресурсов - ведь хранить в памяти и обрабатывать
-одну строчку из файла гораздо выгоднее, нежели прочесть весь файл целиком, а затем заняться им.
-
-Для такого "квантования" в PHP существует ряд языковых средств. Первое из них - генераторы и корутины.
-
-### yield [&uarr;](#PHP)
-
-Генератор в целом выглядит как обычная функция, за исключением того, что вместо возвращения одного значения, генератор
-будет
-перебирать столько значений, сколько необходимо. Любая функция, содержащая yield, является функцией генератора.
-
-Когда вызывается генератор, он возвращает объект, который можно итерировать. Когда вы итерируете этот объект
-(например, в цикле foreach), PHP вызывает методы итерации объекта каждый раз, когда вам нужно новое значение, после чего
-сохраняет состояние генератора и при следующем вызове возвращает следующее значение.
-
-Когда все значения в генераторе закончились, генератор просто завершит работу, ничего не вернув. После этого основной
-код
-продолжит работу, как если бы в массиве закончились элементы для перебора.
-
-В самом простом варианте оператор "yield" можно рассматривать как оператор "return", за исключением того, что вместо
-прекращения
-работы функции, "yield" только приостанавливает её выполнение и возвращает текущее значение, и при следующем вызове
-функции она
-возобновит выполнения с места, на котором прервалась.
-
-Польза yield не в экономии памяти, а в более красивом коде, который и память экономит, и позволяет инкапсулировать
-детали реализации.
-
-foreach c генератором - это всего лишь красивая обёртка для цикла
-
-    for ($i = 1; $i < 800000; $i++) {
-        echo $i;
-    }
-
-Всю работу делает этот цикл. Генератор просто позволяет "вывернуть его наизнанку", и обращаться к получаемым в цикле
-значениям
-не внутри, а "снаружи".
-
-Отсюда и практическое применение генератора: оно не в "экономии памяти", а в использовании foreach. Везде, где foreach
-удобнее
-while или for, генератор будет предпочтительнее. Он позволяет писать более красивый, и - главное - более универсальный
-код.
-К примеру мы пишем обработчик каких-то данных, причем источник этих данных может быть совершенно разным - это может быть
-массив,
-или текстовый файл, или база данных.
-
-Без генератора нам придется либо вторые два источника приводить к массиву, тратя память, либо дублировать код три раза,
-поскольку
-мы должны будем поместить его внутри цикла.
-
-А генератор позволит обращаться ко всем трем источникам через foreach, то есть код можно будет написать только один раз.
-
-С помощью генераторов удобно писать `бесконечные` итераторы всяких последовательностей - к примеру, четных чисел, когда
-каждое п
-оследующее обращение к генератору будет возвращать следующий элемент из последовательности. Такое себе вычисление
-по-требованию,
-то есть "ленивое".
-
-Пример #1 Простой пример выдачи значений
-
-    <?php
-    function gen_one_to_three() {
-        for ($i = 1; $i <= 3; $i++) {
-            // Обратите внимание, что $i сохраняет своё значение между вызовами.
-            yield $i;
-        }
-    }
-    
-    $generator = gen_one_to_three();
-    foreach ($generator as $value) {
-        echo "$value\n";
-    }
-    ?>
-
-Результат выполнения данного примера:
-
-    1
-    2
-    3
-
-Пример #2 Парсим большие csv (построчный перебор)
-
-    <?php
-    function getRows($file) {
-        $handle = fopen($file, 'rb');
-        if ($handle === false) {
-            throw new Exception();
-        }
-        while (feof($handle) === false) {
-            yield fgetcsv($handle);
-        }
-        fclose($handle);
-    }
-    
-    foreach (getRows('data.csv') as $row) {
-        print_r($row);
-    }
-
-Пример #3 Попробуем решить задачу построчного чтения файла на генераторах:
-
-    $task1 = function () {
-        $fh = fopen(__DIR__ . '/test.txt', 'r');
-        while (!feof($fh)) {
-            yield trim(fgets($fh));
-        }
-    };
-
-Первая задача представляет из себя генератор, который будет построчно читать некий файл и генерировать
-последовательность прочитанных строк.
-
-Использовать генератор можно с помощью цикла foreach (совместный цикл) или явно вызывая его методы:
-
-    foreach ($task1() as $str) {
-        echo $str . PHP_EOL;
-    }
-
-### Корутины [&uarr;](#PHP)
-
-Однако, на этом возможности генераторов не исчерпываются. Мы можем не только получать от генератора очередные значения
-генерируемой
-им последовательности, но и передавать в генератор значения на каждом шаге! Для этого используется то же ключевое слово
-yield, но уже как выражение.
-
-Давайте попробуем перевести на язык генераторов вторую задачу: "Принять строку, преобразовать ее к верхнему регистру,
-выдать, как
-значение последовательности, ждать следующую строку":
-
-    $task2 = function () {
-        while (true) {
-            $value = yield; // Приняли очередное значение извне
-            yield mb_strtoupper($value); // Использовали его для генерации
-        } // И так повторяем бесконечно
-    };
-
-Такой генератор, который умеет принимать извне значения, называется "`корутиной`" или, по-русски, "`сопрограммой`".
-
-Полностью код, который будет использовать обе наши задачи, может теперь выглядеть так:
-
-    $gen1 = $task1();
-    $gen2 = $task2();
-    
+```php
+$task2 = function () {
     while (true) {
-        if (!$gen1->valid()) {
-            break;
-        }
-        $str = $gen1->current();
-        echo 'Прочитано: ' . $str . PHP_EOL;
-        $str = $gen2->send($str);
-        echo 'Обработано: ' . $str . PHP_EOL;
-    
-        $gen1->next();
-        $gen2->next();
+        $value = yield; // receive value
+        yield mb_strtoupper($value); // yield transformed value
     }
+};
+```
 
-Попробуйте записать какой-нибудь текст в тестовый файл и запустить этот код. Вы увидите, как первая задача-генератор
-читает
-очередную строку из файла, значение передается второй задаче-сопрограмме, и так строчка за строчкой, пока не закончится
-исходный файл.
+A generator that can receive values is a coroutine.
 
-Мы реализовали с вами кооперативную многозадачность (конкурентность) - псевдопараллельное выполнение задач, основанное
-на том,
-что задача может выполнить квант работы, прервать сама себя, сохранив своё состояние и передать управление другой
-задаче.
+Full code using both tasks:
 
-Разумеется, никакой настоящей параллельности здесь нет. Скажем, если первой задаче для кванта работы требуется одна
-секунда, второй
-задаче для своего кванта - тоже секунда, а всего таких квантов 100, в целом программа будет выполняться минимум 200
-секунд.
-Мы выигрываем лишь в ресурсах (в памяти) и в возможности прервать работу, оставив ее сделанной частично. Но
-принципиально мы
-по-прежнему находимся в рамках 2*100=200.
+```php
+$gen1 = $task1();
+$gen2 = $task2();
 
-Конечно, нужно отметить, что мы получаем возможность работы с потенциально бесконечными задачами, что без генераторов
-невозможно.
+while (true) {
+    if (!$gen1->valid()) {
+        break;
+    }
+    $str = $gen1->current();
+    echo 'Read: ' . $str . PHP_EOL;
+    $str = $gen2->send($str);
+    echo 'Processed: ' . $str . PHP_EOL;
 
-### Файберы [&uarr;](#PHP)
+    $gen1->next();
+    $gen2->next();
+}
+```
 
-Файберы - как еще один маленький шаг вперед
+This is cooperative multitasking: a task does a quantum of work, pauses, and hands control to another task.
 
-Если генераторы и сопрограммы были в PHP почти всегда (добавлены в версию 5.4) то "файберы" ("волокна" в переводе) - это
-новинка
-недавняя, появившаяся в версии 8.1
+There is no real parallelism. If task 1 takes 1 second per quantum and task 2 also takes 1 second, and there are 100
+quanta, total time is 200 seconds. We save memory and can interrupt tasks, but still have 2*100.
 
-Файберы - это способ останавливать любые функции, а не только генераторы в любом месте (в том числе во вложенных
-вызовах) и
-возобновлять их.
+Generators allow working with infinite tasks, which would be impossible otherwise.
 
-Перепишем предыдущий пример с использованием файберов:
+## Fibers
 
-    $task1 = new Fiber(function () {
-        Fiber::suspend();
-        $fh = fopen(__DIR__ . '/test.txt', 'r');
-        while (!feof($fh)) {
-            Fiber::suspend(trim(fgets($fh)));
-        }
-    });
-    
-    $task2 = new Fiber(function () {
-        $value = Fiber::suspend();
-        while (true) {
-            $value = Fiber::suspend(mb_strtoupper($value));
-        }
-    });
-    
-    $task1->start();
-    $task2->start();
-    
+Fibers are a newer feature added in PHP 8.1. Generators and coroutines were added in PHP 5.4.
+
+Fibers allow pausing any function, not just generators, at any level (including nested calls), and resuming later.
+
+Example rewritten with fibers:
+
+```php
+$task1 = new Fiber(function () {
+    Fiber::suspend();
+    $fh = fopen(__DIR__ . '/test.txt', 'r');
+    while (!feof($fh)) {
+        Fiber::suspend(trim(fgets($fh)));
+    }
+});
+
+$task2 = new Fiber(function () {
+    $value = Fiber::suspend();
     while (true) {
-    // Получаем от первого файбера очередную строку из файла
+        $value = Fiber::suspend(mb_strtoupper($value));
+    }
+});
+
+$task1->start();
+$task2->start();
+
+while (true) {
+    // Get next line from first fiber
     $str = $task1->resume();
-    
-        // Если его работа закончена - закончен и наш "бесконечный" цикл
-        if ($task1->isTerminated()) {
-            break;
+
+    // If finished, stop
+    if ($task1->isTerminated()) {
+        break;
+    }
+
+    echo 'Read: ' . $str . PHP_EOL;
+
+    // Pass line to second fiber
+    $str = $task2->resume($str);
+    echo 'Processed: ' . $str . PHP_EOL;
+}
+```
+
+The tricky part is `Fiber::suspend()`: it returns a value from the fiber, pauses execution until resume(), and returns
+an external value for the next quantum.
+
+Note the first line in each fiber is `Fiber::suspend()` to pause immediately after start.
+
+Fibers allow wrapping any function, pausing at any depth with call stack preserved. They provide a clean OOP API.
+
+Fibers are not revolutionary: like generators, they provide concurrency, maybe with a nicer interface.
+
+The 2*100 = 200 rule still applies. The blocking code problem remains: if one task keeps the ball, others wait.
+
+## The blocking code problem
+
+We have tasks and quanta. The ball they pass is the execution thread. There is still only one. If a task holds the ball,
+all others are blocked.
+
+What blocks the thread? Mostly I/O: file reads/writes, DB queries. We cannot stop mid `fgets()` or `PDO::query()`. They
+are synchronous and blocking. The execution thread waits.
+
+Blocking I/O is a fundamental problem independent of OS, language, or framework.
+
+What is the solution? Run async tasks in parallel to the main thread. One way is distributed asynchrony with queues.
+Another is to add more balls.
+
+## Real parallelism - processes
+
+To see real parallelism, consider two tasks: one counts 1..25 with a 1 second pause, the other counts 25..1. Each takes
+25 seconds. Sequential or concurrent execution takes 50 seconds. Parallel takes 25.
+
+Tasks:
+
+```php
+$tasks = [
+    1 => function () {
+        foreach (range(1, 25, +1) as $value) {
+            sleep(1);
+            echo $value . PHP_EOL;
         }
-    
-        echo 'Прочитано: ' . $str . PHP_EOL;
-    
-        // Передаем прочитанную строку второй задаче, получаем от нее результат ее работы
-        $str = $task2->resume($str);
-        echo 'Обработано: ' . $str . PHP_EOL;
-    }
+    },
 
-Самое сложное для понимания место в этом коде - строка №12. В ней происходит та самая магия приостановки задачи.
-
-Многоликий метод Fiber::suspend делает три дела сразу - и возвращает из задачи выходное значение ( mb_strtoupper($
-value) ), и
-приостанавливает выполнение задачи-файбера до следующего вызова метода resume() извне задачи, и возвращает принятое
-извне входное
-значение для следующего кванта работы файбера.
-
-Обратите внимание, что первой строкой в каждой задаче я пишу Fiber::suspend(); Я делаю это намеренно, чтобы задачи
-встали на паузу
-сразу же после вызова метода $task->start()
-
-Принесли ли файберы что-то новое по сравнению с генераторами и корутинами? Да, разумеется. Появилась возможность
-оборачивать в
-файбер любую функцию, приостанавливать ее на любом уровне вложенности с сохранением стека вызовов и контекста. Добавился
-удобный
-объектно-ориентированный интерфейс для работы с задачами.
-
-Является ли это новое чем-то принципиальным и революционным? Нет. Файберы, как и генераторы, реализуют конкурентность,
-лишь,
-возможно, делая её чуть более удобной.
-
-Равенство 2*100 = 200 по-прежнему остается актуальным, мяч у нас по-прежнему один и задачи лишь перекидывают его друг
-другу.
-
-Более того, нас всё еще держит проблема блокирующего кода - если какая-то из задач решит оставить мяч у себя и не
-перекидывать
-своей соседке, мы ничего не сможем с этим сделать...
-
-### Проблема блокирующего кода [&uarr;](#PHP)
-
-Итак, у нас есть задачи. Есть кванты их работы, определяемые генераторами или файберами. И мяч, который задачи
-перекидывают друг другу, освобождая и передавая.
-
-Что это за мяч? Это поток исполнения. Как бы мы с вами ни старались усовершенствовать Event Loop и Concurrency - мяч всё
-равно один. И тот игрок (задача), который зачем-то решит задержать мяч (поток) у себя, остановит (заблокирует) всю
-командную игру - остальные задачи будут вынуждены его ждать.
-
-Что же может заблокировать поток исполнения кода?
-
-Очень много что. В первую очередь - это операции ввода-вывода. Чтение из файла? Запись в файл? Получение данных от базы?
-Да, разумеется. Всё это - блокирующие операции, так называемый "блокирующий I/O", то есть "ввод-вывод".
-
-Мы не можем с вами остановиться посередине функции fgets() или метода PDO::query(). Если их выполнение началось - нужно
-ждать окончания, сколько бы это ни заняло времени. А мяч, точнее поток исполнения? Стоит. Ждет. Потому что эти функции
-синхронные и блокирующие.
-
-Блокирующий I/O - это фундаментальная проблема. Она не зависит от операционной системы (ввод-вывод везде блокирующий),
-от языка программирования (он тут вообще ничего не решает) или от фреймворка.
-
-Какой же выход? Как нам получить реальную пользу от асинхронного выполнения кода?
-
-Выход только один - асинхронные задачи нужно запускать параллельно основному потоку исполнения. Один способ мы уже
-знаем - это распределенная асинхронность и использование очереди событий.
-
-Есть ли другие способы? Да. Есть. Оказывается, можно закинуть на площадку несколько мячей.
-
-### Реальное параллельное исполнение - процессы [&uarr;](#PHP)
-
-Для того, чтобы нам увидеть параллельное исполнение задач, давайте их должным образом подготовим.
-
-Пусть у нас первая задача считает числа от 1 до 25 с паузой в 1 секунду между ними, а вторая - точно также считает числа
-от 25 до 1,
-в обратном порядке. Таким образом каждая задача выполняется 25 секунд, при последовательном или конкурентном исполнении
-обе
-выполнятся за 50 секунд, а при реально параллельном - за те же 25.
-
-Пишем задачи:
-
-    $tasks = [
-    
-        1 => function () {
-            foreach (range(1, 25, +1) as $value) {
-                sleep(1);
-                echo $value . PHP_EOL;
-            }
-        },
-    
-        2 => function () {
-            foreach (range(25, 1, -1) as $value) {
-                sleep(1);
-                echo $value . PHP_EOL;
-            }
-        },
-    
-    ];
-
-Не забываем добавить к своей установке PHP расширение pcntl и пишем код, управляющий задачами:
-
-    foreach ($tasks as $task) {
-        $pid = pcntl_fork();
-        if (0 == $pid) {
-            $task();
+    2 => function () {
+        foreach (range(25, 1, -1) as $value) {
+            sleep(1);
+            echo $value . PHP_EOL;
         }
+    },
+];
+```
+
+Use pcntl:
+
+```php
+foreach ($tasks as $task) {
+    $pid = pcntl_fork();
+    if (0 == $pid) {
+        $task();
     }
+}
 
-    pcntl_wait($status);
+pcntl_wait($status);
+```
 
-Что тут происходит?
+Explanation:
 
-Всё достаточно просто:
+- `pcntl_fork()` starts a child process for each task.
+- It returns the child PID in the parent, and 0 in the child.
+- Run the task in the child process.
+- `pcntl_wait()` makes the parent wait for children.
 
-    - Для каждой задачи мы с помощью функции pcntl_fork() запускаем отдельный процесс, дочерний по отношению к текущему.
+This runs in 25 seconds. True parallelism.
 
-    - Функция pcntl_fork() вернет нам PID запущенного дочернего процесса, если мы находимся в родительском и 0, если мы в дочернем.
+Downsides:
 
-    - Пользуемся этой возможностью, чтобы выполнить задачу, если мы находимся в дочернем процессе.
+- Process creation is expensive, even with fork.
+- Context switching costs CPU. 4 processes on 4 cores is fine. 4000 processes means heavy switching.
+- Child processes do not inherit open file/network descriptors; you must reopen them.
+- Inter-process communication is hard. Signals are limited, so you often need a shared data bus (e.g. key-value store).
 
-    - С помощью функции pcntl_wait() заставляем основной процесс остановиться и дождаться окончания всех дочерних.
+Still, true parallelism can be worth it.
 
-Запустите этот код и убедитесь, что он отрабатывает за 25 секунд. Наши задачи действительно выполняются параллельно! Это
-огромный плюс.
+## Multithreading
 
-Какие минусы? Их достаточно много...
+Modern OSes also support threads. PHP can use them if supported by the OS.
 
-    - Создание процесса - не самая дешёвая операция, даже если мы это делаем с помощью fork();
+Threads run in parallel inside one process. They share code and context: same classes, functions, and globals.
 
-    - Переключение контекста между процессами тоже стоит процессорного времени. Если на 4-ядерном сервере вы запустите 4 процесса или, скажем, 40 - в целом будет нормально. А вот если вы наплодите 4000 процессов - процессор большую часть времени будет переключаться между ними, а не делать полезную работу.
+Think of a process as cooking a dish, and threads as multiple cooks working on the same recipe.
 
-    - Дочерний процесс не унаследует дескрипторы - все открытые ранее файлы и сетевые соединения придется переоткрывать;
+Historically, PHP threads required ZTS builds and the pthreads extension. Now there is a newer extension called
+`parallel`, easier to install (still requires pthreads in the OS). It provides a clean API for running tasks in threads
+and communicating between them.
 
-    - И, самое главное, процессам трудно общаться между друг другом. Да, есть сигналы, но это сложно назвать полноценным общением. С помощью сигналов мы не передадим значение из одной задачи в другую... Значит придется придумывать какую-то общую шину данных между процессами, например брать одно из распространенных key-value хранилищ.
+Rewrite the example with parallel:
 
-Однако тот факт, что подобная многопроцессность представляет из себя полноценную многозадачность и реально параллельное
-выполнение
-кода, причем без каких-то особых сложностей в коде - конечно, перевешивает минусы.
+```php
+$futures = [];
+foreach ($tasks as $num => $task) {
+    $runtime = new parallel\Runtime();
+    $futures[$num] = $runtime->run($task);
+}
+```
 
-### Многопоточность [&uarr;](#PHP)
+`parallel\Runtime::run()` runs a task in a separate thread. It returns a Future object with status and result.
 
-В современных операционных системах есть еще одно средство параллельного исполнения - это "потоки" ("threads").
-Поддерживаются потоки
-и в PHP, при условии их поддержки на уровне ОС.
+The process continues until all threads finish, so no explicit wait is needed.
 
-Потоки работаю параллельно внутри одного процесса. В каждом процессе всегда есть как минимум один поток и есть
-возможность запустить
-другие. Потоки совместно используют код и контекст - например каждый поток в случае PHP будет иметь доступ ровно к тем
-же классам,
-функциям и глобальным переменным.
+Run the code and see that 25 + 25 = 25. True parallelism inside one process.
 
-    Процесс можно сравнить с процессом приготовления блюда, а потоки - с несколькими поварами, которые работают над одним блюдом по 
-    одному рецепту параллельно, распределив между собой задачи.
+Threads also solve blocking I/O. Run blocking tasks in a separate thread while the main thread does other work, then
+poll and fetch results.
 
-Когда-то давно для управления потоками в PHP требовалось собрать его инстанс с флагом ZTS (Zend Thread Safe),
-специальным расширением
-pthreads и работать с потоками на достаточно низком уровне вызовов операционной системы.
+## Swoole and its go-routines
 
-К счастью сейчас существует новое расширение для работы с потоками - Parallel. Оно устанавливается гораздо проще (но
-по-прежнему
-требует библиотеку pthreads в ОС) и предоставляет очень удобный интерфейс для запуска задач в отдельных потоках и для
-общения между
-задачами.
+Swoole is a popular async framework for PHP.
 
-Давайте перепишем предыдущий пример с использованием Parallel. Определение задач у нас останется прежним, изменится лишь
-блок их
-параллельного запуска:
-
-    $futures = [];
-    foreach ($tasks as $num => $task) {
-        $runtime = new parallel\Runtime();
-        $futures[$num] = $runtime->run($task);
-    }
-
-Весь секрет работы с потоками заключен в объекте класса parallel\Runtime С помощью метода run() этого объекта мы
-запустим задачу на
-параллельное исполнение в отдельном потоке. Метод run() вернет нам так называемый "фьючерс" - специальный объект
-класса parallel\Future, с помощью которого мы сможем узнать статус выполняющейся задачи и получить ее результат, когда
-она закончит
-выполняться.
-
-Parallel устроен по умолчанию так, что наш процесс будет продолжаться до тех пор, пока не закончатся все порожденные в
-нем потоки,
-поэтому явного вызова wait() или аналогичной функции не требуется.
-
-Запустите код и убедитесь, что 25+25 = 25. Мы сумели в одном процессе выполнить 2 задачи действительно параллельно.
-
-Кроме того использование потоков решает проблему блокирующих операций. Достаточно запустить задачу, требующую выполнения
-блокирующего кода в отдельном потоке и, затем, занимаясь другими задачами, опрашивать поток - закончился ли он? а при
-окончании
-получить результат его работы.
-
-### Swoole и его go-рутины [&uarr;](#PHP)
-
-Конечно же, говоря о многопоточности, нельзя не упомянуть Swoole - модный сейчас асинхронный фреймворк для PHP.
-
-    Co\run(function()
+```php
+Co\run(function()
+{
+    go(function()
     {
-        go(function()
-        {
-            Co::sleep(1);
-            echo "Done 1\n";
-        });
-    
-        go(function()
-        {
-            Co::sleep(1);
-            echo "Done 2\n";
-        });
+        Co::sleep(1);
+        echo "Done 1\n";
     });
 
-В данном примере создается один контекст выполнения (пул задач, другими словами) и в нем запускаются две параллельные
-задачи.
+    go(function()
+    {
+        Co::sleep(1);
+        echo "Done 2\n";
+    });
+});
+```
 
-Разумеется, Swoole не несет в себе какой-то особой магии помимо того, что мы уже изучили. В его основе лежат всё те же
-корутины,
-файберы, если они доступны, и запуск кода в параллельных процессах.
+This creates one execution context and runs two parallel tasks inside it.
 
-Однако этот фреймворк привлекает качеством кода, документации, богатством возможностей и, безусловно, заслуживает
-изучения, если
-вы интересуетесь асинхронным и параллельным PHP.
+Swoole is not magic. It uses coroutines, fibers (if available), and parallel processes. It is attractive because of its
+code quality, docs, and feature set. It is worth learning if you care about async and parallel PHP.

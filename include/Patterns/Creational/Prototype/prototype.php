@@ -1,18 +1,18 @@
 <?php
 /**
- * Паттерн Прототип (Prototype)
+ * Prototype pattern
  */
 
 namespace Pattern;
 
 /**
- * Абстрактный Prototype, описывает базовый интерфейс,
- * который должен реализовать каждый конкретный продукт.
+ * Abstract Prototyper describes the base interface
+ * that each concrete product should implement.
  */
 abstract class Prototyper
 {
     /**
-     * Метод клонирования
+     * Clone method
      *
      * @return Prototyper
      */
@@ -20,19 +20,19 @@ abstract class Prototyper
 }
 
 /**
- * Конкретный продукт "A"
+ * Concrete product "A"
  */
 class ConcreteProductA extends Prototyper
 {
     /**
-     * @var string - имя продукта
+     * @var string - product name
      */
     protected $name;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param string $name - имя подукта
+     * @param string $name - product name
      */
     public function __construct($name)
     {
@@ -40,7 +40,7 @@ class ConcreteProductA extends Prototyper
     }
 
     /**
-     * Возвращает имя продукты
+     * Returns the product name
      *
      * @return string
      */
@@ -50,9 +50,8 @@ class ConcreteProductA extends Prototyper
     }
 
     /**
-     * Метод клонирования.
-     * Каждый объект должен реализовать сам,
-     * как он будет себя клонировать.
+     * Clone method.
+     * Each object should implement how it clones itself.
      *
      * @return Prototyper
      */
@@ -63,7 +62,7 @@ class ConcreteProductA extends Prototyper
 }
 
 // ==================================
-// Или используя ключевое слово clone
+// Or using the clone keyword
 // ==================================
 
 class ConcreteProductB
@@ -77,7 +76,7 @@ class ConcreteProductB
 
     public function __clone()
     {
-        // тут можем контролировать клонирование
+        // here we can control cloning
     }
 }
 

@@ -1,19 +1,19 @@
 <?php
 /**
- * Паттерн Фабричный метод (FactoryMethod)
+ * Factory Method pattern
  */
 
 namespace Pattern;
 
 /**
- * Абстрактный базовый класс Creater, описывает интерфейс,
- * который должна реализовать конкретная фабрика
- * для производства продуктов.
+ * Base abstract class Creater describes the interface
+ * that a concrete factory must implement
+ * to produce products.
  */
 abstract class Creater
 {
     /**
-     * Параметризированный Фабричный Метод
+     * Parameterized Factory Method
      *
      * @param string $action
      *
@@ -22,7 +22,7 @@ abstract class Creater
     public abstract function createProduct($action);
 
     /**
-     * Регистрация созданого подукта (для полноты картины)
+     * Register the created product (for completeness)
      *
      * @param Producter $product
      */
@@ -30,15 +30,15 @@ abstract class Creater
 }
 
 /**
- * Абстрактный базовый класс Producter, описывающий интерфейс продукта,
- * который возвращает фабрика.
- * Все продукты возвращаемые фабрикой должны придерживаться
- * единого интерфейса.
+ * Base abstract class Producter describes the product interface
+ * returned by the factory.
+ * All products returned by the factory must follow
+ * a common interface.
  */
 abstract class Producter
 {
     /**
-     * Каждый продукт должно быть можно использовать
+     * Each product should be usable
      *
      * @return string
      */
@@ -46,20 +46,20 @@ abstract class Producter
 }
 
 /**
- * Конкретная фабрика по производству продуктов.
- * Она имеет фабричный метод и производит продукты.
+ * Concrete factory for producing products.
+ * It has a factory method and produces products.
  */
 class ConcreteCreator extends Creater
 {
     /**
-     * Произведенные продукты
+     * Produced products
      *
      * @var []Producter
      */
     protected $products = array();
 
     /**
-     * Параметризированный Фабричный Метод
+     * Parameterized Factory Method
      *
      * @param string $action
      *
@@ -87,7 +87,7 @@ class ConcreteCreator extends Creater
     }
 
     /**
-     * Регистрация созданого подукта на фабрике
+     * Register the created product in the factory
      *
      * @param Producter $product
      */
@@ -99,19 +99,19 @@ class ConcreteCreator extends Creater
 
 
 /**
- * Конкретный продукт "A", который создает фабрика
+ * Concrete product "A" created by the factory
  */
 class ConcreteProductA extends Producter
 {
     /**
-     * @var string - действие которое делает продукт
+     * @var string - action the product performs
      */
     protected $action;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param string $action - действие
+     * @param string $action - action
      */
     public function __construct($action)
     {
@@ -119,7 +119,7 @@ class ConcreteProductA extends Producter
     }
 
     /**
-     * Продукт можно использовать и получить действие которое он делает
+     * You can use the product and get the action it performs
      *
      * @return string
      */
@@ -130,19 +130,19 @@ class ConcreteProductA extends Producter
 }
 
 /**
- * Конкретный продукт "B", который создает фабрика
+ * Concrete product "B" created by the factory
  */
 class ConcreteProductB extends Producter
 {
     /**
-     * @var string - действие которое делает продукт
+     * @var string - action the product performs
      */
     protected $action;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param string $action - действие
+     * @param string $action - action
      */
     public function __construct($action)
     {
@@ -150,7 +150,7 @@ class ConcreteProductB extends Producter
     }
 
     /**
-     * Продукт можно использовать и получить действие которое он делает
+     * You can use the product and get the action it performs
      *
      * @return string
      */
@@ -161,19 +161,19 @@ class ConcreteProductB extends Producter
 }
 
 /**
- * Конкретный продукт "C", который создает фабрика
+ * Concrete product "C" created by the factory
  */
 class ConcreteProductC extends Producter
 {
     /**
-     * @var string - действие которое делает продукт
+     * @var string - action the product performs
      */
     protected $action;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param string $action - действие
+     * @param string $action - action
      */
     public function __construct($action)
     {
@@ -181,7 +181,7 @@ class ConcreteProductC extends Producter
     }
 
     /**
-     * Продукт можно использовать и получить действие которое он делает
+     * You can use the product and get the action it performs
      *
      * @return string
      */
@@ -190,5 +190,4 @@ class ConcreteProductC extends Producter
         return $this->action;
     }
 }
-
 

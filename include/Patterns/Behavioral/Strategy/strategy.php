@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Стратегия (Strategy)
+ * Strategy pattern
  */
 
 namespace Pattern;
 
 /**
- * StrategySort, описывает интерфейс стратегий (алгоритмов)
+ * StrategySort describes the strategy (algorithm) interface
  */
 abstract class StrategySort
 {
@@ -17,7 +17,7 @@ abstract class StrategySort
 }
 
 /**
- * BubbleSort, рeализует алгоритм сортировки пузырьком
+ * BubbleSort implements the bubble sort algorithm
  */
 class BubbleSort extends StrategySort
 {
@@ -40,7 +40,7 @@ class BubbleSort extends StrategySort
 }
 
 /**
- * InsertionSort, рeализует алгоритм сортировки вставками
+ * InsertionSort implements the insertion sort algorithm
  */
 class InsertionSort extends StrategySort
 {
@@ -66,7 +66,7 @@ class InsertionSort extends StrategySort
 
 
 /**
- * Context, рeализует контекст выполнения той или иной стратегии
+ * Context implements the execution context for a strategy
  */
 class Context
 {
@@ -76,7 +76,7 @@ class Context
     protected $strategy;
 
     /**
-     * Подмена стратегии (алгоритма)
+     * Swap the strategy (algorithm)
      */
     public function algorithm(StrategySort $a)
     {
@@ -84,7 +84,7 @@ class Context
     }
 
     /**
-     * Сортировка в зависимости от выбраной стратегии (алгоритма)
+     * Sort depending on the selected strategy (algorithm)
      */
     public function sort(&$a)
     {

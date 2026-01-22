@@ -1,17 +1,17 @@
 <?php
 /**
- * Паттерн Заместитель (Proxy)
+ * Proxy pattern
  */
 
 namespace Pattern;
 
 /**
- * Интерфейс Subject, описывает интерфейс для реального объекта и его суррогата
+ * Subject interface describes the interface for the real object and its surrogate
  */
 interface ISubject
 {
     /**
-     * Субьект говорит
+     * Subject speaks
      *
      * @return string
      */
@@ -19,7 +19,7 @@ interface ISubject
 }
 
 /**
- * Proxy, реализует объект суррогата
+ * Proxy implements the surrogate object
  */
 class Proxy implements ISubject
 {
@@ -29,15 +29,15 @@ class Proxy implements ISubject
     protected $realSubject;
 
     /**
-     * Сурогат говорит
+     * Surrogate speaks
      *
      * @return string
      */
     public function send()
     {
-        // Подключать реальный объект можно и в контролере.
-        // Или агригировать его на этапе создания суррогата.
-        // Все зависит от конечных целей.
+        // You can attach the real object in the controller.
+        // Or aggregate it when creating the surrogate.
+        // It depends on the final goals.
         if ($this->realSubject == null) {
             $this->realSubject = new RealSubject();
         }
@@ -47,17 +47,17 @@ class Proxy implements ISubject
 }
 
 /**
- * RealSubject, реализует реальный объект
+ * RealSubject implements the real object
  */
 class RealSubject implements ISubject
 {
     /**
-     * Реальный объект говорит
+     * Real object speaks
      *
      * @return string
      */
     public function send()
     {
-        return "I’ll be back!";
+        return "I'll be back!";
     }
 }

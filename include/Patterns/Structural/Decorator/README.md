@@ -1,101 +1,94 @@
-## Декоратор (Decorator)
+## Decorator
 
-Паттерн Decorator относится к структурным паттернам уровня объекта.
+The Decorator pattern is a structural object-level pattern.
 
-Паттерн Decorator используется для расширения функциональности объектов путем динамического добавления объекту новых
-возможностей. При реализации паттерна используется отношение композиции.
+Decorator is used to extend object functionality by dynamically adding new capabilities. It uses composition.
 
-Сущность работы декоратора заключается в обёртывании готового объекта новым функционалом, при этом весь оригинальный
-интерфейс объекта остается доступным, путем передачи декоратором всех запросов обернутому объекту.
+The essence of a decorator is wrapping a ready object with new behavior, while keeping the original interface
+available by forwarding all requests to the wrapped object.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый абстрактный класс Component который предоставляет интерфейс для класса декоратора и компонента;
-2. Класс ConcreteDecorator, реализующий интерфейс Component и перезагружающий все методы компонента, по необходимости к
-   ним добавляется функционал;
-3. Класс ConcreteComponent реализующий интерфейс Component и который будет обернут декоратором.
+1. Base abstract Component class that provides an interface for both the decorator and the component.
+2. ConcreteDecorator class implementing Component and overriding component methods, adding behavior when needed.
+3. ConcreteComponent class implementing Component that will be wrapped by decorators.
 
-При такой структуре нам не важно является ли компонент декоратором или конкретной реализацией, так как интерфейс у них
-совпадает, и мы можем делать цепочки декораторов. Тем самым динамически менять состояние и поведение объекта.
+With this structure, it does not matter whether a component is a decorator or a concrete implementation, since they
+share the same interface and you can build decorator chains. This allows dynamic changes to object state and behavior.
 
-Я слышал пример с Калсоном и мне он очень понравился. У нас есть Карлсон, мы на него одеваем комбинезон тем самым меняя
-его состояние, потом на штаны одеваем пропеллер тем самым меняем поведение. Пропеллер в зависимости от ситуации можно
-снять, изменив поведение на обратное или можно одеть другой комбинезон с другими свойствами.
+I heard a good example with Karlsson. We have Karlsson, we put a jumpsuit on him and change his state; then we attach a
+propeller to the pants and change behavior. The propeller can be removed depending on the situation, reverting behavior,
+or we can put on a different jumpsuit with other properties.
 
-## Применимость
+## Applicability
 
-### Когда вам нужно добавлять обязанности объектам на лету, незаметно для кода, который их использует.
+### When you need to add responsibilities to objects on the fly, without affecting the code that uses them.
 
-    Объекты помещают в обёртки, имеющие дополнительные поведения. Обёртки и сами объекты имеют одинаковый интерфейс, поэтому клиентам без разницы, с чем работать — с обычным объектом данных или с обёрнутым.
+    Objects are placed in wrappers with additional behavior. Wrappers and objects share the same interface, so clients do
+    not care whether they work with a plain object or a wrapped one.
 
-### Когда нельзя расширить обязанности объекта с помощью наследования.
+### When you cannot extend an object's responsibilities via inheritance.
 
-    Во многих языках программирования есть ключевое слово final, которое может заблокировать наследование класса. Расширить такие классы можно только с помощью Декоратора.
+    Many languages have a final keyword that can block class inheritance. Such classes can be extended only with a
+    Decorator.
 
-## Шаги реализации
+## Implementation steps
 
-1. Убедитесь, что в вашей задаче есть один основной компонент и несколько опциональных дополнений или надстроек над ним.
+1. Make sure your task has one core component and several optional extensions or add-ons.
 
-2. Создайте интерфейс компонента, который описывал бы общие методы как для основного компонента, так и для его
-   дополнений.
+2. Create a component interface that describes common methods for both the core component and its extensions.
 
-3. Создайте класс конкретного компонента и поместите в него основную бизнес-логику.
+3. Create a concrete component class and place the main business logic there.
 
-4. Создайте базовый класс декораторов. Он должен иметь поле для хранения ссылки на вложенный объект-компонент. Все
-   методы базового декоратора должны делегировать действие вложенному объекту.
+4. Create a base decorator class. It should have a field that stores a reference to a nested component object. All base
+   decorator methods should delegate the work to the nested object.
 
-5. И конкретный компонент, и базовый декоратор должны следовать одному и тому же интерфейсу компонента.
+5. Both the concrete component and the base decorator must follow the same component interface.
 
-6. Теперь создайте классы конкретных декораторов, наследуя их от базового декоратора. Конкретный декоратор должен
-   выполнять свою добавочную функцию, а затем (или перед этим) вызывать эту же операцию обёрнутого объекта.
+6. Now create concrete decorators by inheriting from the base decorator. A concrete decorator should perform its extra
+   function and then (or before that) call the same operation on the wrapped object.
 
-7. Клиент берёт на себя ответственность за конфигурацию и порядок обёртывания объектов.
+7. The client is responsible for configuring and ordering the wrappers.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Большая гибкость, чем у наследования.
-    + Позволяет добавлять обязанности на лету.
-    + Можно добавлять несколько новых обязанностей сразу.
-    + Позволяет иметь несколько мелких объектов вместо одного объекта на все случаи жизни.
+    + More flexibility than inheritance.
+    + Adds responsibilities on the fly.
+    + Can add multiple responsibilities at once.
+    + Allows having several small objects instead of one object for all cases.
 
-    - Трудно конфигурировать многократно обёрнутые объекты.
-    - Обилие крошечных классов.
+    - Hard to configure multiple nested wrappers.
+    - Lots of tiny classes.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Адаптер` меняет интерфейс существующего объекта. `Декоратор` улучшает другой объект без изменения его интерфейса.
-   Причём `Декоратор` поддерживает рекурсивную вложенность, чего не скажешь об `Адаптере`.
+1. Adapter changes the interface of an existing object. Decorator enhances another object without changing its
+   interface. Decorator supports recursive nesting, Adapter does not.
 
-2. `Адаптер` предоставляет классу альтернативный интерфейс. `Декоратор` предоставляет расширенный интерфейс.
-   `Заместитель` предоставляет тот же интерфейс.
+2. Adapter provides an alternative interface. Decorator provides an extended interface. Proxy provides the same
+   interface.
 
-3. `Цепочка обязанностей` и `Декоратор` имеют очень похожие структуры. Оба паттерна базируются на принципе рекурсивного
-   выполнения операции через серию связанных объектов. Но есть и несколько важных отличий.
+3. Chain of Responsibility and Decorator have very similar structures. Both are based on recursive execution through a
+   series of linked objects, but they differ in key ways.
 
-4. Обработчики в `Цепочке обязанностей` могут выполнять произвольные действия, независимые друг от друга, а также в
-   любой момент прерывать дальнейшую передачу по цепочке. С другой стороны `Декораторы` расширяют какое-то определённое
-   действие, не ломая интерфейс базовой операции и не прерывая выполнение остальных декораторов.
+4. Handlers in Chain of Responsibility can perform arbitrary actions and stop the chain at any moment. Decorators extend
+   a specific action without breaking the base interface or stopping other decorators.
 
-5. `Компоновщик` и `Декоратор` имеют похожие структуры классов из-за того, что оба построены на рекурсивной вложенности.
-   Она позволяет связать в одну структуру бесконечное количество объектов.
+5. Composite and Decorator have similar class structures because both rely on recursive composition. It allows linking
+   an unlimited number of objects into one structure.
 
-6. `Декоратор` оборачивает только один объект, а узел `Компоновщика` может иметь много детей. `Декоратор` добавляет
-   вложенному объекту новую функциональность, а `Компоновщик` не добавляет ничего нового, но «суммирует» результаты всех
-   своих детей.
+6. Decorator wraps a single object, while a Composite node can have many children. Decorator adds new functionality to
+   the wrapped object, while Composite adds nothing new but sums results of all children.
 
-7. Но они могут и сотрудничать: `Компоновщик` может использовать `Декоратор`, чтобы переопределить функции отдельных
-   частей дерева компонентов.
+7. They can also cooperate: Composite can use Decorator to override behavior of individual parts of the component tree.
 
-8. Архитектура, построенная на `Компоновщиках` и `Декораторах`, часто может быть улучшена за счёт внедрения `Прототипа`.
-   Он позволяет клонировать сложные структуры объектов, а не собирать их заново.
+8. Architecture built on Composite and Decorator can often be improved with Prototype. It allows cloning complex object
+   structures instead of rebuilding them from scratch.
 
-9. `Стратегия` меняет поведение объекта «изнутри», а `Декоратор` изменяет его «снаружи».
+9. Strategy changes object behavior "from the inside", while Decorator changes it "from the outside".
 
-10. `Декоратор` и `Заместитель` имеют схожие структуры, но разные назначения. Они похожи тем, что оба построены на
-    принципе композиции и делегируют работу другим объектам. Паттерны отличаются тем, что `Заместитель` сам управляет
-    жизнью сервисного объекта, а обёртывание `Декораторов` контролируется клиентом.
-
-
-
+10. Decorator and Proxy have similar structures but different purposes. Both are built on composition and delegate work
+    to other objects. The difference is that Proxy manages the service object's lifecycle, while Decorator wrapping is
+    controlled by the client.

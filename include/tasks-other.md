@@ -1,24 +1,21 @@
-# Other tasks
+# Other Tasks
 
-* [ ] [Интересный крон (запуск скрипта раз в 30 секунд)](#Интересный-крон-(запуск-скрипта-раз-в-30-секунд)-)
-* [ ] [Защита от спама - предложить интересный способ](#Защита-от-спама---предложить-интересный-способ-)
-* [ ] [Защита от повторной отправки форм](#Защита-от-повторной-отправки-форм-)
+- [ ] [Cron every 30 seconds](#cron-every-30-seconds)
+- [ ] [Spam protection - suggest an interesting approach](#spam-protection---suggest-an-interesting-approach)
+- [ ] [Prevent duplicate form submission](#prevent-duplicate-form-submission)
 
-# Other tasks
+## Cron every 30 seconds [&uarr;](#other-tasks)
 
-### Интересный крон (запуск скрипта раз в 30 секунд) [&uarr;](#devmap)
+Cron has a minimum of one minute. To run every 30 seconds, run a script every minute that does work, sleeps 30 seconds,
+then does work again. Another option is a script that runs every minute and triggers the target twice, sleeping 30
+seconds between runs.
 
-Крон это минимум минута. Раз в 30 секунд это значит запускать каждую минуту скрипт который что-то делает, потом спит 30
-секунд и еще раз делает. Как вариант, написать скрипт, который будет запускаться раз в минуту и дёргать файл дважды,
-между двумя дёрганьями спать 30 секунд.
+## Spam protection - suggest an interesting approach [&uarr;](#other-tasks)
 
-### Защита от спама [&uarr;](#devmap)
+- Google reCAPTCHA
+- blacklist
+- hidden field (honeypot) validated on the backend
 
-Google ReCaptcha
-Блэк лист
-Hidden поле которое потом сможем проверять на бэке
+## Prevent duplicate form submission [&uarr;](#other-tasks)
 
-### Защита от повторной отправки форм [&uarr;](#devmap)
-
-Ограничение частоты отправки сообщений Ограничение количества сообщний от одного пользователя ограничение количества
-отправляемых сообщений за определенный отрезок времени
+Rate limit submissions per user and per time window.

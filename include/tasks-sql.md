@@ -1,25 +1,27 @@
-#### Список ссылок
+# SQL Tasks
+
+#### Links
 
 <hr />
 
-- [Интерактивный тренажер по SQL · Stepik](https://stepik.org/course/63054/syllabus)
-- [Справочник по SQL · Stepik](https://stepik.org/media/attachments/course/63054/SQL.pdf)
+- [Interactive SQL trainer - Stepik](https://stepik.org/course/63054/syllabus)
+- [SQL reference - Stepik](https://stepik.org/media/attachments/course/63054/SQL.pdf)
 
 <hr />
 
-- [Как изучать SQL в 2023 году](https://habr.com/ru/articles/725166/)
+- [How to learn SQL in 2023](https://habr.com/ru/articles/725166/)
 - [SQLZOO - SQL Tutorial](https://sqlzoo.net/wiki/SQL_Tutorial)
 
 <hr />
 
 - [https://habr.com/ru/companies/otus/articles/461067/](https://habr.com/ru/companies/otus/articles/461067/)
-- [27 распространённых вопросов по SQL](https://tproger.ru/articles/sql-interview-questions/)
-- [5 заданий по SQL с реальных собеседований](https://tproger.ru/articles/5-zadanij-po-sql-s-realnyh-sobesedovanij/)
-- [Лучшие вопросы средней сложности по SQL на собеседовании аналитика данных](https://habr.com/ru/company/dcmiran/blog/500360/)
+- [27 common SQL interview questions](https://tproger.ru/articles/sql-interview-questions/)
+- [5 SQL tasks from real interviews](https://tproger.ru/articles/5-zadanij-po-sql-s-realnyh-sobesedovanij/)
+- [Best mid-level SQL interview questions for data analysts](https://habr.com/ru/company/dcmiran/blog/500360/)
 
 <hr />
 
-- [Памятка/шпаргалка по SQL](https://habr.com/ru/post/564390/)
+- [SQL cheat sheet](https://habr.com/ru/post/564390/)
 - [SQL CHEAT SHEET](https://www.sqltutorial.org/wp-content/uploads/2016/04/SQL-cheat-sheet.pdf)
 - [SQL-Cheat-Sheet-Summary-Full](https://websitesetup.org/wp-content/uploads/2020/08/SQL-Cheat-Sheet-Summary-Full.png)
 - [MySQL Cheat Sheet](https://overapi.com/mysql)
@@ -28,14 +30,13 @@
 
 ### 1
 
-Задача: я хочу хранить свою билиотеку в БД. Меня волнуют названия книг и авторы — больше ничего хранить не надо.
-Предложите структуру таблиц.
-Половина кандидатов не знают что такое many-to-many и не могут решить что лучше — хранить author_id в таблице books или
-book_id в таблице authors.
-Если со структурой всё ок, я прошу вытащить список книг, которые написаны 3-мя со-авторами. То есть получить отчет
-«книга — количество соавторов» и отфильтровать те, у которых со-авторов меньше 3х.
+Task: I want to store my library in a DB. I only care about book titles and authors. Propose a table structure.
+Half of candidates do not know what many-to-many is and cannot decide whether to store author_id in books or book_id in
+authors.
+If the structure is OK, I ask for a list of books written by 3 co-authors. That is, a report "book - number of
+co-authors" filtered to books with at least 3 co-authors.
 
-``` sql
+```sql
 CREATE TABLE book (
     book_id INT PRIMARY KEY AUTO_INCREMENT,
     book_name VARCHAR(255) DEFAULT NULL
@@ -55,10 +56,10 @@ CREATE TABLE book_author (
 );
 
 INSERT INTO book (book_name)
-VALUES('Книга 1'),('Книга 2'),('Книга 3'),('Книга 4'),('Книга 5');
+VALUES('Book 1'),('Book 2'),('Book 3'),('Book 4'),('Book 5');
 
 INSERT INTO author (author_name)
-VALUES('Автор 1'),('Автор 2'),('Автор 3'),('Автор 4'),('Автор 5');
+VALUES('Author 1'),('Author 2'),('Author 3'),('Author 4'),('Author 5');
 
 SELECT book.book_name, COUNT(*) cnt
 FROM book_author
@@ -69,39 +70,37 @@ HAVING cnt >= 3;
 
 ### 2
 
-что, если у нас огромная таблица, а запрос нужно выполнять каждые 3 минуты? Что можно сделать?
+What if we have a huge table and the query must run every 3 minutes? What can you do?
 
-Навскидку:
-— кеширование;
-— денормализация базы;
-— NoSQL;
+Quick ideas:
+- caching
+- database denormalization
+- NoSQL
 
 ### 3
 
-Задача 1:
-Есть таблица, в которой записаны 9 не повторяющихся чисел от 1 до 10. Нужно написать скрипт, который вернет недостающее
-число.
-Подсказка: можно написать, как это можно сделать с помощью создания таблицы (что создать, с какими данными и как
-написать итоговый селект).
+Task 1:
+There is a table with 9 unique numbers from 1 to 10. Write a script that returns the missing number.
+Hint: you can solve it by creating a table (what to create, with what data, and how to write the final select).
 
-``` sql
+```sql
 CREATE TABLE test (
   id INT NOT NULL PRIMARY KEY
 );
 
 INSERT INTO test (id) VALUES (1), (2), (3), (6), (8), (9), (12);
 
-SELECT id1 AS 'FROM', id3 AS 'TO' 
+SELECT id1 AS 'FROM', id3 AS 'TO'
 FROM (
   SELECT
     t1.id AS id1,
     t2.id AS id2,
     (
-      SELECT id FROM test t3 
+      SELECT id FROM test t3
       WHERE t3.id > t1.id
       ORDER BY id
       LIMIT 1
-    ) AS id3 FROM test t1 
+    ) AS id3 FROM test t1
   LEFT JOIN test t2 ON t2.id = t1.id + 1
 ) query_in
 WHERE id1 IS NOT NULL AND id2 IS NULL AND id3 IS NOT NULL
@@ -109,55 +108,55 @@ WHERE id1 IS NOT NULL AND id2 IS NULL AND id3 IS NOT NULL
 
 ### 5
 
-Имеем таблицу employees (name_employee, department_id, salary)
+We have a table employees (name_employee, department_id, salary)
 
-1 запрос: вывести список сотрудников, получающих максимальную зарплату в своём отделе.
+1 query: list employees with the highest salary in their department.
 
-``` sql
+```sql
 SELECT name_employee
 FROM employees
 GROUP BY department_id
 HAVING salary = MAX(salary);
 ```
 
-2 запрос: вывести список отделов, содержащих как минимум 5 сотрудников.
+2 query: list departments with at least 5 employees.
 
-``` sql
+```sql
 SELECT department_id
 FROM employees
 GROUP BY department_id
 HAVING COUNT(name_employee) >= 5;
 ```
 
-3 запрос: вывести список дубликатов значений поля salary и их количество. Написать SQL запрос.
+3 query: list duplicate salary values and their count.
 
-``` sql
-SELECT salary, 
-COUNT(*) AS count 
-FROM employees 
-GROUP BY salary 
+```sql
+SELECT salary,
+COUNT(*) AS count
+FROM employees
+GROUP BY salary
 HAVING COUNT(*) > 1
 ```
 
 ### 6
 
-Есть две таблицы
+Two tables:
 
 users (user_id, name)
 orders (order_id, user_id, status)
 
-- выбрать всех пользователей из таблицы users у которых ВСЕ записи в таблице orders имеют статус = 0
+- select all users from users whose ALL records in orders have status = 0
 
-``` sql
+```sql
 SELECT name
 FROM users
 INNER JOIN orders ON orders.user_id = users.user_id
 WHERE status = 0;
 ```
 
-- выбрать всех пользователей из таблицы users у которых больше 5 записей в таблице orders имеют статус = 1
+- select all users from users with more than 5 records in orders with status = 1
 
-``` sql
+```sql
 SELECT name
 FROM users
 INNER JOIN oreders USING(user_id)
@@ -168,10 +167,9 @@ HAVING COUNT(*) > 5;
 
 ### 7
 
-Есть таблица one, к ней нужно добавить таблицу two, которая содержит такие же поля (id, name, seller, price). Как это
-сделать?
+There is a table one. Add table two with the same fields (id, name, seller, price). How?
 
-``` sql
+```sql
 INSERT INTO one(id, name, seller, price)
 SELECT id, name, seller, price
 FROM two;
@@ -179,11 +177,11 @@ FROM two;
 
 ### 8
 
-Есть таблица books (id, publish_date, name, author, price)
+There is a table books (id, publish_date, name, author, price)
 
-Вывести последню опубликованную книгу каждого автора
+Show the latest published book for each author
 
-``` sql
+```sql
 SELECT author,  MAX(publish_date)
 FROM book
 GROUP BY author;
@@ -191,6 +189,6 @@ GROUP BY author;
 
 ### 9
 
-Какая по вашему мнению должна быть структура БД. Есть список книг и список авторов. У книг может быть несколько авторов.
+What should the DB structure be? There is a list of books and a list of authors. A book can have multiple authors.
 
-Ответ: структура таблиц many-to-many
+Answer: many-to-many table structure.

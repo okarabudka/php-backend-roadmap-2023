@@ -1,441 +1,427 @@
-###BITRIX
+# Bitrix
 
-#### Список ссылок
+#### Links
 
-- [Всё о кешировании в Битрикс: D7, тегированный кеш, кеш в компонентах](https://r-morozov.ru/bitrix/vsjo-o-keshirovanii-v-bitriks-d7-tegirovannyj-kesh-kesh-v-komponentah/)
-- [Миграции Phinx в Битрикс](https://varnote.ru/posts/php/bitrix-phinx/)
-- [Интеграция Битрикс24 с сайтом - все способы](https://bit-24.ru/blog/integratsii-bitriks24/bitrix24-integration-with-the-site-all-the-ways/)
+- [Everything about caching in Bitrix: D7, tagged cache, cache in components](https://r-morozov.ru/bitrix/vsjo-o-keshirovanii-v-bitriks-d7-tegirovannyj-kesh-kesh-v-komponentah/)
+- [Phinx migrations in Bitrix](https://varnote.ru/posts/php/bitrix-phinx/)
+- [Bitrix24 integration with a site - all methods](https://bit-24.ru/blog/integratsii-bitriks24/bitrix24-integration-with-the-site-all-the-ways/)
 
-###BITRIX
+## Checklist [&uarr;](#bitrix)
 
-* [ ] [Паттерны в битрикс](#Паттерны-в-битрикс)
-* [ ] [Структура проекта - какие папки, откуда init.php, папка local](#Структура-проекта---какие-папки,-откуда-init.php,-папка-local)
-* [ ] [Mvc в Bitrix, в других cms](#Mvc-в-Bitrix,-в-других-cms)
-* [ ] [Свой модуль, свой компонент](#Свой-модуль,-свой-компонент)
-* [ ] [Кэширование в Bitrix](#Кэширование-в-Bitrix)
-* [ ] [Порядок выполнения компонента - component, result_modifier, template, кэш, component_epilog](#Порядок-выполнения-компонента---component,-result_modifier,-template,-кэш,-component_epilog)
-* [ ] [Таблица b_event](#Таблица-b_event)
-* [ ] [D7 Bitrix, что принципиальное новое](#D7-Bitrix,-что-принципиальное-новое)
-* [ ] [Распределение прав - можно ли назначить доступ в определенному элементу инфоблока](#Распределение-прав---можно-ли-назначить-доступ-в-определенному-элементу-инфоблока)
-* [ ] [Оптимизация работы сайта - как](#Оптимизация-работы-сайта---как)
-* [ ] [Миграции](#Миграции)
-* [ ] [Интеграция с Bitrix24](#Интеграция-с-Bitrix24)
-* [ ] [HL-блоки](#HL-блоки)
-* [ ] [Sphinx](#Sphinx)
-* [ ] [Многосайтовость](#Многосайтовость)
-* [ ] [Композитный сайт](#Композитный-сайт)
-* [ ] [Работа с модулем маштабирование](#Работа-с-модулем-маштабирование)
-* [ ] [Создание кластерных систем](#Создание-кластерных-систем)
+- [ ] [Patterns in Bitrix](#patterns-in-bitrix)
+- [ ] [Project structure: folders, init.php, local/](#project-structure-folders-initphp-local)
+- [ ] [MVC in Bitrix and other CMSs](#mvc-in-bitrix-and-other-cmss)
+- [ ] [Custom module, custom component](#custom-module-custom-component)
+- [ ] [Caching in Bitrix](#caching-in-bitrix)
+- [ ] [Component execution order: component, result_modifier, template, cache, component_epilog](#component-execution-order-component-result_modifier-template-cache-component_epilog)
+- [ ] [b_event table](#b_event-table)
+- [ ] [D7 Bitrix: what is fundamentally new](#d7-bitrix-what-is-fundamentally-new)
+- [ ] [Access control: can you set access to a specific iblock element](#access-control-can-you-set-access-to-a-specific-iblock-element)
+- [ ] [Site performance optimization](#site-performance-optimization)
+- [ ] [Migrations](#migrations)
+- [ ] [Bitrix24 integration](#bitrix24-integration)
+- [ ] [HL blocks](#hl-blocks)
+- [ ] [Sphinx](#sphinx)
+- [ ] [Multisite](#multisite)
+- [ ] [Composite site](#composite-site)
+- [ ] [Scaling module](#scaling-module)
+- [ ] [Cluster systems](#cluster-systems)
 
-###BITRIX
+1C-Bitrix is built on Bitrix Framework. It is often said to be based on Zend Framework; the official docs mention it only
+briefly. The framework follows MVC, is written in PHP, and supports MySQL, Oracle, and MS SQL.
 
-Система 1С-Битрикс разработана на основе Bitrix Framework. Которая в свою очередь, вроде как основывается на Zend
-Framework, в официальной документации об этом сказано в скользь. Данный фреймворк построен по принципу
-Model-View-Controller, написан на PHP и использует в качестве СУБД следующие продукты: MySQL, Oracle, MS SQL.
+Logically, 1C-Bitrix can be split into:
 
-Логически 1С-Битрикс можно разбить не следующие элементы:
+- Modules
+- Components
+- Template
 
-    Модули
-    Компоненты
-    Шаблон
+## Patterns in Bitrix [&uarr;](#bitrix)
 
-### Паттерны в битрикс  [&uarr;](#PHP)
+- `Observer`
 
-`Observer(наблюдатель)`
+  We often use event handlers in Bitrix, attach them to iblocks and other objects. This is very similar to observer. The
+  classic observer is more limited because it does not know which event fired. Another candidate for this role is the
+  event dispatcher.
 
-Мы все очень часто пользуемся обработчиками событий в битрикс, вещаем их на инфоблоки и другие объекты, так вот это
-очень похоже на observer. Классический observer немного более ограничен, т.к не имеет информации о том, какое событие
-произошло. Другой кандидат на эту должность это event dispatcher.
+- `Singleton`
 
-`Singleton(одиночка)`
+  Strict singleton is not implemented in Bitrix, but the global variables `$APPLICATION` and `$DB` are strong candidates.
 
-В точности singleton в битрикс не реализован, но можно предположить, что глобальные переменные $APPLICATION и $DB это
-как раз прямые кандидаты в singleton.
+- `MVC (Model-View-Controller)`
 
-`MVC (Модель - представление - контроллер)`
+  We all know this one. We were taught that web apps must follow MVC. I agree. In Bitrix, MVC is components 2.0. The
+  component is the controller, the template is the view, and modules are the model.
 
-Мы все про него много знаем :). Всем нам вдалбливали в голову, что при разработке web-приложений нужно обязательно
-следовать MVC. Да, я согласен :). MVC в битрикс - это компоненты 2.0. Компонент - это контроллер, шаблон -
-представление, а модули - это модель.
+- `Front controller (single entry point)`
 
-`Front controller (единая точка входа в приложение)`
+  This is my favorite pattern. It is not present in Bitrix, but if you imagine a global complex component for the whole
+  site, it could be called a front controller.
 
-Это мой любимый паттерн :). В битрикс его нет, но если предположить, что есть некий глобальный комплексный компонент для
-всего сайта, то его можно будет назвать Front controller.
+- `Adapter`
 
-`Adapter`
+  `$DB` is essentially an adapter. We plug in a specific implementation for a specific database, while all
+  implementations share one interface.
 
-$DB это практически и есть адаптер. Мы подключаем конкретную реализацию для конкретной базы данных, при это все
-реализации имеют единый интерфейс для работы с базой.
+- `Decorator`
 
-`Decorator`
+  Components 2.0 are also a bit like decorators. We can change a component's behavior outside the component itself, for
+  example in the component epilog. A decorator expects two objects, and in our case the component and epilog are not
+  objects, but there is still a common idea.
 
-Компоненты 2.0 кроме MVC это еще и немножко декораторы. Мы можем изменить поведение компонента вне самого компонента,
-например в эпилоге компонента. Правда decorator предусматривает наличие двух объектов, а у нас компонент и эпилог
-объектами не является, но общее с decorator все равно есть.
+It is worth noting that Bitrix implements these patterns in a non-obvious way. I might have missed others. Also, if you
+believe the Bitrix manual, components 2.0 implement the Carrier Rider Mapper pattern. I did not grasp its essence, so
+for me it is just MVC.
 
-Стоит добавить, что в битрикс не совсем очевидная реализация вышеперечисленных паттернов. Возможно некоторые другие
-паттерны я упустил из виду. Кстати компоненты 2.0, если верить мануалу битрикс, реализуют другой паттерн - Carrier Rider
-Mapper. Я сути этого паттерна не уловил, поэтому для меня это просто MVC.
+## Project structure: folders, init.php, local/ [&uarr;](#bitrix)
 
-### Структура проекта - какие папки, откуда init.php, папка local  [&uarr;](#PHP)
+The whole system lives in `/bitrix/`. It includes the following subdirectories and files:
 
-Вся система целиком лежит в каталоге /bitrix/, в него входят следующие подкаталоги и файлы:
+- `/admin/` - admin scripts
+- `/cache/` - cache files
+- `/components/` - system and custom components
+- `/js/` - JavaScript files for modules
+- `/managed_cache/` - managed cache
+- `/modules/` - system modules, each subdirectory has a strict structure
+- `/php_interface/` - service directory that includes:
+  - `dbconn.php` - DB connection settings
+  - `init.php` - additional portal parameters
+  - `after_connect.php` - runs right after connecting to the DB
+  - `dbconn_error.php` - runs on DB connection error
+  - `dbquery_error.php` - runs on SQL query error
+  - `/SITE_ID/init.php` - additional site parameters, loaded right after the special constant SITE_ID is defined
+- `/templates/` - site and component templates, includes:
+  - `/.default/` - common files used by a default template; structure matches the structure below
+  - `/TEMPLATE_ID/` - site template directory, includes:
+    - `/components/` - customized component templates
+    - `/lang/` - language files for the template and its components
+    - `/images/` - template images
+    - `/page_templates/` - page templates and their descriptions in `.content.php`; when a user creates a new page they
+      choose a template from this directory
+    - `header.php` - template prolog
+    - `footer.php` - template epilog
+    - `template_styles.css` - main CSS file for the template
+    - `styles.css` - CSS styles for the visual editor (Site styles tab)
+- `header.php` - standard file that includes the current template prolog; must be used on all public pages
+- `footer.php` - standard file that includes the current template epilog; must be used on all public pages
+- `license_key.php` - license key file
 
-    /admin/ – административные скрипты;
-    /cache/ – файлы кэша;
-    /components/ – папка для системных и пользовательских компонентов;
-    /js/ – файлы javascript модулей;
-    /managed_cache/ – управляемый кеш;
-    /modules/ – каталог с модулями системы, каждый подкаталог которого имеет свою строго определённую структуру;
-    /php_interface/ – вспомогательный служебный каталог, в него входят следующие каталоги и файлы:
-        dbconn.php – параметры соединения с базой;
-        init.php – дополнительные параметры портала;
-        after_connect.php – подключается сразу же после создания соединения с базой;
-        dbconn_error.php – подключается при ошибке в момент создания соединения с базой;
-        dbquery_error.php – подключается при ошибке в момент выполнения SQL запроса;
-        /ID сайта/init.php – дополнительные параметры сайта; файл подключается сразу же после определения специальной константы c идентификатором сайта – SITE_ID;
-    /templates/ – каталог с шаблонами сайтов и компонентов , в него входят следующие подкаталоги:
-        /.default/ – подкаталог с общими файлами, используемыми тем или иным шаблоном по умолчанию, структура данного каталога аналогична нижеописанной структуре каталога содержащего конкретный шаблон;
-        /ID шаблона сайта/ – подкаталог с шаблоном сайта, в него входят следующие подкаталоги и файлы:
-            /components/ – каталог с кастомизированными шаблонами компонентов;
-            /lang/ – языковые файлы принадлежащие как данному шаблону в целом, так и отдельным компонентам;
-            /images/ – каталог с изображениями данного шаблона;
-            /page_templates/ – каталог с шаблонами страниц и их описанием хранящимся в файле .content.php. Когда пользователь создает новую страницу, он может выбрать, по какому шаблону из представленных в этом каталоге это будет сделано;
-            header.php – пролог данного шаблона;
-            footer.php – эпилог данного шаблона;
-            template_styles.css – основной файл стилей для шаблона;
-            styles.css – CSS стили шаблона для визуального редактора (вкладка Стили сайта);
-    header.php – стандартный файл, подключающий в свою очередь конкретный пролог текущего шаблона сайта; данный файл должен использоваться на всех страницах публичной части;
-    footer.php – стандартный файл, подключающий в свою очередь конкретный эпилог текущего шаблона сайта; данный файл должен использоваться на всех страницах публичной части;
-    license_key.php – файл с лицензионным ключом;
+## MVC in Bitrix and other CMSs [&uarr;](#bitrix)
 
-### Mvc в Bitrix, в других cms  [&uarr;](#PHP)
+Comparing 1C-Bitrix to the Model-View-Controller pattern:
 
-Сравнивая 1С-Битрикс с шаблоном проектирования Model-View-Controller, можно сказать что:
+- A module in 1C-Bitrix is the model in MVC.
+- A component in 1C-Bitrix is both the controller and the view in MVC (the component uses APIs of one or more modules to
+  manipulate data, and the component template (the view) renders the data on the page).
+- A template in 1C-Bitrix is a pure view in MVC (it controls the appearance, not the content).
 
-    Модуль в 1С-Битрикс это модель в MVC.
-    Компонент в 1С-Битрикс это контроллер и представление в MVC (компонент с помощью API одного или нескольких модулей манипулирует данными, а  шаблон компонента (представление) выводит данные на страницу).
-    Шаблон в 1С-Битрикс это чистое представление в понятии MVC (от него зависит не содержимое сайта а его оформление).
+P.S. This division is conditional, because Bitrix does not follow MVC strictly enough, in my opinion. Start with
+modules.
 
-P.S. Это деление условно, т.к. я считаю, что фреймворк Bitrix придерживается технологии MVC не достаточно строго.
-Начнем с модулей…
-Модули располагаются в /bitrix/modules/, задача каждого из них – предоставить API для выполнения той или иной функцию
-для CMS в целом, например: дать возможность хранить и выводить информациювроде статей, новостей, фотогалерей (модуль
-«информационные блоки»); организовать интернет-магазин(модуль «Интернет-магазин»); гибко управлять ценами на товар и
-связывать интернет-магазин с 1С:Предприятие и другими сервисами вроде Яндекс.Маркет (модуль «Торговый каталог»);
-датьвозможность организовать блог (модуль «Блоги»), форум (модуль «Форумы») и т.п. Предоставляемые модулями функции
-могут использовать как другие модули так и компоненты.
+Modules are located in `/bitrix/modules/`. Each module provides an API for a specific function across the CMS. Examples:
+store and render articles, news, photo galleries (Information blocks module); build an online store (Online store
+module); manage product pricing and integrate the store with 1C:Enterprise and services like Yandex.Market (Catalog
+module); build a blog (Blogs module), forum (Forum module), and so on. These APIs are used by other modules and by
+components.
 
-### Свой модуль, свой компонент  [&uarr;](#PHP)
+## Custom module, custom component [&uarr;](#bitrix)
 
-Файлы модуля располагаются в папке /bitrix/modules/ID модуля/. Структура папки:
+Module files live in `/bitrix/modules/MODULE_ID/`. Directory structure:
 
-    admin/ - каталог с административными скриптами модуля;
-        menu.php - файл с административным меню модуля;
-    classes/ - скрипты с классами модуля;
-        general/ - классы модуля, не зависящие от используемой базы данных;
-        mysql/ - классы модуля, предназначенные для работы только с MySQL;
-        mssql/ - классы модуля, предназначенные для работы только с MS SQL;
-        oracle/ - классы модуля, предназначенные для работы только с Oracle;
-    lang/ID языка/ - каталог с языковыми файлами скриптов модуля;
-    lib/ - каталог с файлами (API: классы, логика) нового ядра D7 (может не присутствовать, если у модуля нет собственных методов);
-    install/ - каталог с файлами используемыми для инсталляции и деинсталляции модуля;
-        admin/ - каталог со скриптами подключающими административные скрипты модуля (вызывающие скрипты);
-        js/ - каталог с js-скриптами модуля. Копируются в /bitrix/js/ID_модуля/;
-        db/ - каталог с SQL скриптами для инсталляции/деинсталляции базы данных;
-            mysql/ - SQL скрипты для инсталляции/деинсталляции таблиц в MySQL;
-            mssql/ - SQL скрипты для инсталляции/деинсталляции таблиц в MS SQL;
-            oracle/ - SQL скрипты для инсталляции/деинсталляции таблиц в Oracle;
-        images/ - каталог с изображениями используемыми модулем; после инсталляции модуля они должны быть скопированы в каталог /bitrix/images/ID модуля/;
-        templates/ - каталог с компонентами 1.0 модуля. (Каталог сохраняется только с целью совместимости версий.);
-            ID модуля/ - каталог с основными файлами компонент;
-            lang/ID языка/ID модуля/ - в данном каталоге находятся языковые файлы компонент модуля;
-        components/пространство имен/имя компонента/ - каталог с компонентами 2.0 модуля;
-        themes/имя_модуля/ - содержит css и картинки для стилей административной панели, если модуль в таковых нуждается (Устаревшая, до версии 12.0);
-        panel/имя_модуля/ - содержит css и картинки для стилей административной панели, если модуль в таковых нуждается.
-        index.php - файл с описанием модуля;
-        version.php - файл с номером версии модуля. Версия не может быть равной нулю.
-    include.php - данный файл подключается в тот момент, когда речь идет о подключении модуля в коде, в нем должны находиться включения всех файлов с библиотеками функций и классов модуля;
-    default_option.php - содержит массив с именем $ID модуля_default_option, в котором заданы значения по умолчанию для параметров модуля;
+- `admin/` - module admin scripts
+  - `menu.php` - module admin menu
+- `classes/` - module classes
+  - `general/` - classes independent of the DB
+  - `mysql/` - classes for MySQL
+  - `mssql/` - classes for MS SQL
+  - `oracle/` - classes for Oracle
+- `lang/LANG_ID/` - language files for module scripts
+- `lib/` - files (API: classes, logic) for the new D7 core (may be absent)
+- `install/` - files used to install and uninstall the module
+  - `admin/` - scripts that include the module admin scripts (caller scripts)
+  - `js/` - module JS scripts, copied to `/bitrix/js/MODULE_ID/`
+  - `db/` - SQL scripts for install/uninstall
+    - `mysql/` - SQL scripts for MySQL
+    - `mssql/` - SQL scripts for MS SQL
+    - `oracle/` - SQL scripts for Oracle
+  - `images/` - images used by the module; after install they should be copied to `/bitrix/images/MODULE_ID/`
+  - `templates/` - module components 1.0 (kept only for compatibility)
+    - `MODULE_ID/` - component files
+    - `lang/LANG_ID/MODULE_ID/` - language files for module components
+  - `components/NAMESPACE/COMPONENT_NAME/` - module components 2.0
+  - `themes/MODULE_NAME/` - CSS and images for admin panel styles if the module needs them (deprecated, pre-12.0)
+  - `panel/MODULE_NAME/` - CSS and images for admin panel styles if the module needs them
+  - `index.php` - module description
+  - `version.php` - module version; version cannot be zero
+- `include.php` - included when the module is loaded; should include all function and class libraries
+- `default_option.php` - contains the `$MODULE_ID_default_option` array with default module parameters
 
-    Примечание: В случае партнерских модулей, в названии которых содержится точка (пример - mycompany.forum) в имени переменной точка будет автоматически заменена на символ подчеркивания.
+Note: for partner modules with a dot in the name (example: `mycompany.forum`), the dot is replaced with an underscore in
+variable names.
 
-    options.php - данный файл подключается на странице настройки параметров модулей в административном меню Настройки;
-    prolog.php - файл может подключаться во всех административных скриптах модуля. Обычно в нем определяется константа ADMIN_MODULE_NAME (идентификатор модуля), используемая в панели управления;
-    .settings.php - файл настроек модуля, описывающий настройки модуля, которые можно прочитать через \Bitrix\Main\Config\Configuration::getInstance($module).
+- `options.php` - included on the module settings page in the admin menu
+- `prolog.php` - can be included in all admin scripts; usually defines the `ADMIN_MODULE_NAME` constant
+- `.settings.php` - module settings file read via
+  `\Bitrix\Main\Config\Configuration::getInstance($module)`
 
-Реализация логики и способа отображения компонента содержится в двух файлах:
+Component logic and rendering live in two files:
 
-    - В контроллере - www\bitrix\components\bitrix\имя_компонента\component.php
-    - И в представление  (так называемый шаблон компонента) - www\bitrix\components\bitrix\имя_компонента\templates\имя_ша­блона_компонента\template.php
+- Controller: `www/bitrix/components/bitrix/COMPONENT_NAME/component.php`
+- View (component template):
+  `www/bitrix/components/bitrix/COMPONENT_NAME/templates/TEMPLATE_NAME/template.php`
 
-Суть работы компонента хорошо описана в официальной документации, повторю их слова еще раз «компонент (т.е. его
-контроллер замечание от меня), с помощью API одного или нескольких модулей, манипулирует данными, шаблон компонента
-выводит данные на страницу».
+The official docs describe component behavior well; I will repeat their wording: the component (its controller) uses API
+of one or more modules to manipulate data, and the component template renders the data on the page.
 
-Компонент в своем составе может иметь несколько шаблонов, один из которых будет активным(указывается при вызове
-компонента).
+A component can have multiple templates, one of which is active (specified when calling the component).
 
-Помимо контроллера и представления, компонент имеет файлы, выполняющие более второстепенные задачи: файл – содержимого
-справки, логотип компонента для админпанели, файл-описание компонента для админпанели и т.п.
+Besides controller and view, a component has supporting files: a help file, a logo for the admin panel, a component
+description for the admin panel, and so on.
 
-Типичная структура компонента выглядит так:
+Typical component structure:
 
-    help (директория, файлы справки компонента, т.е. всплывающие подсказки при настройке компонента)
-    images (директория, изображения которые использует компонент)
-    lang (директория, содержит подпапки с языковыми файлами)
-    templates (директория с шаблонами, т.е. с представлениями)
-    .description.php (файл с описанием компонента)
-    .parameters.php (файл содержит описание входных параметров компонента, файл нужен только для конфигурирование компонента через окошко)
-    component.php (файл (контроллер), основная логика компонента)
+- `help/` - component help files (hints in component settings)
+- `images/` - images used by the component
+- `lang/` - language files
+- `templates/` - templates (views)
+- `.description.php` - component description
+- `.parameters.php` - component input parameters (used by the config window)
+- `component.php` - main component logic (controller)
 
-### Кэширование в Bitrix  [&uarr;](#PHP)
+## Caching in Bitrix [&uarr;](#bitrix)
 
-Простое кеширование - CPhpCache - класс для кеширования PHP переменных и HTML результата выполнения скрипта.
+Simple caching: `CPhpCache` is a class for caching PHP variables and HTML output from a script.
 
-Тегированный кеш - RegisterTag
+Tagged cache: `RegisterTag`.
 
 ![Alt text](images/orm_cache.png)
 
-### Порядок выполнения компонента - component, result_modifier, template, кэш, component_epilog  [&uarr;](#PHP)
+## Component execution order: component, result_modifier, template, cache, component_epilog [&uarr;](#bitrix)
 
 ![Alt text](images/component_logic.png)
 
-### Таблица b_event  [&uarr;](#PHP)
+## b_event table [&uarr;](#bitrix)
 
-Бывают случаи, когда на сайте есть проблемы с отправкой почты. Перед тем как исправлять ошибку, стоит обратить внимание
-на очередь писем которые не были отправлены.
+Sometimes a site has issues sending mail. Before fixing the error, check the queue of emails that were not sent.
 
-Если исправить ошибку с отправкой почты и не почистить очередь писем, в которой, например, может быть 3000 писем, то все
-эти письма начнут отправляться, и ваши посетители будут в недоумении, типа: "зачем мне пришло письмо о заказе который я
-оформлял месяц назад?".
+If you fix the mail error and do not clear the queue (for example 3000 emails), all of those will start sending, and
+visitors will wonder, "Why did I get an order email from a month ago?"
 
-Очередь писем в Bitrix можно посмотреть в таблице b_event. Путь к просмотру в админке: Настройки, Производительность,
-Таблицы.
+The mail queue in Bitrix is stored in the `b_event` table. Admin path: Settings, Performance, Tables.
 
-Если в записях в поле DATE_EXEC ничего не стоит, значит данное письмо еще не обрабатывалось почтовым сервером.
+If the `DATE_EXEC` field is empty, the email has not been processed by the mail server yet.
 
-Чтобы удалить все такие письма, нужно сделать SQL запрос. Для этого заходим в Настройки, Инструменты, SQL запрос.
+To delete these emails, run an SQL query. Go to Settings, Tools, SQL query.
 
-Вставляем команду которая указана ниже и нажимаем кнопку Выполнить запрос.
+Run:
 
-    delete from `b_event`
+```
+DELETE FROM `b_event`
+```
 
-После выполнения этой команды таблица будет полностью очищена и соответственно ни одно "левое" письмо не улетит вашим
-клиентам.
+After this, the table will be empty, and no stray emails will be sent.
 
-### D7 Bitrix, что принципиальное новое  [&uarr;](#PHP)
+## D7 Bitrix: what is fundamentally new [&uarr;](#bitrix)
 
-В новом ядре:
+In the new core:
 
-    изменен жизненный цикл страниц;
-    облегчена и сделана более удобной командная разработка;
-    добавлена обработка ошибок и исключений;
-    единая библиотека классов для выполнения служебных функций;
-    улучшена поддержка современных IDE (сред разработки);
-    в компоненты добавлена возможность поддержки ООП;
-    отказались от использования глобальных переменных;
-    одностраничный шаблон;
-    быстрые страницы для реализации ajax интерфейса.
+- page lifecycle changed
+- team development simplified and made more convenient
+- error and exception handling added
+- a unified class library for service functions
+- improved support for modern IDEs
+- components can use OOP
+- global variables abandoned
+- single-page template
+- fast pages for AJAX interfaces
 
-Новая ORM система
+### New ORM
 
-Появился важный инструмент – ORM (объектно-реляционное отображение), который позволяет структурировать данные и иметь к
-ним единый интерфейс доступа (единый getList, add, update и т.д.).
-Модуль «Highload Инфоблоки»
+A key tool appeared: ORM (object-relational mapping), which lets you structure data and access it via a single interface
+(`getList`, `add`, `update`, and so on).
 
-Модуль «Highload Инфоблоки», созданный на основе ORM с поддержкой NoSQL, распределяет нагрузку и помогает быстро
-находить нужные данные, не замедляя работу сайта, что важно для ресурсов с высокой посещаемостью.
+### Highload info blocks module
 
-Особенности нового модуля:
+The Highload Info Blocks module, built on ORM with NoSQL support, distributes load and helps find data quickly without
+slowing the site, which is important for high-traffic resources.
 
-    Модуль позволяет создавать списки для хранения произвольных данных (новости, вакансии), каждый хранится в своих таблицах БД:
-        производительность за счет разделения данных по таблицам;
-        унифицированное и производительное API по работе с данными за счет новой ORM;
-        пользовательские поля.
-    Административные страницы:
-        создания/изменения списков (создаются таблицы, модифицируются поля, индексы);
-        изменение элементов списка.
-    Универсальные компоненты.
+Features of the module:
 
-Библиотека классов
+- The module lets you create lists to store arbitrary data (news, vacancies). Each list lives in its own DB table:
+  - performance via data split across tables
+  - unified and efficient API via the new ORM
+  - user fields
+- Admin pages:
+  - create or edit lists (tables are created, fields and indexes are modified)
+  - edit list elements
+- Universal components
 
-В новой версии доступна библиотека классов, где собраны и категоризированы различные функции. Это значительно облегчает
-и ускоряет процесс создания и управления сайтом.
-Переход на новое ядро
-При создании сайта можно будет использовать старое и новое ядро. При этом, переход на новое ядро будет выполняться
-последовательно, не нанося ущерба работающим сайтам. По переходу на новое ядро будут подготовлены подробные инструкции.
+### Class library
 
-### Распределение прав - можно ли назначить доступ в определенному элементу инфоблока  [&uarr;](#PHP)
+The new version includes a class library with categorized functions. This significantly simplifies and speeds up site
+creation and management.
 
-1) Если для пользователя нужна отдельная группа, то создаем ее здесь: Настройки->Пользователи->Группы пользователей->
-   Добавить группу
+### Migration to the new core
 
-   1.1) Во вкладке Параметры - указываем имя группы и символьный код
+When creating a site, you can use both the old and new cores. Migration to the new core happens gradually, without
+breaking running sites. Detailed instructions are provided for migrating to the new core.
 
-   1.2) Во вкладке Доступ - настраиваем права на доступ к модулям проекта. Некоторые самописные модули, могут
-   отсутствовать в этом списке. В таком случае программист в коде должен донастроить модуль:
+## Access control: can you set access to a specific iblock element [&uarr;](#bitrix)
 
-        1.2.1) В /admin/menu.php добавляем проверку на уровень доступа пользователя к данному модулю. Если прав будет недостаточно, то данный модуль не отобразится в меню. К примеру вот такая проверка: if ($GLOBALS['APPLICATION']->GetUserRight('module.id') < 'R') { return []; }
+1) If a separate group is needed for a user, create it here: Settings -> Users -> User groups -> Add group.
 
-        1.2.2) Необходимо админу дать возможность настраивать уровень доступа к данному модулю. В таком случае нужно в /install/index.php добавить вот такую переменную в классе-установщике: public $MODULE_GROUP_RIGHTS = 'Y';
+   1.1) In the Parameters tab, set the group name and symbolic code.
 
-2) Создаем нового пользователя тут: Настройки->Пользователи->Список пользователей->Добавить пользователя
+   1.2) In the Access tab, configure access to project modules. Some custom modules might be missing from the list. In
+   that case, a developer must adjust the module code:
 
-   2.1) Во вкладке Пользователь - указываем E-Mail, Логин, пароль и подтверждение пароля.
-   2.2) Во вкладке Группы - привязываем пользователя к нужной группе
+        1.2.1) In `/admin/menu.php` add a check for the user access level for the module. If access is insufficient, the
+        module will not appear in the menu. Example:
+        `if ($GLOBALS['APPLICATION']->GetUserRight('module.id') < 'R') { return []; }`
 
-3) Если была создана новая группа пользователей:
+        1.2.2) Allow admins to set access level for the module. In `/install/index.php` add this variable to the installer
+        class: `public $MODULE_GROUP_RIGHTS = 'Y';`
 
-   3.1) вот тут: Контент->Файлы и папки->Bitrix, необходимо группе к которой привязан новый пользователь, дать доступ к
-   папке /admin/. Для этого заходим в настройки папки (в контектсном меню папки - Права на доступ продукта) и даем нашей
-   группе доступ на чтение. Если этого не сделать то пользователь просто не сможет залогиниться.
-   3.2) Если необходимо настроить доступ к медиабиблиотеке, то настроить его можно тут: Контент->Медиабиблиотека->
-   Доступ. Даем группе к которой привязан новый пользователь, доступ на чтение либо же доступ на запись.
+2) Create a new user here: Settings -> Users -> User list -> Add user.
 
-4) Если необходимо дать новому пользователю, права на чистку кэша:
+   2.1) On the User tab, set Email, Login, password, and password confirmation.
+   2.2) On the Groups tab, attach the user to the required group.
 
-   4.1) Создать новый уровень доступа вот тут: Настройки->Пользователи->Уровни доступа->Добавить уровень доступа. Далее:
-   4.1.1) В поле - Название - пишем любое ассоциативное название уровня доступа.
-   4.1.2) В поле - Модуль, выбираем - Главный модуль
-   4.1.3) В поле - Буква, пишем букву R
-   4.1.4) В поле - Описание, если необходимо, добавляем описание данного уровня доступа.
-   4.1.5) Во вкладке - Включаемые операции, активируем неколько чекбоксов(при необходимости, можно активировать и
-   остальные чекбоксы):
-   Просмотр своего профиля (view_own_profile)
-   Редактирование своего профиля (edit_own_profile)
-   Управление кешем (cache_control)
+3) If a new user group was created:
 
-   4.2) Если ранее, подобный уровень доступа был уже создан. То п. 4.1 пропускаем.
-   4.3) Заходим во вкладку - Доступ в настройках группы(см. п.1.2) и для модуля - Главный модуль, выбираем новый
-   необходимый уровень доступа, созданный в п.4.1
+   3.1) Content -> Files and folders -> Bitrix: grant the group access to `/admin/`. Open the folder settings
+   (context menu -> Product access rights) and grant read access. Otherwise the user cannot log in.
 
-5) Если на проекте используются инфоблоки:
+   3.2) If you need access to the Media Library: Content -> Media library -> Access. Grant read or write access for the
+   group.
 
-   5.1) идем в настройки нужного инфоблока: Контент->Инфоблоки->Типы инфоблоков->Название инфоблока
-   5.2) во вкладке Доступ, настраиваем доступ группы к которой привязан новый пользователь, к инфоблоку. Эту операцию
-   необходимо проделать для каждого инфоблока, к которому необходимо настроить доступ.
+4) If you need to grant the new user cache clean-up rights:
 
-### Оптимизация работы сайта - как  [&uarr;](#PHP)
+   4.1) Create a new access level here: Settings -> Users -> Access levels -> Add access level. Then:
+   4.1.1) Field Name: set any descriptive access level name.
+   4.1.2) Field Module: choose Main module.
+   4.1.3) Field Letter: set the letter R.
+   4.1.4) Field Description: add a description if needed.
+   4.1.5) In the Enabled operations tab, enable several checkboxes (and others if needed):
+   - View own profile (`view_own_profile`)
+   - Edit own profile (`edit_own_profile`)
+   - Cache management (`cache_control`)
 
-В зависимости от фреймворка / цмс существуют разные варианты отладочных консолей / дебаг-панелей.
+   4.2) If this access level already exists, skip 4.1.
+   4.3) Go to the Access tab in the group settings (see 1.2) and for Main module pick the new access level from 4.1.
 
-На примере bitrix протестировать производительность можно в админке - /bitrix/admin/perfmon_panel.php?lang=ru Результат
-запуска теста предоставит нам список наиболее загруженных страниц, среднее время их загрузки и количество запросов на
-каждый хит.
+5) If the project uses iblocks:
 
-Оптимизируем каждую из нагруженных страниц, сортируя по количеству запросов и времени их выполнения следующим образом:
+   5.1) Open the iblock settings: Content -> Iblocks -> Iblock types -> Iblock name.
+   5.2) On the Access tab, configure group access to the iblock. Do this for every iblock that requires access control.
 
-    Убираем запросы в цикле (пример ниже)
-    В запрашиваемых данных оставляем только нужные. Т.е. в массиве select должны быть указаны только те поля, с котороми работает скрипт
-    Если время запроса превышает 0.001 секунду - оптимизируем запрос, думаем над созданием индексов
-    Проверяем, настроено ли кэширование и параметры, от которого оно зависит.
-    В случае Битрикса можно использовать их запатентованную технологию Автокомпозит, которая сохраняет созданые копии страниц в директорию /bitrix/html_pages/ и при загрузке страницы отдает их, подгружая динамический контент в фоновом режиме. В результате пользователю страница отдается моментально
+## Site performance optimization [&uarr;](#bitrix)
 
-### Миграции  [&uarr;](#PHP)
+Different frameworks and CMSs provide different debug panels. In Bitrix you can test performance in the admin panel:
+`/bitrix/admin/perfmon_panel.php?lang=ru`. The test result shows the most loaded pages, their average load time, and the
+number of queries per hit.
 
-Почти в каждом современном PHP фреймворке есть собственная система миграций. Так уж сложилось, что в Битрикс нет никакой
-возможности модификации структуры базы данных, кроме как делать это в админке.
+Optimize each loaded page, sorting by query count and execution time:
 
-Выбор пал на Phinx по следующем причинам:
+- Remove queries from loops (example below).
+- In the `select` array, keep only fields used by the script.
+- If query time exceeds 0.001 seconds, optimize the query and consider adding indexes.
+- Check that caching is configured and its parameters are correct.
+- In Bitrix you can use the proprietary Auto Composite technology, which stores generated page copies in
+  `/bitrix/html_pages/` and serves them while loading dynamic content in the background. As a result, pages are served
+  instantly to users.
 
-    Он не привязан к фреймворку и может работать как самостоятельный модуль
-    В нем есть разделения на миграцию структуры и на миграцию данных (Seeder)
-    Имеет удобный builder, а также позволяет использовать ORM Bitrix в миграциях
-    Вся настройка сводится к одному php файлу
+## Migrations [&uarr;](#bitrix)
 
-### Интеграция с Bitrix24  [&uarr;](#PHP)
+Almost every modern PHP framework has its own migration system. In Bitrix, there is no built-in way to modify the DB
+structure except through the admin panel.
 
-Виды интеграции заявок и лидов с сайта в Битрикс24
-Интеграция с помощью CRM форм Битрикс24
-Интеграция с помощью Rest Api
-Интеграция сайта на Битрикс с Битрикс24
-Интеграция через службу почты — вариант на крайний случай
-Интеграция форм CRM и сайта, собранного на конструкторе
-Интеграция Битрикс24 с интернет магазином на Битрикс
-Интеграция Б24 с интернет-магазином на базе прочих CMS
+Phinx was chosen for these reasons:
 
-### HL-блоки  [&uarr;](#PHP)
+- It is not tied to a framework and can work as a standalone module.
+- It separates structure migrations from data migrations (seeder).
+- It has a convenient builder and allows using Bitrix ORM in migrations.
+- The entire setup is in a single PHP file.
+
+## Bitrix24 integration [&uarr;](#bitrix)
+
+Types of integration for site requests and leads into Bitrix24:
+
+- Integration via Bitrix24 CRM forms
+- Integration via REST API
+- Integration between a Bitrix site and Bitrix24
+- Integration via email service (last resort)
+- Integration between CRM forms and a site built with a site builder
+- Bitrix24 integration with a Bitrix online store
+- Bitrix24 integration with an online store on another CMS
+
+## HL blocks [&uarr;](#bitrix)
 
 https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=43&CHAPTER_ID=05745
 
-Поскольку модуль Информационные блоки считается очень "тяжелым" для создания легких справочников или хранения большого
-количества
-данных (когда модуль может вести себя не очень оптимально), то появилась потребность в создании аналога инфоблоков (
-модуль Highload-блоки),
-но гораздо проще и "полегче". Новый модуль доступен с версии 14.0 продукта и написан на новом ядре D7. Структура данных
-этого модуля
-предполагает возможность использования в нагруженных проектах.
+Because the Information Blocks module is considered "heavy" for lightweight directories or large data storage (it can be
+slow), there was a need for an analog of iblocks: the Highload Blocks module. It is much simpler and "lighter". The new
+module has been available since product version 14.0 and is written on the new D7 core. The data structure of this
+module assumes use in high-load projects.
 
-Примечание: Highload-блоки и традиционные инфоблоки - это разные вещи. Поэтому нет возможности конвертации традиционных
-инфоблоков в Highload-блоки.
-Это все равно как конвертировать форум в wiki. Технически можно создать какую-то аналогичную структуру и перенести
-данные. Но это имеет смысл только
-для конкретного проекта при определенной необходимости.
+Note: Highload blocks and traditional iblocks are different things. You cannot convert traditional iblocks into
+highload blocks. It is like converting a forum to a wiki. Technically you can build a similar structure and move the
+data, but it only makes sense for a specific project with a specific need.
 
-Highload-блоки - это быстрые справочники, без поддержки иерархии, с ограниченной поддержкой свойств. Они могут
-обращаться к БД
-в том числе и через HandlerSocket и работать с большими объёмами данных. Highload-блоки хранят элементы в своих таблицах
-и используют свои индексы.
+Highload blocks are fast directories without hierarchy support and with limited property support. They can access the
+DB (including via HandlerSocket) and work with large data volumes. Highload blocks store elements in their own tables
+and use their own indexes.
 
-### Sphinx  [&uarr;](#PHP)
+## Sphinx [&uarr;](#bitrix)
 
 https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=35&LESSON_ID=5935&LESSON_PATH=3906.4507.5935
 
-Внешний полнотекстовый поиск Sphinx позволяет сделать быстрым и качественным поиск на вашем сайте, снизить нагрузку на
-сервер.
-Он доступен в продуктах «1С-Битрикс» с версии 14.0.0 и полностью интегрирован с компонентами модуля Поиск.
+External full-text search with Sphinx makes site search fast and high quality and reduces server load. It is available
+in 1C-Bitrix products since version 14.0.0 and is fully integrated with Search module components.
 
-### Многосайтовость  [&uarr;](#PHP)
+## Multisite [&uarr;](#bitrix)
 
 https://dev.1c-bitrix.ru/learning/course/?COURSE_ID=103&LESSON_ID=287
 
-### Композитный сайт  [&uarr;](#PHP)
+## Composite site [&uarr;](#bitrix)
 
 https://habr.com/ru/post/325926/
 
-По сути, технология «композитный сайт» – это улучшенная версия технологии html-кэширования сайта.
+In short, composite site technology is an improved version of HTML caching.
 
-В html-шаблоне сайта можно выделять области статистического и динамического контента. За счет этого вы обеспечите
-пользователям мгновенный доступ к
-определенной информации на страницах. Статический контент – это такая область на странице, которую видят все посетители.
-Динамический контент показывается в
-индивидуальном порядке каждому отдельному посетителю. В качестве динамического контента может использоваться форма
-авторизации, корзина, баннеры и т.п.
+In an HTML template you can separate areas of static and dynamic content. This gives users instant access to selected
+information on pages. Static content is a page area seen by all visitors. Dynamic content is shown individually for each
+visitor. Dynamic content can include a login form, cart, banners, and so on.
 
-При использовании композитного сайта статический контент загружается мгновенно. Посетитель сайта сразу видит содержимое
-статической области и может
-изучать его и выполнять другие необходимые действия. Динамическая область подгружается постепенно в фоновом режиме и
-кэшируется в браузере.
+With a composite site, static content loads instantly. The visitor sees the static area immediately and can continue to
+read and act. The dynamic area loads gradually in the background and is cached in the browser.
 
-Как запустить технологию композитного сайта?
+How to enable composite site technology:
 
-Для начала проверьте, какая версия 1С-Битрикс используется на вашем сайте. Технология композитного сайта доступна для
-версии 14.5 и выше. При наличии
-более ранней версии вам потребуется обновить программу до актуальной или приобрести продление.
+First, check which 1C-Bitrix version your site uses. Composite site technology is available from version 14.5 and higher.
+If you have an earlier version, update to the latest or buy a renewal.
 
-Зайдите в раздел «Настройка продукта». Там вы увидите пункт «Композитный сайт». Чтобы данная технология заработала на
-вашем сайте, недостаточно ее
-просто включить. Для этого вам потребуется подогнать отдельные страницы под «композитный сайт». Каждый элемент шаблона
-страницы должен быть адаптирован к
-применению технологии. Если хоть один компонент не будет настроен под «композитный сайт», то технология не будет
-работать на всей странице.
+Go to Product settings. There you will see the Composite site item. Just enabling it is not enough. You need to adapt
+specific pages for composite site. Each template element must be adapted. If at least one component is not adapted, the
+technology will not work on the page.
 
-Для настройки статической области на странице необходимо добавить в шаблон строку следующего вида:
+To configure the static area on a page, add this line to the template:
 
-      $this->setFrameMode(true).
+```
+$this->setFrameMode(true);
+```
 
-Для выделения динамических областей используйте:
+To define dynamic areas, use:
 
-      $frame = $this->createFrame()->begin();
+```
+$frame = $this->createFrame()->begin();
+$frame->end();
+```
 
-      $frame->end().
-
-### Работа с модулем маштабирование  [&uarr;](#PHP)
+## Scaling module [&uarr;](#bitrix)
 
 https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=48&CHAPTER_ID=06644&LESSON_PATH=3918.4635.6644
 
-### Создание кластерных систем  [&uarr;](#PHP)
+## Cluster systems [&uarr;](#bitrix)
 
 https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=35&LESSON_ID=3018&LESSON_PATH=3906.6663.4750.3018

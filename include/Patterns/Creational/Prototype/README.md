@@ -1,68 +1,61 @@
-## Прототип (Prototype)
+## Prototype
 
-Паттерн Prototype относится к порождающим паттернам уровня объекта.
+The Prototype pattern is a creational object-level pattern.
 
-Паттерн Prototype позволяет создавать новые объекты, путем копирования (клонирования) созданного ранее
-объекта-оригинала-продукта (прототипа).
+Prototype allows creating new objects by copying (cloning) a previously created original object (prototype).
 
-Помогает избежать затрат на создание объектов стандартным способом (new Foo()), а вместо этого создаёт прототип и затем
-клонирует его.
+It helps avoid the cost of creating objects in the standard way (new Foo()), by creating a prototype and cloning it.
 
-Паттерн описывает процесс создания объектов-клонов на основе имеющегося объекта-прототипа, другими словами, паттерн
-Prototype
-описывает способ организации процесса клонирования.
+The pattern describes creating clone objects based on a prototype object. In other words, Prototype describes how to
+organize the cloning process.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый класс Prototype, объявляющий интерфейс клонирования. Все классы его наследующие должны реализовывать этот
-   механизм клонирования;
-2. Класс продукта ConcretePrototypeA, который должен реализовывать этот прототип;
-3. Класс продукта ConcretePrototypeB, который должен реализовывать этот прототип.
+1. Base Prototype class declaring a cloning interface. All inheriting classes must implement cloning.
+2. ConcretePrototypeA class implementing that prototype.
+3. ConcretePrototypeB class implementing that prototype.
 
-Обычно операция клонирования происходит через метод getClone(), который описан в базовом классе и его должен реализовать
-каждый продукт. Но в PHP так же существует ключевое слово clone и магический метод __clone для реализации механизма
-клонирования.
+Typically cloning happens via a getClone() method defined in the base class and implemented by each product. But in PHP
+there is also the clone keyword and the __clone magic method for implementing cloning.
 
-## Применимость
+## Applicability
 
-### Когда ваш код не должен зависеть от классов копируемых объектов.
+### When your code should not depend on classes of copied objects.
 
-    Такое часто бывает, если ваш код работает с объектами, поданными извне через какой-то общий интерфейс. Вы не можете привязаться к их классам, даже 
-    если бы хотели, поскольку их конкретные классы неизвестны.
-    
-    Паттерн прототип предоставляет клиенту общий интерфейс для работы со всеми прототипами. Клиенту не нужно зависеть от всех классов копируемых объектов, 
-    а только от интерфейса клонирования.
+    This often happens if your code works with objects passed from the outside via a common interface. You cannot tie
+    yourself to their classes because you do not know them.
 
-### Когда вы имеете уйму подклассов, которые отличаются начальными значениями полей. Кто-то мог создать все эти классы, чтобы иметь возможность легко порождать объекты с определённой конфигурацией.
+    Prototype provides a common interface for all prototypes. The client depends only on the cloning interface, not on
+    all concrete classes.
 
-    Паттерн прототип предлагает использовать набор прототипов, вместо создания подклассов для описания популярных конфигураций объектов.
-    
-    Таким образом, вместо порождения объектов из подклассов, вы будете копировать существующие объекты-прототипы, в которых уже настроено внутреннее 
-    состояние. Это позволит избежать взрывного роста количества классов в программе и уменьшить её сложность.
+### When you have many subclasses that differ only by initial field values, created to easily produce objects with a specific configuration.
 
-## Преимущества и недостатки
+    Prototype suggests using a set of prototypes instead of creating subclasses for popular configurations.
 
-    + Позволяет клонировать объекты, не привязываясь к их конкретным классам.
-    + Меньше повторяющегося кода инициализации объектов.
-    + Ускоряет создание объектов.
-    + Альтернатива созданию подклассов для конструирования сложных объектов.
+    Instead of instantiating subclasses, you copy existing prototype objects that already have internal state set up.
+    This avoids an explosion in class count and reduces complexity.
 
-    + Сложно клонировать составные объекты, имеющие ссылки на другие объекты.
+## Pros and cons
 
-## Отношения с другими паттернами
+    + Clones objects without depending on their concrete classes.
+    + Less repetitive initialization code.
+    + Speeds up object creation.
+    + An alternative to subclassing for building complex objects.
 
-1. Многие архитектуры начинаются с применения `Фабричного метода` (более простого и расширяемого через подклассы) и
-   эволюционируют в сторону `Абстрактной фабрики`, `Прототипа` или `Строителя` (более гибких, но и более сложных).
-2. Классы `Абстрактной фабрики` чаще всего реализуются с помощью `Фабричного метода`, хотя они могут быть построены и на
-   основе `Прототипа`.
-3. Если `Команду` нужно копировать перед вставкой в историю выполненных команд, вам может помочь `Прототип`.
-4. Архитектура, построенная на `Компоновщиках` и `Декораторах`, часто может быть улучшена за счёт внедрения `Прототипа`.
-   Он позволяет клонировать сложные структуры объектов, а не собирать их заново.
-5. `Прототип` не опирается на наследование, но ему нужна сложная операция инициализации. `Фабричный метод`, наоборот,
-   построен на наследовании, но не требует сложной инициализации.
-6. `Снимок` иногда можно заменить `Прототипом`, если объект, состояние которого требуется сохранять в истории, довольно
-   простой, не имеет активных ссылок на внешние ресурсы либо их можно легко восстановить.
-7. `Абстрактная фабрика`, `Строитель` и `Прототип` могут быть реализованы при помощи `Одиночки`.
+    - Hard to clone composite objects that reference other objects.
 
+## Relations with other patterns
+
+1. Many architectures start with Factory Method (simple and extensible via subclasses) and evolve toward Abstract
+   Factory, Prototype, or Builder (more flexible but more complex).
+2. Abstract Factory classes are often implemented with Factory Method, but they can also be built on Prototype.
+3. If a Command must be copied before adding to command history, Prototype can help.
+4. Architecture built on Composite and Decorator can often be improved with Prototype. It allows cloning complex object
+   structures instead of rebuilding them.
+5. Prototype does not rely on inheritance, but it needs a complex initialization. Factory Method, on the contrary,
+   relies on inheritance and does not require complex initialization.
+6. Memento can sometimes be replaced by Prototype if the object whose state must be stored is simple, has no active
+   external resource references, or they can be restored easily.
+7. Abstract Factory, Builder, and Prototype can be implemented with Singleton.

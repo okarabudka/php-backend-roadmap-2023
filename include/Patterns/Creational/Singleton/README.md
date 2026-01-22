@@ -1,57 +1,54 @@
-## Одиночка (Singleton)
+## Singleton
 
-Паттерн Singleton относится к порождающим паттернам уровня объекта.
+The Singleton pattern is a creational object-level pattern.
 
-Паттерн контролирует создание единственного экземпляра некоторого класса и предоставляет доступ к нему.
+It controls the creation of a single instance of a class and provides access to it.
 
-Другими словами, Singleton гарантирует, что у класса будет только один экземпляр и предоставляет к нему точку доступа,
-через фабричный метод.
+In other words, Singleton guarantees that a class has only one instance and provides a global access point via a
+factory method.
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс Singleton, оформленный соответствующим образом. (см. реализацию)
+1. Singleton class implemented accordingly (see implementation).
 
-## Аналогия из жизни
+## Real-world analogy
 
-    Правительство государства — хороший пример одиночки. В государстве может быть только одно официальное правительство. 
-    Вне зависимости от того, кто конкретно заседает в правительстве, оно имеет глобальную точку доступа «Правительство страны N».
+    A government is a good example of a singleton. A country can have only one official government. Regardless of who
+    sits in the government, it has a global access point: "Government of Country N".
 
-## Применимость
+## Applicability
 
-### Когда в программе должен быть единственный экземпляр какого-то класса, доступный всем клиентам (например, общий доступ к базе данных из разных частей программы).
+### When a program must have a single instance of a class accessible to all clients (for example, a shared DB connection).
 
-    Одиночка скрывает от клиентов все способы создания нового объекта, кроме специального метода. Этот метод либо создаёт объект, 
-    либо отдаёт существующий объект, если он уже был создан.
+    Singleton hides all ways of creating a new object except for a special method. That method either creates the
+    object or returns an existing one if it has already been created.
 
-### Когда вам хочется иметь больше контроля над глобальными переменными.
+### When you want more control over global variables.
 
-    В отличие от глобальных переменных, Одиночка гарантирует, что никакой другой код не заменит созданный экземпляр класса, поэтому вы 
-    всегда уверены в наличии лишь одного объекта-одиночки.
-    
-    Тем не менее, в любой момент вы можете расширить это ограничение и позволить любое количество объектов-одиночек, поменяв код в одном 
-    месте (метод getInstance).
+    Unlike global variables, Singleton guarantees that no other code will replace the created instance, so you are
+    always sure that only one singleton object exists.
 
-## Преимущества и недостатки
+    Still, you can lift this restriction at any time and allow multiple instances by changing code in one place (the
+    getInstance method).
 
-    + Гарантирует наличие единственного экземпляра класса.
-    + Предоставляет к нему глобальную точку доступа.
-    + Реализует отложенную инициализацию объекта-одиночки.
+## Pros and cons
 
-    - Нарушает принцип единственной ответственности класса.
-    - Маскирует плохой дизайн.
-    - Проблемы мультипоточности.
-    - Требует постоянного создания Mock-объектов при юнит-тестировании.
+    + Guarantees a single class instance.
+    + Provides a global access point.
+    + Implements lazy initialization.
 
-## Отношения с другими паттернами
+    - Violates the single responsibility principle.
+    - Masks bad design.
+    - Multithreading issues.
+    - Requires constant mock creation in unit tests.
 
-1. `Фасад` можно сделать `Одиночкой`, так как обычно нужен только один объект-фасад.
-2. Паттерн `Легковес` может напоминать `Одиночку`, если для конкретной задачи у вас получилось свести количество
-   объектов к одному. Но помните, что между паттернами есть два кардинальных отличия:
+## Relations with other patterns
 
-    - В отличие от `Одиночки`, вы можете иметь множество `объектов-легковесов`.
-    - `Объекты-легковесы` должны быть неизменяемыми, тогда как `объект-одиночка` допускает изменение своего состояния.
+1. Facade can be made a Singleton because usually only one facade object is needed.
+2. Flyweight can resemble Singleton if for a particular task you reduce the number of objects to one. But there are two
+   key differences:
 
-
-
+    - Unlike Singleton, you can have many flyweight objects.
+    - Flyweight objects must be immutable, while a singleton object can change its state.

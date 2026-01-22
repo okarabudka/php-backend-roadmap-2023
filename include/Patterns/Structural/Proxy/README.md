@@ -1,99 +1,100 @@
-## Прокси (Proxy)
+## Proxy
 
-Паттерн Proxy относится к структурным паттернам уровня объекта.
+The Proxy pattern is a structural object-level pattern.
 
-Паттерн Proxy предоставляет объект для контроля доступа к другому объекту.
+Proxy provides an object that controls access to another object.
 
-Другое название паттерна - "Суррогат". В этом понимании, это предмет или продукт, заменяющий собой какой-либо другой
-предмет или продукт, с которым суррогат имеет лишь некоторые общие свойства, но он не обладает всеми качествами
-оригинального предмета или продукта.
+Another name is "Surrogate". In that sense, it is an object that replaces another object. It shares some properties
+with the original, but not all of them.
 
-Паттерна Proxy выдвигается ряд важных требований, а именно то, что оригинальный объект и его суррогат должны
-взаимодействовать друг с другом, а также должна быть возможность, замещения оригинальным объектом, суррогата в месте его
-использования, соответственно интерфейсы взаимодействия оригинального объекта и его суррогата должны совпадать.
+Proxy requires that the original object and its surrogate can interact, and that the surrogate can be replaced with the
+original at the usage site. Therefore, the interfaces of the original and the surrogate must match.
 
-Вам будет легче понять паттерн, если вы смотрели фильм "Суррогаты".
+It is easier to understand if you have seen the movie "Surrogates".
 
-## Пример
+## Example
 
-Требуется для реализации:
+Required for implementation:
 
-1. Интерфейс ISubject, являющейся общим интерфейсом для реального объекта и его суррогата;
-2. Класс RealSubject, реализующий реальный объект;
-3. Класс Proxy, реализующий объект суррогата. Хранит в себе ссылку на реальный объект, что позволяет заместителю
-   обращаться к реальному объект напрямую;
+1. ISubject interface as a common interface for the real object and its surrogate.
+2. RealSubject class implementing the real object.
+3. Proxy class implementing the surrogate object. It keeps a reference to the real object so the proxy can call it
+   directly.
 
-Например, паттерн Proxy можно использовать, если нам нужно управлять ресурсоемкими объектами, но мы не хотим создавать
-экземпляры таких объектов до момента их реального использования.
+For example, Proxy can be used when you need to manage heavyweight objects but do not want to create them until they are
+actually needed.
 
-Вы можете подумать, что это тоже самое, что и Adapter или Decorator. Но...
+You might think this is the same as Adapter or Decorator, but...
 
-Proxy предоставляет своему объекту тот же интерфейс.
-Adapter предоставляет другой интерфейс.
-Decorator предоставляет расширенный интерфейс.
+Proxy provides the same interface as the object.
+Adapter provides a different interface.
+Decorator provides an extended interface.
 
-## Аналогия из жизни
+## Real-world analogy
 
-    Платёжная карточка — это заместитель пачки наличных. И карточка, и наличные имеют общий интерфейс — ими можно оплачивать товары. Для покупателя польза в том, что не надо таскать с собой тонны наличных, а владелец магазина рад, что ему не нужно делать дорогостоящую инкассацию наличности в банк — деньги поступают к нему на счёт напрямую.
+    A payment card is a proxy for a bundle of cash. Both card and cash share the same interface: you can pay for goods.
+    The buyer benefits by not carrying cash, and the shop owner benefits by not having to arrange costly cash collection,
+    because money goes directly to the account.
 
-## Применимость
+## Applicability
 
-### Ленивая инициализация (виртуальный прокси). Когда у вас есть тяжёлый объект, грузящий данные из файловой системы или базы данных.
+### Lazy initialization (virtual proxy). When you have a heavy object that loads data from a file system or database.
 
-    Вместо того, чтобы грузить данные сразу после старта программы, можно сэкономить ресурсы и создать объект тогда, когда он действительно понадобится.
+    Instead of loading data right after program start, you can save resources and create the object only when needed.
 
-### Защита доступа (защищающий прокси). Когда в программе есть разные типы пользователей, и вам хочется защищать объект от неавторизованного доступа. Например, если ваши объекты — это важная часть операционной системы, а пользователи — сторонние программы (хорошие или вредоносные).
+### Access control (protection proxy). When you have different user types and want to protect an object from unauthorized access. For example, if your objects are a critical part of the OS and users are third-party programs (good or malicious).
 
-    Прокси может проверять доступ при каждом вызове и передавать выполнение служебному объекту, если доступ разрешён.
+    The proxy can check access on each call and forward execution to the service object if access is allowed.
 
-### Локальный запуск сервиса (удалённый прокси). Когда настоящий сервисный объект находится на удалённом сервере.
+### Local execution of a remote service (remote proxy). When the real service object is on a remote server.
 
-    В этом случае заместитель транслирует запросы клиента в вызовы по сети в протоколе, понятном удалённому сервису.
+    In this case the surrogate translates client requests into network calls using a protocol understood by the remote
+    service.
 
-### Логирование запросов (логирующий прокси). Когда требуется хранить историю обращений к сервисному объекту.
+### Logging requests (logging proxy). When you need to keep a history of requests to the service object.
 
-    Заместитель может сохранять историю обращения клиента к сервисному объекту.
+    The surrogate can save a history of client access to the service object.
 
-### Кеширование объектов («умная» ссылка). Когда нужно кешировать результаты запросов клиентов и управлять их жизненным циклом.
+### Object caching (smart reference). When you need to cache results of client requests and manage their lifecycle.
 
-    Заместитель может подсчитывать количество ссылок на сервисный объект, которые были отданы клиенту и остаются активными. Когда все ссылки освобождаются, можно будет освободить и сам сервисный объект (например, закрыть подключение к базе данных).
+    The surrogate can count references to the service object that were returned to the client and remain active. When all
+    references are released, you can release the service object as well (for example, close a DB connection).
 
-    Кроме того, Заместитель может отслеживать, не менял ли клиент сервисный объект. Это позволит использовать объекты повторно и здóрово экономить ресурсы, особенно если речь идёт о больших прожорливых сервисах.
+    In addition, the proxy can track whether the client modified the service object. This allows reuse and saves
+    resources, especially for large, expensive services.
 
-## Шаги реализации
+## Implementation steps
 
-1. Определите интерфейс, который бы сделал заместитель и оригинальный объект взаимозаменяемыми.
+1. Define the interface that makes the proxy and the original object interchangeable.
 
-2. Создайте класс заместителя. Он должен содержать ссылку на сервисный объект. Чаще всего, сервисный объект создаётся
-   самим заместителем. В редких случаях заместитель получает готовый сервисный объект от клиента через конструктор.
+2. Create the proxy class. It should contain a reference to the service object. Most often the proxy creates the service
+   object itself. In rare cases the proxy receives a ready service object from the client via the constructor.
 
-3. Реализуйте методы заместителя в зависимости от его предназначения. В большинстве случаев, проделав какую-то полезную
-   работу, методы заместителя должны передать запрос сервисному объекту.
+3. Implement proxy methods depending on its purpose. In most cases, after doing some useful work, proxy methods should
+   forward the request to the service object.
 
-4. Подумайте о введении фабрики, которая решала бы, какой из объектов создавать — заместитель или реальный сервисный
-   объект. Но, с другой стороны, эта логика может быть помещена в создающий метод самого заместителя.
+4. Consider introducing a factory that decides which object to create: proxy or real service object. Alternatively, this
+   logic can be placed in the proxy's creation method.
 
-5. Подумайте, не реализовать ли вам ленивую инициализацию сервисного объекта при первом обращении клиента к методам
-   заместителя.
+5. Consider implementing lazy initialization of the service object on the first client call.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Позволяет контролировать сервисный объект незаметно для клиента.
-    + Может работать, даже если сервисный объект ещё не создан.
-    + Может контролировать жизненный цикл служебного объекта.
+    + Controls the service object without the client noticing.
+    + Works even if the service object is not created yet.
+    + Can manage the lifecycle of the service object.
 
-    - Усложняет код программы из-за введения дополнительных классов.
-    - Увеличивает время отклика от сервиса.
+    - Adds complexity due to extra classes.
+    - Increases service response time.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Адаптер` предоставляет классу альтернативный интерфейс. `Декоратор` предоставляет расширенный интерфейс.
-   `Заместитель` предоставляет тот же интерфейс.
+1. Adapter provides an alternative interface. Decorator provides an extended interface. Proxy provides the same
+   interface.
 
-2. `Фасад` похож на `Заместитель` тем, что замещает сложную подсистему и может сам её инициализировать. Но в отличие от
-   `Фасада`, `Заместитель` имеет тот же интерфейс, что его служебный объект, благодаря чему их можно взаимозаменять.
+2. Facade is similar to Proxy in that it can replace a complex subsystem and initialize it. But unlike Facade, Proxy has
+   the same interface as its service object, so they are interchangeable.
 
-3. `Декоратор` и `Заместитель` имеют схожие структуры, но разные назначения. Они похожи тем, что оба построены на
-   принципе композиции и делегируют работу другим объектам. Паттерны отличаются тем, что `Заместитель` сам управляет
-   жизнью сервисного объекта, а обёртывание `Декораторов` контролируется клиентом.
-
+3. Decorator and Proxy have similar structures but different purposes. Both are built on composition and delegate work
+   to other objects. The difference is that Proxy manages the service object's lifecycle, while Decorator wrapping is
+   controlled by the client.

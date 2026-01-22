@@ -1,13 +1,13 @@
 <?php
 /**
- * Паттерн Фасад (Facade)
+ * Facade pattern
  */
 
 namespace Pattern;
 
 /**
- * Man, реализует мужика и фасад
- * В мужике заложено:
+ * Man implements the facade
+ * The man contains:
  */
 class Man
 {
@@ -27,7 +27,7 @@ class Man
     public $child;
 
     /**
-     * Конструктор. Создает мужика
+     * Constructor. Creates the man
      */
     public function __construct()
     {
@@ -37,7 +37,7 @@ class Man
     }
 
     /**
-     * Мужик должен сделать
+     * What the man must do
      *
      * @return string
      */
@@ -54,12 +54,12 @@ class Man
 }
 
 /**
- * House, реализует подсистему "Дом"
+ * House implements the \"House\" subsystem
  */
 class House
 {
     /**
-     * Строительство дома
+     * Building a house
      */
     public function build()
     {
@@ -68,12 +68,12 @@ class House
 }
 
 /**
- * Tree, реализует подсистему "Дерево"
+ * Tree implements the \"Tree\" subsystem
  */
 class Tree
 {
     /**
-     * Посадка дерева
+     * Planting a tree
      *
      * @return string
      */
@@ -84,12 +84,12 @@ class Tree
 }
 
 /**
- * Child, реализует подсистему "Ребёнок"
+ * Child implements the \"Child\" subsystem
  */
 class Child
 {
     /**
-     * Производство детей =)
+     * Having children :)
      *
      * @return string
      */
@@ -98,4 +98,3 @@ class Child
         return "Child born";
     }
 }
-

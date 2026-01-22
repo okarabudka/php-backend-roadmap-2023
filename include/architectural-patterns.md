@@ -1,575 +1,384 @@
-#### Список ссылок
+# Architectural Patterns
 
-- [Микросервисы vs. Монолит](https://habr.com/ru/company/yandex_praktikum/blog/570024/)
-- [Микросервисы — отчуждение от результатов труда](https://habr.com/ru/post/709328/)
-- [Модульный PHP монолит: рецепт приготовления](https://habr.com/ru/company/ispring/blog/560074/)
-- [Модульный монолит. Начало](https://habr.com/ru/company/dododev/blog/650721/)
+#### Links
 
+- [Microservices vs Monolith](https://habr.com/ru/company/yandex_praktikum/blog/570024/)
+- [Microservices - alienation from results of labor](https://habr.com/ru/post/709328/)
+- [Modular PHP monolith: a recipe](https://habr.com/ru/company/ispring/blog/560074/)
+- [Modular monolith. Start](https://habr.com/ru/company/dododev/blog/650721/)
+- [Hexagonal architecture and how I got there](https://alexkosarev.name/2020/06/12/hexagonal-architecture/)
+- [Hexagonal architecture and Domain Driven Design with a front-end app example](https://habr.com/ru/post/654629/)
+- [Hexagonal architecture](https://habr.com/ru/post/267125/)
+- [What is service-oriented architecture?](https://aws.amazon.com/ru/what-is/service-oriented-architecture/)
+- [Service-oriented architecture (SOA)](https://habr.com/ru/company/vk/blog/342526/)
+- [Best architecture for MVP: monolith, SOA, microservices, or serverless? Part 1](https://habr.com/ru/company/otus/blog/476024/)
+- [Best architecture for MVP: monolith, SOA, microservices, or serverless? Part 2](https://habr.com/ru/company/otus/blog/477930/)
+- [What is a service mesh in simple terms](https://habr.com/ru/company/southbridge/blog/705914/)
+- [Twelve-Factor App](https://12factor.net/ru/)
+- [Twelve-Factor App in simple words](https://habr.com/ru/post/261171/)
 
-- [Гексагональная архитектура, и как я к ней пришёл](https://alexkosarev.name/2020/06/12/hexagonal-architecture/)
-- [Гексагональная архитектура и Domain Driven Design на примере Front-end приложения](https://habr.com/ru/post/654629/)
-- [Гексагональная архитектура](https://habr.com/ru/post/267125/)
+## Monolithic Apps and Microservices [&uarr;](#architectural-patterns)
 
+A monolithic app is a single shared module, while microservices architecture is a set of small independently deployed
+services. Which is better depends on many factors.
 
-- [Что такое сервис-ориентированная архитектура?](https://aws.amazon.com/ru/what-is/service-oriented-architecture/)
-- [Сервис-ориентированная архитектура (SOA)](https://habr.com/ru/company/vk/blog/342526/)
+In 2009, Netflix faced growth problems. Its infrastructure could not keep up with demand for video streaming. Netflix
+moved from private data centers to the public cloud and shifted from a monolithic architecture to microservices. The
+term "microservices" did not exist yet, so there was little documentation.
 
+Netflix became one of the first large organizations to successfully move from monolith to cloud microservices. In 2015
+it received a JAX jury prize, partly because the new infrastructure adopted DevOps practices. Today Netflix runs more
+than a thousand microservices. They manage platform components, and developers deploy code frequently (thousands of
+deploys per day).
 
-- [Лучшая архитектура для MVP: монолит, SOA, микросервисы или бессерверная?.. Часть 1](https://habr.com/ru/company/otus/blog/476024/)
-- [Лучшая архитектура для MVP: монолит, SOA, микросервисы или бессерверная?.. Часть 2](https://habr.com/ru/company/otus/blog/477930/)
-
-
-- [Что такое service mesh простыми словами](https://habr.com/ru/company/southbridge/blog/705914/)
-
-
-- [Twelve Factor App](https://12factor.net/ru/)
-- [Простыми словами о Twelve-Factor App](https://habr.com/ru/post/261171/)
-
-### Monolithic-Apps && Microservices [&uarr;](#Readme)
-
-Монолитное приложение — это единый общий модуль, в то время как микросервисная архитектура представляет собой набор
-небольших
-независимо развертываемых служб. Какой вариант лучше выбрать? Это зависит от ряда факторов.
-
-В 2009 году компания Netflix столкнулась с проблемами роста. Ее инфраструктура не справлялась со спросом на стремительно
-развивающиеся
-услуги Netflix по потоковой передаче видео. Компания решила перенести ИТ-инфраструктуру из частных центров обработки
-данных в публичное
-облако, а также перейти от монолитной архитектуры к микросервисной. Единственная проблема заключалась в том, что термина
-«микросервисы»
-в то время не существовало, поэтому о структуре было мало сведений.
-
-Компания Netflix стала одной из первых крупных организаций, успешно перешедших с монолитной архитектуры на облачную
-архитектуру
-микросервисов. Она получила специальный приз жюри JAX в 2015 году — отчасти благодаря новой инфраструктуре, в которую
-удалось внедрить
-методологию DevOps. Сегодня у компании Netflix более тысячи микросервисов. С их помощью осуществляется управление
-отдельными частями
-платформы и их поддержка, в то время как разработчики регулярно развертывают код (число развертываний может достигать
-нескольких тысяч раз
-в день).
-
-Компания Netflix одной из первых перешла от монолитной архитектуры к микросервисной, которая становится все более
-популярной на
-современном рынке.
+Netflix was one of the first to switch to microservices, which are increasingly popular today.
 
 ![Monolith Vs Microservice image.png](images%2FMonolith%20Vs%20Microservice%20image.png)
 
-#### Монолитная архитектура
+### Monolithic architecture
 
-Монолитная архитектура — это традиционная модель программного обеспечения, которая представляет собой единый модуль,
-работающий автономно и
-независимо от других приложений. Монолитом часто называют нечто большое и неповоротливое, и эти два слова хорошо
-описывают монолитную
-архитектуру для проектирования ПО. Монолитная архитектура — это отдельная большая вычислительная сеть с единой базой
-кода, в которой
-объединены все бизнес-задачи. Чтобы внести изменения в такое приложение, необходимо обновить весь стек через базу кода,
-а также создать и
-развернуть обновленную версию интерфейса, находящегося на стороне службы. Это ограничивает работу с обновлениями и
-требует много времени.
+Monolithic architecture is the traditional software model: one large module that runs autonomously and independently of
+other applications. "Monolith" often implies something big and clumsy, which fits this architecture. It is a large
+computing unit with a single codebase that combines all business tasks. To change a monolith, you update the whole
+stack, rebuild, and redeploy the updated interface. This limits updates and takes time.
 
-Монолиты удобно использовать на начальных этапах проектов, чтобы облегчить развертывание и не тратить слишком много
-умственных усилий при
-управлении кодом. Это позволяет сразу выпускать все, что есть в монолитном приложении.
+Monoliths are convenient at early project stages: deployment is simpler and you avoid complex coordination. You ship
+all functionality together.
 
 ![Monolithic architecture@2x.png](images%2FMonolithic%20architecture%402x.png)
 
-#### Преимущества монолитной архитектуры
+#### Advantages of monolithic architecture
 
-К преимуществам монолитной архитектуры можно отнести следующие особенности:
+- Simple deployment. One executable or directory simplifies release.
+- Development. A single codebase is easier to work with.
+- Performance. One API interface often does the work that multiple APIs do in microservices.
+- Simpler testing. End-to-end testing is faster because the app is a single module.
+- Easier debugging. All code is in one place.
 
-- `Простое развертывание`. Использование одного исполняемого файла или каталога упрощает развертывание.
-- `Разработка`. Приложение легче разрабатывать, когда оно создано с использованием одной базы кода.
-- `Производительность`. В централизованной базе кода и репозитории один интерфейс API часто может выполнять ту функцию,
-  которую при работе с микросервисами выполняют многочисленные API.
-- `Упрощенное тестирование`. Монолитное приложение представляет собой единый централизованный модуль, поэтому сквозное
-  тестирование можно проводить быстрее, чем при использовании распределенного приложения.
-- `Удобная отладка`. Весь код находится в одном месте, благодаря чему становится легче выполнять запросы и находить
-  проблемы.
+#### Disadvantages of monolithic architecture
 
-#### Недостатки монолитной архитектуры
+- Slower development. Large monoliths are complex and slow down teams.
+- Scalability. You cannot scale individual components.
+- Reliability. A bug in one module can affect the whole app.
+- Technology lock-in. Changes in language or infrastructure affect the entire app and can be costly.
+- Limited flexibility. The app is constrained by its chosen stack.
+- Deployment. Small changes require full redeploys.
 
-К недостаткам монолитной архитектуры можно отнести следующие особенности.
+### Microservices architecture
 
-- `Снижение скорости разработки`. Большое монолитное приложение усложняет и замедляет разработку.
-- `Масштабируемость`. Невозможно масштабировать отдельные компоненты.
-- `Надежность`. Ошибка в одном модуле может повлиять на доступность всего приложения.
-- `Препятствия для внедрения технологий`. Любые изменения в инфраструктуре или языке разработки влияют на приложение
-  целиком, что зачастую приводит к увеличению стоимости и временных затрат.
-- `Недостаточная гибкость`. Возможности монолитных приложений ограничены используемыми технологиями.
-- `Развертывание`. При внесении небольшого изменения потребуется повторное развертывание всего монолитного приложения.
+Microservices architecture is a method of organizing systems as a set of independently deployed services. Each service
+has its own business logic and database. Updates, testing, deployment, and scaling happen within each service.
+Microservices break large business tasks into independent codebases. They do not reduce complexity, but make it visible
+and manageable by dividing work into smaller independent processes.
 
-#### Микросервисная архитектура
-
-Микросервисная архитектура (или просто «микросервисы») представляет собой метод организации архитектуры, основанный на
-ряде
-независимо развертываемых служб. У этих служб есть собственная бизнес-логика и база данных с конкретной целью.
-Обновление, тестирование,
-развертывание и масштабирование выполняются внутри каждой службы. Микросервисы разбивают крупные задачи, характерные для
-конкретного
-бизнеса, на несколько независимых баз кода. Микросервисы не снижают сложность, но они делают любую сложность видимой и
-более управляемой,
-разделяя задачи на более мелкие процессы, которые функционируют независимо друг от друга и вносят вклад в общее целое.
-
-Внедрение микросервисов зачастую тесно связано с DevOps, поскольку они лежат в основе методики непрерывной поставки,
-которая позволяет
-командам быстро адаптироваться к требованиям пользователей.
+Microservices are tightly linked to DevOps, because they are the foundation of continuous delivery and fast adaptation
+to user needs.
 
 ![Microservice architecture@2x.png](images%2FMicroservice%20architecture%402x.png)
 
-#### Преимущества микросервисов
+#### Advantages of microservices
 
-- `Гибкость`. Продвигайте гибкие методы работы среди небольших команд, которые регулярно выполняют развертывание.
-- `Гибкое масштабирование`. Когда микросервис достигает предельной нагрузки, можно быстро выполнить развертывание новых
-  экземпляров данной службы в сопутствующем кластере и снизить нагрузку. Теперь мы работаем с несколькими держателями и
-  без сохранения состояния, а клиенты распределены по различным экземплярам. С таким подходом мы можем поддерживать
-  экземпляры гораздо большего размера.
-- `Непрерывное развертывание`. Теперь у нас есть регулярные и ускоренные циклы релиза. Раньше мы выпускали обновления
-  раз в неделю, а теперь можем делать это примерно два-три раза в день.
-- `Легкость обслуживания и тестирования`. Команды могут экспериментировать с новыми функциями и возвращаться к
-  предыдущей версии, если что-то не работает. Это упрощает обновление кода и ускоряет выпуск новых функций на рынок.
-  Кроме того, в отдельных службах легко находить и исправлять ошибки и баги.
-- `Независимое развертывание`. Микросервисы представляют собой отдельные модули, поэтому с ними можно легко и быстро
-  выполнять независимое развертывание отдельных функций.
-- `Гибкость технологий`. При использовании архитектуры микросервисов команды могут выбирать инструменты с учетом своих
-  предпочтений.
-- `Высокая надежность`. Развертывая изменения для конкретной службы, можно не бояться, что приложение выйдет из строя
-  целиком.
-- `Довольные команды`. Команды Atlassian, работающие с микросервисами, гораздо лучше отзываются о своей работе благодаря
-  автономности и возможности самостоятельно создавать и развертывать приложения, не дожидаясь одобрения запроса pull в
-  течение нескольких недель.
+- Flexibility. Small teams can deploy frequently.
+- Flexible scaling. When a service hits its limit, you can deploy more instances and distribute load. With stateless
+  services, clients can be spread across instances and handle larger scale.
+- Continuous deployment. Releases can happen multiple times per day rather than weekly.
+- Easier maintenance and testing. Teams can experiment and rollback. Bugs are easier to find in smaller services.
+- Independent deployment. Services are separate modules and can be deployed independently.
+- Technology freedom. Teams can choose tools that fit their needs.
+- High reliability. Deploy changes to one service without breaking the whole system.
+- Happier teams. Teams gain autonomy and can deploy without long approval cycles.
 
-#### Недостатки микросервисов
+#### Disadvantages of microservices
 
-- `Разрастание процесса разработки`. Микросервисы усложняют работу по сравнению с монолитной архитектурой, поскольку в
-  различных местах возникает все больше служб, созданных несколькими командами. Если разрастание не контролируется
-  должным образом, оно приводит к замедлению разработки и снижению операционной эффективности.
-- `Экспоненциальный рост расходов на инфраструктуру`. У каждого нового микросервиса может быть своя стоимость комплекта
-  тестов, инструкций по развертыванию, инфраструктуры хостинга, инструментов мониторинга и т. д.
-- `Дополнительные организационные расходы`. Командам требуется дополнительный уровень коммуникации и сотрудничества,
-  чтобы координировать работу над обновлениями и интерфейсами.
-- `Проблемы при отладке`. У каждого микросервиса свой набор журналов, что усложняет отладку. Кроме того, дополнительные
-  затруднения могут возникать в том случае, когда один бизнес-процесс выполняется на нескольких машинах.
-- `Отсутствие стандартизации`. Без общей платформы может возникнуть ситуация, в которой расширяется список языков,
-  стандартов ведения журналов и средств мониторинга.
-- `Отсутствие ясности в вопросах владения`. По мере появления новых служб увеличивается и количество работающих над ними
-  команд. Со временем становится сложнее определить, какие службы команда может использовать и к кому следует обращаться
-  за поддержкой.
+- Process sprawl. Many services across teams complicate development and operations.
+- Higher infrastructure costs. Each service needs its own pipelines, hosting, and monitoring.
+- Organizational overhead. Teams need more communication to coordinate interfaces and updates.
+- Debugging complexity. Each service has its own logs; tracing business flows becomes harder.
+- Lack of standardization. Without a platform, languages, logging, and monitoring standards diverge.
+- Unclear ownership. As services grow, it becomes harder to know who owns what.
 
-### Гексагональная архитектура [&uarr;](#Readme)
+## Hexagonal Architecture [&uarr;](#architectural-patterns)
 
-Гексагональная архитектура, это слоеная архитектура, также иногда называемая архитектурой портов и адаптеров. Называют
-ее так потому, что в рамках этой архитектуры имеется концепция различных портов, которые могут быть использованы (
-адаптированы) для использования с другими слоями.
+Hexagonal architecture is a layered architecture, also called ports and adapters. It uses the concept of ports that can
+be adapted to connect different layers.
 
-#### Основное назначение этой архитектуры:
+### Purpose
 
-- Позволяет взаимодействовать с приложением как пользователю, так и программам, автоматическим тестам, скриптам пакетной
-  обработки.
-- Также позволяет разрабатывать и тестировать приложение без каких-либо дополнительных устройств или баз данных.
+- Lets users, programs, automated tests, and batch scripts interact with the application.
+- Allows development and testing without additional devices or databases.
 
-#### Почему Гексагон
+### Why a hexagon
 
-    Несмотря на то, что архитектура называется гексагональной, что должно указывать на фигуру с определенным количеством граней, основной мыслью все же является то, что граней у этой фигуры много. Каждая грань представляет собой «порт» доступа к нашему приложению или же его связь с внешним миром.
+Although the name implies six sides, the idea is that the figure has many sides. Each side is a port that provides
+access to the app or connects it to the outside world.
 
-    Порт может быть представлен как какой-либо проводник входящих запросов (или данных) к нашему приложению. Например, через HTTP-порт (запросы браузера, API) приходят HTTP запросы, которые конвертируются в команды для приложения. Похожим образом могут действовать различные менеджеры очередей или что угодно взаимодействующее с приложением по протоколу пересылки сообщений (например AMQP). Все это является лишь портами через которые мы можем попросить приложение сделать какие-то действия. Эти грани составляют множество «входящих портов». Другие порты могут быть использованы для доступа к данным со стороны приложения, например порт базы данных.
+A port is a channel for inbound requests or data. For example, HTTP requests come through an HTTP port (browser
+requests, API) and are converted into application commands. Similarly, message brokers or any system using a messaging
+protocol (for example AMQP) are also ports. These are inbound ports. Other ports expose data access from the app, such as
+a database port.
 
-#### Основа данной архитектуры - порты и адаптеры.
+### Core: ports and adapters
 
-- `Порты` - это интерфейсы нашего приложения,
-- `Адаптеры` - реализация наших портов.
-- `Гексагон` - фигура, имеющая 6 сторон, шестиугольник. В нашем случае слоистая или многогранная архитектура.
+- Ports are the interfaces of your application.
+- Adapters are implementations of your ports.
+- The hexagon represents a layered or multi-faceted architecture.
 
-#### Преимущества данного метода:
+### Advantages
 
-- `Независимость`: возможность не зацикливаться на бизнес логике. Можно задекларировать, описать схему работы нашего
-  приложения до создания внешних сервисов, использовать замоканные данные в реализации адаптеров.
-- `Гибкость`: использование любых фреймворков, перенос доменов адаптеров в другие проекты, добавление новых адаптеров
-  без изменения исходного кода.
-- `Легкая изменчивость`: изменения в одной области нашего приложения не влияют на другие области.
+- Independence. Focus on business logic; you can design the app without external services and use mocked data in
+  adapters.
+- Flexibility. Use any frameworks, move adapters between projects, and add new adapters without changing core code.
+- Easy change. Changes in one area do not affect others.
 
-#### Минусы
+### Drawbacks
 
-- Погружение: многим разработчикам может быть сложно освоиться, особенно, при невысоком уровне знаний. Долгое время я
-  сам отторгал данный подход, ссылаясь на его избыточность, пока не освоил систему на практике в течение нескольких
-  месяцев.
-- Также могут возникнуть сложности реализации с graphql.
+- Onboarding. It can be hard to learn at first. Many developers (including me) reject it as overkill until they use it.
+- Implementation may be difficult with GraphQL.
 
-#### Слои приложения
+### Application layers
 
-1) Слой предметной области (Domain Layer)
+1) Domain layer
 
-В самом центре нашего приложения расположен слой предметной области. Этот слой содержит в себе реализацию бизнес логики
-и определяет, как внешние слои могут с ней взаимодействовать.
-В добавок к бизнес логике (ядро предметной области или core domain), в слое предметной области часто можно встретить
-дополнительную логику, например события предметной области (domain events, события, которые выбрасываются в ключевых
-точках бизнес логики) и “сценарии использования” или use-cases (определение того, что должно делать наше приложение).
+The domain layer is the core. It contains business logic and defines how outer layers interact with it. In addition to
+core logic, it often includes domain events (events emitted at key business points) and use cases (what the application
+should do).
 
-2) Слой приложения (Application Layer)
+2) Application layer
 
-Этот слой занимается исключительно оркестрацией действий, производимых над сущностями из слоя предметной области. Также
-этот слой является адаптером запросов из слоя фреймворка и отделяет его от слоя предметной области.
+This layer orchestrates actions on domain entities. It adapts requests from the framework layer and isolates the domain
+layer. It can contain handlers that execute use cases. These handlers take input from the framework layer and execute
+required actions for the use case. They can also emit domain events.
 
-Например этот слой может содержать класс-обработчик, который выполняет какой-то юз-кейс. Этот класс-обработчик принимает
-входящие данные, пришедшие к нему из слоя фреймворка, и будет выполнять над ними какие-то действия, которые требуются
-для выполнения нашего юз-кейса.
+3) Framework layer
 
-Также он может отправлять на обработку события (domain events), которые произошли в слое предметной области.
+The app is wrapped in a framework layer (also called infrastructure layer). It contains code your app uses, but it is
+not part of the app itself. Usually this includes the framework, but can also include third-party libraries, SDKs, and
+other code. For example, everything installed via composer in PHP. This layer exists to fulfill the needs of the app.
 
-Это внешний слой кода, составляющего наше приложение.
+### Layer boundaries
 
-3) Слой фреймворка (Framework Layer)
+Each layer defines how other layers can interact with it. Interfaces live at the boundary of each layer. These
+interfaces are ports, and adapters in the next layer implement them.
 
-Наше приложение укутано в слой фреймворка (его также называют инфраструктурным слоем, infrastructure layer). Как уже
-было сказано выше, этот слой содержит код, который использует ваше приложение, но при этом он не является сам по себе
-частью приложения. Обычно этот слой представлен вашим фреймворком, но конечно же может включать в себя любые сторонние
-библиотеки, SDK и любой другой код. Вспомните все библиотеки, которые вы подключили через composer (предположим что мы
-все же пишем на PHP). Они не являются частью вашего фреймворка, но все же они объединены в один слой. Весь этот слой
-необходим лишь для одного — выполнять различные задачи для удовлетворения потребностей нашего приложения.
+### SOLID as a foundation
 
-#### Взаимодействие слоев: границы
+Strictly following SOLID means many small interfaces instead of a few large ones. Classes implementing them can vary.
 
-Как уже было сказано выше, каждый слой регламентирует то, каким образом другим слоям можно с ним взаимодействовать. Если
-конкретнее, то каждый слой ответственен за определение того, каким образом с ним будет взаимодействовать каждый
-следующий внешний слой.
+A helpful approach: one class implements one interface. Each class then has minimal dependencies and code, just like its
+tests. This atomization allows building very different services from one codebase:
 
-Инструментом для этого нам послужат интерфейсы. На границе каждого слоя мы найдем интерфейсы. Эти интерфейсы являются
-портами для следующих слоев, в которых будут реализованы адаптеры.
+- A modular monolith that provides the full project API.
+- A set of microservices, each providing its domain API.
+- Separate microservices for query and command APIs using CQRS.
+- Even a separate microservice per API method, leading to FaaS.
 
-#### SOLID как основа гексагональной архитектуры
+Thus hexagonal architecture can be a strong foundation for microservices.
 
-Строгое следование всем этим принципам приведёт к тому, что вместо интерфейсов бизнес-логики и репозиториев будет
-множество отдельных функциональных интерфейсов.
-Что же до классов, реализующих эти интерфейсы, а так же зависящих от них, то тут возможны варианты.
+An alternative is to implement multiple related interfaces in one class, while keeping the option to split it later.
 
-Вариант, который приглянулся мне больше всего — придерживаться той же логики, один класс — реализация одного интерфейса.
-Каждый такой
-класс будет содержать свой минимум зависимостей и кода, ровно, как и его тестовый класс. Кроме того такая атомизация
-кода позволяет из одной кодовой базы получить абсолютно разные сервисы:
+## SOA [&uarr;](#architectural-patterns)
 
-- Можно собрать модульный монолит, который предоставляет полный набор API проекта.
-- Можно собрать набор микросервисов, каждый из которых предоставляет API своей предметной области, если их в проекте
-  несколько.
-- Можно собрать отдельные микросевисы для API запросов и API команд, применив архитектурный шаблон проектирования CQRS.
-- В конечном итоге можно собрать для каждого метода API отдельный микросервис, получив в итоге FaaS.
+Service-oriented architecture (SOA) is a software design approach that uses software components called services to
+build business applications. Each service provides business capabilities, and services can interact across platforms and
+languages. Developers use SOA to reuse services across systems or combine multiple independent services to perform
+complex tasks.
 
-Таким образом гексагональная архитектура может быть идеальной основой для проектов с микросервисной архитектурой.
+For example, multiple business processes may need user authentication. Instead of rewriting auth code for each process,
+you can create one auth service and reuse it. Similarly, healthcare systems (patient management, EHR) can call a shared
+patient registration service.
 
-Альтернативный вариант — реализовывать несколько взаимосвязанных интерфейсов в одном классе, но помнить, что при
-необходимости этот класс можно разделить.
+SOA is broken into smaller, moderately coupled services and tends to be slower to develop. Microservices are very small,
+loosely coupled independent services with faster development and continuous integration.
 
-### SOA [&uarr;](#Readme)
+### SOA pros
 
-Сервис-ориентированная архитектура (SOA) – это метод разработки программного обеспечения, который использует программные
-компоненты,
-называемые сервисами, для создания бизнес-приложений. Каждый сервис предоставляет бизнес-возможности, и сервисы также
-могут взаимодействовать
-друг с другом на разных платформах и языках. Разработчики применяют SOA для многократного использования сервисов в
-различных системах или
-объединения нескольких независимых сервисов для выполнения сложных задач.
+- Reuse of services. Autonomous, loosely coupled components can be reused across multiple apps.
+- Easier maintenance. Each service is independent and can be updated without affecting others.
+- Higher reliability. Services are easier to debug and test than large monoliths.
+- Parallel development. Services can be developed in parallel.
 
-Например, несколько бизнес-процессов в организации требуют функциональности аутентификации пользователя. Вместо того
-чтобы переписывать
-код аутентификации для всех бизнес-процессов, вы можете создать единый сервис аутентификации и использовать его повторно
-для всех приложений.
-Подобным образом, почти все системы в организации здравоохранения, такие как системы управления пациентами и системы
-электронных медицинских
-карт (EHR), нуждаются в регистрации пациентов. Эти системы могут вызывать единый общий сервис для выполнения задачи
-регистрации пациента.
+### SOA cons
 
-    SOA разбивается на более мелкие, умеренно связанные сервисы и отличается медленной разработкой. Микросервисы — это очень маленькие, 
-    слабо связанные независимые сервисы, которым свойственна быстрая разработка и непрерывная интеграция.
+- Management complexity. Each service must deliver messages on time. Message volume can be huge and hard to manage.
+- High upfront cost. SOA requires significant investment in people, tech, and development.
+- Extra overhead. In SOA, input data is validated before one service interacts with another. With many services this
+  increases latency and lowers performance.
 
-#### Плюсы SOA
+### Summary
 
-- `Повторное использование сервисов` - Из-за автономной и слабо связанной природы функциональных компонентов в
-  сервис-ориентированных приложениях эти компоненты можно повторно использовать в нескольких приложениях, без влияния на
-  другие сервисы.
-- `Легкость в сопровождении` - Поскольку каждая служба программного обеспечения является независимой единицей, ее легко
-  обновлять и поддерживать, не затрагивая другие службы. Например, крупными корпоративными приложениями легче управлять,
-  когда они разбиты на службы.
-- `Более высокая надежность` - Службы легче отлаживать и тестировать, чем огромные куски кода, как в монолитах. Это, в
-  свою очередь, делает продукты на основе SOA более надежными.
-- `Параллельная разработка` - Поскольку сервис-ориентированная архитектура разбита на прослойки, она поддерживает
-  параллелизм в процессе разработки. Независимые сервисы могут разрабатываться параллельно и быть завершены
-  одновременно.
+SOA is best for complex enterprise systems, for example banking. It is hard to split a bank system into microservices,
+and a monolith is risky because one failure can break everything. SOA provides isolated services for complex apps.
 
-#### Минусы SOA
+## Serverless [&uarr;](#architectural-patterns)
 
-- `Сложность в управлении` - Основным недостатком сервис-ориентированной архитектуры является ее сложность. Каждый
-  сервис должен обеспечивать своевременную доставку сообщений. Количество этих сообщений может превышать миллион за один
-  раз, что затрудняет управление всеми службами.
-- `Высокие инвестиционные затраты` - Разработка SOA требует значительных предварительных инвестиций в человеческие
-  ресурсы, технологии и разработку.
-- `Дополнительная нагрузка` - В SOA все входные данные проверяются до того, как один сервис взаимодействует с другим
-  сервисом. При использовании нескольких сервисов это увеличивает время отклика и снижает общую производительность.
+Serverless architecture is a cloud approach for building and running apps without managing infrastructure. Code
+execution is handled by the platform, so developers can deploy without worrying about server maintenance. "Serverless"
+does not mean there are no servers. Apps still run on servers, but a cloud provider (for example AWS) is fully
+responsible for them. Serverless removes the need for additional resources, scaling, server maintenance, storage, and
+DB operations.
 
-#### В итоге
+Serverless includes two concepts:
 
-SOA лучше всего подходит для сложных корпоративных систем, например банковских. Банковскую систему чрезвычайно сложно
-разделить на микросервисы.
-Но монолитный подход также не годится для банковской системы, так как одна часть может повредить все приложение. Лучшее
-решение — использовать
-подход SOA и организовать сложные приложения в изолированные независимые сервисы.
-
-### Serverless [&uarr;](#Readme)
-
-Бессерверная архитектура — это подход применения облачных вычислений для создания и запуска приложений и сервисов без
-необходимости
-управления инфраструктурой. В бессерверных приложениях выполнение кода управляется платформой, что позволяет
-разработчикам развертывать код,
-не беспокоясь об обслуживании и обеспечении сервера. На самом деле, бессерверность не означает «отсутствие сервера».
-Приложение все еще работает
-на серверах, но сторонняя облачная служба, такая как AWS, несет полную ответственность за эти серверы. Бессерверная
-архитектура устраняет
-необходимость в дополнительных ресурсах, масштабировании приложений, обслуживании серверов, а также системах хранения и
-баз данных.
-
-Бессерверная архитектура включает в себя две концепции:
-
-- `FaaS` (Function as a Service — функция как услуга) — модель облачных вычислений, которая позволяет разработчикам
-  загружать части функционала в облако и позволяет этим частям выполняться независимо
-- `BaaS` (Backend as a Service — бэкэнд как услуга) — модель облачных вычислений, которая позволяет разработчикам
-  передавать на аутсорсинг аспекты бэкэнда (управление базой данных, облачное хранилище, хостинг, аутентификация
-  пользователей и т. д.), а также писать и поддерживать только часть внешнего интерфейса.
+- FaaS (Function as a Service): upload pieces of functionality to the cloud and run them independently.
+- BaaS (Backend as a Service): outsource backend aspects (DB, storage, hosting, auth) and build only the frontend
+  portion.
 
 ![ru4ojwr0vxrls92nklq9wa7mtne.png](images%2Fru4ojwr0vxrls92nklq9wa7mtne.png)
 
-При использовании бессерверной архитектуры разработчики могут сосредоточиться на самом продукте, не беспокоясь об
-управлении сервером или
-средах исполнения. Это позволяет разработчикам сосредоточиться на разработке продуктов с высокой надежностью и
-масштабируемостью.
+With serverless, developers focus on the product, not servers. This helps build reliable and scalable products.
 
-На рынке много поставщиков облачных решений. Вот некоторые из ведущих поставщиков бессерверных вычислений:
+There are many cloud providers. Some leading serverless vendors:
 
 ![gwmic_96lcls-8fiahlbeq01eyc.png](images%2Fgwmic_96lcls-8fiahlbeq01eyc.png)
 
-#### Плюсы бессерверной архитектуры
+### Serverless pros
 
-- Простота развертывания - В бессерверных приложениях разработчикам не нужно беспокоиться об инфраструктуре. Это
-  позволяет им сосредоточиться на самом коде. Бессерверная архитектура позволяет очень быстро раскрутить приложение,
-  поскольку развертывание занимает всего несколько часов или дней (по сравнению с днями или неделями при традиционном
-  подходе).
-- Снижение затрат - Переход к бессерверной архитектуре снижает расходы. Поскольку вам не нужно обрабатывать базы данных,
-  некоторую логику и серверы, вы можете не только создавать более качественный код, но и сокращать расходы. При
-  использовании модели без сервера вы платите только за те циклы ЦП и память, которые вы фактически используете.
-- Улучшенная масштабируемость - Многие владельцы бизнеса хотят, чтобы их приложения стали влиятельными и
-  масштабируемыми, как Google или Facebook. Бессерверные вычисления делают масштабирование автоматическим и гладким.
-  Ваше приложение будет автоматически масштабироваться при увеличении нагрузки или базы пользователей, не влияя на
-  производительность. Бессерверные приложения могут обрабатывать огромное количество запросов, тогда как традиционные
-  приложения будут перегружены внезапным их увеличением.
+- Simple deployment. Developers do not manage infrastructure and can focus on code. Serverless deployment often takes
+  hours or days, not weeks.
+- Lower costs. You pay only for CPU cycles and memory you use. You can offload DB and server management.
+- Improved scalability. Serverless scales automatically as load or user base grows. It can handle huge bursts that would
+  overwhelm traditional apps.
 
-#### Недостатки бессерверной архитектуры
+### Serverless cons
 
-- Привязка к поставщику - Привязка к поставщику описывает ситуацию, когда вы предоставляете поставщику полный контроль
-  над своими операциями. В результате изменения в бизнес-логике ограничены, и миграция от одного поставщика к другому
-  может вызывать затруднения.
-- Не для долгосрочных задач - Бессерверная модель не подходит для длительных операций. Бессерверные приложения хороши
-  для коротких процессов в реальном времени, но если задача занимает более пяти минут, бессерверное приложение потребует
-  дополнительных функций FaaS.
+- Vendor lock-in. You give a provider control over operations. Migration can be hard.
+- Not for long tasks. Serverless is best for short real-time tasks. Tasks over five minutes often require extra
+  functions.
 
-#### В итоге
+### Summary
 
-Архитектура бессерверного программного обеспечения полезна для решения одноразовых задач и вспомогательных процессов.
-Она отлично работает для
-приложений, насыщенных клиентами, и приложений, которые быстро растут и нуждаются в неограниченном масштабе.
+Serverless is good for one-off tasks and support processes. It works well for client-heavy apps and rapidly growing
+products that need unlimited scale.
 
-И наконец, давайте посмотрим на следующее изображение, чтобы узнать, когда выбирать каждый из этих четырех типов
-архитектуры:
+When to choose each of the four architecture types:
 
 ![k9iezo5lqdya5bqv-a7gtgqofke.png](images%2Fk9iezo5lqdya5bqv-a7gtgqofke.png)
 
-### Service-Mesh [&uarr;](#Readme)
+## Service Mesh [&uarr;](#architectural-patterns)
 
-Service mesh — инструмент, позволяющий контролировать, как разные части приложения обмениваются данными между собой.
-В отличие от других систем управления, он представляет собой отдельный слой инфраструктуры, встроенный прямо в
-приложение.
-Этот слой документирует, насколько хорошо взаимодействуют микросервисы, поэтому становится проще оптимизировать это
-взаимодействие и избегать
-простоев по мере роста приложения.
+A service mesh controls how application parts exchange data. Unlike other systems, it is a separate infrastructure
+layer embedded into the application. This layer documents how well microservices interact, making it easier to
+optimize communication and avoid downtime as the app grows.
 
-Самая сложная задача при реализации микросервисной архитектуры заключается не в создании самих сервисов, а в обеспечении
-связи между ними.
-Для выполнения своей функции одному сервису может потребоваться запросить данные у нескольких других микросервисов. Но
-что, если некоторые
-микросервисы будут перегружены запросами? Здесь на помощь приходит service mesh — технология направляет запросы от
-одного сервиса к другому,
-оптимизируя совместную работу всех частей приложения.
+The hardest part of microservices is not building services, but ensuring communication between them. One service may
+need data from several others. If some services are overloaded, a service mesh helps: it routes requests between
+services and optimizes collaboration across the app.
 
-### Twelve-Factor-Apps [&uarr;](#Readme)
+## Twelve-Factor Apps [&uarr;](#architectural-patterns)
 
-В наши дни программное обеспечение обычно распространяется в виде сервисов, называемых веб-приложения (web apps) или
-software-as-a-service (SaaS).
-Приложение двенадцати факторов — это методология для создания SaaS-приложений, которые:
+Today software is delivered as services called web apps or SaaS. The twelve-factor methodology defines SaaS apps that:
 
-- Используют декларативный формат для описания процесса установки и настройки, что сводит к минимуму затраты времени и
-  ресурсов для новых разработчиков, подключённых к проекту;
-- Имеют соглашение с операционной системой, предполагающее максимальную переносимость между средами выполнения;
-- Подходят для развёртывания на современных облачных платформах, устраняя необходимость в серверах и системном
-  администрировании;
-- Сводят к минимуму расхождения между средой разработки и средой выполнения, что позволяет использовать непрерывное
-  развёртывание (continuous deployment) для максимальной гибкости;
-- И могут масштабироваться без существенных изменений в инструментах, архитектуре и практике разработки.
+- Use a declarative format for setup and configuration, minimizing onboarding time for new developers.
+- Have a contract with the OS for maximum portability between execution environments.
+- Are suitable for deployment on modern cloud platforms without server administration.
+- Minimize differences between development and execution environments, enabling continuous deployment.
+- Can scale without major changes in tooling, architecture, or practices.
 
-Методология двенадцати факторов может быть применена для приложений, написанных на любом языке программирования и
-использующих любые комбинации
-сторонних служб (backing services) (базы данных, очереди сообщений, кэш-памяти, и т.д.).
+The methodology applies to any language and any combination of backing services (databases, queues, caches, and so on).
 
-#### Одно приложение — один репозиторий
+### One app - one repository
 
-Весь код приложения должен быть в системе контроля версий. И разворачиваться для разработки, тестирования и на рабочих
-серверах из одного
-репозитория. Что впрочем, не исключает, что в развертываниях может быть код в различных ветках, которые еще не добавлены
-в релиз.
+All app code should be in version control and be deployed for dev, test, and production from one repository. This does
+not exclude branch-specific deployments that are not released yet.
 
-Если у вас несколько приложений используют общий код, то общий код надо выделить в отдельную библиотеку, и объявить ее
-как зависимость.
-Если на каком-нибудь этапе разработки, у вас в одном репозитории лежит несколько слабосвязанных приложений, то вы должны
-разделить приложение
-на несколько, каждое из которых должно быть 12-факторным приложением.
+If multiple apps share code, move it to a separate library and declare it as a dependency. If one repository contains
+multiple loosely coupled apps, split them so each is a twelve-factor app.
 
-#### Явные зависимости
+### Explicit dependencies
 
-Приложения не должны иметь неявных зависимостей. Во-первых, все зависимости как системные, так и библиотеки должны быть
-прописаны в манифесте
-зависимостей. Все современные языки предоставляю менеджер пакетов с манифестом зависимостей. Кроме этого зависимости
-должны быть изолированные,
-чтобы системная библиотека «не просочилась» в приложений.
+Apps must not have implicit dependencies. All dependencies (system and library) should be declared in a dependency
+manifest. Modern languages provide package managers and manifests. Dependencies should be isolated so system libraries
+cannot leak into the app.
 
-Так в Ruby использует Gemfile как формат манифеста для объявления зависимостей, bundle exec – для изоляции зависимостей.
-Кроме одинаковой
-работы приложения на разных платформах, это позволит новым разработчикам быстрее включаться в проект, или быстрее
-подключать новые зависимости.
+For example, Ruby uses Gemfile and `bundle exec` for isolation. This helps consistent behavior across platforms and
+faster onboarding of new developers. Docker also isolates and makes OS dependencies explicit.
 
-Тут следует упомянуть Docker, который изолирует и явно объявляет даже зависти ОС.
+### Config belongs in the environment
 
-#### Конфигурация — это свойства среды выполнения
+Config is everything that changes between environments:
 
-Конфигурация — это все параметры, которые меняются в зависимости от того где запущено приложение:
+- DB logins, passwords, and addresses
+- third-party services and API keys
 
-- логины, пароли и адреса баз данных;
-- сторонние сервисы и ключи АПИ.
+Code does not depend on environment; configuration does. Keep code in the repo and config in the environment. If you
+can open-source your code without leaking credentials, you do it right.
 
-Код не зависит от окружения, а конфигурация зависит. Поэтому код должен храниться в репозитории, а конфигурация в
-окружении.
-Если вы можете опубликовать свой код в открытый доступ без компрометации персональных учетных записей – вы все делаете
-правильно.
+A common approach is predefined configs (development, test, production). This is not ideal, because adding new
+environments (development-joe, qa, staging) grows configuration combinatorially.
 
-Довольно популярный вариант – это использование заранее подготовленных наборов конфигурации (development, test и
-production). Такое разделение
-нельзя считать хорошим решением, так как добавление новых окружений (development-joe, qa, staging) непропорционально
-увеличивает количество
-параметров, которые надо поддерживать.
+### Local and third-party services
 
-#### Локальные и сторонние службы
+Backing services include databases, mail services, caches, and third-party APIs. A twelve-factor app does not
+distinguish local and remote services. Each service is an attached resource; connection details belong in config.
 
-Сторонние службы — это базы данных, почтовые службы, кешурующие сервера и API различных сервисов. 12-факторное
-приложение не должно делать
-различие между локальными и удаленными службами. Каждая служба — это подключаемый ресурс, данные для подключения к
-которому
-(адрес и учетные данные) должны храниться в конфигурации.
+Switching a local DB to Amazon RDS or a local mail server to a hosted one should not change the code.
 
-Замена локальной базы на Amazon RDS, или замена локального почтового сервера на сторонний, не должно влиять на код
-приложения.
+### Separate build, release, and run
 
-#### Разделение сборки, релиза и выполнения
+Deployment has three stages:
 
-Развертывание приложения состоит из трех раздельных этапов:
+- Build: transform code into an executable package (download dependencies, compile assets).
+- Release: combine build with config; the release is ready to run.
+- Run: execute one or more processes from the release.
 
-- Сборка – это преобразование кода в исполняемый пакет — загрузка зависимостей, компиляция файлов и ресурсов.
-- Релиз – объединение сборки с конфигурацией. Релиз сразу готов к запуску в среде исполнения.
-- Выполнение – запуск некоторого количества процессов из релиза.
+These stages should be strictly separated. Build is initiated when developers are ready to ship. After build, you should
+not change code in the release. Run should be a simple operation that can be automated after crashes or failures.
 
-При разработке приложения 12 факторов надо строго разделять эти этапы. Сборка инициируется разработчиком, когда он готов
-выложить изменения.
-Это может быть более длительный процесс, но после этого изменения в коде релиза внести нельзя. С другой стороны, этап
-выполнения должен быть
-как можно более простой операцией, чтобы она могла быть произведена автоматически в случае остановки оборудования, или
-других ошибок, без
-вмешательства разработчика.
+### The app is a set of processes
 
-#### Приложение – набор процессов
+The app should run as one or more stateless processes. It may use memory or disk as a temporary cache (for example for
+image processing), but user data must be stored in a backing service.
 
-Приложение должно запускать как один или несколько процессов, которые не сохраняют свое внутреннее состояние. Приложение
-может использовать
-данные в оперативной памяти или на диске как временное хранилище. Например, при перекодировании изображений. Но любые
-пользовательские данные
-должны лежать в постоянном хранилище (подключаемом ресурсе).
+This is especially important for session data, because the next user request may hit another process due to failure or
+restart.
 
-В первую очередь это касается данных сессии, так как следующее подключение пользователя может произойти к другому
-процессу
-(из-за аппаратного сбоя, или перезагрузки процессора).
+### The app does not depend on a server
 
-#### Приложение не зависит от сервера
+A PHP app can run inside Apache HTTPD, or a Java app inside Tomcat. A twelve-factor app is self-contained and does not
+rely on a specific web server.
 
-PHP-приложение может быть запущено как модуль внутри Apache HTTPD, или Java-приложение может быть запущено внутри
-Tomcat. Напротив, 12 факторное
-приложение — является полностью самодостаточным, и не полагается на наличие веб-сервера.
+This is implemented by adding a web server library dependency such as Tornado in Python, Thin in Ruby, Jetty in Java,
+or ReactPHP in PHP.
 
-Это обычно реализуется с помощью объявления зависимости для добавления библиотеки веб-сервера к приложению такой, как
-Tornado в Python,
-Thin в Ruby, Jetty в Java и ReactPHP в PHP.
+### Scale by processes
 
-#### Масштаб с помощью процессов
+Different tasks should be handled by different process types. For example, HTTP requests are handled by a web process,
+while long tasks are handled by worker processes. This lets you scale only the needed process type.
 
-Обработкой разных задач должны заниматься разные процессы. Например, HTTP-запросы могут быть обработаны веб процессом, а
-длительные
-фоновые задачи обработаны рабочим процессом. Это позволит в будущем масштабировать только те процессы, которые
-необходимо.
+Processes should not be daemonized (they should run, not be forked into background). A process manager should control
+stdout and react to errors and crashes.
 
-Важно, что процессы не должны демонизироваться (должны выполняться, а не запускаться). Менеджер процессов должен
-контролировать
-поток вывода приложения и реагировать на ошибки и падения процесса.
+### Fast startup and graceful shutdown
 
-#### Быстрый запуск и корректное завершение
+This follows from stateless processes. Maximize reliability by using processes that start quickly and exit gracefully,
+even on crashes.
 
-Это логическое следствие процессов, которые не сохраняют свое состояние. Максимизируйте надежность с помощью процессов,
-которые
-быстро запускаются и корректно завершают свою работу, даже аварийно.
+Background workers should return their job to the queue, and request handlers should finish in-flight requests. Each
+process task should be re-runnable (for example via transactions).
 
-Фоновые процессы должны возвращать текущую задачу в очередь, а процессы обработки запросов корректно заканчивать
-запросы. Каждая
-задача любого процесса должна быть доступна для повторного выполнения (например, используя транзакции).
+### Dev/prod parity
 
-#### Приблизьте разработку к развертыванию
+There is usually a big gap between development and deployment. Twelve-factor encourages bringing them close:
 
-Сейчас между разработкой и развертыванием существует значительная разница — это делают разные люди, в разное время и
-разными инструментами. При внедрении 12 факторов надо стараться сделать разработку и развертывание как можно ближе:
+- Time: code should reach production within hours after it is written.
+- People: developers should participate in deploying their code and observe it in production.
+- Tools: dev should match test as much as possible (OS, backing services).
 
-- Время – код должен попадать в рабочую версию через несколько часов после того, как разработчик его написал.
-- Люди – разработчик должен принимать участие в развертывание своего кода и следить за его работой в работе.
-- Инструменты – среда разработки должна максимально соответствовать среде тестирования (сторонние службы, ОС).
+### Logs to stdout
 
-#### Логи в stdout
+Logs are event streams and should be treated as such. The app should not write logs to files or manage them (archive,
+rotate, delete). A twelve-factor app writes logs to stdout. A process manager should send logs to a log analysis or
+archiving system.
 
-Лог — это поток событий, и надо обращаться к нему как к потоку событий. Приложение, не должно само записывать данные в
-файл логов, и тем более
-управлять файлами (архивировать или удалять).12 факторное приложение выводит лог своей работы в stdout. Менеджер,
-которой запускает процесс,
-должен направлять логии систему анализа или архивирования.
+This lets you aggregate events from multiple processes and services. Log analysis tools can analyze current state and
+past activity.
 
-Это позволяет агрегировать события от разных процессов, включая как процессы приложения, так и сторонние службы. Система
-анализа логов
-позволяет проводить анализ текущего состояния всей системы, так и анализ предыдущей работы.
+In development, logs are viewed in the console.
 
-В окружении разработчика логи просто просматриваются в консоли.
+### Admin tasks
 
-#### Задачи администрирования
+One-off admin processes (migrations, data fixes) must follow the same rules as other processes:
 
-Разовые процессы администрирования (миграции, исправления базы) должны подчиняться тем же правилам, что и остальные
-процессы:
-
-- Код задач должен лежать в репозитории, чтобы соответствовать коду основного приложения
-- Зависимости должны быть объявлены в основном манифесте зависимостей, чтобы процесс мог быть выполнен при обычном
-  развертывании
-- Конфигурация задачи должна находиться в переменных окружения, чтобы ее можно было выполнить в разных окружениях
-
-
-
-
-
-
-
-
-
-
+- Task code lives in the repo, aligned with the main app.
+- Dependencies are declared in the main manifest so tasks can run in a normal deploy.
+- Task config comes from environment variables to run in different environments.

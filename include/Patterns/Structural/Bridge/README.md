@@ -1,108 +1,100 @@
-## Мост (Bridge)
+## Bridge
 
-Паттерн Bridge относится к структурным паттернам уровня объекта.
+The Bridge pattern is a structural object-level pattern.
 
-Паттерн Bridge позволяет разделить объект на абстракцию и реализацию так, чтобы они могли изменяться независимо друг от
-друга.
+Bridge separates an object into abstraction and implementation so they can change independently.
 
-Если для одной абстракции возможно несколько реализаций, то обычно используют наследование. Однако такой подход не
-всегда удобен, так как наследование жестко привязывает реализацию к абстракции, что затрудняет независимую модификацию и
-усложняет их повторное использование.
+If one abstraction can have multiple implementations, inheritance is often used. But inheritance tightly couples the
+implementation to the abstraction, which makes independent changes harder and reuse more complex.
 
-Паттерн следует применять, когда у нас имеется абстракция и несколько её реализаций. Разумеется, нет смысла отделять
-абстракцию от реализации, если реализация может быть только одна.
+Use the pattern when you have an abstraction and several implementations. There is no point in separating abstraction
+from implementation if there is only one implementation.
 
-Я не нашел не одного адекватного описания паттерна "Мост". Все что мне встречалось, либо не соответствует
-действительности и примеры высосаны из пальца или очень размыты. Из того, что я понял и могу объяснить на пальцах - Мост
-это хитрая агрегация. Класс реализующий изделие, реализует интерфейс агрегируемого класса, который подсовывается на
-этапе создания экземпляра класса изделия.
+I did not find a solid description of the Bridge pattern. Many examples I saw were vague or unrealistic. From what I
+understand: Bridge is a clever form of aggregation. A class that represents a product implements the interface of an
+aggregated class that is passed in when the product instance is created.
 
-## Пример
+## Example
 
-Как я понял... у нас есть 3 машины и 3 разных двигателя. Каждый двигатель подходит к каждой машине, т.е. она реализует
-его интерфейс. Если делать это наследованием, мы получим 9 разных классом. Получается у каждой машины 3 модификации. Это
-неудобно, поэтому мы будем подсовывать двигатель на этапе создания машины. Так же каждый двигатель, может работать на
-разном топливе, дизель или бензин, что бы не плодить 6 разных реализаций, при создании двигателя мы будем подсовывать в
-него тип топлива.
+As I understand it: we have 3 cars and 3 different engines. Each engine fits each car, so each car can work with any
+engine. If you do this with inheritance, you get 9 classes. That is inconvenient, so we inject the engine when creating
+a car. Also, each engine can run on different fuel types, diesel or gasoline. To avoid creating 6 engine variations, we
+pass the fuel type when creating the engine.
 
-Для реализации паттерна в этом примере необходимо в базовом классе автомобилей добавить поле для хранения указателя на
-тип реализации, значение которого класс будет получать в своём конструкторе, и вызывать по необходимости методы
-вложенного объекта.
+To implement the pattern in this example, the base car class should have a field that stores a pointer to the
+implementation type. The class receives it in the constructor and calls methods on the embedded object when needed.
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый абстрактный класс (в нашем случаем описывающий автомобиль);
-2. Класс реализующий базовый класс. В нем есть свойство в которое мы будем подсовывать указатель на используемый
-   двигатель (машина может работать с любым из представленных двигателей);
-3. Абстракция двигателя;
-4. Реализация двигателя.
+1. Base abstract class (in our case describing a car).
+2. A class implementing the base class. It has a field into which we pass the used engine (the car can work with any of
+   the engines).
+3. Engine abstraction.
+4. Engine implementation.
 
-Вообщем свойство хранящее указатель на используемый объект и есть мост. Мы в него можем подсовывать разные объекты,
-главное, что бы они имели одинаковый интерфейс.
+In short, the field storing a pointer to the used object is the bridge. We can supply different objects there, as long
+as they share the same interface.
 
-## Применимость
+## Applicability
 
-### Когда вы хотите разделить монолитный класс, который содержит несколько различных реализаций какой-то функциональности (например, если класс может работать с разными системами баз данных).
+### When you want to split a monolithic class that contains several different implementations of some functionality (for example, if a class can work with different database systems).
 
-    Чем больше класс, тем тяжелее разобраться в его коде, и тем больше это затягивает разработку. Кроме того, изменения, вносимые в одну из реализаций, приводят к редактированию всего класса, что может привести к внесению случайных ошибок в код.
+    The larger the class, the harder it is to understand, and the more it slows down development. In addition, changes
+    in one implementation force you to edit the entire class, which can introduce accidental errors.
 
-    Мост позволяет разделить монолитный класс на несколько отдельных иерархий. После этого вы можете менять их код независимо друг от друга. Это упрощает работу над кодом и уменьшает вероятность внесения ошибок.
+    Bridge allows you to split a monolithic class into several separate hierarchies. After that, you can change their
+    code independently. This simplifies work and reduces the chance of errors.
 
-### Когда класс нужно расширять в двух независимых плоскостях.
+### When a class needs to be extended in two independent dimensions.
 
-    Мост предлагает выделить одну из таких плоскостей в отдельную иерархию классов, храня ссылку на один из её объектов в первоначальном классе.
+    Bridge suggests extracting one dimension into a separate hierarchy of classes while keeping a reference to one of
+    its objects in the original class.
 
-### Когда вы хотите, чтобы реализацию можно было бы изменять во время выполнения программы.
+### When you want the implementation to be changeable at runtime.
 
-    Мост позволяет заменять реализацию даже во время выполнения программы, так как конкретная реализация не «вшита» в класс абстракции.
+    Bridge lets you replace implementations at runtime because the implementation is not "baked into" the abstraction.
 
-    Кстати, из-за этого пункта Мост часто путают со Стратегией. Обратите внимание, что у Моста этот пункт стоит на последнем месте по значимости, поскольку его главная задача — структурная.
+    Because of this point, Bridge is often confused with Strategy. Note that for Bridge this is less important; its main
+    goal is structural.
 
-## Шаги реализации
+## Implementation steps
 
-1. Определите, существует ли в ваших классах два непересекающихся измерения. Это может быть функциональность/платформа,
-   предметная-область/инфраструктура, фронт-энд/бэк-энд или интерфейс/реализация.
+1. Determine whether your classes have two orthogonal dimensions. Examples: functionality/platform, domain/infrastructure,
+   front-end/back-end, or interface/implementation.
 
-2. Продумайте, какие операции будут нужны клиентам, и опишите их в базовом классе абстракции.
+2. Think through which operations clients need and describe them in the base abstraction class.
 
-3. Определите поведения, доступные на всех платформах, и выделите из них ту часть, которая нужна абстракции. На
-   основании этого опишите общий интерфейс реализации.
+3. Identify behaviors available on all platforms and extract the part needed by the abstraction. Describe a common
+   implementation interface based on this.
 
-4. Для каждой платформы создайте свой класс конкретной реализации. Все они должны следовать общему интерфейсу, который
-   мы выделили перед этим.
+4. For each platform, create a concrete implementation class. They must follow the common interface defined earlier.
 
-5. Добавьте в класс абстракции ссылку на объект реализации. Реализуйте методы абстракции, делегируя основную работу
-   связанному объекту реализации.
+5. Add a reference to the implementation object in the abstraction class. Implement abstraction methods by delegating
+   to the implementation object.
 
-6. Если у вас есть несколько вариаций абстракции, создайте для каждой из них свой подкласс.
+6. If you have several variations of the abstraction, create a subclass for each.
 
-7. Клиент должен подать объект реализации в конструктор абстракции, чтобы связать их воедино. После этого он может
-   свободно использовать объект абстракции, забыв о реализации.
+7. The client should pass the implementation object into the abstraction constructor to link them. After that it can
+   use the abstraction and forget about the implementation.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Позволяет строить платформо-независимые программы.
-    + Скрывает лишние или опасные детали реализации от клиентского кода.
-    + Реализует принцип открытости/закрытости.
+    + Allows building platform-independent programs.
+    + Hides unnecessary or dangerous implementation details from client code.
+    + Follows the open/closed principle.
 
-    - Усложняет код программы из-за введения дополнительных классов.
+    - Adds complexity due to additional classes.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Мост` проектируют загодя, чтобы развивать большие части приложения отдельно друг от друга. `Адаптер` применяется
-   постфактум, чтобы заставить несовместимые классы работать вместе.
+1. Bridge is designed in advance to develop large parts of an app independently. Adapter is applied after the fact to
+   make incompatible classes work together.
 
-2. `Мост`, `Стратегия` и `Состояние` (а также слегка и `Адаптер`) имеют схожие структуры классов — все они построены на
-   принципе «композиции», то есть делегирования работы другим объектам. Тем не менее, они отличаются тем, что решают
-   разные проблемы. Помните, что паттерны — это не только рецепт построения кода определённым образом, но и описание
-   проблем, которые привели к данному решению.
+2. Bridge, Strategy, and State (and to some extent Adapter) have similar class structures - they are all built on
+   composition, delegating work to other objects. They differ in the problems they solve. Patterns are not only code
+   recipes but also descriptions of the problems that led to these solutions.
 
-3. `Абстрактная фабрика` может работать совместно с `Мостом`. Это особенно полезно, если у вас есть абстракции, которые
-   могут работать только с некоторыми из реализаций. В этом случае фабрика будет определять типы создаваемых абстракций
-   и реализаций.
+3. Abstract Factory can work together with Bridge. This is useful when you have abstractions that can work only with
+   some implementations. In that case the factory defines which abstractions and implementations are created.
 
-4. Паттерн `Строитель` может быть построен в виде `Моста`: директор будет играть роль абстракции, а строители —
-   реализации.
-
-
-
+4. Builder can be built as a Bridge: the director plays the abstraction role, and builders are the implementations.

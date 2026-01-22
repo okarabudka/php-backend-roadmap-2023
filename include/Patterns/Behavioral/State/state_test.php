@@ -12,7 +12,7 @@ class StateTest extends PHPUnit_Framework_TestCase
     {
         $expect = "Vrrr... Brrr... Vrrr..." .
             "Vrrr... Brrr... Vrrr..." .
-            "Белые розы, Белые розы. Беззащитны шипы...";
+            "White roses, white roses. Defenseless are the thorns...";
 
         $modile = new ModileAlert(new MobileAlertVibration());
 

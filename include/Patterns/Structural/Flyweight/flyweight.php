@@ -1,33 +1,33 @@
 <?php
 /**
- * Паттерн Приспособленец (Flyweight)
+ * Flyweight pattern
  */
 
 namespace Pattern;
 
 /**
- * Абстрактный базовый класс Flyweight, описывает общий интерфейс для приспособленцев
+ * Abstract base class Flyweighter describes the common interface for flyweights
  */
 abstract class Flyweighter
 {
     /**
-     * Получить имя приспособленца
+     * Get the flyweight name
      *
      * @return string
      */
     public abstract function getName();
 
     /**
-     * Задать имя приспособленца
+     * Set the flyweight name
      *
-     * @param string $name - имя
+     * @param string $name - name
      */
     public abstract function setName($name);
 }
 
 /**
- * FlyweightFactory, реализует фабрику для создания приспособленцев.
- * Если подходящий приспособленец есть в пуле, то возвращает его
+ * FlyweightFactory implements a factory for creating flyweights.
+ * If a suitable flyweight is in the pool, it returns it.
  */
 class FlyweightFactory
 {
@@ -37,10 +37,10 @@ class FlyweightFactory
     public $pool = array();
 
     /**
-     * Создание или получение подходящего приспособленца по состоянию.
-     * В данном случает состояние это число, которое характеризует конкретного приспособленца
+     * Create or get a suitable flyweight by state.
+     * In this case, state is a number that identifies a specific flyweight.
      *
-     * @param int $state - состояние приспособленца
+     * @param int $state - flyweight state
      *
      * @return Flyweighter
      */
@@ -55,7 +55,7 @@ class FlyweightFactory
 }
 
 /**
- * ConcreteFlyweight, реализует приспособленца
+ * ConcreteFlyweight implements the flyweight
  */
 class ConcreteFlyweight extends Flyweighter
 {
@@ -70,9 +70,9 @@ class ConcreteFlyweight extends Flyweighter
     protected $name;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param int $state - состояние приспособленца
+     * @param int $state - flyweight state
      */
     public function __construct($state)
     {
@@ -80,7 +80,7 @@ class ConcreteFlyweight extends Flyweighter
     }
 
     /**
-     * Получить имя приспособленца
+     * Get the flyweight name
      *
      * @return string
      */
@@ -90,9 +90,9 @@ class ConcreteFlyweight extends Flyweighter
     }
 
     /**
-     * Задать имя приспособленца
+     * Set the flyweight name
      *
-     * @param string $name - имя
+     * @param string $name - name
      */
     public function setName($name)
     {

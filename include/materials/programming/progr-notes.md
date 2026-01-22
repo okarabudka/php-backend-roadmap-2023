@@ -602,7 +602,7 @@ data type of function parameters or return values to improve code readability an
 
 ## JUNIOR
 
-## Общие вопросы
+## General Questions
 
 #### 1. What are references?
 
@@ -1157,76 +1157,77 @@ Replace `branch_name` with the name of the branch you want to push to.
 
 ---
 
-#### Вопросы и ответы по версиям PHP
+#### Questions and Answers by PHP Version
 
 #### PHP 7
 
-**Вопрос:** Что нового в PHP 7?
+**Question:** What is new in PHP 7?
 
-**Ответ:**
-PHP 7 внесла значительные улучшения производительности и функциональности:
+**Answer:**
+PHP 7 introduced significant performance and functionality improvements:
 
-- **Scalar Type Declarations:** Введены строгие типы для скалярных типов данных (int, float, string, bool).
+- **Scalar Type Declarations:** Strict types for scalar data types (int, float, string, bool) were introduced.
   ```php
   function sum(int $a, int $b): int {
       return $a + $b;
   }
   ```
 
-- **Return Type Declarations:** Возможность указать тип возвращаемого значения функции.
+- **Return Type Declarations:** Ability to specify a function return type.
   ```php
   function getString(): string {
       return "Hello";
   }
   ```
 
-- **Spaceship Operator (`<=>`):** Новый оператор для сравнения, возвращающий -1, 0 или 1.
+- **Spaceship Operator (`<=>`):** New comparison operator that returns -1, 0, or 1.
   ```php
   $result = $a <=> $b;
   ```
 
-- **Null Coalescing Operator (`??`):** Сокращенная запись проверки на null.
+- **Null Coalescing Operator (`??`):** Short syntax for null checks.
   ```php
   $value = $a ?? 'default';
   ```
 
 #### PHP 7.1
 
-**Вопрос:** Какие изменения в PHP 7.1?
+**Question:** What changed in PHP 7.1?
 
-**Ответ:**
-PHP 7.1 добавила несколько новых возможностей:
+**Answer:**
+PHP 7.1 added several new features:
 
-- **Nullable Types:** Возможность указать тип, включая null.
+- **Nullable Types:** Ability to specify a type including null.
   ```php
   function foo(?string $bar): void {
-      // $bar может быть строкой или null
+      // $bar can be a string or null
   }
   ```
 
-- **Void Return Type:** Тип void для функций, которые не возвращают значения.
+- **Void Return Type:** void type for functions that return no value.
   ```php
   function doSomething(): void {
-      // Ничего не возвращаем
+      // Returns nothing
   }
   ```
 
-- **Iterable Type:** Новый тип для итерируемых значений.
+- **Iterable Type:** New type for iterable values.
   ```php
   function process(iterable $items): void {
       foreach ($items as $item) {
-          // Обработка $item
+          // Process $item
       }
+  }
   ```
 
 #### PHP 7.2
 
-**Вопрос:** Какие нововведения в PHP 7.2?
+**Question:** What is new in PHP 7.2?
 
-**Ответ:**
-PHP 7.2 включила дополнительные возможности и улучшения:
+**Answer:**
+PHP 7.2 added additional features and improvements:
 
-- **Argument Type Widening:** Расширение типов аргументов для интерфейсов и родительских классов.
+- **Argument Type Widening:** Argument type widening for interfaces and parent classes.
   ```php
   interface A {
       public function test(array $input);
@@ -1234,103 +1235,103 @@ PHP 7.2 включила дополнительные возможности и 
 
   class B implements A {
       public function test($input) {
-          // $input может быть массивом или чем-то другим
+          // $input can be an array or something else
       }
   }
   ```
 
-- **Object Type Hinting:** Уточнение типа для объектов.
+- **Object Type Hinting:** Type hinting for objects.
   ```php
   function getObject(): object {
       return new stdClass();
   }
   ```
 
-- **New Functions and Enhancements:** Новые функции и улучшения, такие как `hash_equals()` для сравнения хешей без
-  уязвимостей времени.
+- **New Functions and Enhancements:** New functions and improvements, such as `hash_equals()` for comparing hashes without
+  timing vulnerabilities.
 
 #### PHP 7.3
 
-**Вопрос:** Какие изменения в PHP 7.3?
+**Question:** What changed in PHP 7.3?
 
-**Ответ:**
-PHP 7.3 внесла следующие изменения:
+**Answer:**
+PHP 7.3 introduced the following changes:
 
-- **Flexible Heredoc and Nowdoc Syntax:** Улучшения в синтаксисе Heredoc и Nowdoc.
+- **Flexible Heredoc and Nowdoc Syntax:** Improvements in Heredoc and Nowdoc syntax.
   ```php
   $text = <<<EOT
   Example of a heredoc string
   EOT;
   ```
 
-- **JSON_THROW_ON_ERROR:** Исключения при ошибках в JSON операциях.
+- **JSON_THROW_ON_ERROR:** Exceptions on JSON errors.
   ```php
   $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
   ```
 
-- **Improved Garbage Collection:** Улучшенная сборка мусора.
+- **Improved Garbage Collection:** Improved garbage collection.
 
 #### PHP 7.4
 
-**Вопрос:** Какие нововведения в PHP 7.4?
+**Question:** What is new in PHP 7.4?
 
-**Ответ:**
-PHP 7.4 предложила ряд новых функций и улучшений:
+**Answer:**
+PHP 7.4 introduced a number of new features and improvements:
 
-- **Typed Properties:** Декларация типов для свойств классов.
+- **Typed Properties:** Type declarations for class properties.
   ```php
   class MyClass {
       public string $name;
   }
   ```
 
-- **Arrow Functions:** Краткий синтаксис для определения анонимных функций.
+- **Arrow Functions:** Short syntax for anonymous functions.
   ```php
   $numbers = [1, 2, 3, 4, 5];
   $squared = array_map(fn($n) => $n * $n, $numbers);
   ```
 
-- **Preloading:** Возможность предварительной загрузки классов и функций для улучшения производительности.
+- **Preloading:** Ability to preload classes and functions to improve performance.
 
-§
+---
 
 #### PHP 8.0
 
-**Вопрос: Что нового в PHP 8.0?**
+**Question: What is new in PHP 8.0?**
 
-PHP 8.0 был значительным обновлением с множеством нововведений:
+PHP 8.0 was a major update with many new features:
 
-- JIT (Just In Time компилятор) для улучшения производительности.
-- Сильная и слабая типизация для аргументов методов.
-- Новый оператор `match` для замены `switch`.
-- Атрибуты для декларации метаданных в коде.
-- Изменения в обработке ошибок и исключений.
+- JIT (Just-In-Time compiler) to improve performance.
+- Stronger and weaker typing for method arguments.
+- New `match` operator to replace `switch`.
+- Attributes for declaring metadata in code.
+- Changes in error and exception handling.
 
-Пример использования атрибутов:
+Example usage of attributes:
 
 ```php
 #[Route('/path')]
 class MyController {
     #[Route('/action')]
     public function myAction() {
-        // Код действия
+        // Action code
     }
 }
 ```
 
 #### PHP 8.1
 
-**Вопрос: Что нового в PHP 8.1?**
+**Question: What is new in PHP 8.1?**
 
-PHP 8.1 включает следующие нововведения:
+PHP 8.1 includes the following additions:
 
-- Изменения в работе с типами данных, включая `enum` тип и `readonly` свойства классов.
-- Добавление `intersection types` для более точного определения типов.
-- Функция `array_is_list()` для проверки, является ли массив списком.
-- Улучшения в работе с `FPM SAPI`.
-- Изменения в работе с `DateTime`.
+- Changes in data type handling, including the `enum` type and `readonly` class properties.
+- Addition of `intersection types` for more precise typing.
+- `array_is_list()` to check if an array is a list.
+- Improvements in `FPM SAPI`.
+- Changes in `DateTime`.
 
-Пример использования `enum`:
+Example usage of `enum`:
 
 ```php
 enum Status {
@@ -1345,16 +1346,16 @@ function getStatus(): Status {
 
 #### PHP 8.2
 
-**Вопрос: Что нового в PHP 8.2?**
+**Question: What is new in PHP 8.2?**
 
-PHP 8.2 включает следующие нововведения:
+PHP 8.2 includes the following additions:
 
-- Улучшения в `match` выражениях, включая `guarded patterns`.
-- Добавление оператора `enumeration` для обработки списков.
-- Доработки в работе с `WeakMap`.
-- Улучшения в синтаксисе и производительности.
+- Improvements in `match` expressions, including `guarded patterns`.
+- Addition of the `enumeration` operator for handling lists.
+- Improvements in `WeakMap`.
+- Syntax and performance improvements.
 
-Пример использования `match` с `guarded patterns`:
+Example usage of `match` with `guarded patterns`:
 
 ```php
 match ($value) {
@@ -1364,12 +1365,12 @@ match ($value) {
 };
 ```
 
-Эти обновления в PHP 8.x значительно расширяют функциональные возможности языка, улучшают его производительность и
-расширяют набор доступных инструментов для разработчиков.
+These updates in PHP 8.x significantly expand the language capabilities, improve performance, and
+expand the available tooling for developers.
 
 ## DB's
 
-#### 58. Что такое транзакция?
+#### 58. What is a transaction?
 
 What is a transaction?
 
@@ -1378,7 +1379,7 @@ work. A transaction must exhibit four properties, known as ACID properties: Atom
 Durability. Transactions ensure that all operations within the work unit are completed successfully before committing
 the changes to the database. If any operation fails, the transaction is rolled back to maintain data integrity.
 
-#### 59. Что такое нормализация?
+#### 59. What is normalization?
 
 What is normalization?
 
@@ -1387,7 +1388,7 @@ redundancy and dependency. Its primary purpose is to separate data into differen
 improve data integrity. The main objectives are to eliminate redundant data, ensure data dependencies make sense, and
 simplify the structure of tables.
 
-#### 60. Что такое денормализация? Для чего она нужна?
+#### 60. What is denormalization? What is it used for?
 
 What is denormalization? What is it used for?
 
@@ -1395,7 +1396,7 @@ Denormalization is the process of combining normalized tables to improve databas
 involves adding redundant data to one or more tables. Denormalization is used to reduce the number of joins in queries,
 thus improving query performance at the cost of increased storage and potential data anomalies.
 
-#### 61. Какие есть типы связей в базе данных?
+#### 61. What types of relationships exist in a database?
 
 What are the types of relationships in a database?
 
@@ -1406,7 +1407,7 @@ The types of relationships in a database are:
 - **Many-to-Many (M:N):** Many rows in one table can be linked to many rows in another table, typically implemented with
   a junction table.
 
-#### 62. Что означает утверждение о том, что СУБД поддерживает контроль ссылочной целостности связей?
+#### 62. What does it mean when a DBMS supports referential integrity control?
 
 What does it mean that a DBMS supports referential integrity control of relationships?
 
@@ -1414,7 +1415,7 @@ When a DBMS supports referential integrity, it ensures that relationships betwee
 This means that foreign keys in a table must either match primary keys in another table or be null. Referential
 integrity prevents orphaned records and ensures that related data across tables is kept accurate and consistent.
 
-#### 63. Если используемая вами СУБД не поддерживает каскадные удаления для поддержки ссылочной целостности связей, что можно сделать для достижения аналогичного результата?
+#### 63. If your DBMS does not support cascading deletes for referential integrity, how can you achieve a similar result?
 
 If the DBMS you use does not support cascading deletes to maintain referential integrity, what can be
 done to achieve a similar result?
@@ -1423,7 +1424,7 @@ If the DBMS does not support cascading deletes, you can achieve similar results 
 logic in your application code. This involves writing additional code to delete child records before deleting the parent
 record, ensuring that all related data is consistently removed.
 
-#### 64. Что такое первичный и внешний ключи?
+#### 64. What are primary and foreign keys?
 
 What are primary and foreign keys?
 
@@ -1432,7 +1433,7 @@ What are primary and foreign keys?
 - **Foreign Key:** A foreign key is a column or a set of columns in one table that refers to the primary key in another
   table. It establishes a relationship between the two tables and ensures referential integrity.
 
-#### 65. В чем разница между первичным и уникальным ключами?
+#### 65. What is the difference between a primary key and a unique key?
 
 What is the difference between a primary key and a unique key?
 
@@ -1440,7 +1441,7 @@ The primary key uniquely identifies each row in a table and cannot contain null 
 only one primary key. A unique key also ensures that all values in a column are unique but can contain null values. A
 table can have multiple unique keys.
 
-#### 66. Какие есть типы JOIN и чем они отличаются?
+#### 66. What types of JOIN exist and how do they differ?
 
 What types of JOINs are there and how do they differ?
 
@@ -1454,7 +1455,7 @@ The types of JOINs are:
 - **FULL JOIN (FULL OUTER JOIN):** Returns rows when there is a match in one of the tables. It returns all rows from the
   left and right tables, with nulls where there is no match.
 
-#### 67. Что такое курсоры в базах данных?
+#### 67. What are cursors in databases?
 
 What are cursors in databases?
 
@@ -1462,7 +1463,7 @@ Cursors in databases are database objects used to retrieve, manipulate, and navi
 of a query one row at a time. They provide a way to process each row individually, making them useful for row-by-row
 processing and complex business logic.
 
-#### 68. Что такое агрегатные функции SQL? Приведите несколько примеров.
+#### 68. What are SQL aggregate functions? Give some examples.
 
 What are SQL aggregate functions? Provide some examples.
 
@@ -1475,7 +1476,7 @@ include:
 - **MIN():** Returns the minimum value.
 - **MAX():** Returns the maximum value.
 
-#### 69. Что такое миграции?
+#### 69. What are migrations?
 
 What are migrations?
 
@@ -1483,7 +1484,7 @@ Migrations are a way to manage and apply changes to the database schema over tim
 define the structure of the database in code, track changes, and apply these changes in a controlled manner. Migrations
 help ensure that the database schema is consistent across different environments.
 
-#### 70. Расскажите о связи один к одному, один ко многим, многие ко многим.
+#### 70. Describe one-to-one, one-to-many, and many-to-many relationships.
 
 Describe one-to-one, one-to-many, many-to-many relationships.
 
@@ -1492,7 +1493,7 @@ Describe one-to-one, one-to-many, many-to-many relationships.
 - **Many-to-Many (M:N):** Multiple rows in one table correspond to multiple rows in another table, usually implemented
   via a junction table.
 
-#### 71. Назовите и объясните три любых агрегирующих метода.
+#### 71. Name and explain any three aggregate methods.
 
 Name and explain any three aggregate methods.
 
@@ -1500,7 +1501,7 @@ Name and explain any three aggregate methods.
 - **SUM():** Calculates the total sum of a numeric column.
 - **AVG():** Calculates the average value of a numeric column.
 
-#### 72. Зачем используют оператор группировки GROUP BY?
+#### 72. Why is the GROUP BY clause used?
 
 Why is the GROUP BY clause used?
 
@@ -1508,7 +1509,7 @@ The GROUP BY clause is used to group rows that have the same values in specified
 It is often used with aggregate functions to perform calculations on each group of rows, such as summing values or
 counting occurrences.
 
-#### 73. В чем разница между WHERE и HAVING? Приведите примеры.
+#### 73. What is the difference between WHERE and HAVING? Give examples.
 
 What is the difference between WHERE and HAVING? Provide examples.
 
@@ -1528,7 +1529,7 @@ GROUP BY department
 HAVING AVG(salary) > 60000;
 ```
 
-#### 74. В чем разница между операторами DISTINCT и GROUP BY?
+#### 74. What is the difference between DISTINCT and GROUP BY?
 
 What is the difference between DISTINCT and GROUP BY?
 
@@ -1536,7 +1537,7 @@ The DISTINCT keyword is used to remove duplicate rows from the result set. GROUP
 values of specified columns and is typically used with aggregate functions. DISTINCT operates on the entire row, while
 GROUP BY operates on columns and can perform calculations on each group.
 
-#### 75. Для чего нужны операторы UNION, INTERSECT, EXCEPT?
+#### 75. What are UNION, INTERSECT, and EXCEPT used for?
 
 What are the UNION, INTERSECT, EXCEPT operators used for?
 
@@ -1544,7 +1545,7 @@ What are the UNION, INTERSECT, EXCEPT operators used for?
 - **INTERSECT:** Returns the common rows from the result sets of two SELECT queries.
 - **EXCEPT:** Returns the rows from the first SELECT query that are not in the second SELECT query.
 
-#### 76. Опишите разницу типов данных DATETIME и TIMESTAMP.
+#### 76. Describe the difference between DATETIME and TIMESTAMP.
 
 Describe the difference between the DATETIME and TIMESTAMP data types.
 
@@ -1553,7 +1554,7 @@ Describe the difference between the DATETIME and TIMESTAMP data types.
 - **TIMESTAMP:** Stores date and time values along with timezone information, automatically converting the values to UTC
   for storage. It ranges from '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
 
-#### 77. Какие вы знаете движки таблиц и чем они отличаются?
+#### 77. What table engines do you know and how do they differ?
 
 What table engines do you know and how do they differ?
 
@@ -1566,7 +1567,7 @@ locking. It is optimized for high performance and reliability.
 - **MEMORY (HEAP):** Stores tables in memory, providing extremely fast access but volatile data storage as it does not
   persist data on disk.
 
-#### 78. Какие способы оптимизации производительности баз данных знаете?
+#### 78. What methods do you know for optimizing database performance?
 
 What methods do you know for optimizing database performance?
 
@@ -1578,7 +1579,7 @@ What methods do you know for optimizing database performance?
 - Partitioning
 - Hardware optimization (e.g., SSDs, more RAM)
 
-#### 79. Что такое партиционирование, репликация и шардинг?
+#### 79. What are partitioning, replication, and sharding?
 
 What is partitioning, replication, and sharding?
 
@@ -1589,7 +1590,7 @@ What is partitioning, replication, and sharding?
 - **Sharding:** Divides a database horizontally across multiple servers, each handling a subset of data. It helps
   distribute load and improve scalability.
 
-#### 80. Чем отличаются SQL от NoSQL базы данных?
+#### 80. How do SQL and NoSQL databases differ?
 
 What are the differences between SQL and NoSQL databases?
 
@@ -1598,7 +1599,7 @@ What are the differences between SQL and NoSQL databases?
 - **NoSQL (Non-relational databases):** Schema-less or flexible schema, eventually consistent, designed for horizontal
   scalability, and often categorized into key-value, document, column-family, or graph databases.
 
-#### 81. Какие бывают NoSQL базы данных?
+#### 81. What types of NoSQL databases are there?
 
 What types of NoSQL databases are there?
 
@@ -1607,7 +1608,7 @@ What types of NoSQL databases are there?
 - **Column-Family Stores (e.g., Cassandra)**
 - **Graph Databases (e.g., Neo4j)**
 
-#### 82. Какие типы данных есть в MySQL?
+#### 82. What data types are available in MySQL?
 
 What data types are available in MySQL?
 
@@ -1618,7 +1619,7 @@ MySQL supports various data types including:
 - String types (CHAR, VARCHAR, TEXT)
 - Binary types (BLOB, VARBINARY)
 
-#### 83. Разница между LEFT JOIN, RIGHT JOIN, INNER JOIN?
+#### 83. What is the difference between LEFT JOIN, RIGHT JOIN, and INNER JOIN?
 
 What is the difference between LEFT JOIN, RIGHT JOIN, and INNER JOIN?
 
@@ -1626,14 +1627,14 @@ What is the difference between LEFT JOIN, RIGHT JOIN, and INNER JOIN?
 - **LEFT JOIN:** Returns all rows from the left table and matching rows from the right table.
 - **RIGHT JOIN:** Returns all rows from the right table and matching rows from the left table.
 
-#### 84. Разница между JOIN и UNION?
+#### 84. What is the difference between JOIN and UNION?
 
 What is the difference between JOIN and UNION?
 
 - **JOIN:** Combines columns from two or more tables based on a related column between them.
 - **UNION:** Concatenates the result sets of two or more SELECT statements, removing duplicates.
 
-#### 85. Что такое индексы? Как они влияют на время выполнения SELECT, INSERT?
+#### 85. What are indexes? How do they affect SELECT and INSERT time?
 
 What are indexes? How do they affect SELECT and INSERT performance?
 
@@ -1642,7 +1643,7 @@ additional space and decreased performance on INSERT and UPDATE operations. They
 database to quickly locate rows using the indexed columns. However, they slow down INSERT operations because the
 database must update the index when adding new rows.
 
-#### 86. Что такое хранимые процедуры, функции и триггеры в MySQL? Для чего они? Приведите примеры использования.
+#### 86. What are stored procedures, functions, and triggers in MySQL? What are they used for? Give examples.
 
 What are stored procedures, functions, and triggers in MySQL? What are they used for? Provide examples
 of usage.
@@ -1673,7 +1674,7 @@ of usage.
   INSERT INTO audit_log (old_value, new_value) VALUES (OLD.name, NEW.name);
   ```
 
-#### 87. Как организовать сохранность вложенных категорий в MySQL?
+#### 87. How do you keep nested categories consistent in MySQL?
 
 How to ensure integrity of nested categories in MySQL?
 
@@ -1687,7 +1688,7 @@ Nested categories can be organized using techniques like:
 
 ## Laravel
 
-#### 88. Какие есть связи и как они реализуются в Laravel?
+#### 88. What relationships exist and how are they implemented in Laravel?
 
 What types of relationships exist and how are they implemented in Laravel?
 
@@ -1702,7 +1703,7 @@ These relationships are defined using methods in the Eloquent models (`hasOne`, 
 with foreign keys and pivot tables where necessary. Laravel's Eloquent makes it straightforward to define and use these
 relationships, enabling efficient querying and data manipulation.
 
-#### 89. Что такое полиморфные связи в Laravel, как они работают?
+#### 89. What are polymorphic relationships in Laravel and how do they work?
 
 What are polymorphic relationships in Laravel and how do they work?
 
@@ -1713,7 +1714,7 @@ and `morphToMany` methods in Eloquent models. They rely on two columns in the da
 class) and `morph_id` (to store the model's ID). This flexibility simplifies database schema and allows for more dynamic
 and scalable application designs.
 
-#### 90. Что такое middleware в Laravel? Зачем это? На каком этапе выполняется?
+#### 90. What is middleware in Laravel? Why is it used? At what stage does it run?
 
 What is middleware in Laravel? Why is it used? At what stage does it execute?
 
@@ -1744,7 +1745,7 @@ their versions are specified. This tool significantly simplifies dependency mana
   not necessary for the application to function in production. Typically, this includes tools for testing, debugging, or
   building the project.
 
-## Практические задания
+## Practical Tasks
 
 #### Answering the Questions as a PHP Programmer
 
@@ -1980,7 +1981,7 @@ This command clears the entire cache for the application, including the cache fo
 
 ## MIDDLE
 
-## Общие вопросы
+## General Questions
 
 #### 1. How are variables passed (by value or by reference)?
 
@@ -2464,7 +2465,7 @@ git stash
 You can later retrieve your stashed changes using `git stash apply` or `git stash pop` to reapply them onto your current
 working branch.
 
-## Базы данных
+## Databases
 
 #### 56. What is the difference between MyISAM and InnoDB? When is each better suited?
 
@@ -2661,7 +2662,7 @@ $post->load('comments'); // Lazy loads comments for this specific post
 In summary, `with()` is used for eager loading relationships when querying multiple models upfront, while `load()` is
 used for lazy loading relationships on an already retrieved model instance.
 
-## Практические задания
+## Practical Tasks
 
 #### You need to scrape products and their prices from an online store. How would you approach this task and what are the main considerations to keep in mind?**
 
@@ -2792,7 +2793,7 @@ You can then run this command using `php artisan current:time` in the terminal.
 
 ## SENIOR
 
-## Общие вопросы
+## General Questions
 
 #### 1. How do you understand REST?
 
@@ -3185,7 +3186,7 @@ rebase (`git rebase -i`) where you specify the commits to squash. Here’s how:
 
 This process allows you to tidy up your commit history by combining related changes into logical commits.
 
-## Базы данных
+## Databases
 
 #### 46. What data structures does Redis support?
 
@@ -3256,7 +3257,7 @@ To build a social network for high concurrency and fast performance:
 Queries should be optimized to leverage indexes efficiently, minimize joins across distributed databases, and utilize
 caching strategies to reduce latency.
 
-## Практические задания
+## Practical Tasks
 
 #### As a PHP programmer, how would you solve the problem of finding strings within a Levenshtein distance of less than 3 from a new string?
 
@@ -3401,8 +3402,6 @@ class URLShortener {
 }
 ?>
 ```
-
-
 
 
 

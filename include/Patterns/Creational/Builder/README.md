@@ -1,59 +1,50 @@
-## Строитель (Builder)
+## Builder
 
-Паттерн Builder относится к порождающим паттернам уровня объекта.
+The Builder pattern is a creational object-level pattern.
 
-Паттерн Builder определяет процесс поэтапного построения сложного продукта. После того как будет построена последняя его
-часть,
-продукт можно использовать.
+Builder defines a step-by-step process for constructing a complex product. After the last part is built, the product
+can be used.
 
-## Пример
+## Example
 
-В примере паттерна Abstract Factory приводился пример двух фабрик Кока-Кола и Перси. Возьмем одну фабрику, она
-производит сложный продукт,
-состоящий из 4 частей (крышка, бутылка, этикетка, напиток), которые должны быть применены в нужном порядке. Нельзя
-вначале взять крышку,  
-бутылку, завинтить крышку, а потом пытаться налить туда напиток. Для реализации объекта, бутылки Кока-Колы, которая
-поставляется клиенту,
-нам нужен паттерн Builder.
+In the Abstract Factory example there were two factories, Coca-Cola and Pepsi. Take one factory that produces a complex
+product consisting of four parts (cap, bottle, label, drink) that must be assembled in the correct order. You cannot
+first take a cap and bottle, screw the cap on, and then try to pour the drink inside. To create the Coca-Cola bottle
+object delivered to a client, we need Builder.
 
-Важно понимать, что сложный объект это не обязательно объект оперирующий несколькими другими объектами в смысле ООП.
-Например, нам нужно
-получить документ состоящий из заголовка, введения, содержания и заключения. Наш документ, это сложный объект. Что бы
-был какой-то единый
-порядок составления документа, мы будем использовать паттерн Builder.
+A complex object is not necessarily an object that operates on several other objects in OOP terms. For example, we need
+a document consisting of a title, introduction, content, and conclusion. The document is a complex object. To enforce a
+consistent order of building the document, we use Builder.
 
-Требуется для реализации:
+Required for implementation:
 
-1. Класс Director, который будет распоряжаться строителем и отдавать ему команды в нужном порядке, а строитель будет их
-   выполнять;
-2. Базовый абстрактный класс Builder, который описывает интерфейс строителя, те команды, которые он обязан выполнять;
-3. Класс ConcreteBuilder, который реализует интерфейс строителя и взаимодействует со сложным объектом;
-4. Класс сложного объекта Product.
+1. Director class that controls the builder and issues commands in the correct order.
+2. Base abstract Builder class describing the builder interface and required commands.
+3. ConcreteBuilder class implementing the builder interface and interacting with the complex object.
+4. Product class representing the complex object.
 
-## Пример из реальной жизни
+## Real-world example
 
-    Одним из лучших применений паттерна Строитель является конструктор запросов SQL. Интерфейс Строителя определяет общие 
-    шаги, необходимые для построения основного SQL-запроса. В тоже время Конкретные Строители, соответствующие различным 
-    диалектам SQL, реализуют эти шаги, возвращая части SQL-запросов, которые могут быть выполнены в данном движке базы данных.
+    One of the best uses of Builder is a SQL query builder. The Builder interface defines common steps required to build
+    a SQL query. Concrete Builders for different SQL dialects implement these steps and return query parts compatible
+    with their DB engine.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Позволяет создавать продукты пошагово.
-    + Позволяет использовать один и тот же код для создания различных продуктов.
-    + Изолирует сложный код сборки продукта от его основной бизнес-логики.
+    + Builds products step by step.
+    + Reuses the same code to create different products.
+    + Isolates complex construction code from business logic.
 
-    - Усложняет код программы из-за введения дополнительных классов.
-    - Клиент будет привязан к конкретным классам строителей, так как в интерфейсе директора может не быть метода получения результата.
+    - Adds complexity due to additional classes.
+    - The client becomes tied to specific builder classes if the director interface has no method to return the result.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. Многие архитектуры начинаются с применения `Фабричного метода` (более простого и расширяемого через подклассы) и
-   эволюционируют в сторону `Абстрактной фабрики`, `Прототипа` или `Строителя` (более гибких, но и более сложных).
-2. `Строитель` концентрируется на построении сложных объектов шаг за шагом. `Абстрактная фабрика` специализируется на
-   создании семейств связанных продуктов. `Строитель` возвращает продукт только после выполнения всех шагов, а
-   `Абстрактная фабрика` возвращает продукт сразу же.
-3. `Строитель` позволяет пошагово сооружать дерево `Компоновщика`.
-4. Паттерн `Строитель` может быть построен в виде `Моста`: директор будет играть роль абстракции, а строители —
-   реализации.
-5. `Абстрактная фабрика`, `Строитель` и `Прототип` могут быть реализованы при помощи Одиночки.
-
+1. Many architectures start with Factory Method (simple and extensible via subclasses) and evolve toward Abstract
+   Factory, Prototype, or Builder (more flexible but more complex).
+2. Builder focuses on constructing complex objects step by step. Abstract Factory specializes in creating families of
+   related products. Builder returns a product only after all steps, while Abstract Factory returns a product
+   immediately.
+3. Builder can be used to build a Composite tree step by step.
+4. Builder can be implemented as Bridge: the director plays the abstraction role, and builders are implementations.
+5. Abstract Factory, Builder, and Prototype can be implemented with Singleton.

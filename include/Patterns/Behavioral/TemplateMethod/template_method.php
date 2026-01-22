@@ -1,19 +1,19 @@
 <?php
 /**
- * Паттерн Шаблонный метод (Template Method)
+ * Template Method pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстратный класс QuotesInterface, описывает интерфейс установки разных кавычек
+ * Base abstract class AbstractQuotes describes the interface for different quote styles
  */
 abstract class AbstractQuotes
 {
     /**
      * Template Method
      *
-     * @param string $str - строка
+     * @param string $str - string
      *
      * @return string
      */
@@ -23,14 +23,14 @@ abstract class AbstractQuotes
     }
 
     /**
-     * Открывающая кавычка
+     * Opening quote
      *
      * @return string
      */
     public abstract function open();
 
     /**
-     * Закрывающая кавычка
+     * Closing quote
      *
      * @return string
      */
@@ -38,12 +38,12 @@ abstract class AbstractQuotes
 }
 
 /**
- * FrenchQuotes, рeализует обрамление строки Французскими кавычками (Ёлочками)
+ * FrenchQuotes wraps the string in French quotes (guillemets)
  */
 class FrenchQuotes extends AbstractQuotes
 {
     /**
-     * Открывающая кавычка
+     * Opening quote
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class FrenchQuotes extends AbstractQuotes
     }
 
     /**
-     * Закрывающая кавычка
+     * Closing quote
      *
      * @return string
      */
@@ -65,12 +65,12 @@ class FrenchQuotes extends AbstractQuotes
 
 
 /**
- * GermanQuotes, рeализует обрамление строки Немецкими кавычками (Лапками)
+ * GermanQuotes wraps the string in German quotes
  */
 class GermanQuotes extends AbstractQuotes
 {
     /**
-     * Открывающая кавычка
+     * Opening quote
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class GermanQuotes extends AbstractQuotes
     }
 
     /**
-     * Закрывающая кавычка
+     * Closing quote
      *
      * @return string
      */

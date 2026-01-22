@@ -1,24 +1,24 @@
 <?php
 /**
- * Паттерн Цепочка ответственности (Chain Of Responsibility)
+ * Chain of Responsibility pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Handler, описывает интерфейс обработчиков в цепочки
+ * Base abstract class Handler describes the interface for handlers in the chain
  */
 abstract class Handler
 {
     /**
-     * @var Handler - преемник
+     * @var Handler - successor
      */
     protected $successor;
 
     /**
-     * Обрабатывает или отправляет запрос дальше по цепочке
+     * Handles or forwards the request down the chain
      *
-     * @param Handler handler - обработчик
+     * @param Handler handler - handler
      *
      * @return Handler
      */
@@ -30,9 +30,9 @@ abstract class Handler
     }
 
     /**
-     * Обрабатывает или отправляет запрос дальше по цепочке
+     * Handles or forwards the request down the chain
      *
-     * @param int message - сообщение для обработки
+     * @param int message - message to handle
      *
      * @return string
      */
@@ -40,14 +40,14 @@ abstract class Handler
 }
 
 /**
- * ConcreteHandlerA, реализует обработчик "A"
+ * ConcreteHandlerA implements handler \"A\"
  */
 class ConcreteHandlerA extends Handler
 {
     /**
-     * Обрабатывает или отправляет запрос дальше по цепочке
+     * Handles or forwards the request down the chain
      *
-     * @param int message - сообщение для обработки
+     * @param int message - message to handle
      *
      * @return string
      */
@@ -67,14 +67,14 @@ class ConcreteHandlerA extends Handler
 }
 
 /**
- * ConcreteHandlerB, реализует обработчик "B"
+ * ConcreteHandlerB implements handler \"B\"
  */
 class ConcreteHandlerB extends Handler
 {
     /**
-     * Обрабатывает или отправляет запрос дальше по цепочке
+     * Handles or forwards the request down the chain
      *
-     * @param int message - сообщение для обработки
+     * @param int message - message to handle
      *
      * @return string
      */
@@ -94,14 +94,14 @@ class ConcreteHandlerB extends Handler
 }
 
 /**
- * ConcreteHandlerC, реализует обработчик "C"
+ * ConcreteHandlerC implements handler \"C\"
  */
 class ConcreteHandlerC extends Handler
 {
     /**
-     * Обрабатывает или отправляет запрос дальше по цепочке
+     * Handles or forwards the request down the chain
      *
-     * @param int message - сообщение для обработки
+     * @param int message - message to handle
      *
      * @return string
      */

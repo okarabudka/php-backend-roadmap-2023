@@ -1,320 +1,292 @@
-#### Список ссылок
+# Containerization vs Virtualization
 
-- [Развертывание образа в Docker Hub](https://kramarenko.com.ua/post/deploying_image_to_docker_hub)
-- [Harbor — реестр для Docker-контейнеров с безопасностью «из коробки»](https://habr.com/ru/company/flant/blog/419727/)
-- [Изучаем Docker, часть 1: основы](https://habr.com/ru/company/ruvds/blog/438796/)
-- [Изучаем Docker, часть 2: термины и концепции](https://habr.com/ru/company/ruvds/blog/439978/)
-- [Изучаем Docker, часть 3: файлы Dockerfile](https://habr.com/ru/company/ruvds/blog/439980/)
-- [Изучаем Docker, часть 4: уменьшение размеров образов и ускорение их сборки](https://habr.com/ru/company/ruvds/blog/440658/)
-- [Изучаем Docker, часть 5: команды](https://habr.com/ru/company/ruvds/blog/440660/)
-- [Изучаем Docker, часть 6: работа с данными](https://habr.com/ru/company/ruvds/blog/441574/)
+#### Links
+
+- [Deploying an image to Docker Hub](https://kramarenko.com.ua/post/deploying_image_to_docker_hub)
+- [Harbor - a Docker registry with security out of the box](https://habr.com/ru/company/flant/blog/419727/)
+- [Learning Docker, part 1: basics](https://habr.com/ru/company/ruvds/blog/438796/)
+- [Learning Docker, part 2: terms and concepts](https://habr.com/ru/company/ruvds/blog/439978/)
+- [Learning Docker, part 3: Dockerfile files](https://habr.com/ru/company/ruvds/blog/439980/)
+- [Learning Docker, part 4: shrinking images and speeding up builds](https://habr.com/ru/company/ruvds/blog/440658/)
+- [Learning Docker, part 5: commands](https://habr.com/ru/company/ruvds/blog/440660/)
+- [Learning Docker, part 6: working with data](https://habr.com/ru/company/ruvds/blog/441574/)
 - [Dockerfile Instructions](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+- [Kubernetes basics](https://habr.com/ru/post/258443/)
+- [LXC container for web development as an alternative to Docker](https://habr.com/ru/post/563040/)
 
+## Docker [&uarr;](#containerization-vs-virtualization)
 
-- [Основы Kubernetes](https://habr.com/ru/post/258443/)
-- [Контейнер LXC для веб-разработки как альтернатива Docker](https://habr.com/ru/post/563040/)
+Docker is a technology that lets you build and run applications in a portable environment. The idea is simple: if it
+works on your machine, it should work everywhere. To achieve that, you package the environment along with the app.
 
-### Docker [&uarr;](#Readme)
+Docker is most often used for deploying server applications, but it is also used in frontend workflows.
 
-Docker — это технология, которая позволяет создавать и использовать приложения в «родном» окружении. В основе Docker
-лежит идея: если приложение работает у вас, то оно должно работать где угодно. Способ этого добиться очень простой —
-нужно упаковать настройки окружения вместе с приложением.
+Docker Compose is a tool for running a multi-container application that is platform-independent and contains all
+required technologies and libraries. The app configuration is stored in a single YAML file and is started with one
+command.
 
-Docker чаще всего применяется для развёртывания серверных приложений, но может использоваться и в мире фронтенда.
+Top-level keys in compose.yaml:
 
-Docker Compose — это инструмент для запуска мультиконтейнерного приложения, которое не зависит от платформы и содержит
-все необходимые для работы технологии и библиотеки. Конфигурация такого приложения записывается в одном текстовом файле
-в формате YAML. Запускается приложение одной командой в терминале.
+- version (deprecated soon): config file format version
+- services (required): list of containers to run
+- networks: Docker Network subnets that connect groups of containers in a virtual LAN (can be exposed)
+- volumes: volumes available to containers
+- configs: parameters that let you run containers in different modes without rebuilding
+- secrets: security-sensitive parameters (like configs, but for secrets)
 
-В файле compose.yaml могут быть следующие элементы верхнего уровня:
+A typical container lifecycle:
 
-— version (скоро исключат): информация о версии формата файла конфигурации; — services (обязательный): список всех
-контейнеров, которые нужно будет запустить; — networks: список подсетей Docker Network, которые объединяют группы
-контейнеров в виртуальную локальную сеть (она может быть доступна из внешнего мира); — volumes: список томов, которые
-будут доступны контейнерам, описанным в файле конфигурации; — configs: список параметров, которые позволяют запускать
-контейнеры в различных режимах, не собирая их заново; — secrets: список чувствительных с точки зрения безопасности
-параметров (то же, что и configs, но специального назначения).
+- Create container
+- Run container
+- Pause container
+- Resume container
+- Start container
+- Stop container
+- Restart container
+- Force stop container
+- Remove container
 
-Обычно жизненный цикл контейнера состоит из следующей последовательности состояний:
+### Important services
 
-    Создание контейнера
-    Работа контейнера
-    Приостановка контейнера
-    Возобновление работы контейнера
-    Запуск контейнера
-    Остановка контейнера
-    Перезапуск контейнера
-    Принудительная остановка контейнера
-    Удаление контейнера
+Docker Engine is the application that manages Docker objects. It includes three components:
 
-### Важные службы
+- API interface (Docker API)
+- CLI client (Docker CLI). You run commands that start with `docker`. The client uses the Docker API to send requests to
+  the daemon.
+- Server (Docker Daemon). The daemon listens to the Docker API. It manages images, containers, networks, and volumes.
 
-Движок Docker Engine — приложение для управления объектами Docker. Оно включает в себя три компонента:
+Your machine is the Docker Host. All operations you perform via the UI or CLI are executed by the daemon through the
+engine API.
 
-    -  интерфейс (Docker API);
-    -  консольный клиент (Docker CLI) - в терминал вводят команды, начинающиеся с ключевого слова docker, обращаясь к клиенту. Затем клиент использует API Docker для отправки команд демону Docker.
-    -  сервер (Docker Daemon) — это сервер Docker, который ожидает запросов к API Docker. Демон Docker управляет образами, контейнерами, сетями и томами.
+Docker Desktop is a GUI bundle that includes a VM for the engine, a dashboard, CLI client, Docker Hub registry tools,
+and more.
 
-Ваш компьютер называется Docker Host. Все операции, которые мы выполняем в интерфейсе или через консоль, выполняются
-сервером через API движка.
+### Docker objects
 
-Docker Desktop — пакет приложений с графическим интерфейсом, включающий специальную виртуальную машину для работы с
-движком, визуальный интерфейс (Dashboard), консольный клиент, инструменты для работы с реестром Docker Hub и пр.
+- Image (Docker Image). A prototype of a future container that includes the OS, app, or build project. Images are built
+  in layers. Each new layer extends the previous one. Layers build on top of a base image, forming a new image. For
+  example, a base OS image.
+- Container (Docker Container). A built and running application in an isolated environment based on an image. Each new
+  layer extends the previous one, forming a stack of tools, platforms, and system services. The container filesystem is
+  also layered (Union File Systems). Files and directories from different layers overlay into one view.
+- Volume (Docker Volume). A directory that can be mounted into containers. It can map to a local folder or be a
+  container-only volume. Volumes store configuration files, security-critical data, databases, and other files that must
+  survive container teardown.
+- Network (Docker Network). A virtual LAN that lets multiple containers communicate and connect a container to your
+  computer. The main modes:
+  - bridge: containers can talk to each other (web server + DB)
+  - host: share the host network
+  - none: networking disabled
 
-### Объекты Docker
+### Tools
 
-    Образ (Docker Image) — прототип будущего контейнера, содержащий операционную систему, приложение или проект для сборки приложения. Образы состоят из слоёв. Каждый новый слой — это надстройка над предыдущим. Слои должны надстраиваться поверх базового образа, формируя новый. Например, базовым образом может быть образ операционной системы.
+Docker Hub (registry) is the official image registry. Published images live there. Other public registries include:
 
-    Контейнер (Docker Container) — уже собранное и запущенное приложение в изолированном окружении, которое формируется послойно, в соответствии с образом. Каждый новый слой расширяет функциональность предыдущего, формируя стек используемых инструментов, платформ и настроек системных служб. Файловая система контейнера тоже стековая (Union File Systems). Каталоги и файлы отдельного слоя образа накладываются друг на друга, образуя единое целое.
+- Google Cloud Container Registry
+- Azure Container Registry
+- IBM Cloud Container Registry
+- Oracle Cloud Infrastructure Container Registry
+- Yandex Container Registry
 
-    Том (Docker Volume) — папка, которую можно подключить (говорят «примонтировать») к контейнерам. Папка может быть связана с конкретной папкой на вашем компьютере, а может быть как бы сетевой для контейнеров на вашем компьютере. Тома необходимы для хранения файлов конфигурации, критических с точки зрения безопасности, файлов баз данных, файлов, которые нельзя удалять после окончания работы приложения.
+Docker repository
 
-    Сеть (Docker Network) — виртуальная локальная сеть, которая позволяет совместно использовать несколько запущенных контейнеров и соединять запущенный контейнер с вашим компьютером. В основном вы будете использовать три режима работы сетевой инфраструктуры Docker:
+A Docker Repository is a set of Docker images with the same name and different tags. Tags identify images. Repositories
+usually contain multiple versions of the same image. For example, `python` is a popular official repository name. The
+image `python:3.7-slim` is a tag in that repository. You can push a whole repository or a single image.
 
-    bridge — когда контейнеры могут взаимодействовать между собой как веб-сервер и база данных.
-    host — для доступа к локальному сетевому окружению на вашем компьютере.
-    none — сеть для контейнеров полностью отключена.
+Docker CLI is a command-line client used to manage Docker.
 
-### Инструменты
+Common commands:
 
-Docker Hub (реестр) — официальный реестр образов.
+- `docker ps`
+- `docker run`
+- `docker image`
+- `docker container`
+- `docker volume`
 
-Опубликованные образы хранятся в Docker Hub. Существуют и другие публичные реестры образов:
+### How to use
 
-    Google Cloud Container Registry;
-    Azure Container Registry;
-    IBM Cloud Container Registry;
-    Oracle Cloud Infrastructure Container Registry;
-    Yandex Container Registry.
+Docker CLI flags are similar to bash commands. For example, `prune` removes unused objects. `rm` removes items, `ls`
+lists them. Docker objects must have unique names. If you do not name an object, Docker generates a name using a hash.
+If you try to create an object of the same type with a name that is already used, Docker will reject it.
 
-Репозиторий Docker
+### Monitoring running containers
 
-    Репозиторием Docker (Docker Repository) называют набор образов Docker, обладающих одинаковыми именами и разными тегами. Теги — это идентификаторы образов.
+- `docker ps` lists running containers.
+- `docker ps -a` lists both running and stopped containers.
+- `docker ps -s` shows disk usage per running container.
+- `docker ps -f name=hello` filters by name, for example `hello`.
 
-    Обычно в репозиториях хранятся разные версии одних и тех же образов. Например, Python — это имя популярнейшего официального репозитория Docker на хабе Docker. А вот Python:3.7-slim — это версия образа с тегом 3.7-slim в репозитории Python. В реестр можно отправить как целый репозиторий, так и отдельный образ.
+### Running containers
 
-Docker CLI — консольный клиент, позволяющий управлять Docker через интерфейс командной строки.
+To run a container that exists locally or on Docker Hub:
 
-Консольный клиент содержит команды для управления объектами Docker. Список основных команд:
+    docker run --name test -i -t hello
+    or
+    docker exec -it container_name bash
 
-    docker ps;
-    docker run;
-    docker image;
-    docker container;
-    docker volume.
-
-### Как пользоваться
-
-Ключи командного интерфейса Docker CLI хорошо проработаны и похожи на консольные команды в bash. Например,
-дополнительный ключ prune позволяет удалять неиспользуемые объекты. Ключ rm служит для удаления, а ключ ls для просмотра
-объектов. Объекты Docker в обязательном порядке имеют уникальное имя. Если вы не именуете объект специально, то имя
-объекта формируется с помощью хэш-функции. Если вы попытаетесь создать объект одного и того же типа с уже использованным
-именем, в этом вам будет отказано.
-
-Мониторинг запущенных контейнеров
-
-    docker ps — просмотр запущенных контейнеров.
-    docker ps -a — ключ -a выводит и запущенные, и остановленные контейнеры.
-    docker ps -s — ключ -s выводит дисковое пространство, используемое каждым запущенным контейнером.
-    docker ps -f name=hello — ключ -f фильтрует список контейнеров по имени, например, hello.
-
-### Запуск контейнеров
-
-Для запуска контейнера, который доступен локально или на Docker Hub, выполните команду:
-
-    docker run --name test -i -t hello 
-    или
-    docker exec -it тут_имя_контейнера bash
-
-Ключ --name используется для установки имени запущенного контейнера. Ключи -i и -t указывают, что для запуска контейнера
-будет использоваться стандартный поток ввода и терминал TTY соответственно. Для того чтобы при запуске контейнера
-примонтировать том, который будет связан с папкой на вашем компьютере, а потом получить доступ к контейнеру через
-терминал, выполните команду:
+`--name` sets the container name. `-i` and `-t` tell Docker to allocate stdin and a TTY. To mount a volume that maps to
+your local folder and get shell access to the container:
 
     docker run -t -i --mount type=bind,src=/data,dst=/data hello bash
 
-### Управление образами
+### Managing images
 
-Вы можете получить список всех доступных локально образов с помощью команды:
+List local images:
 
     docker image ls
 
-Ключи prune, rm действуют обычным способом, позволяя удалить неиспользуемые или конкретные образы соответственно. Для
-работы с реестром необходимо использовать следующие команды:
+Flags `prune` and `rm` work as usual and remove unused or specific images. For registries:
 
-    docker image pull hello — загрузка образа с именем hello из реестра;
-    docker image push hello — отправка образа с именем hello в реестр;
-    docker image inspect hello — полная информация о контейнере hello;
-    docker image build — собрать контейнер из текущей папки с учётом Dockerfile.
+- `docker image pull hello` downloads image `hello` from a registry
+- `docker image push hello` uploads image `hello` to a registry
+- `docker image inspect hello` shows full info about image `hello`
+- `docker image build` builds an image from the current folder with a Dockerfile
 
-### Периодическая чистка данных Докера
+### Periodic cleanup
 
     docker container prune
     docker image prune
     docker volume prune
     docker network prune
 
-### скачать все образы докера
+### Download all images from a registry
 
     docker pull docker.ru/php/php-apache -a
     docker pull docker.ru/php/php-fpm -a
 
-### Управление томами
+### Managing volumes
 
-    docker volume ls — вывод всех томов.
-    docker volume ls -f name=hello — вывод всех томов с фильтрацией по имени, например, hello.
-    docker volume create hello — создание нового тома, например, hello.
-    docker volume inspect hello — исчерпывающая информация о томе.
+- `docker volume ls` lists all volumes
+- `docker volume ls -f name=hello` filters by name, for example `hello`
+- `docker volume create hello` creates a new volume
+- `docker volume inspect hello` shows full volume info
 
-### Образы Docker
+### Docker images
 
-Контейнер Docker — это образ Docker, вызванный к жизни. Это — самодостаточная операционная система, в которой имеется
-только самое необходимое и код приложения.
+A Docker container is a Docker image brought to life. It is a self-contained OS with only the essentials and the app
+code.
 
-Образы Docker являются результатом процесса их сборки, а контейнеры Docker — это выполняющиеся образы. В самом сердце
-Docker находятся файлы Dockerfile. Подобные файлы сообщают Docker о том, как собирать образы, на основе которых
-создаются контейнеры - инструкции, при сборке образа, обрабатываются сверху вниз.
+Docker images are the result of a build process, and containers are running images. Dockerfile files tell Docker how to
+build images. Instructions are processed top-to-bottom.
 
-При запуске команды docker build для создания нового образа подразумевается, что Dockerfile находится в текущей рабочей
-директории.
+When you run `docker build` to create a new image, Docker expects the Dockerfile to be in the current working
+directory.
 
-Слои в итоговом образе создают только инструкции FROM, RUN, COPY, и ADD. Другие инструкции что-то настраивают, описывают
-метаданные, или сообщают Docker о том, что во время выполнения контейнера нужно что-то сделать, например — открыть
-какой-то порт или выполнить какую-то команду.
+Only the instructions `FROM`, `RUN`, `COPY`, and `ADD` create layers. Other instructions configure metadata or tell
+Docker what to do when the container runs, such as opening a port or executing a command.
 
-Дюжина инструкций Dockerfile
+A dozen Dockerfile instructions:
 
-    FROM — задаёт базовый (родительский) образ.
-    LABEL — описывает метаданные. Например — сведения о том, кто создал и поддерживает образ.
-    ENV — устанавливает постоянные переменные среды.
-    RUN — выполняет команду и создаёт слой образа. Используется для установки в контейнер пакетов.
-    COPY — копирует в контейнер файлы и папки.
-    ADD — копирует файлы и папки в контейнер, может распаковывать локальные .tar-файлы.
-    CMD — описывает команду с аргументами, которую нужно выполнить когда контейнер будет запущен. Аргументы могут быть переопределены при запуске контейнера. В файле может присутствовать лишь одна инструкция CMD.
-    WORKDIR — задаёт рабочую директорию для следующей инструкции.
-    ARG — задаёт переменные для передачи Docker во время сборки образа.
-    ENTRYPOINT — предоставляет команду с аргументами для вызова во время выполнения контейнера. Аргументы не переопределяются.
-    EXPOSE — указывает на необходимость открыть порт.
-    VOLUME — создаёт точку монтирования для работы с постоянным хранилищем.
+- FROM - sets the base (parent) image
+- LABEL - describes metadata, for example who created and maintains the image
+- ENV - sets environment variables
+- RUN - executes a command and creates an image layer, often for installing packages
+- COPY - copies files and directories into the container
+- ADD - copies files and directories, can unpack local .tar files
+- CMD - the command with arguments to run when the container starts (can be overridden)
+- WORKDIR - sets the working directory for the next instruction
+- ARG - defines build-time variables
+- ENTRYPOINT - provides the command to run during container execution (not overridden)
+- EXPOSE - declares a port to be opened
+- VOLUME - creates a mount point for persistent storage
 
-Файл .dockerignore
+### .dockerignore
 
-    Вот что даёт тому, кто занимается созданием образов Docker, применение файлов .dockerignore:
+Using a .dockerignore file helps:
 
-    1) Это позволяет исключать из состава образа файлы, содержащие секретные сведения наподобие логинов и паролей.
-    2) Это позволяет уменьшить размер образа. Чем меньше в образе файлов — тем меньше будет его размер и тем быстрее с ним можно будет работать.
-    3) Это даёт возможность уменьшить число поводов для признания недействительным кэша при сборке похожих образов. Например, если при повторной сборке образа меняются некие служебные файлы проекта, наподобие файлов с журналами, из-за чего данные, хранящиеся в кэше, по сути, необоснованно признаются недействительными, это замедляет сборку образов.
+1) Exclude secrets like logins and passwords from the image.
+2) Reduce image size, making builds and pulls faster.
+3) Reduce cache invalidations when rebuilding similar images.
 
-Несколько советов, касающихся эффективного использования кэша Docker:
+Tips for efficient Docker caching:
 
-    1) Используйте всегда, когда это возможно, официальные образы в качестве базовых образов. Официальные образы регулярно обновляются, они безопаснее неофициальных образов.
-    
-    2) Для того чтобы собирать как можно более компактные образы, пользуйтесь базовыми образами, основанными на Alpine Linux.
-    
-    3) Если вы пользуетесь apt, комбинируйте в одной инструкции RUN команды apt-get update и apt-get install. Кроме того, объединяйте в одну инструкцию команды установки пакетов. Перечисляйте пакеты в алфавитном порядке на нескольких строках, разделяя список символами \. Например, это может выглядеть так:
+1) Use official base images when possible. They are updated regularly and are safer.
+2) For smaller images, prefer base images built on Alpine Linux.
+3) If you use apt, combine `apt-get update` and `apt-get install` in one RUN. Also group installs in one RUN and list
+   packages alphabetically over multiple lines with `\`, for example:
 
     RUN apt-get update && apt-get install -y \
         package-one \
         package-two \
-        package-three
+        package-three \
     && rm -rf /var/lib/apt/lists/*
 
+   This reduces the number of layers and keeps the Dockerfile clean.
 
-    Этот метод позволяет сократить число слоёв, которые должны быть добавлены в образ, и помогает поддерживать код файла в приличном виде.
+4) Add `&& rm -rf /var/lib/apt/lists/*` at the end of RUN commands that install packages to avoid caching apt data in
+   image layers.
+5) Use caching wisely by placing frequently changing commands near the end of the Dockerfile.
+6) Use .dockerignore.
+7) Check out `dive`, a tool for inspecting Docker images and reducing image size.
 
-    4) Включайте конструкцию вида && rm -rf /var/lib/apt/lists/* в конец инструкции RUN, используемой для установки пакетов. Это позволит очистить кэш apt и приведёт к тому, что он не будет сохраняться в слое, сформированном командой RUN.
-    
-    5) Разумно пользуйтесь возможностями кэширования, размещая в Dockerfile команды, вероятность изменения которых высока, ближе к концу файла.
-    
-    6) Пользуйтесь файлом .dockerignore.
-    
-    7) Взгляните на dive — отличный инструмент для исследования образов Docker, который помогает в деле уменьшения их размеров.
+### Building images
 
-Создание образов
-
-    Вот команда, которая позволяет собирать образы Docker:
+Build images with:
 
     docker image build -t my_repo/my_image:my_tag .
 
-    Флаг -t — это сокращение для --tag. Он указывает Docker на то, что создаваемому образу надо назначить предоставленный в команде тег. В данном случае это my_tag.
+The `-t` flag (short for `--tag`) assigns a tag to the image, here `my_tag`. The dot at the end tells Docker to build
+using the Dockerfile in the current directory.
 
-    Точка в конце команды указывает на то, что образ надо собрать с использованием файла Dockerfile, находящегося в текущей рабочей директории.
-
-    После того, как образ собран, его можно отправить в удалённый реестр. Благодаря этому им смогут воспользоваться другие люди, его можно будет загрузить и запустить на другом компьютере. Предположим, вы хотите использовать Docker Hub. 
-
-    После того, как вы зарегистрируетесь на Docker Hub, вам нужно войти в систему:
+After the image is built, you can push it to a remote registry. For example, for Docker Hub:
 
     docker login
 
-    После входа в систему можно будет отправлять образы в реестр:
+Then push:
 
     docker image push my_repo/my_image:my_tag
 
-### Kubernetes [&uarr;](#Readme)
+## Kubernetes [&uarr;](#containerization-vs-virtualization)
 
-Kubernetes — это система с открытым исходным кодом, предназначенная для оркестрации контейнеров. Она позволяет вам
-создавать,
-обновлять и масштабировать контейнеры, не беспокоясь о вынужденном простое.
+Kubernetes is an open-source system for container orchestration. It lets you create, update, and scale containers
+without worrying about downtime.
 
-Для запуска PHP-приложения Nginx выступает в роли прокси-сервера для PHP-FPM. Контейнеризация этой системы в одном
-контейнере может
-быть обременительной задачей, но Kubernetes поможет организовать управление обоими службами, расположенными в отдельных
-контейнерах.
-Использование Kubernetes позволяет вам организовать многократное использование ваших контейнеров и переключение между
-ними, и вам не
-придется каждый раз повторно собирать образ контейнера при выходе новой версии Nginx или PHP.
+For a PHP app, Nginx is a reverse proxy for PHP-FPM. Containerizing both in a single container can be cumbersome, but
+Kubernetes helps manage both services in separate containers. You can reuse containers and switch between them without
+rebuilding images for each new version of Nginx or PHP.
 
-Проект преследует две цели. Если вы пользуетесь контейнерами Docker, возникает следующий вопрос о том, как
-масштабировать и запускать
-контейнеры сразу на большом количестве хостов Docker, а также как выполнять их балансировку. В проекте предлагается
-высокоуровневый API,
-определяющее логическое группирование контейнеров, позволяющее определять пулы контейнеров, балансировать нагрузку, а
-также задавать их
-размещение.
+If you use Docker containers, you then need to scale and run them across many hosts and load-balance them. Kubernetes
+provides a high-level API that groups containers, defines pools, balances load, and controls placement.
 
-### LXC [&uarr;](#Readme)
+## LXC [&uarr;](#containerization-vs-virtualization)
 
-Контейнер LXC для веб-разработки это альтернатива Docker.
+An LXC container for web development is an alternative to Docker.
 
-#### В чем разница LXC и Docker:
+### Differences between LXC and Docker
 
-- Docker - это контейнер для упаковки одного процесса или службы; на практике Docker это пачка легких контейнеров для
-  упаковки одного веб-сервиса;
-- LXC - это легкий контейнер на один веб-сервис или сайт, включающий все службы, которые нужны для его функционирования.
+- Docker is a container for packaging a single process or service. In practice Docker is a set of lightweight
+  containers that package a single web service.
+- LXC is a lightweight container for one web service or site, including all services needed for it to function.
 
-#### В каких случаях удобно применять LXC:
+### When LXC is convenient
 
-- Legacy: у вас уже есть веб-сервис/сайт размещенный на выделенном сервере и нужно упаковать его в форме контейнера,
-  который можно отдать разработчикам, либо перенести на другой сервер (резервный или stage);
-- Вам нравится работать в окружении, где все службы собраны в одном контейнере;
-- Нужна изоляция на сервере чтобы каждый веб-сервис находился в своем контейнере, но при этом не терять
-  производительность как в случае с виртуальными машинами;
-- Если вы умеете настраивать основные сервисы в Linux, значит вы сможете создать LXC контейнер под ваш проект. LXC очень
-  похож на обычную виртуалку.
+- Legacy: you already have a web service or site on a dedicated server and want to package it in a container to share
+  with developers or move to another server (backup or staging).
+- You like working in an environment where all services are in a single container.
+- You need isolation so each web service runs in its own container without the performance cost of VMs.
+- If you can configure core Linux services, you can build an LXC container for your project. LXC is close to a regular
+  VM.
 
-#### Резюме по LXC
+### LXC summary
 
-- Низкий порог вхождения: можно создать свой контейнер за минуты;
-- хорошо подходит для упаковки существующих проектов и для legacy;
-- если нужно посмотреть чей-то веб проект, установить определенные версии mysql/nginx или другие программы, при этом не
-  затрагивая основную систему;
-- он легок, экономит время при отладке и настройке;
-- проверено работает при наличии sudo, хотя фича unprivileged контейнеров есть;
-- классно сочетается с zfs, в этом случае получаем мгновенные снэпшоты и дополнительную надежность.
+- Low entry barrier: create a container in minutes.
+- Great for packaging existing projects and legacy systems.
+- Useful when you need to check someone else's web project or install specific versions of MySQL/Nginx without touching
+  the main system.
+- Lightweight, saves time on debugging and setup.
+- Works with sudo; unprivileged containers are supported too.
+- Works great with ZFS, giving instant snapshots and extra reliability.
 
-#### Когда Docker может быть лучше
+### When Docker can be better
 
-- Вам нужен `IaC`. Dockerfile это отраслевой стандарт.В LXC похожее отсутствует. Концепция Infrastructiure as Code мне
-  очень близка, я попробовал создать shell-скрипт который является аналогом Dockerfile чтобы воспроизводит LAMP
-  окружение на LXC, но с помощью скрипта не обновить одной командой продакшен.
-- Если нужен готовый публичный образ какой-то программы или опубликовать свой образ.
+- You need IaC. Dockerfile is an industry standard. LXC has no equivalent. The Infrastructure as Code approach is close
+  to me; I tried a shell script similar to a Dockerfile to reproduce a LAMP environment on LXC, but you cannot update
+  production in one command with a script.
+- You need a public image for a program or want to publish your own image.
 
-`Инфраструктура как код (англ. Infrastructure-as-Code; IaC)` — это подход для управления и описания инфраструктуры ЦОД
-через конфигурационные
-файлы, а не через ручное редактирование конфигураций на серверах или интерактивное взаимодействие.
+Infrastructure as Code (IaC) is an approach to managing and describing data center infrastructure via configuration
+files instead of manual edits on servers or interactive actions.
 
-`IaC` популярен в облачных вычислениях, который называется инфраструктура как сервис (IaaS). Основная идея IaC подхода
-это — описывать
-инфраструктуру кодом, переиспользуя практики из разработки ПО. Код для управления инфраструктурой может быть написан как
-в декларативном
-стиле (встречается чаще), так и императивном. 
+IaC is popular in cloud computing (IaaS). The main idea is to describe infrastructure as code and reuse software
+engineering practices. IaC code can be declarative (more common) or imperative.

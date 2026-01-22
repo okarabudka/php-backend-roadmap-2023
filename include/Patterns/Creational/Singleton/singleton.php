@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Одиночка (Singleton)
+ * Singleton pattern
  */
 
 namespace Pattern;
 
 /*
- * Класс Singleton
+ * Singleton class
  */
 
 class Singleton
@@ -17,14 +17,14 @@ class Singleton
     public static $instance;
 
     /**
-     * Блокируем создание экземпляра напрямую
+     * Prevent direct instantiation
      */
     private function __construct()
     {
     }
 
     /**
-     * Получить экзепляр класса
+     * Get the class instance
      *
      * @return Singleton
      */
@@ -38,7 +38,7 @@ class Singleton
     }
 
     /**
-     * Блокируем клонирование созданого экземпляра
+     * Prevent cloning of the created instance
      */
     private function __clone()
     {

@@ -1,96 +1,94 @@
-## Фасад (Facade)
+## Facade
 
-Паттерн Facade относится к структурным паттернам уровня объекта.
+The Facade pattern is a structural object-level pattern.
 
-Паттерн Facade предоставляет высокоуровневый унифицированный интерфейс в виде набора имен методов к набору
-взаимосвязанных классов или объектов некоторой подсистемы, что облегчает ее использование.
+Facade provides a high-level unified interface (a set of method names) to a group of related classes or objects in a
+subsystem, making it easier to use.
 
-Разбиение сложной системы на подсистемы позволяет упростить процесс разработки, а также помогает максимально снизить
-зависимости одной подсистемы от другой. Однако использовать такие подсистемы становиться довольно сложно. Один из
-способов решения этой проблемы является паттерн Facade. Наша задача, сделать простой, единый интерфейс, через который
-можно было бы взаимодействовать с подсистемами.
+Splitting a complex system into subsystems simplifies development and reduces coupling. However, such subsystems become
+harder to use directly. Facade solves this by providing a simple, unified interface to interact with subsystems.
 
-`Фасад` предназначен для разделения клиента и подсистемы путем внедрения многих (но иногда только одного) интерфейсов,
-и, конечно, уменьшения общей сложности.
+Facade is designed to separate the client from the subsystem by introducing one or more interfaces and reducing
+overall complexity.
 
-    - `Фасад` не запрещает прямой доступ к подсистеме. Просто он делает его проще и понятнее.
+- Facade does not forbid direct access to the subsystem. It just makes access easier and clearer.
+- You can (and should) have multiple facades for one subsystem.
 
-    - Вы можете (и вам стоило бы) иметь несколько `фасадов` для одной подсистемы.
+That is why a good facade does not create objects inside itself with `new`. If a facade creates objects for each method,
+it is not a Facade, it is a Builder or an Abstract/Static/Simple Factory (or Factory Method).
 
-Вот почему хороший фасад не содержит созданий экземпляров классов (new) внутри. Если внутри фасада создаются объекты для
-реализации каждого метода, это не `Фасад`, это `Строитель` или `[Абстрактная|Статическая|Простая] Фабрика` [или
-`Фабричный Метод`].
+The best facade has no `new` and no constructor with type-hinted parameters. If you need to create new class instances,
+use a Factory as an argument instead.
 
-Лучший фасад не содержит new или конструктора с type-hinted параметрами. Если вам необходимо создавать новые экземпляры
-классов, в таком случае лучше использовать `Фабрику` в качестве аргумента.
+## Example
 
-## Пример
+A car interface is a good example. Modern cars provide a unified interface for the driver, hiding a complex subsystem.
+Thanks to advanced electronics that do most of the work, the driver can operate the car without thinking about how it
+works inside.
 
-В качестве примера можно привести интерфейс автомобиля. Современные автомобили имеют унифицированный интерфейс для
-водителя, под которым скрывается сложная подсистема. Благодаря применению навороченной электроники, делающей большую
-часть работы за водителя, тот может с лёгкостью управлять автомобилем, не задумываясь, как там все работает.
+Required for implementation:
 
-Требуется для реализации:
+1. Facade class providing unified access to subsystem classes.
+2. Subsystem class SubSystemA.
+3. Subsystem class SubSystemB.
+4. Subsystem class SubSystemC.
 
-1. Класс Facade предоставляющий унифицированный доступ для классов подсистемы;
-2. Класс подсистемы SubSystemA;
-3. Класс подсистемы SubSystemB;
-4. Класс подсистемы SubSystemC.
+Note that the facade is not the only access point to the subsystem. It does not restrict advanced users who want to
+work with the subsystem directly.
 
-Заметьте, что фасад не является единственной точкой доступа к подсистеме, он не ограничивает возможности, которые могут
-понадобиться "продвинутым" пользователям, желающим работать с подсистемой напрямую.
+## Applicability
 
-## Применимость
+### When you need to provide a simple or limited interface to a complex subsystem.
 
-### Когда вам нужно представить простой или урезанный интерфейс к сложной подсистеме.
+    Subsystems tend to grow as the program evolves. Most patterns lead to more classes, though smaller ones. Such a
+    subsystem is easier to reuse by configuring it for specific needs, but it becomes harder to use without
+    configuration. Facade offers a default view of the system that suits most clients.
 
-    Часто подсистемы усложняются по мере развития программы. Применение большинства паттернов приводит к появлению меньших классов, но в бóльшем количестве. Такую подсистему проще повторно использовать, настраивая её каждый раз под конкретные нужды, но вместе с тем, применять подсистему без настройки становится труднее. Фасад предлагает определённый вид системы по умолчанию, устраивающий большинство клиентов.
+### When you want to break a subsystem into layers.
 
-### Когда вы хотите разложить подсистему на отдельные слои.
+    Use facades to define entry points for each subsystem level. If subsystems depend on each other, you can simplify
+    the dependency by allowing subsystems to exchange information only through facades.
 
-    Используйте фасады для определения точек входа на каждый уровень подсистемы. Если подсистемы зависят друг от друга, то зависимость можно упростить, разрешив подсистемам обмениваться информацией только через фасады.
+    For example, take a complex video conversion system. You want to split it into audio and video layers. You can
+    create a facade for each part and make audio and video processing classes communicate through those facades instead
+    of directly.
 
-    Например, возьмём ту же сложную систему видеоконвертации. Вы хотите разбить её на слои работы с аудио и видео. Для каждой из этих частей можно попытаться создать фасад и заставить классы аудио и видео обработки общаться друг с другом через эти фасады, а не напрямую.
+## Implementation steps
 
-## Шаги реализации
+1. Determine whether you can create a simpler interface than the one provided by the complex subsystem. You are on the
+   right track if this interface frees the client from knowing subsystem details.
 
-1. Определите, можно ли создать более простой интерфейс, чем тот, который предоставляет сложная подсистема. Вы на
-   правильном пути, если этот интерфейс избавит клиента от необходимости знать о подробностях подсистемы.
+2. Create a facade class implementing that interface. It should route client calls to the appropriate subsystem objects
+   and take care of correct initialization.
 
-2. Создайте класс фасада, реализующий этот интерфейс. Он должен переадресовывать вызовы клиента нужным объектам
-   подсистемы. Фасад должен будет позаботиться о том, чтобы правильно инициализировать объекты подсистемы.
+3. You get the most value if the client works only with the facade. Then subsystem changes affect only the facade code
+   while client code stays intact.
 
-3. Вы получите максимум пользы, если клиент будет работать только с фасадом. В этом случае изменения в подсистеме будут
-   затрагивать только код фасада, а клиентский код останется рабочим.
+4. If facade responsibility starts to blur, consider adding additional facades.
 
-4. Если ответственность фасада начинает размываться, подумайте о введении дополнительных фасадов.
+## Pros and cons
 
-## Преимущества и недостатки
+    + Isolates clients from components of a complex subsystem.
 
-    + Изолирует клиентов от компонентов сложной подсистемы.
+    - The facade can become a god object tied to all program classes.
 
-    - Фасад рискует стать божественным объектом, привязанным ко всем классам программы.
+## Relations with other patterns
 
-## Отношения с другими паттернами
+1. Facade defines a new interface, while Adapter reuses an old one. Adapter wraps a single class, while Facade wraps a
+   whole subsystem. Adapter can also make two existing interfaces work together instead of defining a new one.
 
-1. `Фасад` задаёт новый интерфейс, тогда как `Адаптер` повторно использует старый. `Адаптер` оборачивает только один
-   класс, а `Фасад` оборачивает целую подсистему. Кроме того, `Адаптер` позволяет двум существующим интерфейсам работать
-   сообща, вместо того, чтобы задать полностью новый.
+2. Abstract Factory can be used instead of Facade to hide platform-dependent classes.
 
-2. `Абстрактная фабрика` может быть использована вместо `Фасада` для того, чтобы скрыть платформо-зависимые классы.
+3. Flyweight shows how to create many small objects, while Facade shows how to create one object that represents a
+   whole subsystem.
 
-3. `Легковес` показывает, как создавать много мелких объектов, а `Фасад` показывает, как создать один объект, который
-   отображает целую подсистему.
+4. Mediator and Facade are similar because they organize work of many existing classes.
+   - Facade creates a simplified interface to a subsystem without adding functionality. The subsystem does not know
+     about the Facade. Subsystem classes communicate directly.
+   - Mediator centralizes communication between system components. Components know only about the Mediator and have no
+     direct access to each other.
 
-4. `Посредник` и `Фасад` похожи тем, что пытаются организовать работу множества существующих классов.
-    - `Фасад` создаёт упрощённый интерфейс к подсистеме, не внося в неё никакой добавочной функциональности. Сама
-      подсистема не знает о существовании `Фасада`. Классы подсистемы общаются друг с другом напрямую.
-    - `Посредник` централизует общение между компонентами системы. Компоненты системы знают только о существовании
-      `Посредника`, у них нет прямого доступа к другим компонентам.
+5. Facade can be made a Singleton because usually only one facade is needed.
 
-5. `Фасад` можно сделать `Одиночкой`, так как обычно нужен только один объект-фасад.
-
-6. `Фасад` похож на `Заместитель` тем, что замещает сложную подсистему и может сам её инициализировать. Но в отличие от
-   `Фасада`, `Заместитель` имеет тот же интерфейс, что его служебный объект, благодаря чему их можно взаимозаменять.
-
-
+6. Facade is similar to Proxy in that it can replace a complex subsystem and initialize it. But unlike Facade, Proxy has
+   the same interface as its service object, so they are interchangeable.

@@ -1,17 +1,17 @@
 <?php
 /**
- * Паттерн Мост (Bridge)
+ * Bridge pattern
  */
 
 namespace Pattern;
 
 /**
- * Абстрактный базовый класс Carer, описывает интерфейс автомобиля
+ * Abstract base class Carer describes the car interface
  */
 abstract class Carer
 {
     /**
-     * Aвтомобиль умеет ездить (для этого и нужен двигатель)
+     * A car can drive (it needs an engine)
      *
      * @return string
      */
@@ -19,13 +19,13 @@ abstract class Carer
 }
 
 /**
- * Абстрактный базовый класс Enginer, описывает интерфейс двигателя
- * Каждый двигатель должен его реализовать
+ * Abstract base class Enginer describes the engine interface
+ * Each engine must implement it
  */
 abstract class Enginer
 {
     /**
-     * Возвращает звук двигателя
+     * Returns the engine sound
      *
      * @return string
      */
@@ -33,7 +33,7 @@ abstract class Enginer
 }
 
 /**
- * Car, реализует автомобиль
+ * Car implements a car
  */
 class Car extends Carer
 {
@@ -43,9 +43,9 @@ class Car extends Carer
     protected $engine;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param Enginer $engine - двигатель
+     * @param Enginer $engine - engine
      */
     public function __construct(Enginer $engine)
     {
@@ -53,7 +53,7 @@ class Car extends Carer
     }
 
     /**
-     * Машина едет
+     * Car drives
      *
      * @return string
      */
@@ -64,12 +64,12 @@ class Car extends Carer
 }
 
 /**
- * EngineSuzuki, реализует двигатель Suzuki
+ * EngineSuzuki implements a Suzuki engine
  */
 class EngineSuzuki extends Enginer
 {
     /**
-     * Метод отвечает за завук двигателя
+     * Method returns the engine sound
      *
      * @return string
      */
@@ -80,12 +80,12 @@ class EngineSuzuki extends Enginer
 }
 
 /**
- * EngineHonda, реализует двигатель Honda
+ * EngineHonda implements a Honda engine
  */
 class EngineHonda extends Enginer
 {
     /**
-     * Метод отвечает за завук двигателя
+     * Method returns the engine sound
      *
      * @return string
      */
@@ -96,12 +96,12 @@ class EngineHonda extends Enginer
 }
 
 /**
- * EngineLada, реализует двигатель АвтоВаза
+ * EngineLada implements an AvtoVAZ engine
  */
 class EngineLada extends Enginer
 {
     /**
-     * Метод отвечает за завук двигателя
+     * Method returns the engine sound
      *
      * @return string
      */

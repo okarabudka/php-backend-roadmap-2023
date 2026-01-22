@@ -1,24 +1,24 @@
 <?php
 /**
- * Паттерн Итератор (Iterator)
+ * Iterator pattern
  */
 
 namespace Pattern;
 
 /**
- * Интерфейс Iterator, описывает общий интерфейс для итераторов.
+ * Iterator interface describes the common interface for iterators.
  */
 interface Iterator
 {
     /**
-     * Возвращает следующий элемент
+     * Returns the next element
      *
      * @return mixed
      */
     public function next();
 
     /**
-     * Проверяет доступность следующего элемента
+     * Checks availability of the next element
      *
      * @return bool
      */
@@ -26,12 +26,12 @@ interface Iterator
 }
 
 /**
- * Интерфейс Aggregate, описывает общий интерфейс для коллекций.
+ * Aggregate interface describes the common interface for collections.
  */
 interface Aggregate
 {
     /**
-     * Создает и возвращает итератор по коллекции
+     * Creates and returns an iterator for the collection
      *
      * @return Iterator
      */
@@ -39,7 +39,7 @@ interface Aggregate
 }
 
 /**
- * BookIterator (ConcreteIterator), реализует итератор по книжной полке
+ * BookIterator (ConcreteIterator) implements an iterator for the bookshelf
  */
 class BookIterator implements Iterator
 {
@@ -54,9 +54,9 @@ class BookIterator implements Iterator
     protected $current = 0;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param BookShelf $shelf - книжная полка
+     * @param BookShelf $shelf - bookshelf
      */
     public function __construct(BookShelf $shelf)
     {
@@ -64,7 +64,7 @@ class BookIterator implements Iterator
     }
 
     /**
-     * Возвращает следующий элемент
+     * Returns the next element
      *
      * @return mixed
      */
@@ -74,7 +74,7 @@ class BookIterator implements Iterator
     }
 
     /**
-     * Проверяет доступность следующего элемента
+     * Checks availability of the next element
      *
      * @return bool
      */
@@ -85,7 +85,7 @@ class BookIterator implements Iterator
 }
 
 /**
- * BookShelf (ConcreteAggregate), реализует книжную полку (коллекцию элементов)
+ * BookShelf (ConcreteAggregate) implements a bookshelf (collection of elements)
  */
 class BookShelf implements Aggregate
 {
@@ -95,7 +95,7 @@ class BookShelf implements Aggregate
     public $books = array();
 
     /**
-     * Создает и возвращает итератор по коллекции
+     * Creates and returns an iterator for the collection
      *
      * @return Iterator
      */
@@ -105,9 +105,9 @@ class BookShelf implements Aggregate
     }
 
     /**
-     * Добавляет элемент в коллекции
+     * Adds an element to the collection
      *
-     * @param Book $book - книга (элемент коллекции)
+     * @param Book $book - book (collection element)
      */
     public function add(Book $book)
     {
@@ -116,7 +116,7 @@ class BookShelf implements Aggregate
 }
 
 /**
- * Book, реализует элемент коллекции
+ * Book implements a collection element
  */
 class Book
 {
@@ -126,7 +126,7 @@ class Book
     public $name;
 
     /**
-     * Конструктор
+     * Constructor
      */
     public function __construct($name)
     {

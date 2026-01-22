@@ -1,96 +1,89 @@
-## Компоновщик (Composite)
+## Composite
 
-Паттерн Composite относится к структурным паттернам уровня объекта.
+The Composite pattern is a structural object-level pattern.
 
-Паттерн Composite группирует схожие объекты в древовидные структуры.
+Composite groups similar objects into tree structures.
 
-## Пример
+## Example
 
-Для построения дерева будут использоваться массивы, представляющие ветви дерева.
+Arrays representing tree branches are used to build the tree.
 
-Требуется для реализации:
+Required for implementation:
 
-1. Базовый абстрактный класс Component который предоставляет интерфейс, как для ветвей, так и для листьев дерева;
-2. Класс Composite, реализующий интерфейс Component и являющийся ветвью дерева;
-3. Класс Leaf, реализующий интерфейс Component и являющийся листом дерева.
+1. Base abstract class Component that provides a common interface for both branches and leaves.
+2. Composite class implementing Component and representing a tree branch.
+3. Leaf class implementing Component and representing a tree leaf.
 
-Обратите внимание, что лист дерева является классом листовых узлов и не может иметь потомков (из листа не может вырасти
-ветвь или другой лист).
+Note that a leaf is a terminal node and cannot have children (a branch or another leaf cannot grow from a leaf).
 
-Ветви дерева задают поведение объектов, входящих в структуру дерева, у которых есть потомки, а также сами хранит в себе
-компоненты дерева. Другим словами ветви могут содержать другие ветви и листья.
+Tree branches define the behavior of objects that are part of the tree structure and have children, and they also store
+child components. In other words, branches can contain other branches and leaves.
 
-Основным назначением паттерна, является обеспечение единого интерфейса как к составному (ветви) так и конечному (листу)
-объекту, что бы клиент не задумывался над тем, с каким объектом он работает.
+The main goal of the pattern is to provide a single interface for both composite (branch) and leaf objects, so the
+client does not need to care which type it works with.
 
-## Применимость
+## Applicability
 
-### Когда вам нужно представить древовидную структуру объектов.
+### When you need to represent a tree structure of objects.
 
-    Паттерн Компоновщик предлагает хранить в составных объектах ссылки на другие простые или составные объекты. Те, в свою очередь, тоже могут хранить свои вложенные объекты и так далее. В итоге вы можете строить сложную древовидную структуру данных, используя всего две основные разновидности объектов.
+    Composite suggests storing references to other simple or composite objects inside composite objects. Those, in turn,
+    can store their own nested objects, and so on. This lets you build complex tree data structures using just two main
+    object types.
 
-### Когда клиенты должны единообразно трактовать простые и составные объекты.
+### When clients should treat simple and composite objects uniformly.
 
-    Благодаря тому, что простые и составные объекты реализуют общий интерфейс, клиенту безразлично, с каким именно объектом ему предстоит работать.
+    Since both simple and composite objects implement the same interface, it does not matter to the client which type it
+    works with.
 
-## Шаги реализации
+## Implementation steps
 
-1. Убедитесь, что вашу бизнес-логику можно представить как древовидную структуру. Попытайтесь разбить её на простые
-   компоненты и контейнеры. Помните, что контейнеры могут содержать как простые компоненты, так и другие вложенные
-   контейнеры.
+1. Make sure your business logic can be represented as a tree structure. Try to split it into simple components and
+   containers. Remember that containers can hold both simple components and other nested containers.
 
-2. Создайте общий интерфейс компонентов, который объединит операции контейнеров и простых компонентов дерева. Интерфейс
-   будет удачным, если вы сможете использовать его, чтобы взаимозаменять простые и составные компоненты без потери
-   смысла.
+2. Create a common component interface that unifies operations of containers and simple components. The interface is
+   good if you can use it to swap simple and composite components without losing meaning.
 
-3. Создайте класс компонентов-листьев, не имеющих дальнейших ответвлений. Имейте в виду, что программа может содержать
-   несколько таких классов.
+3. Create leaf components that have no further branches. Note that a program may contain several such classes.
 
-4. Создайте класс компонентов-контейнеров и добавьте в него массив для хранения ссылок на вложенные компоненты. Этот
-   массив должен быть способен содержать как простые, так и составные компоненты, поэтому убедитесь, что он объявлен с
-   типом интерфейса компонентов.
+4. Create container components and add a collection for storing references to child components. This collection must be
+   able to store both simple and composite components, so it should be typed as the component interface.
 
-5. Реализуйте в контейнере методы интерфейса компонентов, помня о том, что контейнеры должны делегировать основную
-   работу своим дочерним компонентам.
+5. Implement the component interface methods in the container, remembering that containers should delegate most of the
+   work to child components.
 
-6. Добавьте операции добавления и удаления дочерних компонентов в класс контейнеров.
+6. Add operations for adding and removing child components to the container class.
 
-7. Имейте в виду, что методы добавления/удаления дочерних компонентов можно поместить и в интерфейс компонентов. Да, это
-   нарушит принцип разделения интерфейса, так как реализации методов будут пустыми в компонентах-листьях. Но зато все
-   компоненты дерева станут действительно одинаковыми для клиента.
+7. Note that add/remove operations can also be placed in the component interface. Yes, this breaks interface
+   segregation because the leaf implementations will be empty. But all tree components become truly uniform to the
+   client.
 
-## Преимущества и недостатки
+## Pros and cons
 
-    + Упрощает архитектуру клиента при работе со сложным деревом компонентов.
-    + Облегчает добавление новых видов компонентов.
+    + Simplifies client architecture when working with complex component trees.
+    + Makes it easy to add new component types.
 
-    - Создаёт слишком общий дизайн классов.
+    - Creates an overly general class design.
 
-## Отношения с другими паттернами
+## Relations with other patterns
 
-1. `Строитель` позволяет пошагово сооружать дерево `Компоновщика`.
+1. Builder allows you to build a Composite tree step by step.
 
-2. `Цепочку обязанностей` часто используют вместе с `Компоновщиком`. В этом случае запрос передаётся от дочерних
-   компонентов к их родителям.
+2. Chain of Responsibility is often used together with Composite. In this case, a request is passed from child
+   components to their parents.
 
-3. Вы можете обходить дерево `Компоновщика`, используя `Итератор`.
+3. You can traverse a Composite tree using Iterator.
 
-4. Вы можете выполнить какое-то действие над всем деревом `Компоновщика` при помощи `Посетителя`.
+4. You can apply an action to an entire Composite tree with Visitor.
 
-5. `Компоновщик` часто совмещают с `Легковесом`, чтобы реализовать общие ветки дерева и сэкономить при этом память.
+5. Composite is often combined with Flyweight to share common tree branches and save memory.
 
-6. `Компоновщик` и `Декоратор` имеют похожие структуры классов из-за того, что оба построены на рекурсивной вложенности.
-   Она позволяет связать в одну структуру бесконечное количество объектов.
+6. Composite and Decorator have similar class structures because both rely on recursive composition. It allows linking
+   an unlimited number of objects into one structure.
 
-7. `Декоратор` оборачивает только один объект, а узел `Компоновщика` может иметь много детей. `Декоратор` добавляет
-   вложенному объекту новую функциональность, а `Компоновщик` не добавляет ничего нового, но «суммирует» результаты всех
-   своих детей.
+7. Decorator wraps a single object, while a Composite node can have many children. Decorator adds new functionality to a
+   wrapped object, while Composite adds nothing new but "sums" the results of all children.
 
-8. Но они могут и сотрудничать: `Компоновщик` может использовать `Декоратор`, чтобы переопределить функции отдельных
-   частей дерева компонентов.
+8. They can also cooperate: Composite can use Decorator to override behavior of individual parts of the component tree.
 
-9. Архитектура, построенная на `Компоновщиках` и `Декораторах`, часто может быть улучшена за счёт внедрения `Прототипа`.
-   Он позволяет клонировать сложные структуры объектов, а не собирать их заново.
-
-
-
+9. Architecture built on Composite and Decorator can often be improved with Prototype. It allows cloning complex object
+   structures instead of rebuilding them from scratch.

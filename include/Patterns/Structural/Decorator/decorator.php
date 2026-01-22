@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Декоратор (Decorator)
+ * Decorator pattern
  */
 
 namespace Pattern;
 
 /**
- * Component, описывает интерфейс для декоратора и компонента
+ * Component describes the interface for the decorator and component
  */
 abstract class Component
 {
@@ -14,12 +14,12 @@ abstract class Component
 }
 
 /**
- * ConcreteComponent, реализует компонент
+ * ConcreteComponent implements the component
  */
 class ConcreteComponent extends Component
 {
     /**
-     * Операция, которую делает компонент сам по себе
+     * Operation the component performs by itself
      *
      * @return string
      */
@@ -30,7 +30,7 @@ class ConcreteComponent extends Component
 }
 
 /**
- * ConcreteDecorator, реализует декоратор
+ * ConcreteDecorator implements the decorator
  */
 class ConcreteDecorator extends Component
 {
@@ -40,9 +40,9 @@ class ConcreteDecorator extends Component
     protected $component;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param Component $component - компонет
+     * @param Component $component - component
      */
     public function __construct($component)
     {
@@ -50,7 +50,7 @@ class ConcreteDecorator extends Component
     }
 
     /**
-     * Декоратор оборачивает операцию компонента в тег <strong>
+     * Decorator wraps the component operation in a <strong> tag
      *
      * @return string
      */

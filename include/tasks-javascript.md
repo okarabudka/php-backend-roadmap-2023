@@ -1,12 +1,12 @@
-# Readme
+# JavaScript Tasks
 
-### Заголовок [&uarr;](#Readme)
+### Tasks [&uarr;](#javascript-tasks)
 
-1) $('#block1'); аналог на нативном JS
+1) `$('#block1');` - native JS equivalent
 
-2) Создать массив из строки
-   var a = '1,2,3,4';
+2) Create an array from a string
+   `var a = '1,2,3,4';`
 
-3) JQuery выбрать все input c type = radio
+3) jQuery: select all input elements with type = radio
 
-4) Сделать так, чтобы при нажатии на элемент <a> алертом выводилось Hello World
+4) Make it so that clicking on an <a> element shows "Hello World" via alert

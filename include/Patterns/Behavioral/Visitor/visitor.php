@@ -1,17 +1,17 @@
 <?php
 /**
- * Паттерн Посетитель (Visitor)
+ * Visitor pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Visitor, описывает интерфейс визитера
+ * Base abstract class Visitor describes the visitor interface
  */
 abstract class Visitor
 {
     /**
-     * Визит в суши бар
+     * Visit a sushi bar
      *
      * @param SushiBar $p
      *
@@ -20,7 +20,7 @@ abstract class Visitor
     public abstract function visitSushiBar(SushiBar $p);
 
     /**
-     * Визит в пиццирию
+     * Visit a pizzeria
      *
      * @param Pizzeria $p
      *
@@ -29,7 +29,7 @@ abstract class Visitor
     public abstract function visitPizzeria(Pizzeria $p);
 
     /**
-     * Визит в бургерную
+     * Visit a burger bar
      *
      * @param BurgerBar $p
      *
@@ -39,26 +39,26 @@ abstract class Visitor
 }
 
 /**
- * Базовый абстрактный класс Place, описывает интерфейс элементов, которые визитер должен обойти
+ * Base abstract class Place describes elements the visitor can visit
  */
 abstract class Place
 {
     /**
-     * Посещаем заведение
-     * Грубо говоря это дверь в объект для визитера
+     * Visit a place
+     * In other words, this is a door into the object for the visitor
      *
-     * @param Visitor $v - визитер
+     * @param Visitor $v - visitor
      */
     public abstract function accept(Visitor $v);
 }
 
 /**
- * People, рeализует конкретного визитера
+ * People implements a concrete visitor
  */
 class People extends Visitor
 {
     /**
-     * Визит в суши бар
+     * Visit a sushi bar
      *
      * @param SushiBar $p
      *
@@ -70,7 +70,7 @@ class People extends Visitor
     }
 
     /**
-     * Визит в пиццирию
+     * Visit a pizzeria
      *
      * @param Pizzeria $p
      *
@@ -82,7 +82,7 @@ class People extends Visitor
     }
 
     /**
-     * Визит в бургерную
+     * Visit a burger bar
      *
      * @param BurgerBar $p
      *
@@ -95,19 +95,19 @@ class People extends Visitor
 }
 
 /**
- * City, рeализует структуру (коллекцию), в которой хранятся элементы для обхода
+ * City implements a structure (collection) that stores elements to visit
  */
 class City
 {
     /**
-     * @var []Place - места посещения
+     * @var []Place - places to visit
      */
     public $places = array();
 
     /**
-     * Добавляет заведение в коллекцию
+     * Adds a place to the collection
      *
-     * @param Place $p - место посещения
+     * @param Place $p - place to visit
      */
     public function add(Place $p)
     {
@@ -115,9 +115,9 @@ class City
     }
 
     /**
-     * Посещаем все заведения в городе
+     * Visit all places in the city
      *
-     * @param Visitor $v - визитер
+     * @param Visitor $v - visitor
      *
      * @return string
      */
@@ -132,15 +132,15 @@ class City
 }
 
 /**
- * SushiBar, рeализует елемент суши бар
+ * SushiBar implements a sushi bar element
  */
 class SushiBar extends Place
 {
     /**
-     * Посещаем заведение
-     * Грубо говоря это дверь в объект для визитера
+     * Visit a place
+     * In other words, this is a door into the object for the visitor
      *
-     * @param Visitor $v - визитер
+     * @param Visitor $v - visitor
      */
     public function accept(Visitor $v)
     {
@@ -148,7 +148,7 @@ class SushiBar extends Place
     }
 
     /**
-     * Купить суши
+     * Buy sushi
      */
     public function buySushi()
     {
@@ -157,15 +157,15 @@ class SushiBar extends Place
 }
 
 /**
- * Pizzeria, рeализует елемент пицерия
+ * Pizzeria implements a pizzeria element
  */
 class Pizzeria extends Place
 {
     /**
-     * Посещаем заведение
-     * Грубо говоря это дверь в объект для визитера
+     * Visit a place
+     * In other words, this is a door into the object for the visitor
      *
-     * @param Visitor $v - визитер
+     * @param Visitor $v - visitor
      */
     public function accept(Visitor $v)
     {
@@ -173,7 +173,7 @@ class Pizzeria extends Place
     }
 
     /**
-     * Купить пиццу
+     * Buy pizza
      */
     public function buyPizza()
     {
@@ -182,15 +182,15 @@ class Pizzeria extends Place
 }
 
 /**
- * BurgerBar, рeализует елемент бургерная
+ * BurgerBar implements a burger bar element
  */
 class BurgerBar extends Place
 {
     /**
-     * Посещаем заведение
-     * Грубо говоря это дверь в объект для визитера
+     * Visit a place
+     * In other words, this is a door into the object for the visitor
      *
-     * @param Visitor $v - визитер
+     * @param Visitor $v - visitor
      */
     public function accept(Visitor $v)
     {
@@ -198,7 +198,7 @@ class BurgerBar extends Place
     }
 
     /**
-     * Купить бургер
+     * Buy burger
      */
     public function buyBurger()
     {

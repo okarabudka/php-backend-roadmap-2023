@@ -1,63 +1,62 @@
 <?php
 /**
- * Паттерн Строитель (Builder)
+ * Builder pattern
  */
 
 namespace Pattern;
 
 /**
- * Абстрактный базовый класс Вuilder, описывает интерфейс строителя.
- * Строитель должен ему соответвовать, что бы строить
- * конкретный продукт.
+ * Base abstract class Builder describes the builder interface.
+ * The builder must follow it to build a concrete product.
  */
-abstract class Вuilder
+abstract class Builder
 {
     /**
-     * Строит шапку документа
+     * Builds the document header
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public abstract function makeHeader($str);
 
     /**
-     * Строит основной контент документа
+     * Builds the main document content
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public abstract function makeContent($str);
 
     /**
-     * Строит подвал документа
+     * Builds the document footer
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public abstract function makeFooter($str);
 }
 
 /**
- * Класс Director, реализует руководителя строителем.
- * Примимает строителя и руководит им!
+ * Director implements the builder manager.
+ * Accepts a builder and directs it.
  */
 class Director
 {
     /**
-     * @var Вuilder
+     * @var Builder
      */
     protected $builder;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param Вuilder $builder - работник
+     * @param Builder $builder - worker
      */
-    public function __construct(Вuilder $builder)
+    public function __construct(Builder $builder)
     {
         $this->builder = $builder;
     }
 
     /**
-     * Конструктор, говорит строителю, что ему делать
-     * в нужной последовательности.
+     * Construct method tells the builder what to do
+     * in the correct sequence.
      */
     public function construct()
     {
@@ -68,10 +67,10 @@ class Director
 }
 
 /**
- * Конкретный строитель.
- * Умеет строить части продукта.
+ * Concrete builder.
+ * Can build parts of the product.
  */
-class ConcreteBuilder extends Вuilder
+class ConcreteBuilder extends Builder
 {
     /**
      * @var Product
@@ -79,9 +78,9 @@ class ConcreteBuilder extends Вuilder
     protected $product;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param Product $product - продукт
+     * @param Product $product - product
      */
     public function __construct(Product $product)
     {
@@ -89,9 +88,9 @@ class ConcreteBuilder extends Вuilder
     }
 
     /**
-     * Строит шапку документа
+     * Builds the document header
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public function makeHeader($str)
     {
@@ -99,9 +98,9 @@ class ConcreteBuilder extends Вuilder
     }
 
     /**
-     * Строит содержание документа
+     * Builds the document content
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public function makeContent($str)
     {
@@ -109,9 +108,9 @@ class ConcreteBuilder extends Вuilder
     }
 
     /**
-     * Строит подвал документа
+     * Builds the document footer
      *
-     * @param string $str - текст
+     * @param string $str - text
      */
     public function makeFooter($str)
     {
@@ -120,9 +119,9 @@ class ConcreteBuilder extends Вuilder
 }
 
 /**
- * Сложный продукт.
- * Бывают реализации без него, когда строитель стразу строит,
- * а не создает объект продукта и потом конструирует его.
+ * Complex product.
+ * There are implementations without it, when the builder builds directly,
+ * instead of creating a product object and then constructing it.
  */
 class Product
 {
@@ -131,7 +130,7 @@ class Product
     public $footer;
 
     /**
-     * Показать продукт
+     * Show product
      *
      * @return string
      */

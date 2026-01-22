@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Команда (Command)
+ * Command pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Command, описывает общий интерфейс для команд
+ * Base abstract class Command describes the common interface for commands
  */
 abstract class Command
 {
@@ -16,9 +16,9 @@ abstract class Command
     protected $receiver;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param Receiver $receiver - получатель команд
+     * @param Receiver $receiver - command receiver
      */
     public function __construct($receiver)
     {
@@ -26,7 +26,7 @@ abstract class Command
     }
 
     /**
-     * Выполнение команды получателем
+     * Execute command by receiver
      *
      * @return string
      */
@@ -34,12 +34,12 @@ abstract class Command
 }
 
 /**
- * ToggleOnCommand, реализует команду включения тумблера
+ * ToggleOnCommand implements the toggle-on command
  */
 class ToggleOnCommand extends Command
 {
     /**
-     * Выполнение команды получателем
+     * Execute command by receiver
      *
      * @return string
      */
@@ -50,12 +50,12 @@ class ToggleOnCommand extends Command
 }
 
 /**
- * ToggleOffCommand, реализует команду выключения тумблера
+ * ToggleOffCommand implements the toggle-off command
  */
 class ToggleOffCommand extends Command
 {
     /**
-     * Выполнение команды получателем
+     * Execute command by receiver
      *
      * @return string
      */
@@ -66,14 +66,14 @@ class ToggleOffCommand extends Command
 }
 
 /**
- * Receiver, реализует получателя команд
- * Реализует набор действие которые получатель должен
- * выполнять, взависимости от полученой команды
+ * Receiver implements the command receiver
+ * Implements a set of actions the receiver should perform
+ * depending on the received command
  */
 class Receiver
 {
     /**
-     * Действие на команду "поднять тумблер (ToggleOnCommand)"
+     * Action for the \"toggle on\" command (ToggleOnCommand)
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class Receiver
     }
 
     /**
-     * Действие на команду "опустить тумблер (ToggleOffCommand)"
+     * Action for the \"toggle off\" command (ToggleOffCommand)
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class Receiver
 }
 
 /**
- * Invoker, реализует инициатора команды
+ * Invoker implements the command initiator
  */
 class Invoker
 {
@@ -104,7 +104,7 @@ class Invoker
     protected $commands = array();
 
     /**
-     * Добавляет команду в очередь
+     * Adds a command to the queue
      */
     public function storeCommand(Command $command)
     {
@@ -112,7 +112,7 @@ class Invoker
     }
 
     /**
-     * Удаляет команду из очереди
+     * Removes a command from the queue
      */
     public function UnStoreCommand()
     {
@@ -120,7 +120,7 @@ class Invoker
     }
 
     /**
-     * Выполняет команды
+     * Executes commands
      *
      * @return string
      */

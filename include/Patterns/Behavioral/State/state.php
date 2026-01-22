@@ -1,22 +1,23 @@
 <?php
 /**
- * Паттерн Состояние (State)
+ * State pattern
  *
- * В примере описываются варианты оповещения пользователя мобильного телефона.
- * На самом деле, хорошо было бы реализовать смену состояния внутри системы
- * оповещения (ModileAlert), по каким-либо критериям. Например, задействуя файл конфигруции.
- * Но для упращения примера, используется внешняя смена состояния, посредствам метода SetState()
+ * The example describes notification options for a mobile phone user.
+ * In practice, it would be better to implement state changes inside the
+ * notification system (ModileAlert) based on some criteria, for example,
+ * using a configuration file. For simplicity, this example uses external
+ * state changes via the SetState() method.
  */
 
 namespace Pattern;
 
 /**
- * ModileAlertStater, описывает общий интерфейс для различных состояний
+ * ModileAlertStater describes the common interface for different states
  */
 abstract class ModileAlertStater
 {
     /**
-     * Оповещение в зависимости от внутреннего состояния
+     * Notification based on the internal state
      *
      * @return string
      */
@@ -24,7 +25,7 @@ abstract class ModileAlertStater
 }
 
 /**
- * ModileAlert, реализует оповещение в зависимости от своего состояния
+ * ModileAlert implements notification based on its state
  */
 class ModileAlert
 {
@@ -34,9 +35,9 @@ class ModileAlert
     protected $state;
 
     /**
-     * Установить посредника
+     * Constructor
      *
-     * @param Mediator $mediator - посредник
+     * @param ModileAlertStater $state - state
      */
     public function __construct(ModileAlertStater $state)
     {
@@ -44,7 +45,7 @@ class ModileAlert
     }
 
     /**
-     * Оповещение в зависимости от внутреннего состояния
+     * Notification based on the internal state
      *
      * @return string
      */
@@ -54,7 +55,7 @@ class ModileAlert
     }
 
     /**
-     * Меняет состояние
+     * Changes the state
      */
     public function setState(ModileAlertStater $state)
     {
@@ -63,12 +64,12 @@ class ModileAlert
 }
 
 /**
- * MobileAlertVibration, реализует оповещение только вибрацией
+ * MobileAlertVibration implements vibration-only notifications
  */
 class MobileAlertVibration extends ModileAlertStater
 {
     /**
-     * Оповещение вибрацией
+     * Vibration notification
      *
      * @return string
      */
@@ -79,17 +80,17 @@ class MobileAlertVibration extends ModileAlertStater
 }
 
 /**
- * MobileAlertSong, реализует оповещение только звуковым сигналом
+ * MobileAlertSong implements sound-only notifications
  */
 class MobileAlertSong extends ModileAlertStater
 {
     /**
-     * Оповещение звуком
+     * Sound notification
      *
      * @return string
      */
     public function alert()
     {
-        return "Белые розы, Белые розы. Беззащитны шипы...";
+        return "White roses, white roses. Defenseless are the thorns...";
     }
 }

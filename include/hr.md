@@ -1,193 +1,206 @@
-# Повышение квалификации
+# Professional Development
+
+- [Which CMS/frameworks have you worked with?](#which-cms-frameworks-have-you-worked-with)
+- [What do you like or dislike most about work?](#what-do-you-like-or-dislike-most-about-work)
+- [Attitude to working with other people's code](#attitude-to-working-with-other-peoples-code)
+- [Interesting projects and tasks](#interesting-projects-and-tasks)
+- [What is your favorite language or framework? Now list its downsides.](#what-is-your-favorite-language-or-framework-now-list-its-downsides)
+- [Why do you program and what drives you?](#why-do-you-program-and-what-drives-you)
+- [How do you get new information?](#how-do-you-get-new-information)
+- [What tasks interest you?](#what-tasks-interest-you)
+- [What are your hobbies?](#what-are-your-hobbies)
+- [What are the last three books you read?](#what-are-the-last-three-books-you-read)
+- [What have you done in life that you are proud of?](#what-have-you-done-in-life-that-you-are-proud-of)
+
+## Which CMS/frameworks have you worked with? [&uarr;](#professional-development)
+
+- Internal company CMS
+- Bitrix more as a framework than a CMS
+- Yii2 a bit, for small personal projects or minor site support
+- Zend Framework a bit, for project support
+- Laravel for personal projects, freelance, and work projects
+
+## What do you like or dislike most about work? [&uarr;](#professional-development)
+
+You probably know that you should not criticize your current company or manager.
+
+So what should you do when asked this question?
+
+Use the classic "the problem is on my side" approach and focus on why your current job is not a fit. Tell them about
+your strongest skills or the projects you liked most but could not work on. Say you are looking for a role that lets you
+use those skills more often. Whatever your answer, it should cover what the new job will solve for you and what problems
+of the employer you can solve.
+
+A question that helps determine whether the candidate is process- or result-oriented.
+
+1) Results-oriented people
+
+People who are focused on results ask "why" and "what will we get at the end?" They are good salespeople, they can
+close deals. If such a person works in production or construction, they strive to finish on time. If they are a leader,
+they always think about what result their department and team will achieve.
+
+Results-oriented people try to finish any process in the shortest possible time. They are inclined to chase results but
+may ignore the process. Too much focus on results can lead to missed details. Such people usually do not like writing
+reports, keeping stats, or analyzing.
+
+2) Process-oriented people
+
+There are people who are more focused on the process. They are good accountants, clerks, secretaries. Process-oriented
+people are structured and meticulous but can forget why the work is being done. For them, everything is important. Time
+is not a factor and details matter. They struggle to pick what matters most, so deadlines for this category are often
+missed.
 
-* [С какими `CMS`, фреймворками приходилось работать](#С-какими-CMS,-фреймворками-приходилось-работать-)
-* [Что больше всего нравится/не нравится в работе](#Что-больше-всего-нравится/не-нравится-в-работе-)
-* [Отношение к работе с чужим кодом](#Отношение-к-работе-с-чужим-кодом-)
-* [Интересные проекты / задачи](#Интересные-проекты-/-задачи-)
-* [Какой твой любимый язык или фреймворк? Теперь расскажи его минусы.](#Какой-твой-любимый-язык-или-фреймворк?-Теперь-расскажи-его-минусы.-)
-* [Почему вообще программируешь и что тебя драйвит?](#Почему-вообще-программируешь-и-что-тебя-драйвит?-)
-* [Как получаешь новую информацию](#Как-получаешь-новую-информацию-)
-* [какие задачи интересуют](#какие-задачи-интересуют-)
-* [что интересно по жизни, какие хобби](#что-интересно-по-жизни,-какие-хобби-)
-* [какие три последние книги прочитал](#какие-три-последние-книги-прочитал-)
-* [что сделал в своей жизни такого, чем можешь гордиться](#что-сделал-в-своей-жизни-такого,-чем-можешь-гордиться-)
+3) People with a mixed orientation
 
-# Повышение квалификации
+For them, both process and result matter equally.
 
-### С какими `CMS`, фреймворками приходилось работать [&uarr;](#devmap)
+What is this for?
 
-    - внутренняя cms компании
-    - bitrix скорее в качестве фреймворка чем в качестве cms
-    - yii2 немного - для мелких личных проектов либо в рамках поддержки мелких сайтов
-    - zend framework - немного, в рамках поддержки проекта
-    - laravel - для личного проекта,фриланса и рабочих проектов
+- For a results-oriented person, motivation for achieving results and compensation tied to results are critical.
+- For a process-oriented person, the process itself and its content are more important.
+- Results-oriented people should be motivated not only for results but also for following the process.
+- Process-oriented people should be motivated and rewarded for meeting deadlines and key performance indicators.
 
-### Что больше всего нравится/не нравится в работе [&uarr;](#devmap)
+How to interpret answers?
 
-Вы наверняка знаете, что не следует ругать свою нынешнюю компанию или начальника.
+- If a candidate answers with completed-action verbs, it points to a result focus.
+  Examples:
+  - "I like closing a deal."
+  - "As an accountant, I like a signed-off balance sheet."
+- If they use process words and ongoing-action verbs, it points to a process focus.
+  Examples:
+  - "I like persuading, planning, negotiating, drafting."
+  - "Document analysis, client communication."
 
-Так что же делать, слыша такой вопрос?
+## Why do you program and what drives you? [&uarr;](#professional-development)
 
-Самое время использовать классический подход «проблема на моей стороне» и сосредоточиться на том, почему нынешнее место
-работы вам не подходит. Расскажите им о своих самых сильных навыках или о проектах, которые вам больше всего нравились,
-но над которыми вы не смогли поработать. Скажите, что вы ищете работу, которая позволит вам чаще использовать эти
-навыки. Каким бы ни был ваш ответ, он должен касаться тех моментов, которые новая работа решит для вас — но также и
-того, какие проблемы работодателя сможете решить вы.
+I have been working as a programmer for almost 6 years. During this time I worked on many projects. Do I like it? Yes.
+Sometimes I do not. But I chose this consciously, studied on courses, did self-education. Sometimes what you like stops
+being enjoyable, so I will just share some aspects of my work:
 
-Вопрос, который поможет определить ориентацию соискателя на процесс или результат.
+- I am close to this field in general, working at a computer.
+- I learn something new every day. There is a lot I still do not know. That is great and pushes me to keep learning.
+- Communication with people. I used to think you just write code and do not talk to anyone (I am an extrovert). But no,
+  you have to communicate a lot. Otherwise you risk building nonsense.
+- To grow, you must ask questions: "Why is this needed? Is there another solution? Can we do it simply now and fix it
+  later? Am I building nonsense?" Some programmers never ask these questions and just rush ahead.
+- The opportunity to work with people from different fields: medicine, accounting, satellites, robotics. Programming is
+  needed everywhere.
+- The ability to work remotely. It depends on the company. Remote work has its own specifics and requires discipline.
+  Some people prefer an office.
+- Sometimes your brain boils, stress builds up, and you just collapse on a couch and want to do nothing.
+- Legacy code projects are unavoidable, but the problem is that the customer does not want or cannot fund keeping the
+  project up to date.
+- A sedentary life is not good.
+- Programming is a creative profession, but sometimes that is as far from the truth as possible. Most tasks are
+  primitive and have only two solutions: effective and wrong.
 
-1) Люди результата
+In job search, a good specialist finds a job quickly. You can feel it in a person. Some people search for a long time,
+usually because of soft skills and communication. People are hired not only for skills but for how they think, how they
+fit into a company, what questions they ask, how they behave. No one wants to talk to a withdrawn toxic person (I have
+seen those).
 
-   Есть люди, которые больше ориентированы на результат. Они задаются вопросом зачем? Что получится в итоге? Это хорошие
-   продажники, они хорошо продают и дожимают клиента. Если такой человек работает на производстве или в строительстве,
-   он стремится сдать работу в срок. Если это руководитель, то он всегда думает, какому результату придет его
-   подразделение и команда.
+A few tips from my experience:
 
-   Люди результата стремятся в кратчайший срок завершить любой начатый процесс. То есть люди результата склонны
-   добиваться результата, но могут игнорировать технологии. Слишком сильная ориентация на результат может приводить к
-   недоработке деталей. Такие люди обычно не очень любят писать отчеты, вести статистику, анализировать.
+- Learn, always learn. Be proactive. Some people reach a certain level, move from one comfort zone to another, and stop
+  developing. They are easy to spot. Such people do not take hard tasks or are afraid of them. They are average. That is
+  not bad, but you should always aim higher. People with fire in their eyes are always noticed.
+- Sometimes learning something new is hard, and that is normal.
+- Find a hobby, preferably a sport: swimming, climbing, skiing. Anything that distracts you and gives your mind a break.
+- Surround yourself with strong people. If you are the strongest in your circle, maybe it is time to change it and find
+  a stronger team where you will be the weakest.
+- Learn new technologies but do not chase fashion. Some things never get old: networking, operating systems, algorithms,
+  general programming theory. Languages become popular and then fade. New frameworks appear and disappear. But
+  fundamental knowledge helps you understand how things work and makes it easier to learn new tools.
 
-2) Люди процесса
+## How do you get new information? [&uarr;](#professional-development)
 
-   И есть люди больше ориентированные на процесс. Это хорошие бухгалтера, делопроизводители, секретари. Люди процесса
-   технологичны и скурпулезны, но могут забывать, зачем все это делается. Для людей процесса важно все. Для них время
-   значения не имеет и не существует мелочей. Они плохо умеют выделять главное, поэтому по срокам выполнение задач у
-   данной категории сотрудников обычно затягивается.
+- Habr
+- Thematic chats in social networks
+- New technology digests in news feeds
+- On video platforms it is interesting to watch presentations of new technologies
+- Sometimes I see recommended reading lists. I bought an e-book reader so technical literature is more accessible
 
-3) Есть люди с промежуточной ориентацией. Для них одинаково важно и то и другое.
+## What are your hobbies? [&uarr;](#professional-development)
 
-Для чего все это?
+- Maintaining a home server
+- Tinkering with hardware, I even built my own mini-ITX system
+- Walking and cycling
+- Constantly improving my foreign language knowledge
+- Cooking: routine processes sometimes help change the rhythm of thoughts and think through something important
 
-    Для человека результата очень важна мотивация за достижение результата, привязка оплаты и нематериальной мотивации к результату.
+## What are the last three books you read? [&uarr;](#professional-development)
 
-    Для человека процесса более значим сам процесс, его содержание.
+- Matt Zandstra: PHP 8: Objects, Patterns, and Practice
+- Robert C. Martin: The Clean Coder (How to Become a Professional Software Developer)
+- Steve McConnell: Code Complete
 
-    И что крайне важно, людей результата важно мотивировать не только за результат, но и за соблюдение технологий.
+## Attitude to working with other people's code [&uarr;](#professional-development)
 
-    Людей процесса важно мотивировать, поощрять за соблюдение сроков, за соблюдение ключевых показателей результативности.
+Reading other people's code is useful.
 
-Как интерпретировать ответы?
+The most obvious way to improve your programming is to write more programs. Everyone knows that. But there is another
+way that, I am sure, will improve your programming - the opposite.
 
-    Если кандидат отвечает, используя совершенный вид глагола, это результат
+If you want to quickly boost your programming skill, you need to read code written by other programmers.
 
-        - Мне больше всего нравится убедить клиента
-        - В работе бухгалтера больше всего нравится сданный баланс
+How to read:
 
-    Если он использует слова, обозначающие процессы, глаголы несовершенного вида, это процесс
+1) Study the big picture - first understand the project structure and file layout.
 
-        - мне нравится убеждать, планировать, договариваться, составлять
-        - анализ документов, общение с клиентами
+The goal here is to get familiar with the source. Understand which files include or load other files, where the main
+code lives, which namespaces are used (if any), and so on. Once you have the big picture, go into details.
 
-### Почему вообще программируешь и что тебя драйвит? [&uarr;](#devmap)
+2) Document your findings
 
-Работаю программистом уже почти 6 лет. За это время успел поработать с большим количеством проектов. Нравится? Нравится.
-Иногда не нравится. Но я осознанно устраивался программистом, учился на курсах,занимался самообразованием. Иногда то,
-что нравится перестает нравиться, поэтому просто расскажу некоторые особенности своей работы:
+Reading code should not be passive. I recommend leaving comments as you go, documenting your assumptions and
+conclusions as you start to understand how the program executes.
 
-    - Мне в целом близка эта тема, работать за компьютером. 
-    - Каждый день узнаю что-то новое. Еще масса всего, чего я не знаю. Это круто. Подстегивает постоянно учиться, развиваться, изучать новое.
-    - Общение с людьми. Раньше думал, типа ну пишешь код, ни с кем не общаешься (я по натуре экстраверт). Но нет, общаться надо и достаточно много. Иначе есть риск сделать фигню.
-    - Чтобы расти надо задавать вопросы - "а зачем это нужно? А есть ли другое решение? Можно ли сделать сейчас просто, А потом исправить? А не делаю ли я фигню?". Есть программисты, которые не задают вопросы, а просто фигачат.
-    - Возможность поработать с разными людьми из разной сферы. От медицины и бухгалтерии, до каких-нибудь спутников и роботов. Программирование нужно везде.
-    - Возможность работать удаленно. Правда здесь зависит от компании. У удаленки есть своя специфика и нужно быть дисциплинированным. Кому-то больше заходит офис.
-    - Иногда натурально мозги кипят, стресс и все такое. Валишься на диван и ничего не хочется делать. 
-    - Проекты с легаси кодом - от них никуда не деться, но проблема этих проектов в том что заказчик не хочет либо не имеет средств на поддержание этого проекта в актуальном состоянии.
-    - Сидячая жизнь ничего хорошего не сулит :)
-    - Программист это творческая профессия - но иногда это настолько далеко от правды насколько это возможно. Большинство задач - примитивные, решающиеся лишь двумя способами - эффективным и неправильным. 
+As you understand more, you can remove small hierarchical comments you left for yourself and maybe write more
+meaningful and authoritative comments that could be contributed back to the project.
 
-По поиску работы - хороший специалист быстро находит работу. Это чувствуется в человеке. Есть те, кто долго ищут. Обычно
-из-за софт-скиллов, общения, например. Людей ищут не только по навыкам, но и тому, как он мыслит, как он вольется в
-компанию, какие вопросы задает, как ведет себя. Никто не хочет общаться с замкнутым токсичным чуваком (я встречал таких)
-.
+3) Use tests
 
-Могу дать несколько советов исходя из своего опыта
+Hopefully the project you chose has a test suite. If not, you can skip this section.
 
-    -  Учитесь, учитесь всегда. И будьте инициативными. Есть люди. которые достигают некоторого уровня, переходят из одной зоны комфорта в другую и перестают развиваться. Таких людей сразу видят. Такие люди не берут сложные задачи или боятся их брать. Такие люди -середнячки. Это неплохо, но стоит всегда стремиться к лучшему уровню. Тех, у кого горит всегда огонь - их всегда замечают.
-    -  Иногда бывает тяжело, в процессе изучения чего то нового и это нормально.
-    -  Найдите хобби, желательно спортивное. Плавание, лазание по горам или лыжи - что угодно, что будет отвлекать вас, что не даст думать. 
-    -  Окружите себя сильными ребятами. Если вы лучший среди своего окружения - возможно его стоит поменять и найти сильную команду, где вы будете самым слабым.
-    -  Изучайте новые технологии, но не гонитесь за модой. Есть вещи, которые никогда не устареют - знания сетей, операционных систем, алгоритмов, общая теория программирования. Языки становятся популярными, потом пропадают. Появляются и исчезают новые фреймворки. Но базовые (фундаментальные) знания позволяют понять, как устроены многие вещи, это помогает изучать новое (за последнее время ничего не появилось прям приципиально нового).
+Tests are a great place to start reading someone else's code because they document what the program should do. Some
+tests are more informative than others, but regardless of how well they are written, it is often easier to find the
+programmer's intent in tests than in implementation. While reading, try to get a successful run of the entire test
+suite. This helps ensure your dev environment is configured correctly and makes you more confident when making changes.
 
-### Как получаешь новую информацию [&uarr;](#devmap)
+4) Change the code, compile
 
-    - хабр
-    - тематические чаты в соцсетях
-    - дайджест новых технологий в ленте новостей
-    - на видеохостингах интересно смотреть презентации новых технологий
-    - периодически попадаются подборки рекомендованных книг к прочтению - для этой цели купил электронную книгу - чтоб техническая литература была более доступна
+You will only truly understand the code after you break everything and rebuild it.
 
-### что интересно по жизни, какие хобби [&uarr;](#devmap)
+5) Rinse and repeat
 
-    - техподдержка домашнего сервера
-    - возиться с железом - даже собрал свою mini itx систему
-    - пешие прогулки, велопрогулки
-    - постоянно нахожусь в процессе совершенствования своих знаний иностранных языков
-    - готовить - подобные рутинные процессы инога помогают сменить ритм мыслей и обдумать что то важное
+After you finish reading one codebase, pick another and repeat the process. The more code you read, the better you get
+at it and the more you learn in less time. You will notice your productivity grows and that this is a very enjoyable
+way to learn.
 
-### какие три последние книги прочитал [&uarr;](#devmap)
+## What have you done in life that you are proud of? [&uarr;](#professional-development)
 
-    - Мэтт Зандстра: PHP 8. Объекты, шаблоны и методики программирования
-    - Роберт Мартин: Идеальный программист. Как стать профессионалом разработки ПО
-    - Совершенный код - С. Макконелл
+I understood my strengths. I always liked exact sciences and managed to apply that in practice. I studied at an
+engineering university and worked as an engineer. Over time I realized I was dealing with knowledge that was very
+outdated.
 
-### Отношение к работе с чужим кодом [&uarr;](#devmap)
+So I started self-education and through trial and error came to what I do now.
 
-Читать чужой код полезно.
+I am proud that I managed to turn my hobby into my job.
 
-Наиболее очевидным способом повысить качество своего программирования является писать больше программ. Каждый знает это.
-Однако другой способ, который, я уверен, улучшит ваше программирование, — совершенно противоположный.
+## What tasks interest you? [&uarr;](#professional-development)
 
-Если вы желаете резко поднять ваше умение программировать, необходимо… читать код, написанный другими программистами.
+It depends on the vacancy you are interviewing for. It is better to adapt the list to the company's tech stack and add
+related technologies.
 
-Как читать
+## Interesting projects and tasks [&uarr;](#professional-development)
 
-    1) Изучите общую картину - первично изучить структуру проекта. Зафиксировать для себя структуру файлов
+- Custom modules in Bitrix and Laravel
+- CRM integrations: configuring different import types, designing a unified import type that works with different file
+  formats
+- Building block-based page builders
 
-    Цель этого шага состоит просто в ознакомлении с источником. Разберитесь, какие файлы включают в себя / вызывают / загружают другие файлы, где находится основная часть кода, какие пространства имён используются (если таковые имеются) и прочее такого рода. Получив общее представление, можно погружаться в детали.
+## What is your favorite language or framework? Now list its downsides. [&uarr;](#professional-development)
 
-    2) Документируйте ваши результаты
-
-    Чтение кода не должно быть каким-то пассивным действием. Рекомендую добавлять комментарии по мере продвижения, документировать ваши предположения и ваши выводы, когда вы начнёте понимать ход выполнения программы.
-
-    По мере понимания процессов вы можете удалить небольшие иерархические комментарии, которые вы оставляли для себя, и, возможно, написать более значимые и авторитетные комментарии, которые могли бы быть переданы обратно в проект.
-
-    3) Используй тесты
-
-    Будем надеяться, что проект, который вы выбрали, имеет набор тестов. Если нет, то можете пропустить этот раздел вообще.
-
-    Тесты являются отличным местом для начала чтения чужого кода, потому что они документируют то, что программа должна выполнить. Одни тесты являются более информативными, чем другие, но независимо от того, насколько хорошо они написаны, часто найти намерения программиста в тестах намного легче, чем в реализации. При чтении попытайтесь получить успешный результат при прогоне всего набора тестов. Это позволит убедиться, что ваша среда разработки сконфигурирована правильно, и сделает вас более уверенным при внесении изменений.
-
-    4) Измените код, скомпилируйте
-
-    Вы начнёте, действительно, понимать код, только после того, как сломаете всё и снова соберёте вместе.
-
-    5) Смыть и повторить
-
-    Закончив с чтением одной кодовой базы, возьмите другую и начните процесс снова. Чем больше кодов вы читаете, тем лучше идёт это чтение и тем больше вы получаете из него за меньшее время. Я думаю, вы обнаружите, что ваш КПД растёт довольно быстро и что это действительно очень приятный способ обучения.
-
-### что сделал в своей жизни такого, чем можешь гордиться [&uarr;](#devmap)
-
-Понял свои сильные стороны - всегда нравились точные науки, и смог это начать применять - раньше учился в инженерном
-вузе и затем работал инженером. Но со временем понял что имею дело с сильно устаревшими знаниями.
-
-Поэтому начал заниматься самообразованием и путем проб и ошибок пришел к тому,чем сейчас занимаюсь.
-
-Горжусь тем - что смог сделать свое хобби, своей работой.
-
-### какие задачи интересуют [&uarr;](#devmap)
-
-ну тут зависит от вакансии на которую собеседуешься - желательно подстраивать список под стек технологий компании, с
-добавлением возможных смежных технологий
-
-### Интересные проекты / задачи [&uarr;](#devmap)
-
-- самописные модули в bitrix, laravel
-- интеграции с crm - настройка самых разных типов импорта. Проектирвоание унифицированного типа импорта работающего с
-  разными типами файлов.
-- создание блочных конструкторов страниц
-
-### Какой твой любимый язык или фреймворк? Теперь расскажи его минусы. [&uarr;](#devmap)
-
-впринципе не важен фреймворк - это то по сути только инструмент. Важны именно парадигмы которыми ты пользуешься при
-разработке продукта. Даже самый объектно ориентированный фреймворк можно превратить в набор методов с кучей процедурного
-кода.
+The framework is not that important - it is just a tool. What matters are the paradigms you use to build a product.
+Even the most object-oriented framework can be turned into a pile of methods with a lot of procedural code.

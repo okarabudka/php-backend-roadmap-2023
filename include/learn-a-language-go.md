@@ -1,91 +1,71 @@
-#### Список ссылок
+# Go (Golang)
+
+#### Links
 
 - [A Tour of Go](https://go.dev/tour/welcome/1)
-- [Go для PHP-разработчиков](https://pahanini.gitbooks.io/golang-for-php-developers/content/)
+- [Go for PHP developers](https://pahanini.gitbooks.io/golang-for-php-developers/content/)
 - [Effective Go](https://go.dev/doc/effective_go)
 - [The Go Programming Language Specification](https://go.dev/ref/spec)
-- [Golang для веб-разработки: примеры использования](https://proglib.io/p/golang-dlya-veb-razrabotki-primery-ispolzovaniya-2021-04-20)
-- [Go с точки зрения PHP программиста](https://habr.com/ru/post/277987/)
+- [Golang for web development: usage examples](https://proglib.io/p/golang-dlya-veb-razrabotki-primery-ispolzovaniya-2021-04-20)
+- [Go from a PHP programmer's point of view](https://habr.com/ru/post/277987/)
 
-# Golang
+Go (Golang) is a compiled, concurrent programming language from Google with open source. It is a general-purpose
+language, but its main use is building web services and client-server applications.
 
-`Go (Golang)` — это компилируемый многопоточный язык программирования от Google с открытым исходным кодом. Считается
-языком
-общего назначения, но основное применение — разработка веб-сервисов и клиент-серверных приложений.
+Go draws on features from C, C++, Python, Pascal, Oberon, and Modula.
 
-В основе языка Golang — база лучших функций из языков C и C++, Python, Pascal, Oberon и Modula.
+## Advantages
 
-#### Достоинства:
+- Simplicity. A simplified syntax reduces learning time and increases development speed. This matters in large
+  organizations with hundreds of developers.
+- Fast compilation.
+- Good versioning and free updates.
+- Rich standard library. Many things are easy to build with Go, and you can also integrate C libraries effectively.
 
-- Простота. Упрощенный синтаксис позволяет уменьшить время на освоение языка и увеличить скорость разработки. Именно это
-  делает Go подходящим для больших корпораций языком. Когда разработкой занимаются сотни программистов одновременно –
-  это имеет значение.
-- Быстрая компиляция.
-- Хорошая версионность и бесплатные обновления.
-- Большое количество библиотек. Многое можно реализовать через простую и понятную библиотеку Go, но также эффективно
-  можно работать и с библиотеками на C.
+## Disadvantages
 
-#### Недостатки:
+- Fewer job openings. Demand for Go developers is relatively low, and junior roles are scarce.
+- Enforced formatting. This is controversial: it can be a downside, but it ensures consistent style.
+- Simplified syntax can be limiting. The language enforces one correct way, so personal style is harder to preserve.
 
-- Небольшое количество вакансий. Потребность даже в опытных в разработчиках на Go относительно невелика, а вариантов для
-  джуниоров еще меньше.
-- Принудительное форматирование. Это спорная особенность, которую не всегда можно считать недостатком: каждый следующий
-  разработчик точно знает, чего ждать от кода предшественника.
-- Упрощенный синтаксис иногда создает проблемы. Язык буквально навязывает его, не позволяя писать код по-своему. Если
-  разработчику доступен только единственно верный вариант, сохранить уникальный стиль программирования у него не
-  получится.
+## What Go is used for
 
-#### Для чего используется Go
+Go was initially created for networking and infrastructure as a replacement for high-performance server languages like
+Java and C++. Today it is used for many backend scenarios:
 
-Изначально Go создавался для программ, связанных с сетями и инфраструктурой, в качестве замены популярных
-высокопроизводительных серверных
-языков, таких как Java и C++. Сегодня же Go используется как бэкенд-язык для огромного количества различных направлений
-разработки:
+- Cloud and server applications, web services
+- DevOps and process automation
+- Command-line tools
+- AI and big data
+- Microcontrollers and robotics
 
-- Облачные и серверные приложения, веб-сервисы
-- DevOps и автоматизация процессов
-- Приложения для работы с командной строкой
-- Искусственный интеллект и работа с большими данными
-- Программирование микроконтроллеров и робототехники.
+Go is especially strong for infrastructure. The most popular tools in this area are written in Go: Kubernetes, Docker,
+and Prometheus.
 
-Однако лучше всего Go раскрывается как язык программирования для работы с инфраструктурой. Самые популярные инструменты
-в этой
-области написаны именно на Go — Kubernetes, Docker и Prometheus.
+## Language features
 
-### Особенности языка
+### Compilation
 
-#### Компилируемость
+Source code is compiled to machine code. The official Go compiler runs on UNIX-like systems including macOS, Linux, and
+Windows. On mobile, Go supports Android. There are also third-party compilers.
 
-Исходный код преобразуется в машинный с помощью компилятора. Официальный компилятор Golang работает в UNIX-подобных
-операционных
-системах, включая macOS, а также в Linux и Windows. Среди мобильных ОС компилятор Go поддерживает Android. Существуют
-также
-независимые компиляторы, созданные сторонними разработчиками.
+### Concurrency
 
-#### Многопоточность
+Built-in concurrency makes it easier to write high-performance software. Go provides goroutines and channels.
 
-Поддержка нескольких потоков по умолчанию упрощает написание кода для мощных приложений. Для этого в языке
-программирования Go
-есть горутины и каналы.
+### Strong static typing
 
-#### Строгая статическая типизация
+Variable types are declared explicitly (string, number, etc). A variable can only hold values of its declared type.
+Unused variables are compile errors. Explicit types make it easier to compose large systems.
 
-При создании переменной тип данных объявляется сразу — например, строка или число. За все время существования переменная
-может принимать значение только указанного типа. Неиспользуемые переменные определяются как ошибка компиляции. Благодаря
-явному
-указанию зависимостей код легко собирать из составных частей, что облегчает разработку крупных проектов.
+### Simple and readable syntax
 
-#### Понятный и простой синтаксис
+Go has no classes or inheritance, which keeps code simple. It is accessible to beginners. The official Go guide is
+about 50 pages, easy to read, and full of examples.
 
-Нет объектов, классов и наследования, которые усложняют код и его изменения. Он доступен новичкам и прост в изучении.
-Официальное
-руководство Go занимает всего 50 страниц, просто читается и содержит примеры.
+Simplified syntax also makes reading others' code easy. Clear left-to-right flow matters in teams.
 
-Также упрощенный синтаксис позволяет быстро прочитать чужой код — слева направо. Стандарты, обозначения или комментарии
-не требуются.
-Это важно в командной работе.
-
-Пример кода:
+Example:
 
     package main
     import "fmt"
@@ -93,53 +73,35 @@
         fmt.Println("hello world")
     }
 
-#### Инструменты для разработчиков
+### Developer tools
 
-В Go есть инструменты, которые ускоряют разработку и помогают решать разные задачи:
+Go ships with tools that speed up development:
 
-- `typecheck` проверит соответствие типов в коде;
-- `gas` найдет уязвимости;
-- `go vet` поможет обнаружить ошибки в коде;
-- `gofmt` правильно отформатирует код, проставит пробелы для выравнивания и табы для отступа;
-- `godoc` найдет комментарии и подготовит из них мануал к программе, и другие.
+- `typecheck` verifies type correctness
+- `gas` finds vulnerabilities
+- `go vet` detects common mistakes
+- `gofmt` formats code with correct spacing and indentation
+- `godoc` extracts comments into documentation
 
-Также в `Go` от `Google` есть пакет `pprof`. Он позволяет узнать, какие фрагменты кода выполняются очень долго, где
-программа
-сильно нагружает процессор или занимает много памяти. Результат работы представлен в виде текстового отчета, профайла.
-Для его использования нужна утилита `graphviz`.
+Go also includes `pprof` for profiling. It shows slow code, CPU load, and memory usage. Output is text reports and
+profiles. It requires `graphviz` for visualization.
 
-#### Наличие «сборщика мусора»
+### Garbage collection
 
-Это алгоритм, который сканирует код, находит объекты, замедляющие его работу, и удаляет их. «Сборщик мусора»
-обеспечивает
-высокую скорость исполнения программ и эффективное использование ресурсов. В некоторых языках общего назначения
-«сборщиков мусора»
-нет и память приходится очищать вручную — как, например, в C++.
+The garbage collector scans code, finds objects that slow it down, and removes them. This improves speed and resource
+usage. Some languages (like C++) require manual memory management.
 
-#### Кроссплатформенность
+### Cross-platform support
 
-Язык от Google поддерживается на Windows, Linux, macOS, Android. Также он работает с FreeBSD, OpenBSD и другими
-UNIX-системами.
-Код также обладает переносимостью: программы, написанные для одной из этих операционных систем, могут быть легко с
-перекомпиляцией
-перенесены на другую ОС.
+Go runs on Windows, Linux, macOS, Android, and several UNIX systems like FreeBSD and OpenBSD. Code is portable: programs
+can be recompiled for other OSes.
 
-#### Нехватка конструкций для ООП
+### Limited OOP constructs
 
-Язык Go поддерживает не все возможности объектно-ориентированного программирования. Например, в нем нет классов и
-наследования.
-Это тоже намеренное решение для упрощения кода, чтобы добиться минимума избыточности и обеспечить высокую скорость
-исполнения программ.
+Go does not support all OOP features. For example, it has no classes or inheritance. This is intentional to simplify
+code and reduce redundancy for higher performance.
 
-#### Полная поддержка Unicode
+### Full Unicode support
 
-Кодировка символов Unicode — самая полная из существующих, в нее входят практически все знаки и буквы, которые есть в
-мире.
-Многие языки требуют подключать поддержку этой кодировки отдельно, но в Go строковые данные по умолчанию представлены в
-Unicode.
-
-
-
-
-
-
+Unicode is the most complete character encoding. Many languages require enabling it, but in Go strings are Unicode by
+default.

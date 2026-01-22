@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Хранитель (Memento)
+ * Memento pattern
  */
 
 namespace Pattern;
 
 /**
- * Originator, реализует хозяина состояния
+ * Originator implements the state owner
  */
 class Originator
 {
@@ -16,7 +16,7 @@ class Originator
     public $state;
 
     /**
-     * Создает хранилище состояния
+     * Creates a state snapshot
      *
      * @return Memento
      */
@@ -26,7 +26,7 @@ class Originator
     }
 
     /**
-     * Восстанавливает состояние
+     * Restores state
      *
      * @param Memento $memento
      */
@@ -37,7 +37,7 @@ class Originator
 }
 
 /**
- * Memento, реализует хранилище для состояния Originator
+ * Memento implements storage for the Originator state
  */
 class Memento
 {
@@ -47,9 +47,9 @@ class Memento
     protected $state;
 
     /**
-     * Установить посредника
+     * Constructor
      *
-     * @param string $state - состояние
+     * @param string $state - state
      */
     public function __construct($state)
     {
@@ -57,7 +57,7 @@ class Memento
     }
 
     /**
-     * Получить состояние
+     * Get state
      *
      * @return string
      */
@@ -69,13 +69,13 @@ class Memento
 
 
 /**
- * Caretaker, получает и хранит объект-хранитель (Memento),
- * пока он не понадобится хозяину.
+ * Caretaker receives and stores the memento
+ * until it is needed by the originator.
  */
 class Caretaker
 {
     /**
-     * var Memento
+     * Memento instance
      */
     public $memento;
 }

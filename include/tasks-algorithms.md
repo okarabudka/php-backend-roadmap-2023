@@ -1,35 +1,30 @@
-#### ALGORITMS
+# Algorithms Tasks
 
-### определить сложность алгоритма
+## Determine algorithm complexity
 
-```php
-O(n) — линейная сложность
+```text
+O(n) - linear complexity
 
-Такой сложностью обладает, например, алгоритм поиска наибольшего элемента в не отсортированном массиве. Нам придётся 
-пройтись по всем n элементам массива, чтобы понять, какой из них максимальный.
+Example: find the largest element in an unsorted array. You must scan all n elements to know which is max.
 
-O(log n) — логарифмическая сложность
+O(log n) - logarithmic complexity
 
-Простейший пример — бинарный поиск. Если массив отсортирован, мы можем проверить, есть ли в нём какое-то конкретное 
-значение, методом деления пополам. Проверим средний элемент, если он больше искомого, то отбросим вторую половину 
-массива — там его точно нет. Если же меньше, то наоборот — отбросим начальную половину. И так будем продолжать делить 
-пополам, в итоге проверим log n элементов.
+Example: binary search. If the array is sorted, you can check a value by halving the array each step. Check the middle
+item. If it is greater, discard the second half. If it is smaller, discard the first half. Continue halving until you
+check log n elements.
 
-O(n2) — квадратичная сложность
+O(n2) - quadratic complexity
 
-Такую сложность имеет, например, алгоритм сортировки вставками. В канонической реализации он представляет из себя два 
-вложенных цикла: один, чтобы проходить по всему массиву, а второй, чтобы находить место очередному элементу в уже 
-отсортированной части. Таким образом, количество операций будет зависеть от размера массива как n * n, т. е. n2.
+Example: insertion sort. In the canonical implementation you have two nested loops: one to traverse the array, another
+to find the place for the next element in the sorted part. The number of operations grows as n * n.
 
-Бывают и другие оценки по сложности, но все они основаны на том же принципе.
+There are other complexity estimates, but they follow the same idea.
 
-Также случается, что время работы алгоритма вообще не зависит от размера входных данных. Тогда сложность обозначают 
-как O(1). Например, для определения значения третьего элемента массива не нужно ни запоминать элементы, ни проходить 
-по ним сколько-то раз. Всегда нужно просто дождаться в потоке входных данных третий элемент и это будет результатом, 
-на вычисление которого для любого количества данных нужно одно и то же время.
+Sometimes runtime does not depend on input size. This is O(1). For example, to get the third element of an array you do
+not need to traverse. You just take the third element and the time is constant.
 ```
 
-### Нахождение факториала
+## Find factorial
 
 ```php
 function factorial($n): float|int
@@ -37,24 +32,23 @@ function factorial($n): float|int
     return $n < 2 ? 1 : $n * factorial($n - 1);
 }
 
-echo factorial(5); //120
+echo factorial(5); // 120
 ```
 
-### Написать функцию для возведения числа в заданную степень с помощью рекурсии.
+## Write a function to raise a number to a power using recursion
 
 ```php
-function degree($n, $degree){
-	return $degree < 2 ? $n : $n * degree($n, $degree - 1);
+function degree($n, $degree) {
+    return $degree < 2 ? $n : $n * degree($n, $degree - 1);
 }
 
-echo degree(5, 3); //125
+echo degree(5, 3); // 125
 ```
 
-### Вычисление последовательности Фибоначчи
+## Fibonacci sequence
 
 ```php
-
-// Рекурсивный алгоритм вычисления последовательности Фибоначи
+// Recursive Fibonacci
 function fib1($n)
 {
     return $n < 3 ? 1 : fib1($n - 1) + fib1($n - 2);
@@ -65,7 +59,7 @@ function fib2($n, $c = 2, $n2 = 0, $n1 = 1)
     return $c < $n ? fib2($n, $c + 1, $n1, $n1 + $n2) : $n1 + $n2;
 }
 
-// Итеративный алгоритм вычисления последовательности Фибоначчи
+// Iterative Fibonacci
 function F($n){
   $i=1; $r=1; $l=1; $s=1;
   while($i++<$n){
@@ -76,8 +70,7 @@ function F($n){
   return $s;
 }
 
-// Рекурсивный алгоритм Фибоначчи
-// с использованием подхода восходящего динамического программирования
+// Recursive Fibonacci using bottom-up DP
 function F_recursive($n, $K){
   if($n<=1) {
     return 1;
@@ -91,8 +84,7 @@ function F($n){
   return F_recursive($n,$K);
 }
 
-// Рекурсивный алгоритм Фибоначчи
-// с применением Объектно-Ориентированного Подхода
+// Recursive Fibonacci using OOP
 class Fibonachi {
   private $K;
   private function F_recursive($n){
@@ -103,7 +95,7 @@ class Fibonachi {
   }
   return $this->K[$n];
   }
-  // Интерфейс класса
+  // Class interface
   public function getNumberByIndex($n){
     $this->K=array_fill(0,$n+1,0);
     return $this->F_recursive($n);
@@ -113,48 +105,41 @@ function F($n){
   $Fibonachi = new Fibonachi();
   return $Fibonachi->getNumberByIndex($n);
 }
-
-
 ```
 
-### Вычисление перестановок Ханойских башен
+## Hanoi tower permutations
 
-[Реализация Ханойской башни на PHP](https://progtips.ru/php/rekursivnye-algoritmy-na-php-chast-2-polza-rekursii.html)
+[Hanoi Tower implementation in PHP](https://progtips.ru/php/rekursivnye-algoritmy-na-php-chast-2-polza-rekursii.html)
 
 ```php
-// Пример рекурсивного решения задачи о Ханойских башнях
- 
-  function towers($n, $a, $c, $b){
-    if($n==1){
-      echo $a,"->",$c," ";
-    } else {
-      towers($n-1,$a,$b,$c);
-      echo $a,"->",$c," ";
-      towers($n-1,$b,$c,$a);
-    }
+// Recursive solution for Tower of Hanoi
+function towers($n, $a, $c, $b){
+  if($n==1){
+    echo $a,"->",$c," ";
+  } else {
+    towers($n-1,$a,$b,$c);
+    echo $a,"->",$c," ";
+    towers($n-1,$b,$c,$a);
   }
+}
 
-//ИЛИ ВОТ ТАК
-
+// OR THIS WAY
 function tower_of_hanoi($numbers, $start, $auxiliary, $end){
     if($numbers == 1){
         echo 'Move disk 1 from rod {' . $start . '} to rod {' . $end . '}' . "\n";
     } else {
-    	tower_of_hanoi($numbers - 1, $start, $end, $auxiliary);
-    	echo 'Move disk {' . $numbers . '} from rod {' . $start . '} to rod {' . $end . '}' . "\n";
-    	tower_of_hanoi($numbers - 1, $auxiliary, $start, $end);
+        tower_of_hanoi($numbers - 1, $start, $end, $auxiliary);
+        echo 'Move disk {' . $numbers . '} from rod {' . $start . '} to rod {' . $end . '}' . "\n";
+        tower_of_hanoi($numbers - 1, $auxiliary, $start, $end);
     }
-} 
+}
 
 tower_of_hanoi(3, 'A', 'B', 'C');
 ```
 
-```
-
-### Рекурсивный обход дерева
+## Recursive tree traversal
 
 ```php
-
 $tree = mkdir('/', [
   mkdir('etc', [
     mkfile('bashrc'),
@@ -169,19 +154,18 @@ $tree = mkdir('/', [
 
 function dfs($tree)
 {
-  // Распечатываем содержимое узла
+  // Print node contents
   echo getName($tree) . "\n";
-  // Если это файл, то возвращаем управление
+  // If this is a file, return
   if (isFile($tree)) {
       return;
   }
 
-  // Получаем детей
+  // Get children
   $children = getChildren($tree);
 
-  // Применяем функцию dfs ко всем дочерним элементам
-  // Множество рекурсивных вызовов в рамках одного вызова функции
-  // называется древовидной рекурсией
+  // Apply dfs to all children
+  // Many recursive calls inside one call is called tree recursion
   array_map(fn($child) => dfs($child), $children);
 }
 
@@ -196,42 +180,40 @@ dfs($tree);
 // => cat
 ```
 
-Вопросы по массивам:
+Questions about arrays:
 
-- Найти второй минимальный элемент массива
+- Find the second minimum element in an array
 
 ```php
-Хранить два текущих значения `Max` и `Second`
-На каждом шаге:
-  Если очередное значение A[i] >= Max:
+Keep two current values `Max` and `Second`
+On each step:
+  If A[i] >= Max:
      Second = Max
      Max = A[i]
-  иначе если A[i] > Second:
+  else if A[i] > Second:
      Second = A[i]
 ```
 
-- Поиск максимального элемента в массиве
+- Find the maximum element in an array
 
 ```php
-Хранить `Max`
-На каждом шаге:
-  Если очередное значение A[i] >= Max:
+Keep `Max`
+On each step:
+  If A[i] >= Max:
      Max = A[i]
 ```
 
-- Объединить два отсортированных массива
+- Merge two sorted arrays
 
 ```php
-$arr1 = [0 => "max",1 => "min",2 => "med"]; 
+$arr1 = [0 => "max",1 => "min",2 => "med"];
 $arr2 = [0 => "max",1 => "min",2 => "other",3 =>"med"];
 
 $finalArr = (array_unique(array_merge($arr1, $arr2)));
 ```
 
-Объявлены две числовые переменные a и b. Необходимо сделать так, чтобы без объявления других переменных в результате
-работы алгоритма значения переменных поменялись местами. (Например, если изначально a = 3, b = 5, то в результате
-алгоритма стало a = 5, b = 3). Применять можно только операции присваивания и арифметические операции с числами и
-значениями переменных.
+Two numeric variables a and b are given. Swap their values without declaring other variables, using only assignment and
+arithmetic operations.
 
 ```php
 a+=b;
@@ -239,74 +221,75 @@ b=a-b;
 a-=b;
 ```
 
-Дано натуральное число n. С помощью рекурсивной функции и не используя циклы, выведите все числа от 1 до n.
+Given a natural number n, using recursion and no loops, output all numbers from 1 to n.
 
 ```php
 function my_function($n) {
   return $n <= 1? 1 : my_function($n - 1) . ' ' . $n;
 }
-echo my_function(11); //1 2 3 4 5 6 7 8 9 10 11
+echo my_function(11); // 1 2 3 4 5 6 7 8 9 10 11
 ```
 
-Дана строка (возможно, пустая), состоящая из букв A-Z: AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB
-Нужно написать функцию RLE, которая на выходе даст строку вида: A4B3C2XYZD4E3F3A6B28
-И сгенерирует ошибку, если на вход пришла невалидная строка.
-Пояснения: Если символ встречается 1 раз, он остается без изменений; Если символ повторяется более 1 раза, к нему
-добавляется количество повторений.
+Given a string (possibly empty) consisting of letters A-Z:
+AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Write an RLE function that outputs:
+A4B3C2XYZD4E3F3A6B28
+and throws an error if the input is invalid.
 
-```php
+Explanation: If a character appears once, keep it as-is. If it repeats, append the count.
+
+```python
 def convert(s: str) -> str:
   result: List[str] = []
-  last_sym = None  # последний символ, что мы видели
-  count = 0  # и сколько мы его видели
+  last_sym = None  # last seen symbol
+  count = 0  # how many times we saw it
 
-  # мы будем идти по строке и записывать в result при смене символа
-  for sym in (list(s) + [None]):  # последний None искусственно триггерит посленюю смену символа
+  # iterate the string and write to result on symbol change
+  for sym in (list(s) + [None]):  # last None triggers the final change
 
-      if last_sym and sym != last_sym:  # если случилась смена символа
+      if last_sym and sym != last_sym:  # symbol changed
 
           if count == 1:
               result.append(last_sym)
           else:
               result.append(last_sym + str(count))
 
-      	  # начнаем запоминать новый символ
+          # start tracking new symbol
           count = 1
           last_sym = sym
 
-      else:  # символ просто повторился
-          count += 1  # ну ок, запомнили что символ видели на 1 раз больше
+      else:  # symbol repeated
+          count += 1
 
   return ''.join(result)
 ```
 
-Сгруппировать слова по "общим буквам".
+Group words by "common letters".
 Sample Input ["eat", "tea", "tan", "ate", "nat", "bat"]
 Sample Output [ ["ate", "eat", "tea"], ["nat", "tan"], ["bat"] ]
 
 ```php
 function sortString($str){
-    // разбиваем строку на массив букв
+    // split the string into letters
     $letters = str_split(strtolower($str));
-    // сортируем массив букв 
+    // sort letters
     sort($letters);
-    // соединяем массив букв в слово и возвращаем его
+    // join back
     return implode($letters);
 }
 
-//входные данные
+// input data
 $array = array('rfv', 'vfr', 'abc', 'bac', 'dbatre', 'qwer', 'cba', 'terbda');
 
-// будем проходиться по массиву используся функцию array_reduce(),
-// с callback-функцией, которая возвращает заново сформированный массив
+// iterate with array_reduce(),
+// callback returns a rebuilt array
 $grouppedArray = array_reduce($array, function($accumulator, $item) {
-    // пользуемся выше созданной функцией которая сортируем по алфавиту слово
+    // sort letters in the word
     $itemSorted = sortString($item);
-    // записываем в возвращаемый массив новое значение 
-    // с ключом вида отсортированного ранее слова,
-    // или добавляем его, если существует такой массив
+    // store under sorted word key
+    // or append if exists
     $accumulator[$itemSorted][] = $item;
-    // возвращаем общий массив для следующей итерации
+    // return for next iteration
     return $accumulator;
 });
 ```

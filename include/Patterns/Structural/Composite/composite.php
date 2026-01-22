@@ -1,12 +1,12 @@
 <?php
 /**
- * Паттерн Компоновщик (Composite)
+ * Composite pattern
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Component, описывает интерфейс для ветвей и листьев дерева
+ * Base abstract class Component describes the interface for tree branches and leaves
  */
 abstract class Component
 {
@@ -16,9 +16,9 @@ abstract class Component
     protected $name;
 
     /**
-     * Конструктор
+     * Constructor
      *
-     * @param string $name - имя файла или директории
+     * @param string $name - file or directory name
      */
     public function __construct($name)
     {
@@ -26,30 +26,30 @@ abstract class Component
     }
 
     /**
-     * Добавляет элемент в ветвь дерева
+     * Adds an element to a tree branch
      *
-     * @param Component $child - дочерний элемент
+     * @param Component $child - child element
      */
     public abstract function add(Component $child);
 
     /**
-     * Возвращает имя компонента
+     * Returns the component name
      *
      * @return string
      */
     public abstract function name();
 
     /**
-     * Возвращает дочерние элементы
+     * Returns child elements
      *
      * @return []Component
      */
     public abstract function childs();
 
     /**
-     * Возвращает листинг дерева
+     * Returns the tree listing
      *
-     * @param string $prefix - дочерний элемент
+     * @param string $prefix - child element
      *
      * @return string
      */
@@ -57,7 +57,7 @@ abstract class Component
 }
 
 /**
- * Directory, реализует ветви дерева
+ * Directory implements tree branches
  */
 class Directory extends Component
 {
@@ -67,9 +67,9 @@ class Directory extends Component
     protected $childs = array();
 
     /**
-     * Добавляет элемент в ветвь дерева
+     * Adds an element to a tree branch
      *
-     * @param Component $child - дочерний элемент
+     * @param Component $child - child element
      */
     public function add(Component $child)
     {
@@ -77,9 +77,9 @@ class Directory extends Component
     }
 
     /**
-     * Возвращает листинг дерева
+     * Returns the tree listing
      *
-     * @param string $prefix - дочерний элемент
+     * @param string $prefix - child element
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class Directory extends Component
     }
 
     /**
-     * Возвращает имя компонента
+     * Returns the component name
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class Directory extends Component
     }
 
     /**
-     * Возвращает дочерние элементы
+     * Returns child elements
      *
      * @return []Component
      */
@@ -117,14 +117,14 @@ class Directory extends Component
 }
 
 /**
- * File, реализует лист дерева
+ * File implements a tree leaf
  */
 class File extends Component
 {
     /**
-     * Добавляет элемент в ветвь дерева
+     * Adds an element to a tree branch
      *
-     * @param Component $child - дочерний элемент
+     * @param Component $child - child element
      */
     public function add(Component $child)
     {
@@ -132,7 +132,7 @@ class File extends Component
     }
 
     /**
-     * Возвращает дочерние элементы
+     * Returns child elements
      *
      * @return []Component
      */
@@ -142,9 +142,9 @@ class File extends Component
     }
 
     /**
-     * Возвращает листинг дерева
+     * Returns the tree listing
      *
-     * @param string $prefix - дочерний элемент
+     * @param string $prefix - child element
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class File extends Component
     }
 
     /**
-     * Возвращает имя компонента
+     * Returns the component name
      *
      * @return string
      */

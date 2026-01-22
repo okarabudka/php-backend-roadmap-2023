@@ -16,12 +16,12 @@ class MediatorTest extends PHPUnit_Framework_TestCase
         $mediator->cannery = new Cannery($mediator);
         $mediator->shop = new Shop($mediator);
 
-        // Фермер выращивает 1000 помидор,
-        // И сообщает посреднику о завершении своей работы.
-        // Далее посредник отправляет помидоры на Завод.
-        // После того как завод произведет 250 упаковок кетчупа,
-        // он сообщает посреднику о поставке его в магазин.
-        // В итоге магазин продает кетчуп на 20000 денег.
+        // The farmer grows 1000 tomatoes
+        // and tells the mediator the work is done.
+        // The mediator sends the tomatoes to the factory.
+        // After the factory produces 250 ketchup packages,
+        // it tells the mediator to deliver them to the shop.
+        // In the end the shop sells ketchup for 20000 money units.
         $mediator->farmer->growTomato(1000);
 
         $this->assertEquals($mediator->shop->money, 20000);

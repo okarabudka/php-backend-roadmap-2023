@@ -29,72 +29,77 @@
 
 - Laravel E-Commerce 16h 30m    https://www.youtube.com/watch?v=o5PWIuDTgxg&list=PLEhEHUEU3x5oPTli631ZX9cxl6cU_sDaR
 - Laravel Movie App 1h 25m    https://www.youtube.com/watch?v=9OKbmMqsREc&list=PLEhEHUEU3x5pYTjZze3fhYMB4Nl_WOHI4
-- a lot of great videos from Laraveller collection    https://www.youtube.com/c/Laraveller/videos
+- A lot of great videos from Laraveller collection    https://www.youtube.com/c/Laraveller/videos
 
 =====================================
 
-#### Задание 1. «Базовый web». Реализуем CRUD на чистом PHP.
+#### Task 1. "Basic web". Implement CRUD in plain PHP.
 
-Суть:
+Goal:
 
-    сделать страницу аутентификации;
-    сделать страницу с формой обратной связи, на которой есть: текстовое поле, многострочное текстовое поле, радиокнопки, флажки, выпадающий список, кнопка сброса формы, кнопка отправки формы;
-    форма обратной связи доступна только авторизованным пользователям, критерий допуска — вход в систему выполнен;
+- Build an authentication page.
+- Build a feedback form page that includes: a single-line text field, a multi-line text field, radio buttons, checkboxes,
+  a dropdown, a reset button, a submit button.
+- The feedback form is available only to authenticated users; the access criterion is a successful login.
 
-Развитие CRUD-интерфейса
+CRUD interface development
 
-    сделать мини-админку:
-    список отправленных форм обратной связи;
-    список должен быть отсортирован по дате отправки, новые — сначала;
+- Build a mini admin panel:
+  - List of submitted feedback forms.
+  - The list should be sorted by submission date, newest first.
 
-#### Задание 3. Парсинг сайтов
+#### Task 3. Website parsing
 
-Компетенции:
+Competencies:
 
-    Регулярные выражения
-    HTTP-запросы с сервера, cURL
-    TODO: написание консольных утилит (и одноразовых скриптов) на кодовой базе Bitrix Framework
-    TODO: добавить CRON
+- Regular expressions
+- Server-side HTTP requests, cURL
+- TODO: write CLI utilities (and one-off scripts) on the Bitrix Framework codebase
+- TODO: add CRON
 
-Суть:
+Goal:
 
-    Проанализировать сайт, продумать структуры данных, пригодные для автоматизированной обработки
-    Распарсить сайт в эти структуры
-    Оформить в виде CLI-скрипта
-    Настройками реализовать возможность парсить не все подряд, а только то, что нужно пользователю
+- Analyze a site and design data structures suitable for automated processing
+- Parse the site into these structures
+- Package it as a CLI script
+- Use settings to allow parsing only what the user needs
 
-Проверка:
+Review:
 
-    корректность CLI-окружения
-    декомпозиция регулярных выражений
-    экономичность по запросам
-    обработка ошибок
-    возможность параллельного парсинга нескольких объектов сразу
-    Работа в консольном и интерактивном режиме
-    *работа в режиме внешнего сервиса, доступного по HTTP, с поддержкой очередей
+- Correctness of the CLI environment
+- Regular expression decomposition
+- Request efficiency
+- Error handling
+- Ability to parse multiple objects in parallel
+- Work in console and interactive modes
+- Work as an external service available over HTTP with queue support
 
-#### Задание 4. подсчитать количество хитов
+#### Task 4. Count hit totals
 
-      Задача: у меня есть banner.php, пусть он выводит статичное изображение, какой-то банер. Мы включаем его на страницу
-      просто <img src="/banner.php"/>
-      
-      Мне нужно знать, сколько раз мы его показали.
-      
-      Определение количества уникальных посещений действительно лучше сделать с помощью сессий или кукисов.
-      А хранить лучше всего это в NoSQL базе данных.
+Task: I have `banner.php`. It outputs a static image, some banner. We include it on a page like this:
 
-#### Задание 5. Разное
+```
+<img src="/banner.php"/>
+```
 
-Рекомендации:
+I need to know how many times we showed it.
 
-    1. минимум фич, забыть слова "универсальное решение"/"платформа"/"плагины", иначе надоест быстрее, чем доделаешь
-    2. не использовать готовые движки вроде Wordpress/Joomla/Magento, но использовать фреймворк, чтобы не велосипедить
-    3. не обращать внимания на вёрстку — только Twitter Bootstrap или же готовые шаблоны
+Counting unique visits is best done with sessions or cookies.
+Storing it is best in a NoSQL database.
 
-Идеи проектов:
+#### Task 5. Misc
 
-    блог
-    форум
-    сайт прогноза погоды
-    сайт с актуальными курсами валют
-    сайт со всем выше перечисленным, либо же в виде отдельных модулей в системе
+Recommendations:
+
+1. Minimal features. Forget the words "universal solution"/"platform"/"plugins", otherwise you will burn out before you
+   finish.
+2. Do not use ready-made engines like WordPress/Joomla/Magento, but use a framework to avoid reinventing the wheel.
+3. Ignore layout details: use only Twitter Bootstrap or ready-made templates.
+
+Project ideas:
+
+- Blog
+- Forum
+- Weather forecast site
+- Site with up-to-date currency rates
+- Site with all of the above, or separate modules in a system

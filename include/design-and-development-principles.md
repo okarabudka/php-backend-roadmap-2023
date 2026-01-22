@@ -1,108 +1,85 @@
-#### Список ссылок
+# Design and Development Principles
 
-- [Принципы для разработки: KISS, DRY, YAGNI, BDUF, SOLID, APO и бритва Оккама](https://habr.com/ru/company/itelma/blog/546372/)
-- [Принципы SOLID в картинках](https://habr.com/ru/company/productivity_inside/blog/505430/)
-- [Принципы SOLID на примерах](https://habr.com/ru/post/688530/)
+#### Links
 
-
-- [PHP: Что такое «DI», «Container», «Auto-wiring» за семь простых шагов](https://habr.com/ru/post/655399/)
-- [Dependency Injection в мире Software Engineering](https://habr.com/ru/company/avito/blog/556924/)
+- [Principles for development: KISS, DRY, YAGNI, BDUF, SOLID, APO, and Occam's Razor](https://habr.com/ru/company/itelma/blog/546372/)
+- [SOLID principles in pictures](https://habr.com/ru/company/productivity_inside/blog/505430/)
+- [SOLID principles with examples](https://habr.com/ru/post/688530/)
+- [PHP: What are DI, Container, Auto-wiring in seven simple steps](https://habr.com/ru/post/655399/)
+- [Dependency Injection in Software Engineering](https://habr.com/ru/company/avito/blog/556924/)
 - [DesignPatterns PHP](https://designpatternsphp.readthedocs.io/ru/latest/README.html)
-- [ПАТТЕРНЫ ПРОЕКТИРОВАНИЯ](https://refactoring.guru/ru/design-patterns/php)
-- [Что такое анти-паттерны?](https://habr.com/ru/post/59005/)
+- [Design Patterns](https://refactoring.guru/ru/design-patterns/php)
+- [What are anti-patterns?](https://habr.com/ru/post/59005/)
+- [Domain Driven Design (DDD) - what is it and how to start using DDD](https://blog-programmista.ru/post/132-ddd-what-is-it.html)
+- [What is TDD (test-driven development)](https://freehost.com.ua/faq/articles/chto-takoe-tdd-test-driven-development/)
+- [CQRS and Event Sourcing patterns](https://bool.dev/blog/detail/pattern-cqrs-i-event-sourcing)
 
+## KISS, DRY, YAGNI, BDUF, SOLID, APO, and Occam's Razor [&uarr;](#design-and-development-principles)
 
-- [Domain Driven Design (DDD) - что это такое? И как начать использовать DDD в разработке](https://blog-programmista.ru/post/132-ddd-what-is-it.html)
+### YAGNI (You Aren't Gonna Need It)
 
+This principle is simple but often ignored. If you write code, be sure you need it. Do not write code just because you
+think you might need it later.
 
-- [Что такое TDD (test-driven development)](https://freehost.com.ua/faq/articles/chto-takoe-tdd-test-driven-development/)
+This applies to refactoring. If you are refactoring a method, class, or file, do not be afraid to delete extra methods.
+Even if they used to be useful, they may not be needed anymore.
 
+If they ever become necessary again, you can retrieve them from Git history.
 
-- [Паттерны CQRS и Event Sourcing](https://bool.dev/blog/detail/pattern-cqrs-i-event-sourcing)
+### DRY (Don't Repeat Yourself)
 
-### KISS, DRY, YAGNI, BDUF, SOLID, APO и бритва Оккама [&uarr;](#Readme)
+This concept was first described in The Pragmatic Programmer by Andy Hunt and Dave Thomas.
 
-#### YAGNI You Aren’t Gonna Need It / Вам это не понадобится
+The idea revolves around a single source of truth (SSOT).
 
-Этот принцип прост и очевиден, но ему далеко не все следуют. Если пишете код, то будьте уверены, что он вам понадобится.
-Не пишите код, если думаете, что он пригодится позже.
+SSOT helps create a more robust and understandable codebase.
 
-Этот принцип применим при рефакторинге. Если вы занимаетесь рефакторингом метода, класса или файла, не бойтесь удалять
-лишние методы. Даже если раньше они были полезны – теперь они не нужны.
+Code duplication is a waste of time and resources. You must maintain the same logic in multiple places, and if you
+change one spot, you must change the others.
 
-Может наступить день, когда они снова понадобятся – тогда вы сможете воспользоваться git-репозиторием, чтобы воскресить
-их из мертвых.
+Duplication often comes from not knowing the system. Before writing something, be pragmatic and look around. Maybe this
+function already exists. Maybe this business logic is implemented elsewhere. Reuse is almost always the right choice.
 
-#### DRY Don’t Repeat Yourself / Не повторяйтесь
+### KISS (Keep It Simple, Stupid)
 
-Эта концепция была впервые сформулирована в книге Энди Ханта и Дэйва Томаса «Программист-прагматик: путь от подмастерья
-к мастеру».
+This principle was developed by the US Navy in 1960. It says that simple systems work better and are more reliable.
 
-Идея вращается вокруг единого источника правды (single source of truth — SSOT). Что это вообще такое?
+In software terms, do not design a more complex solution than a task requires.
 
-Использование SSOT позволит создать более прочную и понятную кодовую базу.
+Sometimes the simplest solution is the best. Writing efficient and simple code is a good goal.
 
-Дублирование кода – пустая трата времени и ресурсов. Вам придется поддерживать одну и ту же логику и тестировать код
-сразу в двух местах, причем если вы измените код в одном месте, его нужно будет изменить и в другом.
+A common mistake is using new tools just because they are shiny. Use new technologies because they fit the job, not
+because they are new.
 
-В большинстве случаев дублирование кода происходит из-за незнания системы. Прежде чем что-либо писать, проявите
-прагматизм: осмотритесь. Возможно, эта функция где-то реализована. Возможно, эта бизнес-логика существует в другом
-месте. Повторное использование кода – всегда разумное решение.
+### BDUF (Big Design Up Front)
 
-#### KISS Keep It Simple, Stupid / Будь проще
+This approach is important but often ignored. Before implementation, make sure the design is thought through.
 
-Этот принцип был разработан ВМС США в 1960 году. Этот принцип гласит, что простые системы будут работать лучше и
-надежнее.
+Many developers believe they are not progressing if they are not writing code. That is a mistake. A plan saves you from
+starting over again and again.
 
-У этого принципа много общего с переизобретением колеса, которым занимались в 1970-х. Тогда он звучал как деловая и
-рекламная метафора.
+In many cases, other people should be involved in architecture decisions. The earlier you discuss it, the better for
+everyone.
 
-Применительно к разработке ПО он значит следующее – не придумывайте к задаче более сложного решения, чем ей требуется.
-
-Иногда самое разумное решение оказывается и самым простым. Написание производительного, эффективного и простого кода –
-это прекрасно.
-
-Одна из самых распространенных ошибок нашего времени – использование новых инструментов исключительно из-за того, что
-они блестят. Разработчиков следует мотивировать использовать новейшие технологии не потому, что они новые, а потому что
-они подходят для работы.
-
-#### Big Design Up Front Глобальное проектирование прежде всего
-
-Этот подход к разработке программного обеспечения очень важен, и его часто игнорируют. Прежде чем переходить к
-реализации, убедитесь, что все хорошо продумано.
-
-Многие разработчики считают, что если они не пишут код, то они не добиваются прогресса. Это неверный подход. Составив
-план, вы избавите себя от необходимости раз за разом начинать с нуля.
-
-Иногда в недостатках и процессах разработки архитектуры должны быть замешаны и другие люди. Чем раньше вы все это
-обсудите, тем лучше будет для всех.
-
-Очень распространенный контраргумент заключается в том, что стоимость решения проблем зачастую ниже стоимости времени
-планирования. Чем с меньшим количеством ошибок столкнется пользователь, тем лучше будет его опыт. У вас может не быть
-другого шанса справиться с этими ошибками.
+A common counterargument is that fixing problems later is cheaper than planning. But the fewer mistakes users hit, the
+better their experience. You may not get a second chance to fix those errors.
 
 ### SOLID
 
-SOLID - это принципы разработки программного обеспечения, следуя которым Вы получите хороший код, который в дальнейшем
-будет хорошо масштабироваться и поддерживаться в рабочем состоянии.
+SOLID is a set of principles that lead to code that is easier to scale and maintain.
 
-- S - Single Responsibility Principle - принцип единственной ответственности. Каждый класс должен иметь только одну зону
-  ответственности.
-- O - Open closed Principle - принцип открытости-закрытости. Классы должны быть открыты для расширения, но закрыты для
-  изменения.
-- L - Liskov substitution Principle - принцип подстановки Барбары Лисков. Должна быть возможность вместо базового (
-  родительского) типа (класса) подставить любой его подтип (класс-наследник), при этом работа программы не должна
-  измениться.
-- I - Interface Segregation Principle - принцип разделения интерфейсов. Данный принцип обозначает, что не нужно
-  заставлять клиента (класс) реализовывать интерфейс, который не имеет к нему отношения.
-- D - Dependency Inversion Principle - принцип инверсии зависимостей. Модули верхнего уровня не должны зависеть от
-  модулей нижнего уровня. И те, и другие должны зависеть от абстракции. Абстракции не должны зависеть от деталей. Детали
-  должны зависеть от абстракций.
+- S - Single Responsibility Principle: a class should have one responsibility.
+- O - Open/Closed Principle: classes should be open for extension but closed for modification.
+- L - Liskov Substitution Principle: derived types must be substitutable for base types.
+- I - Interface Segregation Principle: do not force clients to implement interfaces they do not use.
+- D - Dependency Inversion Principle: high-level modules should not depend on low-level modules; both depend on
+  abstractions.
 
 ---
 
 #### 1. **Single Responsibility Principle (SRP)**
-**Definition**: A class should have only one reason to change. This means a class should only have one job or responsibility.
+**Definition**: A class should have only one reason to change. This means a class should only have one job or
+responsibility.
 
 #### Example:
 ```php
@@ -134,12 +111,14 @@ class EmailService {
 }
 ?>
 ```
-In the good example, `User` is responsible only for creating a user, and `EmailService` is responsible for sending an email. If the email logic changes, we only need to modify `EmailService`.
+In the good example, `User` is responsible only for creating a user, and `EmailService` is responsible for sending an
+email. If the email logic changes, we only need to modify `EmailService`.
 
 ---
 
 #### 2. **Open/Closed Principle (OCP)**
-**Definition**: A class should be open for extension but closed for modification. This means you should be able to add new functionality without changing the existing code.
+**Definition**: A class should be open for extension but closed for modification. This means you should be able to add
+new functionality without changing the existing code.
 
 #### Example:
 ```php
@@ -181,12 +160,14 @@ class Payment {
 }
 ?>
 ```
-In the good example, we can add new payment methods (like `BankTransferPayment`) without changing the `Payment` class, making it extensible but not modifiable.
+In the good example, we can add new payment methods (like `BankTransferPayment`) without changing the `Payment` class,
+making it extensible but not modifiable.
 
 ---
 
 #### 3. **Liskov Substitution Principle (LSP)**
-**Definition**: Subtypes should be substitutable for their base types. This means that derived classes must be usable through the base class interface without altering the correctness of the program.
+**Definition**: Subtypes should be substitutable for their base types. This means that derived classes must be usable
+through the base class interface without altering the correctness of the program.
 
 #### Example:
 ```php
@@ -226,12 +207,14 @@ class Penguin extends Bird {
 }
 ?>
 ```
-In the good example, the `move()` method is more generic, so both `Sparrow` and `Penguin` subclasses can have different behaviors without violating the base class's behavior.
+In the good example, the `move()` method is more generic, so both `Sparrow` and `Penguin` subclasses can have different
+behaviors without violating the base class's behavior.
 
 ---
 
 #### 4. **Interface Segregation Principle (ISP)**
-**Definition**: A class should not be forced to implement interfaces it does not use. This means that interfaces should be small and specific to the client.
+**Definition**: A class should not be forced to implement interfaces it does not use. This means that interfaces should
+be small and specific to the client.
 
 #### Example:
 ```php
@@ -290,12 +273,14 @@ class RobotWorker implements Workable {
 }
 ?>
 ```
-In the good example, the `Workable` and `Eatable` interfaces are separated, so the `RobotWorker` class is not forced to implement methods it doesn’t need.
+In the good example, the `Workable` and `Eatable` interfaces are separated, so the `RobotWorker` class is not forced to
+implement methods it does not need.
 
 ---
 
 #### 5. **Dependency Inversion Principle (DIP)**
-**Definition**: High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.
+**Definition**: High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details; details should depend on abstractions.
 
 #### Example:
 ```php
@@ -351,640 +336,423 @@ class Switch {
 }
 ?>
 ```
-In the good example, the `Switch` class depends on the `Switchable` interface (abstraction) rather than the concrete class `LightBulb`. Now `Switch` can work with any `Switchable` device, such as a `Fan`, without modification.
+In the good example, the `Switch` class depends on the `Switchable` interface (abstraction) rather than the concrete
+class `LightBulb`. Now `Switch` can work with any `Switchable` device, such as a `Fan`, without modification.
 
 ---
 
 #### Summary of SOLID Principles:
-1. **S**ingle Responsibility: A class should have one job.
-2. **O**pen/Closed: Extend a class’s behavior without modifying it.
-3. **L**iskov Substitution: Subtypes must be substitutable for their base types.
-4. **I**nterface Segregation: Don’t force a class to implement interfaces it doesn’t use.
-5. **D**ependency Inversion: Depend on abstractions, not concrete classes.
+1. **Single Responsibility**: A class should have one job.
+2. **Open/Closed**: Extend a class's behavior without modifying it.
+3. **Liskov Substitution**: Subtypes must be substitutable for their base types.
+4. **Interface Segregation**: Do not force a class to implement interfaces it does not use.
+5. **Dependency Inversion**: Depend on abstractions, not concrete classes.
 
-These principles help in designing code that is maintainable, scalable, and flexible to changes.
+These principles help design code that is maintainable, scalable, and flexible.
 
 ---
 
-#### Avoid Premature Optimization Избегайте преждевременной оптимизации
-
-Эта практика побуждает разработчиков оптимизировать код до того, как необходимость этой оптимизации будет доказана.
-Думаю, что если вы следуете KISS или YAGNI, вы не попадетесь на этот крючок.
-
-Поймите правильно, предвидеть, что произойдет что-то плохое – это хорошо. Но прежде чем вы погрузитесь в детали
-реализации, убедитесь, что эти оптимизации действительно полезны.
-
-Очень простой пример – масштабирование. Вы не станете покупать 40 серверов из предположения, что ваше новое приложение
-станет очень популярным. Вы будете добавлять серверы по мере необходимости.
-
-Преждевременная оптимизация может привести к задержкам в коде и, следовательно, увеличит затраты времени на вывод
-функций на рынок.
-
-Многие считают преждевременную оптимизацию корнем всех зол.
-
-#### Бритва Оккама
-
-Что это значит в мире программирования? Не создавайте ненужных сущностей без необходимости. Будьте прагматичны —
-подумайте, нужны ли они, поскольку они могут в конечном итоге усложнить вашу кодовую базу.
-
-### Паттерны, антипаттерны [&uarr;](#Readme)
-
-Что такое паттерны?
-
-    Паттерн проектирования (design pattern) - это общее типовое решение некоторой проблемы, многократно повторяемое в процессе 
-    проектирования архитектуры программного продукта. Они показывают отношения и взаимодействия между классами, позволяют сделать систему 
-    гибкой и легко изменяемой. За счет их правильного использования повышается коэффициент использования готовых решений.
-
-Что такое анти-паттерны?
-
-Анти-паттерны — полная противоположность паттернам. Если паттерны проектирования —
-это примеры практик хорошего программирования, то есть шаблоны решения определённых задач. То анти-паттерны — их полная
-противоположность,
-это — шаблоны ошибок, которые совершаются при решении различных задач. Частью практик хорошего программирования является
-именно избежание
-анти-паттернов.
-
-Анти-паттерны — главные враги разработчика, под их влияние программист частенько попадает из-за давление заказчика или
-проект-менеджера.
-Банальная нехватка времени и спешка сейчас запросто могут вылиться в огромные проблемы и неработоспособность системы в
-будущем.
-
-#### Программирование копи-пастом (Copy and Paste Programming)
-
-Когда от программиста требуется написание двух схожих функций, самым «простым» решением является написание одной
-функции, её копирование и
-внесение некоторых изменений в копию. Какие проблемы это сулит? Во-первых, ухудшается переносимость кода — если
-потребуется подобный функционал
-в другом проекте, то надо будет искать все места, где программист накопипастил и переносить их по отдельности.
-Во-вторых, понижается качество
-кода — часто программист забывает вносить требуемые изменения в скопированный код. В-третьих, усложняется поддержка
-кода — так, как если в
-изначальном варианте был баг, который в будущем надо будет исправить, то этот баг попал во все то, что, опять-таки,
-накопипастил программист.
-Это приводит так же к возникновению различных множественных исправлений, которые будут возникать по мере нахождения бага
-в разных частях кода,
-для одного единственного бага. В-четвертых, code review значительно усложняется, так как кода становится больше, без
-видимой значительной
-выгоды и роста производительности труда.
-
-#### «Брось, можно писать не только одну функцию!» или Спагетти-код (Spaghetti code)
-
-Спагетти-код — слабо структурированная и плохо спроектированная система, запутанная и очень сложная для понимания. Такой
-код так же очень
-часто содержит в себе множество примеров анти-паттерна программирования копи-пастом. Подобный код в будущем не сможет
-разобрать даже его автор.
-В ООП спагетти-код может быть представлен в виде небольшого количества объектов с огромными, по размеру кода, методами.
-Причинами являются —
-разработка по принципу «Да ну, оно же работает! Целых пять тысяч строк!», малоэффективные code review, недостаток опыта
-в ООП разработке,
-удалённая работа отдельных программистов. Ипользовать спагетти-код повторно невозможно и нежелательно. Если в вашем
-проекте начинает возникать
-спагетти-код, а вам как раз надо расширить функционал, который он реализует — не ленитесь, рефакторьте спагетти
-полностью или напишите эту
-часть заново! Проиграв немного времени сейчас — вы получите огромный плюс в будущем. Или наоборот — проиграете, если
-оставите спагетти-код в проекте.
-
-#### Золотой молоток (Golden hammer)
-
-Золотой молоток — уверенность в полной универсальности любого решения. На практике, это — применение одного решения (
-чаще всего какого-либо
-одного паттерна проектирования) для всех возможных и невозможных задач. Проблема в том, что многие программисты
-«используют» данный анти-паттерн
-не подозревая о собственной некомпетентности — они считают, что знают паттерн проектирования и успешно его используют —
-всё хорошо. Причиной
-среди новичков является лень к изучению чего-то нового — новичок пытается решить все задачи единственным методом,
-который он освоил.
-
-#### «Что за 42?» или Магические числа (Magic numbers)
-
-Магическое число — константа, использованная в коде для чего либо (чаще всего — идентификации данных), само число не
-несёт никакого смысла
-без соответствующего комментария. Числа не несут абсолютно никакой семантики. Когда в коде вашего проекта начинаются
-появлятся числа, значение
-которых не является очевидным — это очень плохо. Программист, который не является автором такого кода, с трудностями
-сможет объяснить как это
-работает. Со временем и автор кода, с присутствием магических чисел, не сможет объяснить что-либо. Числа затрудняют
-понимание кода и его
-рефакторинг. Главными причинами этой ошибки — спешка при разработке, отсутствие практики программирования.
-
-#### «Что значит d:\proj\tests.dat?» или Жёсткое кодирование (Hard code)
-
-Жёсткое кодирование — внедрение различных данных об окружении в реализацию. Например — различные пути к файлам, имена
-процессов, устройств и так
-далее. Этот анти-паттерн тесно связан с магическими числами, частенько они переплетаются. Захардкодить — жёстко
-прописать значение каких-либо
-данных в коде. Главная опасность, исходящая от этого анти-паттерна — непереносимость. В системе разработчика код будет
-исправно работать до
-перемещения или переименования файлов, изменения конфигурации устройств. На любой другой системе код может вовсе не
-заработать сразу же. Как
-правило, программист практически сразу забывает где и что он захардкодил, даже если делает это в целях отладки кода. Это
-делает выявление и
-локализацию данного анти-паттерна очень сложной. С этим надо бороться — оговорив запрет на жёсткое кодирование перед
-началом разработки и
-проводя тщательные code review.
-
-#### Мягкое кодирование (Soft code)
-
-Мягкое кодирование — параноидальная боязнь жёсткого кодирования. Это приводит к тому, что незахардкожено и настраивается
-абсолютно всё, что
-делает конфигурацию невероятно сложной и непрозрачной. Этот анти-паттерн является вторым концом палки о жёстком
-кодировании и поэтому тоже
-является опасным. Во-первых, при разработке много ресурсов уходит на реализацию возможности настроек абсолютно всего.
-Во-вторых, развёртывание
-такой системы повлечет так же дополнительные затраты. Перед началом решения определённой задачи следует определить, что
-должно быть настариваемым,
-а что является постоянным для различных систем или может быть настроено автоматически.
-
-#### Ненужная сложность (Accidental complexity)
-
-Простыми словами — это заумность решения. Ненужная сложность может быть внесена в решение любой задачи. Это могут быть
-как и ненужные проверки,
-части кода, продуцированные мягким кодированием, отсутствие какой-либо оптимизации. Это приводит к усложнению понимания
-кода, понижению скорости
-работы. Причинами являются — отсутствие или некачественность рефакторинга, некомпетентность программиста. Бороться
-довольно просто — следует
-проводить тщательные code review, эффективный рефакторинг.
-
-#### Лодочный якорь (Boat anchor)
-
-Этот анти-паттерн означает сохранение неиспользуемых частей системы, которые остались после оптимизации или
-рефакторинга. Часто, после
-рефакторинга когда, который является результатом анти-паттерна, некоторые части кода остаются в системе, хотя они уже
-больше не используются.
-Так же некоторые части кода могут быть оставлены «на будущее», авось придётся ещё их использовать. Такой код только
-усложняет системы, не неся
-абсолютно никакой практической ценности.
-
-#### Изобретение велосипеда (Reinventing the wheel)
-
-Смысл этого анти-паттерна в том, что программист разрабатывает собственное решение для задачи, для которой уже
-существуют решения, очень
-часто лучшие чем придуманное программистом. Разработчик считает себя наилучшим, поэтому для каждой задачи пытается
-придумать собственное решение,
-не смотря на опыт его предшественников. Чаще всего это приводит лишь к потере времени и понижению эффективности работы
-программиста — так как
-решение может быть найдено далеко неоптимальное или вообще ненайденное. Полностью же отбрасывать возможность
-самостоятельного решения нельзя,
-так как это прямой дорогой к приведет к программированию копипастом. Разработчик должен ориентироваться в задачах,
-которые могут предстать перед
-ним, чтобы грамотно их решить — используя готовые решение или изобретая собственные. Очень часто причиной этого
-анти-паттерна является банальная
-нехватка времени.
-
-#### Изобретение одноколёсного велосипеда (Reinventing the square wheel)
-
-Этот анти-паттерн очень тесно связан с простым изобретением велосипеда — это создание своего плохого решения, при
-существовании лучшего.
-Этот анти-паттерн вдвойне забирает время — так как, во-первых, время тратится на изобретение и реализацию собственного
-решения, во-вторых,
-время тратится при рефакторинге таких решений и замене их оптимальными. Программист должен быть осведомлен о
-существовании различных решений
-для определённых кругов задач, ориентироваться в их преимуществах и недостатках.
-
-#### «От твоего кода дурно пахнет» или Поток лавы (Lava flow)
-
-На каком либо этапе разработки вы можете осознать, что некоторая часть кода очень давно не менялась и вообще
-недокументирована, или такому коду
-сопутствует комментарий вида "// Не знаю, как оно работает, но оно работает. Не удалять и не менять!". Если ничего не
-предпринимать, то такой
-код и останется в проекте. Но и рефакторить, разбирать его довольно сложно, особенно ели его автор уже не работает над
-проектом. Проще
-предусмотреть возникновение такого мёртвого кода, при разработке надо руководствоваться тем, что код в будущем возможно
-будет немного
-оптимизирован или дописан, но никак не переписан полностью. Главными причинами возникновения потоков лавы являются —
-написание больших частей
-проекта одним программистом, отсутствие code review, ошибки в проектировании архитектуры.
-
-#### «А если i+1?» или Программирование перебором (Programming by permutation)
-
-Многие начинающие программисты пытаются решать некоторые задачи методом перебора — не брутфорсом решения, а именно
-подбором параметров, порядка
-вызова функций и так далее. Все эти игры с +1, -1 к параметрам и подобные штучки устраняют только симптомы, и не дают
-понимания сути
-происходящего. А если программист не понимает происходящего, то он не сможет предусмотреть все варианты развития событий
-и обязательно о
-чём-то забудет. Он потратит время на подбор работающего для него решения и позднее потратит время для переделки этого
-решения.
-
-#### «Как это вы передали строку вместо числа?!» или Слепая вера (Blind faith)
-
-Этот анти-паттерн — недостаточная проверка корректности входных данных, исправления ошибки или результатов работы кода.
-Очень часто
-программист думает, что его код всегда будет в идеальных условиях, никогда не выдаст ошибки и не получит неверных
-входных данных или, ещё чего,
-данных неверного типа. Но все лгут ©, поэтому нельзя доверять никакому коду, даже собственному. Но и не следует доводить
-это недоверие до
-паранойи, то есть приходить к анти-паттерну ненужной сложности. Просто следует помнить про проверку входных данных и
-возможные проблемы у
-чужого кода, который используете вы.
-
-#### Бездумное комментирование
-
-Результат «работы» данного анти-паттерна — большое количество лишних и неинформативных комментариев. Код не следует
-комментировать ради
-комментирования! Ведь комментарии — очень полезный инструмент, который должен помочь задокументировать нужную информацию
-для облегчения
-понимания кода, как автору в будущем, так и другим разработчикам. Ни в коем случае нельзя допускать диалога
-разработчиков в комментариях — лучше
-перенести данную функцию с комментариев на специализированные инструменты для code review, или на личное обсуждение.
-
-#### Божественный объект (God Object)
-
-Божественный объект — анти-паттерн, который довольно часто встречается у ООП разработчиков. Такой объект берет на себя
-слишком много функций
-и/или хранит в себе практически все данные. В итоге мы имеем непереносимый код, в котором, к тому же, сложно
-разобраться. Так же, подобный
-код довольно сложно поддерживать, учитывая, что вся система зависит практически только от него. Причинами являются —
-некомпетентность
-разработчика, взятие одним разработчиком большой части работы (особенно, когда размер работы «превышает» уровень опыта
-этого разработчика).
-Бороться с таким подходом надо — разбивать задачи на подзадачи, с возможностью решения этих подзадач различными
-разработчиками.
-
-### Шаблоны проектирования [&uarr;](#Readme)
-
-#### [Порождающие (Creational)](Creational)
-
-* [ ] [Абстрактная фабрика (Abstract Factory)](Patterns/Creational/AbstractFactory)
-* [ ] [Строитель (Builder)](Patterns/Creational/Builder)
-* [ ] [Фабричный метод (Factory Method)](Patterns/Creational/FactoryMethod)
-* [ ] [Объектный пул (Pool)](Patterns/Creational/Pool)
-* [ ] [Прототип (Prototype)](Patterns/Creational/Prototype)
-* [ ] [Простая Фабрика (Simple Factory)](Patterns/Creational/SimpleFactory)
-* [ ] [Одиночка (Singleton)](Patterns/Creational/Singleton)
-* [ ] [Статическая Фабрика (Static Factory)](Patterns/Creational/StaticFactory)
-
-#### [Стуктурные (Structural)](Structural)
-
-* [ ] [Адаптер (Adapter)](Patterns/Structural/Adapter)
-* [ ] [Мост (Bridge)](Patterns/Structural/Bridge)
-* [ ] [Компоновщик (Composite)](Patterns/Structural/Composite)
-* [ ] [Преобразователь Данных (Data Mapper)](Patterns/Structural/DataMapper)
-* [ ] [Декоратор (Decorator)](Patterns/Structural/Decorator)
-* [ ] [Внедрение Зависимости (Dependency Injection)](Patterns/Structural/DependencyInjection)
-* [ ] [Фасад (Facade)](Patterns/Structural/Facade)
-* [ ] [Текучий Интерфейс (Fluent Interface)](Patterns/Structural/FluentInterface)
-* [ ] [Приспособленец (Flyweight)](Patterns/Structural/Flyweight)
-* [ ] [Прокси (Proxy)](Patterns/Structural/Proxy)
-* [ ] [Реестр (Registry)](Patterns/Structural/Registry)
-
-#### [Поведенческие (Behavioral)](Behavioral)
-
-* [ ] [Цепочка ответственности (Chain Of Responsibility)](Patterns/Behavioral/ChainOfResponsibility)
-* [ ] [Команда (Command)](Patterns/Behavioral/Command)
-* [ ] [Интепретатор (Interpreter)](Patterns/Behavioral/Interpreter)
-* [ ] [Итератор (Iterator)](Patterns/Behavioral/Iterator)
-* [ ] [Посредник (Mediator)](Patterns/Behavioral/Mediator)
-* [ ] [Хранитель (Memento)](Patterns/Behavioral/Memento)
-* [ ] [Объект Null (Null Object)](Patterns/Behavioral/NullObject)
-* [ ] [Наблюдатель (Observer)](Patterns/Behavioral/Observer)
-* [ ] [Спецификация (Specification)](Patterns/Behavioral/Specification)
-* [ ] [Состояние (State)](Patterns/Behavioral/State)
-* [ ] [Стратегия (Strategy)](Patterns/Behavioral/Strategy)
-* [ ] [Шаблонный метод (Template Method)](Patterns/Behavioral/TemplateMethod)
-* [ ] [Посетитель (Visitor)](Patterns/Behavioral/Visitor)
-
-#### Дополнительно
-
-* [ ] [Локатор Служб (Service Locator)](Patterns/Other/ServiceLocator)
-* [ ] [Хранилище (Repository)](Patterns/Other/Repository)
-* [ ] [Сущность-Атрибут-Значение (Attribute)](Patterns/Other/Attribute)
-
-### Domain Driven Design [&uarr;](#Readme)
-
-#### Что такое DDD, можно объяснить даже ребёнку (или маркетологу)
-
-DDD — это подход, который нацелен на изучение предметной области предприятия в целом или каких-то отдельных
-бизнес-процессов. Это отличный
-подход для проектов, в которых сложность (запутанность) бизнес-логики достаточно велика. Его применение призвано снизить
-эту сложность, насколько
-возможно.
-
-Вне подхода DDD, когда программист пишет код, больше внимания он уделяет технологиям и инфраструктуре, например, как
-отправить сообщение, как
-его получить, закодировать, сохранить в базу данных, в какую именно базу данных.
-
-Подход DDD говорит о том, что всё это, конечно, важно, но вторично. Бизнес главнее и должен стоять на первом месте. И
-чтобы вся эта штука
-заработала вместе, DDD учит нас (разработчиков) разговаривать с бизнесом на одном языке. Не на языке программирования, а
-на языке бизнеса.
-Это называется в DDD Единый язык (Ubiquitous language).
-
-DDD также обеспечивает основу для стратегического и тактического моделирования. Стратегическое проектирование позволяет
-точно определить наиболее
-важные области разработки на основе бизнес-ценностей. Тактическое моделирование нужно для построения работающей Доменной
-Модели с использование
-проверенных в бою строительных блоков и шаблонов.
-
-#### Три столпа DDD
-
-Domain-Driven Design это подход к разработке программного обеспечения, который сфокусирован на трёх основных принципах:
-
-- `Единый Язык (Ubiquitous Language)`: Эксперты предметной области (Domain Experts) и разработчики программного
-  обеспечения работают вместе, чтобы создать общий язык для разрабатываемых бизнес-сфер. Тут не может быть
-  противопоставления, это единая команда. Разработка программного обеспечения это инвестиция в бизнес, а не просто
-  статья расходов. Усилия, прилагаемые к созданию Единого Языка (Ubiquitous Language), помогают распространить глубокое
-  понимание Домена (Domain) среди всех членов команды.
-- `Стратегическое моделирование (Strategic Design)`: DDD направлен на стратегию управления бизнесом, а не только на
-  технические аспекты его работы. Это помогает определить внутренние отношения и системы обратной связи раннего
-  предупреждения. С технической стороны, стратегический дизайн защищает каждую бизнес-услугу, обеспечивая мотивацию для
-  достижения сервис-ориентированной архитектуры.
-- `Тактическое моделирование (Tactical Design)`: DDD предоставляет инструменты и строительные блоки для итеративной
-  разработки программного обеспечения. Инструменты тактического моделирования позволяют создать программное обеспечение,
-  которое не только предельно корректно, но и является тестируемым и менее подверженным ошибкам.
-
-#### Фишка DDD — Ограниченный Контекст (Bounded Context)
-
-Ограниченный Контекст (Bounded Context) — ключевой инструмент DDD, это явная граница, внутри которой существует модель
-предметной области. Она
-отображает единый язык в модель программного обеспечения. Именно на основании контекстов можно разделить код на
-модули/пакеты/компоненты таким
-образом, чтобы изменения в каждом из них оказывали минимальное (или нулевое) влияние на других.
-
-Для разработчиков такой подход позволяет вносить изменения в код не опасаясь, что где-то в другом месте что-то
-сломается (например, менять что-то
-в кассе и не переживать, что из-за этого что-то отвалится у курьеров).
-
-Для тимлидов такой подход позволяет в значительной степени распараллелить работу команд(ы), что может значительно
-ускорить работу по проекту.
-
-#### Как понять, что пора применять DDD
-
-Посчитайте количество сценариев использования вашей системы. Если их в районе 10-15, значит бизнес-логика не такая
-сложная, и вы можете не
-париться, никакого DDD не применять.
-
-Если у вас 30-50 и более UX-кейсов, и они очень сильно пересекаются, имеет смысл задуматься над применением DDD хотя бы
-в какой-то части системы.
-
-#### Как внедрить DDD в компании снизу вверх
-
-Представим, что вы разработчик, которому нравится DDD, и вы думаете, что в вашей компании этот подход можно применить,
-чтобы причинить людям счастье.
-
-Начинать партизанское внедрение DDD одному тяжело. Во-первых, знаний может оказаться недостаточно, чтобы запустить
-процесс. Во-вторых, чуваки из
-вашей команды могут подумать, что вы занимаетесь глупостями и всё поломают, напихав палок в колёса.
-
-Лучше начинать внедрение с создания инициативной группы: вместе попробовать подход, понять нюансы, разобраться на
-практике. Уже потом можно
-пойти к архитектору или техдиру, чтобы объяснить ему ценность. Но помните, что DDD нужен не везде. DDD решает конкретные
-задачи, поэтому очень
-важно не перестараться.
-
-У подхода есть побочное действие: если люди начнут хотя бы стремиться к DDD, то они уже начнут действовать в парадигме
-«Разделяйте, делите,
-понижайте связность и следите за бизнес-логикой». А от этого начнутся положительные изменения: где-то код будет лучше
-писаться, где-то скорость
-увеличится. Не обязательно эти знания должны превратиться в коде именно в контексты и другие DDD-шные артефакты. Код
-может остаться кодом, но он
-станет лучше, а скорость и качество повысятся.
-
-#### Как внедрить DDD в компании сверху вниз
-
-- Убедиться, что этот подход поможет в конкретном случае.
-- Найти человека в команде, у которого есть архитектурные навыки (он будет помогать определить, где в системе швы, по
-  которым надо резать).
-- Пригласить практиков DDD, чтобы они вас научили.
-- Пошагово отрефакторить необходимые части системы. Помните! Далеко не все части нуждаются в подобном рефакторинге.
-  Выделение моделей и переработка кода необходима только там, где бизнес получит от этого максимальную выгоду.
-
-#### Как научить человека DDD без его ведома
-
-Конечно же, через практику. Просто не говорите человеку заранее, что учите его DDD, не пугайте раньше времени.
-
-Пусть человек приходит и получает задачки. Не говорите ему, что это DDD, пусть просто делает. Он сделает, исходя из
-того, как он понимает
-солиды и всё такое. Потом, когда он будет сдавать работу, ему нужно сказать: «Дорогой чувак, оно вроде работает, но его
-нужно переделать», — и
-объясняете ему почему.
-
-Не заставляйте читать или учить всё целенаправленно. Будьте интерактивными в этом плане. Так человек за 3-5 месяцев
-начнёт понимать базовые
-принципы DDD: с точки зрения реализации, с точки зрения теории. Паттерны он начнёт понимать ещё раньше по артефактам
-подхода – картам контекстов.
-Сначала людям будет ничего непонятно, но постепенно они врубятся, а некоторые даже книжки начнут читать.
-
-#### Умею DDD — неважная строчка для резюме в СНГ
-
-Если вы находитесь в СНГ и знаете DDD — это круто. Но далеко не факт, что сами знания DDD пригодятся в работе. Скорее,
-это будет служить
-индикатором для работодателя о вашем высоком уровне развития как разработчика. Ведь навыки, которые вы приобретаете,
-изучая подход DDD,
-развивают вас как программиста и как проектировщика (архитектора).
-
-А вот если вы задумываетесь о переезде за границу, то такая строчка в резюме может оказать положительное влияние. За
-границей DDD-комьюнити
-намного больше, и сам подход намного популярнее, чем у нас. Особенно в Европе.
-
-### Test Driven Development [&uarr;](#Readme)
-
-В мире разработки подход, при котором тесты пишутся до кода, называется Test-Driven Development (TDD).
-
-На сегодняшний день, TDD – это процесс разработки программного обеспечения, использующий очень короткий цикл обратной
-связи, при котором разработчики:
-
-- Создают тест, который не может быть пройден.
-- Пишут рабочий код, который пройдёт тест.
-- Делают рефакторинг кода, написанного на втором шаге, используя созданный тест доводят код до совершенства.
-
-Целью TDD является спецификация, а не валидация. Это один из способов продумать требования или дизайн до того, как
-функциональный код будет
-написан. TDD даёт возможность написать чистый код, который работает.
+### Avoid Premature Optimization (APO)
+
+This practice warns against optimizing code before the need is proven. If you follow KISS or YAGNI, you will likely
+avoid this trap.
+
+It is good to anticipate problems, but before you dive into optimization, make sure it is actually useful.
+
+A simple example is scaling. You would not buy 40 servers just because your new app might be popular. You add servers
+when you need them.
+
+Premature optimization can delay delivery and increase time to market.
+
+Many consider premature optimization the root of all evil.
+
+### Occam's Razor
+
+In programming, this means: do not create unnecessary entities. Be pragmatic and consider whether they are needed,
+because they can complicate your codebase.
+
+## Patterns and Anti-patterns [&uarr;](#design-and-development-principles)
+
+### What are patterns?
+
+A design pattern is a common reusable solution to a recurring problem in software design. Patterns describe
+relationships and interactions between classes and help build flexible systems. Using patterns appropriately increases
+reuse of proven solutions.
+
+### What are anti-patterns?
+
+Anti-patterns are the opposite of patterns. If patterns are examples of good practices, anti-patterns are templates for
+common mistakes. Avoiding anti-patterns is part of good engineering.
+
+Anti-patterns are a developer's main enemies. They often appear due to pressure from stakeholders, project managers, or
+just lack of time, which can lead to serious problems and unstable systems later.
+
+### Copy and Paste Programming
+
+When a developer needs two similar functions, the easiest option is to write one and copy it with small changes. This
+causes problems:
+
+- Portability suffers. If you need similar functionality elsewhere, you must locate all copies and move them.
+- Code quality drops. Developers often forget to update copied code correctly.
+- Maintenance becomes harder. If the original had a bug, the bug exists in all copies and must be fixed everywhere.
+- Code review becomes more difficult because there is more code with no real benefit.
+
+### Spaghetti Code
+
+Spaghetti code is poorly structured and hard to understand. It often includes copy-paste anti-patterns. Even the author
+may not understand it later. In OOP, spaghetti code often appears as a few objects with huge methods. Causes include
+"it works" thinking, weak code review, lack of OOP experience, and distributed teams. Spaghetti code should not be
+reused. If you need to extend it, refactor it or rewrite that part. Spend time now to save much more later.
+
+### Golden Hammer
+
+This is the belief that one solution is universal. In practice, it is applying one pattern to all tasks. Many developers
+use this anti-pattern unknowingly, thinking they are competent because they know one pattern. Beginners often avoid
+learning new tools and solve everything with the one method they know.
+
+### Magic Numbers
+
+A magic number is a constant used without meaning or context. It carries no semantic information without a comment.
+When non-obvious numbers appear in code, readability suffers. Over time, even the author cannot explain the logic.
+Magic numbers make refactoring harder. Causes include rushing and lack of practice.
+
+### Hard Code
+
+Hard coding is embedding environment data in code: file paths, process names, device names, and so on. It is tightly
+linked to magic numbers. Hard-coded values reduce portability. Code works on the developer's system but breaks when
+files move, names change, or devices differ. Developers quickly forget what they hard-coded, making it hard to find. The
+solution is to ban hard coding and enforce good code review.
+
+### Soft Code
+
+Soft coding is a paranoid fear of hard coding. It leads to configuring everything, making configuration complex and
+opaque. It wastes time and resources. Before solving a task, decide what must be configurable and what can be fixed or
+auto-detected.
+
+### Accidental Complexity
+
+In simple terms: overcomplication. Any solution can be made unnecessarily complex with extra checks, soft coding, or
+lack of optimization. This makes code harder to understand and slower. Causes include poor refactoring or low
+competence. Solve it with good code review and refactoring.
+
+### Boat Anchor
+
+This anti-pattern keeps unused parts of a system after optimization or refactoring. Some code remains "just in case".
+It only adds weight without value.
+
+### Reinventing the Wheel
+
+This is creating your own solution when good solutions already exist. The developer thinks they are best and tries to
+solve every task from scratch. This wastes time and often leads to suboptimal solutions. You should still know how to
+solve problems yourself, but you must be aware of existing solutions and use them when appropriate.
+
+### Reinventing the Square Wheel
+
+This is creating a worse solution when a better one exists. It wastes time twice: first on the bad implementation, then
+on refactoring and replacing it. Developers should know existing solutions and their tradeoffs.
+
+### Lava Flow
+
+At some point you may find code that has not changed for a long time and is undocumented, with comments like "I do not
+know how it works, but it works. Do not delete." If you do nothing, it stays forever. Refactoring it is difficult,
+especially if the author is gone. Prevent this by designing for future changes, not by writing irreplaceable code.
+Causes include one-developer systems, no code review, and architecture mistakes.
+
+### Programming by Permutation
+
+Many beginners solve tasks by trial and error: tweaking parameters, changing call order, and so on. This fixes symptoms
+without understanding. If you do not understand the root cause, you will miss scenarios and waste time later.
+
+### Blind Faith
+
+This anti-pattern is insufficient validation of input data, error handling, or results. Developers assume ideal
+conditions and no bad input. But you cannot trust any code, even your own. Still, do not go to the other extreme of
+paranoia and accidental complexity. Validate input and consider failures.
+
+### Thoughtless Commenting
+
+This leads to many useless comments. Do not comment just to comment. Comments should document important information and
+help understanding for your future self and others. Do not have conversations in comments; use code review tools or
+direct discussion.
+
+### God Object
+
+A god object takes on too many responsibilities or holds too much data. The code becomes hard to understand and
+maintain, and the whole system depends on it. Causes include low competence or giving one developer too much work. The
+solution is to split responsibilities into smaller units.
+
+## Design Patterns [&uarr;](#design-and-development-principles)
+
+### [Creational](Creational)
+
+* [ ] [Abstract Factory](Patterns/Creational/AbstractFactory)
+* [ ] [Builder](Patterns/Creational/Builder)
+* [ ] [Factory Method](Patterns/Creational/FactoryMethod)
+* [ ] [Object Pool](Patterns/Creational/Pool)
+* [ ] [Prototype](Patterns/Creational/Prototype)
+* [ ] [Simple Factory](Patterns/Creational/SimpleFactory)
+* [ ] [Singleton](Patterns/Creational/Singleton)
+* [ ] [Static Factory](Patterns/Creational/StaticFactory)
+
+### [Structural](Structural)
+
+* [ ] [Adapter](Patterns/Structural/Adapter)
+* [ ] [Bridge](Patterns/Structural/Bridge)
+* [ ] [Composite](Patterns/Structural/Composite)
+* [ ] [Data Mapper](Patterns/Structural/DataMapper)
+* [ ] [Decorator](Patterns/Structural/Decorator)
+* [ ] [Dependency Injection](Patterns/Structural/DependencyInjection)
+* [ ] [Facade](Patterns/Structural/Facade)
+* [ ] [Fluent Interface](Patterns/Structural/FluentInterface)
+* [ ] [Flyweight](Patterns/Structural/Flyweight)
+* [ ] [Proxy](Patterns/Structural/Proxy)
+* [ ] [Registry](Patterns/Structural/Registry)
+
+### [Behavioral](Behavioral)
+
+* [ ] [Chain of Responsibility](Patterns/Behavioral/ChainOfResponsibility)
+* [ ] [Command](Patterns/Behavioral/Command)
+* [ ] [Interpreter](Patterns/Behavioral/Interpreter)
+* [ ] [Iterator](Patterns/Behavioral/Iterator)
+* [ ] [Mediator](Patterns/Behavioral/Mediator)
+* [ ] [Memento](Patterns/Behavioral/Memento)
+* [ ] [Null Object](Patterns/Behavioral/NullObject)
+* [ ] [Observer](Patterns/Behavioral/Observer)
+* [ ] [Specification](Patterns/Behavioral/Specification)
+* [ ] [State](Patterns/Behavioral/State)
+* [ ] [Strategy](Patterns/Behavioral/Strategy)
+* [ ] [Template Method](Patterns/Behavioral/TemplateMethod)
+* [ ] [Visitor](Patterns/Behavioral/Visitor)
+
+### Additional
+
+* [ ] [Service Locator](Patterns/Other/ServiceLocator)
+* [ ] [Repository](Patterns/Other/Repository)
+* [ ] [Entity-Attribute-Value](Patterns/Other/Attribute)
+
+## Domain-Driven Design (DDD) [&uarr;](#design-and-development-principles)
+
+### What is DDD (explainable even to a child or a marketer)
+
+DDD is an approach focused on understanding the business domain as a whole or specific business processes. It is great
+for projects where business logic is complex. The goal is to reduce that complexity as much as possible.
+
+Outside DDD, developers often focus on technology and infrastructure: how to send messages, store data, which DB to
+use. DDD says these are important but secondary. Business is primary and should come first. DDD teaches developers to
+speak the same language as the business. This is the Ubiquitous Language.
+
+DDD also provides a foundation for strategic and tactical modeling. Strategic design helps identify the most important
+areas based on business value. Tactical modeling helps build a working domain model using proven building blocks.
+
+### The three pillars of DDD
+
+Domain-Driven Design is focused on three core principles:
+
+- Ubiquitous Language: domain experts and developers work together to create a shared language for the business domain.
+  This is a single team, not opposing sides. Software development is a business investment, not just a cost. A shared
+  language spreads deep domain understanding across the team.
+- Strategic Design: focuses on business strategy, not just technical details. It helps identify internal relationships
+  and early warning feedback loops. Technically, it protects each business service and supports service-oriented
+  architecture.
+- Tactical Design: provides tools and building blocks for iterative development. It helps create software that is
+  correct, testable, and less error-prone.
+
+### The DDD highlight: Bounded Context
+
+A Bounded Context is a key DDD tool. It is an explicit boundary inside which the domain model exists. It maps the
+ubiquitous language into the software model. Bounded contexts let you split code into modules, packages, or components
+so changes in one have minimal impact on others.
+
+For developers, this means you can change code without worrying about breaking other areas. For team leads, it enables
+parallel work and speeds up delivery.
+
+### How to know when to use DDD
+
+Count the number of use cases. If you have about 10-15, business logic is not that complex and you can skip DDD.
+
+If you have 30-50 or more UX cases and they heavily overlap, consider applying DDD at least in part of the system.
+
+### How to introduce DDD bottom-up
+
+Imagine you are a developer who likes DDD and wants to apply it in your company.
+
+Starting a guerrilla adoption alone is hard. You may lack knowledge, and your team might think you are wasting time.
+
+Start by creating an initiative group: try the approach together, understand the nuances, and practice. Then talk to
+an architect or CTO about its value. Remember: DDD is not needed everywhere. It solves specific problems, so do not go
+too far.
+
+A side effect is that even aiming for DDD pushes people into a mindset of "divide, reduce coupling, and focus on
+business logic." That leads to better code and faster work, even if you do not implement full DDD artifacts. The code
+stays code, but quality and speed improve.
+
+### How to introduce DDD top-down
+
+- Make sure DDD helps in your specific case.
+- Find someone with architecture skills to identify system boundaries.
+- Invite DDD practitioners to teach the team.
+- Refactor step by step. Not all parts need this; refactor only where business value is highest.
+
+### How to teach DDD without them knowing
+
+Through practice. Do not tell a person up front that you are teaching DDD.
+
+Give tasks. Let them solve them based on their understanding of SOLID and similar ideas. When they deliver, say: "It
+works, but it needs rework," and explain why.
+
+Do not force reading. Be interactive. In 3-5 months they will start understanding DDD basics in practice and in theory.
+They will recognize patterns earlier through artifacts like context maps. At first they will be confused, then they will
+start to get it, and some will even read books.
+
+### "I know DDD" is a weak resume line in the CIS
+
+If you are in the CIS and know DDD, that is cool. But it does not mean you will use it at work. More often it signals a
+high level of maturity to employers. The skills you gain by studying DDD develop you as a developer and architect.
+
+If you plan to move abroad, that line can have a positive effect. DDD communities are larger abroad and the approach is
+more popular, especially in Europe.
+
+## Test-Driven Development (TDD) [&uarr;](#design-and-development-principles)
+
+In software development, writing tests before code is called Test-Driven Development (TDD).
+
+TDD is a short feedback cycle where developers:
+
+- Write a test that fails.
+- Write code that passes the test.
+- Refactor the code from step two, using the test to keep it correct.
+
+The goal of TDD is specification, not validation. It is a way to think about requirements and design before writing
+functional code. TDD helps you produce clean, working code.
 
 ![image_processing20230301-45-5a81s0.png](images%2Fimage_processing20230301-45-5a81s0.png)
 
-#### Преимущества TDD
+### TDD advantages
 
-- `Уменьшает зависимость от отладки`: поскольку вначале основное внимание уделяется написанию тестов, а затем – созданию
-  кода, предназначенного для прохождения указанных тестов, многие разработчики считают, что жизненный цикл может
-  значительно сократить потребность в отладке. Поскольку во время написания и кодирования теста требуется более глубокое
-  понимание логических и функциональных требований, причину неудачного теста часто можно быстро распознать и устранить.
-- `Анализирует пользовательский опыт`: процесс первоначального осмысления и написания теста заставляет мозг программиста
-  работать наоборот: сначала продумывать, как будет использоваться функция и как она может быть реализована, а только
-  потом, как должен быть написан тест. Это побуждает учитывать особенности пользователя.
-- `Сокращает общее время разработки`: практика показывает, что уменьшается общее время разработки проекта по сравнению с
-  традиционными методами написания кода. В то время как общее количество строк кода увеличивается (из-за тестов), частое
-  тестирование исключает ошибки в процессе и выявляет существующие намного раньше, предотвращая возникновение проблем в
-  дальнейшем.
+- Reduces reliance on debugging. Writing tests first and then coding to satisfy them often reduces debugging time.
+  Writing tests requires understanding requirements deeply, so failures are easier to diagnose.
+- Improves user perspective. Writing the test first forces you to think about how the user will use the feature, which
+  helps with UX.
+- Reduces overall development time. Although test code increases total lines, frequent testing prevents errors early and
+  avoids bigger problems later.
 
-#### Недостатки тест-ориентированной разработки
+### TDD disadvantages
 
-- `Не любит большой дизайн`: поскольку разработчики пишут самый простой из возможных тестов, а затем проходят этот тест
-  с помощью максимально простого кода, это приводит к серьезному дефициту возможностей в отношении общего дизайна
-  функции или всего проекта. При использовании подобной практики слишком легко не заметить крупных ошибок, так как все
-  внимание сосредоточено на мелочах.
-- `Не подходит для всех`: метод отлично зарекомендовал себя для работы с небольшими проектами или даже с небольшими
-  компонентами или функциями крупных проектов. К сожалению, методика может давать сбои при применении к очень объёмным
-  или сложным проектам. Написание тестов для сложной функции, которую программист ещё полностью не представляет, может
-  быть трудным, и даже невозможным. Написание тестов – это хорошо, но если эти новые тесты не совсем точно соответствуют
-  требованиям функции, они бесполезны (или даже могут активно препятствовать разработке). Более того, некоторые проекты,
-  особенно те, которые используют устаревший код или сторонние системы, просто не поддаются практическим методам. Для
-  них практически невозможно создать тесты, которые должным образом интегрируются с этими системами или с устаревшим
-  кодом.
-- `Требует дополнительных затрат времени`: хотя время, затрачиваемое на предварительную генерацию тестов, экономится
-  позднее в жизненном цикле разработки. Тем не менее, для подготовки и написания тестов требуется значительное время.
-  Его многие разработчики предпочитают потратить на написание нового кода или рефакторинг существующего.
+- Does not favor big design. Writing the simplest test and simplest code can lead to weak overall design. It is easy to
+  miss large issues while focusing on small ones.
+- Not for all projects. TDD works well for small projects or components, but can be hard on very large or complex
+  systems. Writing tests for complex features that are not fully understood may be very difficult. Tests that do not
+  match requirements are useless and can block development. Legacy systems and third-party integrations can also make
+  TDD impractical.
+- Requires additional time. Although upfront tests save time later, writing them still takes significant time, which
+  many developers prefer to spend on new code or refactoring.
 
-#### Резюме
+### Summary
 
-Разработка через тестирование – это метод, который в настоящее время широко используется и становится все более
-популярным. Причина его
-популярности заключается в том, что усилия, необходимые для его освоения, не так велики, как для экстремального
-программирования, частью
-которого является TDD. Хотя у разработчика с самого начала должна быть дисциплина для написания и запуска тестов, без
-него не было бы
-программирования, управляемого тестами. Из-за своей природы метод может использоваться в сочетании с различными
-практиками разработки на более
-низком уровне (например, в течение одной итерации) и даже в более широком спектре проектов.
+Test-driven development is widely used and increasingly popular. It is easier to learn than some extreme programming
+methods. It requires discipline to write and run tests, but it enables test-driven development.
 
-TDD подчеркивает важность эффективного и устойчивого подхода к тестированию. TDD также напрямую влияет на общее качество
-программного обеспечения.
-Это трюизм для разработки малых или больших систем, который часто упускается, чтобы получить новые функциональные
-возможности для производства.
-Качественное программное обеспечение создается, когда признается, что тестовый код должен получать столько же внимания и
-ресурсов, сколько и
-производственный код, поскольку они одинаково важны при разработке.
+TDD emphasizes robust testing and directly affects software quality. This is true for small and large systems, but it
+is often ignored in the rush to deliver features. Quality software is built when test code gets as much attention as
+production code.
 
-### CQRS [&uarr;](#Readme)
+## CQRS [&uarr;](#design-and-development-principles)
 
-CQRS расшифровывается как Command Query Responsibility Segregation (разделение ответственности на команды и запросы). В
-1980 Бертран Мейер
-сформулировал термин CQS. В начале двухтысячных Грег Янг расширил и популяризовал эту концепцию к CQRS. CQRS предлагает
-разделять операции
-чтения и записи на отдельные типы операций Query и Commands.
+CQRS stands for Command Query Responsibility Segregation. In 1980 Bertrand Meyer introduced CQS. In the early 2000s
+Greg Young extended and popularized it as CQRS. CQRS separates read operations (queries) from write operations
+(commands).
 
-- Command ориентированы на задачи, а не на данные. ("Забронировать номер в отеле", а не установить для ReservationStatus
-  значение "зарезервировано" ).
-- Command может помещаться в очередь для асинхронной обработки, а не обрабатываться синхронно.
-- Query никогда не должен изменять базу данных. Query возвращает DTO, который не инкапсулирует знания предметной
-  области.
+- Commands are task-oriented, not data-oriented. For example, "Book a hotel room" rather than "set
+  ReservationStatus to reserved".
+- Commands can be queued for asynchronous processing.
+- Queries never modify the database. A query returns a DTO that does not encapsulate domain knowledge.
 
-Чаще всего (но не всегда) CQRS реализуется в ограниченных контекстах (bounded context) приложений, проектируемых
-на основе DDD. Одна из естественных причин развития CQRS — не симметричное распределение нагрузки и сложности
-бизнес-логики на read и
-write — подсистемы Большинство бизнес-правил и сложных проверок находится во write — подсистеме. При этом читают данные
-зачастую в разы чаще,
-чем изменяют.
+CQRS is often (but not always) implemented in bounded contexts of DDD-based applications. One natural reason is
+asymmetric load and complexity between read and write subsystems. Most business rules and complex checks are in the
+write subsystem, while reads are often much more frequent.
 
-Схематически работу клиента по CQRS модели можно отобразить следующим образом:
+The CQRS flow looks like this:
 
 ![Screenshot from 2023-03-15 17-09-34.png](images%2FScreenshot%20from%202023-03-15%2017-09-34.png)
 
-- `CQRS (Command Query Responsibility Segregation)` — выделение в отдельные сущности операции чтения и записи. Например
-  пишем в мастер, читаем из реплики. CQRS. Факты и заблуждения — поможет досконально познать дзен CQRS.
-- `ES (Event Sourcing)` — хранение всех изменений состояния какой-либо сущности или набора сущностей.
-- `CQRS/ES` — это архитектурный подход при котором мы сохраняем все события изменения состояния какой либо сущности в
-  таблице событий и добавляем к этому агрегат и проектор.
-- `Агрегат` — хранит в памяти свойства, необходимые для принятия решений бизнес логики (для ускорения записи), принимает
-  решения (бизнес логика) и публикует события.
-- `Проектор` — слушает события и пишет в отдельные таблицы или базы (для ускорения чтения).
+- CQRS (Command Query Responsibility Segregation): separates read and write operations. For example, write to master,
+  read from replicas.
+- ES (Event Sourcing): store all changes in state of an entity or set of entities.
+- CQRS/ES: an approach where you store all state change events in an event table and add an aggregate and projector.
+- Aggregate: holds in-memory properties needed for business decisions (faster writes), makes decisions, and publishes
+  events.
+- Projector: listens to events and writes to separate tables or databases (faster reads).
 
-👍 Преимущества CQRS
+### CQRS pros
 
-- `Независимое масштабирование`. CQRS позволяет раздельно масштабировать рабочие нагрузки чтения и записи, снижая риск
-  конфликтов блокировки.
-- `Оптимизированные схемы данных`. Для query применить схему, оптимизированную для запросов, а commands — другую схему,
-  оптимизированную для обновлений.
-- `Безопасность`. Разделение операций позволит настроить более гибкую систему доступа.
-- `Разделение проблем`. Разделение операций позволяет получить более гибкие и простые в обслуживании классы.
-- `Более простые запросы`. Сохраняя в базе данных для чтения materialized view, вы предотвратите использование сложных
-  запросов и join'ов.
-- `Не требует 2 хранилища данных`. Отдельные хранилища для query и command это одна из реализаций, а не обязательное
-  требование
+- Independent scaling. CQRS scales read and write workloads separately, reducing lock contention.
+- Optimized data schemas. You can optimize schemas differently for queries and commands.
+- Security. Separating operations allows more flexible access control.
+- Separation of concerns. Classes become simpler and easier to maintain.
+- Simpler queries. You can keep materialized views and avoid complex joins.
+- Does not require two data stores. Separate stores are one possible implementation, not a requirement.
 
-👎 Недостатки CQRS
+### CQRS cons
 
-- `Сложность`. Основная идея CQRS звучит просто. Но ее реализация может привести к усложнению проекта приложения,
-  особенно если реализовывать его в связке с Event Sourcing.
-- `Обмен сообщениями`. Сама по себе модель CQRS не требует месседжинга, но месседж брокеры часто применяются для
-  обработки команд и публикации событий. Это означает, нужно будет реализовывать обработку сбоев и дубликатов при
-  передаче сообщений.
-- `Eventual consistency`. Если вы разделите базы данных для чтения и записи, в базе данных для чтения могут оставаться
-  устаревшие данные. БД для чтения должна быть up to date, чтобы отражать изменения из БД для записи, и может быть
-  трудно трекать, когда пользователь сделал запрос на основе устаревших данных с БД для чтения.
+- Complexity. The idea is simple, but implementation can complicate the project, especially with Event Sourcing.
+- Messaging. CQRS does not require messaging, but message brokers are often used for commands and events. This means you
+  must handle failures and duplicates.
+- Eventual consistency. If you split read and write stores, the read model can be stale. Keeping it up to date can be
+  challenging.
 
-### Event Sourcing [&uarr;](#Readme)
+## Event Sourcing [&uarr;](#design-and-development-principles)
 
-Event sourcing (источники событий, регистрация событий, генерация событий) — это архитектурный паттерн, в котором все
-изменения, вносимые в
-состояние приложения, сохраняются в той последовательности, в которой они были выполнены. Эти записи служат как
-источником для получения текущего
-состояния, так и audit-log'ом того, что происходило в системе. Event sourcing способствует децентрализованному изменению
-и чтению данных.
-Такая архитектура хорошо масштабируется и подходит для систем, которые уже работают с событиями или подходят для
-миграции на такую архитектуру.
+Event sourcing is an architectural pattern where all changes to application state are stored in the order they occurred.
+These records are both a source of current state and an audit log of what happened. Event sourcing decentralizes data
+changes and reads. It scales well and suits systems that already use events or can migrate to event-based architecture.
 
-Event sourcing идет в ногу с CQRS. "DELUXE" cхема связки CQRS + Event Sourcing выглядит следующим образом:
+Event sourcing goes hand in hand with CQRS. A "deluxe" CQRS + Event Sourcing diagram looks like this:
 
 ![event_sourcing.png](images%2Fevent_sourcing.png)
 
-У Event sourcing есть следующие преимущества и недостатки:
+### Event Sourcing pros
 
-👍 Преимущества Event Sourcing
+- Events are immutable and can be stored with append-only operations.
+- Events can be processed asynchronously.
+- Event sourcing helps prevent conflicts from concurrent updates by avoiding direct updates in the data store. The
+  domain model must still protect itself from inconsistent requests.
+- Append-only storage provides an audit log that can be used for monitoring, rebuilding state as materialized views or
+  projections, and for testing and debugging.
+- Each event can be handled by multiple tasks, which simplifies integration with other services that listen for new
+  events. However, event sourcing events are often low-level, so integration events may be needed.
 
-- События immutable, и их можно сохранить с помощью append-only операции.
-- События могут раниться на фоне.
-- Event sourcing может помочь в предотвращении конфликтов, вызванных параллельными апдейтами, тк исключает необходимость
-  непосредственного обновления объектов в Data store. Однако доменная модель должна уметь себя защищать от запросов,
-  которые могут вызвать несогласованное состояние.
-- Append-only storage предоставляет audit log, который можно использовать для мониторинга событий, произошедших в Data
-  store, повторного создания текущего состояния в виде materialized view или проекций путем воспроизведения событий в
-  любое время, а также упрощения тестирования и отладки системы.
-- Каждое событие могут обрабатывать несколько задач. Это обеспечивает простую интеграцию с другими службами и системами,
-  которые только слушают новые события, вызванные data stor'ом. Однако event sourcing events зачастую являются
-  низкоуровневыми, из-за чего может потребоваться создание определенных событий интеграции.
+### Event Sourcing cons
 
-👎 Недостатки CQRS
+- The biggest challenge is mindset change. Developers must move away from CRUD-based entity storage and think in events.
+- Event modeling requires effort. Once events are stored, they must be immutable, or history and state can be corrupted.
+  The event log is the source of truth, so events must contain all information needed to reconstruct state at any time.
+  Events may be reinterpreted as systems and businesses evolve.
+- Event sourcing can be easy for simple logic but hard for complex domains with many relationships. Integrations with
+  external systems that do not provide historical snapshots can also be difficult.
+- Event sourcing scales horizontally (event logs can be separate), but this introduces additional problems such as
+  troubleshooting and eventual consistency.
+- Event structure can change over time. Historical events may need to be processed by new business logic. A versioned
+  event schema helps distinguish new events from old ones. Periodic snapshots help separate major event structure
+  changes.
 
-- Самые большие сложности обычно связаны с перестроением мышления разработчиков. Разработчики должны забыть про обычные
-  CRUD-приложения и хранилища сущностей. Теперь основной концепцией становятся события.
-- При Event Sourcing много сил тратится на моделирование событий. После сохранения событий в сторедж они должны быть
-  immutable, иначе история и состояние могут быть повреждены или искажены. Event Log — это исходные данные, а это
-  значит, что необходимо очень внимательно следить за тем, чтобы они содержали всю информацию, необходимую для получения
-  полного состояния системы на определенный момент времени. Также необходимо учитывать, что события могут
-  интерпретироваться повторно, поскольку система (и бизнес, который она представляет) со временем изменяются.
-- Для простой бизнес логики переход на Event Sourcing может быть довольно легким, но для более сложных может стать
-  проблемой (особенно с большим количеством зависимостей и отношений между сущностями). Так же могут возникнуть
-  сложности интеграции с внешними системами, которые не предоставляют данные на определенный момент времени.
-- Event Sourcing может работать хорошо в больших системах, так как паттерн «Event Log» естественным образом
-  масштабируется горизонтально. Например, event log одной сущности необязательно должен физически находиться вместе с
-  журналом событий другой сущности. Однако, такая легкость масштабирования приводит к дополнительным проблемам в виде
-  решения проблем и реализацией eventual consistency.
-- Важно учитывать структуру событий. Структура событий может измениться в какой-то момент, например набор полей. Могут
-  возникнуть ситуации, когда исторические события должны быть обработаны текущей бизнес-логикой. И наличие расширяемой
-  схемы событий поможет в будущем при необходимости отличать новые события от старых. Периодические снапшоты также
-  помогают отделить серьезные изменения структуры событий.
+### When to use Event Sourcing
 
-Когда следует использовать Event Sourcing
+- When you need to store intent, purpose, or reason. For example, changes to a customer entity can be recorded as a
+  sequence of events such as Reinstated, AccountClosed, or Invalidated.
+- When it is critical to minimize or eliminate update conflicts.
+- When you need to record events and replay them to restore state, roll back changes, or keep history and audit logs.
+  For example, when a task has multiple steps that must be replayed to restore consistency.
+- When events are a standard output of the application and worth the extra implementation effort.
+- When you want to split input/update processing from application of changes, for example to improve UI performance or
+  distribute events to other listeners such as payment systems.
+- When you need flexibility to change materialized models and entity data formats as requirements evolve, especially
+  with CQRS where the read model can be adapted.
+- When eventual consistency is acceptable for the read model and some performance impact is acceptable during
+  rehydration.
 
-- Когда в данные необходимо записать намерение, цель или причину. Например, изменения в сущности клиента можно записать
-  как ряд определенных типов событий, таких как Возвращение к исходному, Закрытая учетная запись или Недействительные.
-- Когда очень важно свести к минимуму или полностью избежать конфликта операций обновления данных.
-- Если требуется записывать происходящие события и иметь возможность воспроизвести их для восстановления определенного
-  состояния системы, отката изменений или сохранения истории и audit-log. Например, если задача включает несколько
-  шагов, необходимых для восстановления обновлений и последующего воспроизведения некоторых действий для восстановления
-  согласованного состояния данных.
-- Когда использование событий представляет собой стандартную возможность операции приложения и требует некоторой
-  дополнительной разработки или усилий в отношении реализации.
-- Если нужно разбить процесс ввода или обновления данных из задач, необходимых для применения этих действий. Это может
-  быть в целях улучшения производительности пользовательского интерфейса или распределения событий в другие
-  прослушиватели, выполняющие определенные действия при возникновении событий. Например, интеграция платежной системы с
-  веб-сайтом о расходах требуется для того, чтобы события, вызванные с помощью хранилища событий в ответ на обновления
-  данных, реализованные для веб-сайта, использовались как веб-сайтом, так и платежной системой.
-- Если необходима гибкость для изменения формата материализованных моделей и данных сущности при изменении требований
-  или —использовании в сочетании с CQRS, необходимо адаптировать модель чтения или представления с данными.
-- Если используется в сочетании с CQRS, eventual consistency допустима при обновлении модели чтения или допустимо
-  влияние на производительность при восстановленных сущностях и данных из потока события.
+### When not to use Event Sourcing
 
-Когда не следуюет использовать Event Sourcing
-
-- Для небольших или простых доменов, систем, которые обычно хорошо взаимодействуют со стандартными механизмами
-  управления данных CRUD.
-- Систем, где для представления данных требуются согласованность и обновления в режиме реального времени.
-- Систем, где для действий отката и воспроизведения не требуются определенные функции, история и audit-log.
-- Систем, где имеется незначительный конфликт обновлений в базовых данных. Например, это системы, которые
-  преимущественно добавляют данные, а не обновляют их.
-
-
-
+- Small or simple domains that work well with standard CRUD data management.
+- Systems that require strong consistency and real-time updates.
+- Systems that do not require rollback, replay, or audit history.
+- Systems with minimal update conflicts, for example systems that mostly append data rather than update it.

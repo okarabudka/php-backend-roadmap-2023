@@ -1,44 +1,44 @@
 <?php
 /**
- * Паттерн Наблюдатель (Observer)
- * Описана модель проталкивания
+ * Observer pattern
+ * Push model is described
  */
 
 namespace Pattern;
 
 /**
- * Базовый абстрактный класс Subject, описывает интерфейс издателя
+ * Base abstract class Subject describes the publisher interface
  */
 abstract class Subject
 {
     /**
-     * Добавляет подписчика
+     * Adds a subscriber
      *
-     * @param Observer $observer - подписчик
+     * @param Observer $observer - subscriber
      */
     public abstract function attach(Observer $observer);
 
     /**
-     * Отправляет уведомления методом проталкивания
+     * Sends notifications using the push method
      */
     public abstract function notify();
 }
 
 /**
- * Базовый абстрактный класс Observer, описывает интерфейс подписчиков
+ * Base abstract class Observer describes the subscriber interface
  */
 abstract class Observer
 {
     /**
-     * Обновляет состояние подписчика
+     * Updates the subscriber state
      *
-     * @param string $state - состояние
+     * @param string $state - state
      */
     public abstract function update($state);
 }
 
 /**
- * ConcreteSubject, реализует издателя
+ * ConcreteSubject implements the publisher
  */
 class ConcreteSubject extends Subject
 {
@@ -52,9 +52,9 @@ class ConcreteSubject extends Subject
     protected $observers;
 
     /**
-     * Добавляет подписчика
+     * Adds a subscriber
      *
-     * @param Observer $observer - подписчик
+     * @param Observer $observer - subscriber
      */
     public function attach(Observer $observer)
     {
@@ -62,7 +62,7 @@ class ConcreteSubject extends Subject
     }
 
     /**
-     * Отправляет уведомления методом проталкивания
+     * Sends notifications using the push method
      */
     public function notify()
     {
@@ -73,7 +73,7 @@ class ConcreteSubject extends Subject
 }
 
 /**
- * ConcreteObserver, реализует подписчика
+ * ConcreteObserver implements the subscriber
  */
 class ConcreteObserver extends Observer
 {
@@ -83,9 +83,9 @@ class ConcreteObserver extends Observer
     public $state;
 
     /**
-     * Обновляет состояние подписчика
+     * Updates the subscriber state
      *
-     * @param string $state - состояние
+     * @param string $state - state
      */
     public function update($state)
     {

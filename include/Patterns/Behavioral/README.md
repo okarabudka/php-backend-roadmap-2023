@@ -1,44 +1,43 @@
-## Поведенческие паттерны (Behavioral)
+## Behavioral Patterns
 
-Поведенческие паттерны делятся на два типа:
+Behavioral patterns are divided into two types:
 
-1. Паттерны уровня класса
-2. Паттерны уровня объекта.
+1. Class-level patterns
+2. Object-level patterns
 
-Паттерны уровня класса описывают взаимодействия между классами и их подклассами. Такие отношения выражаются путем
-наследования и реализации классов. Тут базовый класс определяет интерфейс, а подклассы - реализацию.
+Class-level patterns describe interactions between classes and their subclasses. These relationships are expressed
+through inheritance and class implementation. The base class defines the interface, and subclasses provide
+implementations.
 
-Паттерны уровня объекта описывают взаимодействия между объектами. Такие отношения выражаются связями - ассоциацией,
-агрегацией и композицией. Тут структуры строятся путем объединения объектов некоторых классов.
+Object-level patterns describe interactions between objects. These relationships are expressed via associations,
+aggregation, and composition. Structures are built by composing objects of certain classes.
 
-Ассоциация - отношение, когда объекты двух классов могут ссылаться один на другой. Например, свойство класса содержит
-экземпляр другого класса.
+Association is a relationship where objects of two classes can reference each other. For example, a class property
+contains an instance of another class.
 
-Агрегация – частная форма ассоциации. Агрегация применяется, когда один объект должен быть контейнером для других
-объектов и время существования этих объектов никак не зависит от времени существования объекта контейнера. Вообщем, если
-контейнер будет уничтожен, то входящие в него объекты не пострадают. Например, мы создали объект, а потом передали его в
-объект контейнер, каким-либо образом, можно в метод объекта контейнера передать или присвоить сразу свойству контейнера
-извне. Значит при удалении контейнера мы ни как не затронем наш созданный объект, который может взаимодействовать и с
-другими контейнерами.
+Aggregation is a special form of association. It is used when one object acts as a container for other objects and the
+lifetime of those objects does not depend on the lifetime of the container. If the container is destroyed, the contained
+objects remain. For example, you create an object and then pass it into a container object (via a method or directly
+assigning a property). Deleting the container does not affect the created object, which can still interact with other
+containers.
 
-Композиция – Тоже самое, что и агрегация, но составные объекты не могут существовать отдельно от объекта контейнера и
-если контейнер будет уничтожен, то всё его содержимое будет уничтожено тоже. Например, мы создали объект в методе
-объекта контейнера и присвоили его свойству объекта контейнера. Из вне, о нашем созданном объекте никто не знает,
-значит, при удалении контейнера, созданный объект убудет удален так же, т.к. на него нет ссылки извне.
+Composition is similar to aggregation, but composed objects cannot exist independently of the container object. If the
+container is destroyed, all its contents are destroyed as well. For example, you create an object inside a container
+method and assign it to a container property. No external code knows about that object, so when the container is
+removed, the object is removed too because there are no external references.
 
-К паттернам уровня класса относится только «Шаблонный метод».
+The only class-level behavioral pattern is Template Method.
 
-Поведенческие паттерны описывают взаимодействие объектов и классов между собой и пытаются добиться наименьшей степени
-связанности компонентов системы друг с другом делая систему более гибкой.
+Behavioral patterns describe how objects and classes interact and aim to minimize coupling between components, making
+systems more flexible.
 
-* [Цепочка ответственности (Chain Of Responsibility)](ChainOfResponsibility)
-* [Команда (Command)](Command)
-* [Итератор (Iterator)](Iterator)
-* [Посредник (Mediator)](Mediator)
-* [Хранитель (Memento)](Memento)
-* [Наблюдатель (Observer)](Observer)
-* [Состояние (State)](State)
-* [Стратегия (Strategy)](Strategy)
-* [Шаблонный метод (Template Method)](TemplateMethod)
-* [Посетитель (Visitor)](Visitor) 
-
+* [Chain Of Responsibility](ChainOfResponsibility)
+* [Command](Command)
+* [Iterator](Iterator)
+* [Mediator](Mediator)
+* [Memento](Memento)
+* [Observer](Observer)
+* [State](State)
+* [Strategy](Strategy)
+* [Template Method](TemplateMethod)
+* [Visitor](Visitor)

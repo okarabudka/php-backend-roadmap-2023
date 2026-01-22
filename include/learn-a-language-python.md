@@ -1,80 +1,64 @@
 # Python
 
-Python — это скриптовый язык программирования, который используется во многих областях, начиная от IOS и Android и
-заканчивая
-серверными OS.
+Python is a scripting language used in many areas, from iOS and Android to server operating systems.
 
-Плюсы:
+## Pros
 
-- Простой код. Программы на Python легко писать и читать. Если разработчику передадут чужой код, он не потратит много
-  времени, чтобы в нем разобраться. Также в простом синтаксисе легче найти ошибки и уязвимости.
-- Минимум лишних задач. Разработчику не нужно думать о технических моментах, связанных с памятью. Например, Python
-  автоматически удаляет объекты, к которым нет доступа.
-- Кроссфункциональность. Поддержка Python встроена в разные программные платформы и операционные системы, язык можно
-  интегрировать с Java, C и C++. Поэтому написанное на Python приложение не нужно каждый раз переписывать.
-- Широкие возможности. Для Python существует много разных библиотек — наборов готовых функций. Вместо того чтобы писать
-  код с нуля, их можно развернуть буквально двумя строками кода и пользоваться. Например, манипулировать математическими
-  операциями, строить нейросети, автоматизировать процессы.
+- Simple code. Python code is easy to write and read. Developers can understand unfamiliar code quickly. Simple syntax
+  also makes it easier to spot errors and vulnerabilities.
+- Minimal overhead. Developers do not have to think about low-level memory management. For example, Python automatically
+  removes objects that are no longer referenced.
+- Cross-platform and interoperable. Python support is built into many platforms and operating systems. Python can be
+  integrated with Java, C, and C++. Apps written in Python do not need to be rewritten for each platform.
+- Large ecosystem. Python has many libraries with ready-made functions. Instead of writing from scratch, you can install
+  a library and use it quickly. Examples include math operations, neural networks, and process automation.
 
-Минусы:
+## Cons
 
-- Низкая скорость. Операции на языке Python не могут выполняться параллельно, поэтому работают медленнее и требуют
-  больше памяти устройства. Зато код на Python пишется быстрее, и бывает, что это важнее для заказчика.
-  Производительность можно поднять, например, переписав код на другом языке и связав его с Python.
-- Динамическая типизация. В Python можно создать переменную, не обозначая, какого типа данных в нее должны входить —
-  числа, текст или что-то другое. Тогда разработчик может думать, что складывает количество товаров, а на самом деле за
-  переменной скрываются артикулы. В итоге программа может быть написана правильно, но не работать.
+- Low speed. Python operations do not run in parallel and require more memory, so they can be slower. On the other hand,
+  Python code is faster to write, which can be more important. Performance can be improved by moving hot paths to other
+  languages and integrating them with Python.
+- Dynamic typing. You can create a variable without declaring its type. That can lead to confusion: you may think you
+  are summing quantities while actually using IDs. The program might be logically correct but still fail at runtime.
 
-Основные области его применения:
+## Main areas of use
 
-- анализ и визуализация данных;
-- тестирование сервисов;
-- системное администрирование;
-- разработка сайтов и мобильных приложений;
-- разработка приложений;
-- разработка игр (Civilization 4 и The Sims 4 написаны на Python);
-- автоматизация процессов;
-- создание десктопных и веб-приложений (Instagram написан на Python);
-- машинное обучение.
+- Data analysis and visualization
+- Testing services
+- System administration
+- Web and mobile development
+- Application development
+- Game development (Civilization 4 and The Sims 4 use Python)
+- Process automation
+- Desktop and web applications (Instagram uses Python)
+- Machine learning
 
-#### Веб-разработка
+## Web development
 
-Python используется в Back-End разработке и имеет два основных фреймворка: Django и Flask. Они облегчают процесс
-написания кода
-для серверной части приложений.
+Python is used for backend development and has two main frameworks: Django and Flask.
 
-Django выбирают те, которые хотят автоматизировать рабочий процесс, так как этот фреймворк делает множество решений
-самостоятельно и это
-сокращает время разработки. Например, у него уже есть встроенная реализация аккаунта пользователя и вам нужно её только
-подключить.
+Django is chosen by teams that want to automate workflows. It provides many solutions out of the box, such as user
+account functionality.
 
-Flask подходит тем, которые хотят управлять большим пространством и уметь самостоятельно решать задачи с нуля. Это
-микрофреймворк, и он
-предоставляет лишь базовые возможности для разработки. В нём нет встроенных решений задач, как в Django, и вам нужно
-реализовывать их
-самостоятельно.
+Flask is for teams that want more control and to build from scratch. It is a microframework that provides only the
+basics, so you implement most features yourself.
 
-#### Машинное обучение и Data Sience
+## Machine learning and data science
 
-Приведу в пример шахматный движок, под названием AlphaZero. Это нейросеть, которая сама за четыре часа обучения
-научилась играть лучше,
-чем сильнейшие шахматные машины мира.
+For example, AlphaZero is a chess engine that learned to play better than the strongest chess engines after four hours
+of training.
 
-Также ИИ может распознавать предметы, расположенные на картинке. Например, AWS Rekognition, сервис Амазон, который после
-анализа полученной
-картинки, выдаёт результат с ответом, что на ней находится и координаты предметов. Я писал небольшое API для этой
-задачи, его можно посмотреть и поюзать на моём GitHub.
+AI can also recognize objects in images. For example, AWS Rekognition analyzes an image and returns detected objects
+with coordinates. I wrote a small API for this task and published it on my GitHub.
 
-#### Автоматизация процессов
+## Process automation
 
-Одна из самых популярных сфер применения Python — это написание небольших скриптов для автоматизации различных рабочих
-операций и процессов.
+One of the most popular Python uses is writing small scripts to automate routine tasks.
 
-Например, нужно перезаписать данные с Word в Excel-файл. Это можно сделать вручную, но когда таких файлов очень много,
-на помощь может
-прийти написание скрипта, который сделает это самостоятельно и быстро
+For example, you may need to copy data from Word to Excel. You can do it manually, but if you have many files, a script
+can do it quickly.
 
-Есть несколько причин применения Python для задач автоматизации:
+Reasons to use Python for automation:
 
-- простой синтаксис, позволяющий быстро писать сценарии;
-- лёгкость отладки, связанная с тем, что код не компилируется перед запуском.
+- simple syntax, so scripts are quick to write
+- easy debugging, because code is interpreted rather than compiled

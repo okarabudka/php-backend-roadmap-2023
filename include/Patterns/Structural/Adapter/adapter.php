@@ -1,29 +1,29 @@
 <?php
 /**
- * Паттерн Адаптер (Adapter)
+ * Adapter pattern
  */
 
 namespace Pattern;
 
 /**
- * Target, описывает интерфейс с которым наша система хотела бы работать
+ * Target describes the interface our system wants to work with
  */
 interface ITarget
 {
     /**
-     * Адаптирующий метод
+     * Adapter method
      */
     public function request();
 }
 
 /**
- * Adaptee, реализует ту систему, которую нужно адаптировать.
+ * Adaptee implements the system that needs to be adapted.
  */
 class Adaptee
 {
     /**
-     * Специфический Request
-     * Будем его адаптировать
+     * Specific request
+     * It will be adapted
      *
      * @return string
      */
@@ -34,12 +34,12 @@ class Adaptee
 }
 
 /**
- * Adapter, реализует адаптер
+ * Adapter implements the adapter
  */
 class Adapter extends Adaptee implements ITarget
 {
     /**
-     * Адаптирующий метод
+     * Adapter method
      *
      * @return string
      */
