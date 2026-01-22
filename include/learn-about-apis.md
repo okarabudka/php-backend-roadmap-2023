@@ -1,659 +1,493 @@
-# Readme
+# Learn about APIs
 
-#### Список ссылок
+#### Links
 
-- [Введение в REST API — RESTful веб-сервисы](https://habr.com/ru/post/483202/)
-- [Различия REST и SOAP](https://habr.com/ru/post/483204/)
-- [Разработка REST API — что такое Contract First?](https://habr.com/ru/post/483206/)
-- [Разработка REST API — что такое Code First подход?](https://habr.com/ru/post/483322/)
-- [REST API — Что такое HATEOAS?](https://habr.com/ru/post/483328/)
-- [Рекомендации по REST API — примеры проектирования веб-сервисов на Java и Spring](https://habr.com/ru/post/483374/)
-
-
+- [Introduction to REST API - RESTful web services](https://habr.com/ru/post/483202/)
+- [Differences between REST and SOAP](https://habr.com/ru/post/483204/)
+- [REST API development - what is Contract First?](https://habr.com/ru/post/483206/)
+- [REST API development - what is Code First?](https://habr.com/ru/post/483322/)
+- [REST API - what is HATEOAS?](https://habr.com/ru/post/483328/)
+- [REST API recommendations - Java and Spring web service design examples](https://habr.com/ru/post/483374/)
 - [Developing REST APIs](https://dzone.com/articles/developing-rest-apis)
-- [10 API Testing Tips for Beginners (SOAP and REST)](https://dzone.com/articles/10-api-testing-tips-for-beginners-soap-amp-rest)
+- [10 API testing tips for beginners (SOAP and REST)](https://dzone.com/articles/10-api-testing-tips-for-beginners-soap-amp-rest)
+- [gRPC and everything else](https://proglib.io/p/grpc-i-vse-vse-vse-chast-i-vvedenie-2021-03-26)
+- [JSON API - working by the spec](https://habr.com/ru/company/oleg-bunin/blog/433322/)
+- [JSON API implementations](https://jsonapi.org/implementations/#client-libraries-php)
+- [What is GraphQL: from basics to first queries](https://ru.hexlet.io/blog/posts/chto-takoe-graphql-s-osnov-do-pervyh-zaprosov)
+- [Testing PHP API against OpenAPI definitions - Laravel example](https://habr.com/ru/company/otus/blog/565710/)
+- [Why tokens are hard to fake: JWT authorization explained](https://highload.today/blogs/jwt-avtorizatsiya/)
 
+## REST [&uarr;](#learn-about-apis)
 
-- [gRPC и все-все-все](https://proglib.io/p/grpc-i-vse-vse-vse-chast-i-vvedenie-2021-03-26)
+REST stands for REpresentational State Transfer. It is a popular architectural approach for building APIs.
 
+### HTTP protocol
 
-- [JSON API – работаем по спецификации](https://habr.com/ru/company/oleg-bunin/blog/433322/)
-- [JSON API Implementations](https://jsonapi.org/implementations/#client-libraries-php)
-- [Что такое GraphQL: с основ до первых запросов](https://ru.hexlet.io/blog/posts/chto-takoe-graphql-s-osnov-do-pervyh-zaprosov)
+    When you enter a URL in the browser (for example, www.google.com), the browser sends a request to the server
+    identified by that URL.
+    The server forms and returns a response. The format of these requests and responses is defined by HTTP
+    (HyperText Transfer Protocol).
 
+    When you type a URL in the browser, it sends a GET request to the server. The server responds with HTML
+    (HyperText Markup Language), and the browser renders it.
 
-- [Проверка тестов PHP API на соответствие определениям OpenAPI — пример Laravel](https://habr.com/ru/company/otus/blog/565710/)
+    If you submit a form on a page, the browser sends a POST request to the server.
 
+### HTTP and RESTful web services
 
-- [Подделка невозможна: как устроен токен и какие задачи можно решить с помощью JWT-авторизации](https://highload.today/blogs/jwt-avtorizatsiya/)
+HTTP provides the base layer for web services. Key abstractions:
 
-### REST [&uarr;](#Readme)
+Resource
 
-REST - REpresentational State Transfer (Википедия: «передача состояния представления») - это популярный
-архитектурный подход для создания API в современном мире.
+A resource is the key abstraction in HTTP. It is anything you want to expose to the outside world. For example, in a
+work tracking app, resources could be:
 
-Протокол HTTP
+    A specific user
+    A specific task
+    A list of tasks
 
-    Когда вы вводите в браузере URL-адрес, например www.google.com, на сервер отправляется запрос на веб-сайт, идентифицированный URL-адресом.
-    Затем этот сервер формирует и выдает ответ. Важным является формат этих запросов и ответов. Эти форматы определяются протоколом HTTP — Hyper Text Transfer Protocol.
+Resource URI
 
-    Когда вы набираете URL в браузере, он отправляет запрос GET на указанный сервер. Затем сервер отвечает HTTP-ответом, который содержит данные в формате HTML — Hyper Text Markup Language. Затем браузер получает этот HTML-код и отображает его на экране.
+When building RESTful services, you focus on resources. You identify a resource by its URI (uniform resource
+identifier). Examples:
 
-    Допустим, вы заполняете форму, присутствующую на веб-странице, со списком элементов. В таком случае, когда вы нажимаете кнопку «Submit» (Отправить), HTTP-запрос POST отправляется на сервер.
+    Create a user: POST /users
+    Delete a user: DELETE /users/1
+    Get all users: GET /users
+    Get one user: GET /users/1
 
-HTTP и RESTful веб-сервисы
+REST and resources
 
-    HTTP обеспечивает базовый уровень для создания веб-сервисов. Поэтому важно понимать HTTP. Вот несколько ключевых абстракций.
+REST forces you to think in terms of resources:
 
-    Ресурс
+    Define which resources you want to expose.
+    Use HTTP verbs to operate on those resources.
 
-    Ресурс — это ключевая абстракция, на которой концентрируется протокол HTTP. Ресурс — это все, что вы хотите показать внешнему миру через ваше приложение. Например, если мы пишем приложение для управления задачами, экземпляры ресурсов будут следующие:
+Typical REST service characteristics:
 
-        Конкретный пользователь
-        Конкретная задача
-        Список задач
+- Data exchange format: no strict limits. JSON is popular, but XML or others are possible.
+- Transport: HTTP. REST is built on HTTP.
+- Service definition: no formal standard. Some scenarios require request/response specs. WADL and Swagger/OpenAPI are
+  commonly used.
 
+REST focuses on resources and how efficiently you perform operations on them using HTTP.
 
-    URI ресурса
+### HTTP components
 
-    Когда вы разрабатываете RESTful сервисы, вы должны сосредоточить свое внимание на ресурсах приложения. Способ, которым мы идентифицируем ресурс для предоставления, состоит в том, чтобы назначить ему URI — универсальный идентификатор ресурса. Например:
+HTTP request structure:
 
-        Создать пользователя: POST /users
-        Удалить пользователя: DELETE /users/1
-        Получить всех пользователей: GET /users
-        Получить одного пользователя: GET /users/1
+    request line - identifies the request type
+    header fields - describe metadata and transfer parameters
+    optional body
 
-REST и Ресурсы
+HTTP response structure:
 
-    Важно отметить, что с REST вам нужно думать о приложении с точки зрения ресурсов:
-    Определите, какие ресурсы вы хотите открыть для внешнего мира
-    Используйте глаголы, уже определенные протоколом HTTP, для выполнения операций с этими ресурсами.
+    status line with status code and reason phrase
+    header fields
+    optional body
 
-    Вот как обычно реализуется служба REST:
+HTTP methods indicate the requested action:
 
-    - Формат обмена данными: здесь нет никаких ограничений. JSON — очень популярный формат, хотя можно использовать и другие, такие как XML
-    
-    - Транспорт: всегда HTTP. REST полностью построен на основе HTTP.
-    
-    - Определение сервиса: не существует стандарта для этого, а REST является гибким. Это может быть недостатком в некоторых сценариях, поскольку потребляющему приложению может быть необходимо понимать форматы запросов и ответов. Однако широко используются такие языки определения веб-приложений, как WADL (Web Application Definition Language) и Swagger.
+    GET: read a resource
+    POST: create a resource
+    PUT: update a resource
+    DELETE: delete a resource
 
+HTTP responses always include a status code. Common examples:
 
-    REST фокусируется на ресурсах и на том, насколько эффективно вы выполняете операции с ними, используя HTTP.
+    200 - success
+    404 - page not found
 
-Компоненты HTTP
+## REST and SOAP [&uarr;](#learn-about-apis)
 
-    HTTP определяет следующую структуру запроса:
+REST and SOAP are not directly comparable. SOAP is a protocol format based on XML, while REST is an architectural
+approach.
 
-        строка запроса (request line) — определяет тип сообщения
-        заголовки запроса (header fields) — характеризуют тело сообщения, параметры передачи и прочие сведения
-        тело сообщения (body) — необязательное
+Comparison highlights:
 
+    - RESTful example: JSON over HTTP
+    - SOAP example: XML over SOAP over HTTP
 
-    HTTP определяет следующую структуру ответного сообщения (response):
+Message format:
 
-        строка состояния (status line), включающая код состояния и сообщение о причине
-        поля заголовка ответа (header fields)
-        дополнительное тело сообщения (body)
+    - SOAP uses SOAP XML for requests and responses.
+    - REST has no fixed format. JSON is the most common, but XML and others work too.
 
+Service definition:
 
-    Метод, используемый в HTTP-запросе, указывает, какое действие вы хотите выполнить с этим запросом. Важные примеры:
+    - SOAP uses WSDL (Web Services Description Language), an XML-based definition language.
+    - REST has no standard definition language. WADL was proposed but is not popular. Swagger/OpenAPI is common.
 
-        GET: получить подробную информацию о ресурсе
-        POST: создать новый ресурс
-        PUT: обновить существующий ресурс
-        DELETE: Удалить ресурс
+Transport:
 
+    - SOAP can use HTTP or MQ and does not restrict transport.
+    - REST is designed for HTTP.
 
-    Код состояния всегда присутствует в ответе HTTP. Типичные примеры:
+Implementation complexity:
 
-        200 — успех
-        404 — cтраница не найдена
+    - RESTful services are usually easier to implement.
+    - REST typically uses JSON, which is easier to parse. It also does not require a formal service definition.
+    - SOAP requires WSDL and has overhead due to SOAP XML parsing.
 
-### REST и SOAP
+When building a service, you can use one of two approaches:
 
-REST и SOAP на самом деле не сопоставимы. SOAP — это формат протокола, основанный на XML, тогда как REST — это
-архитектурный подход.
+    - Code First: generate the contract from code
+    - Contract First: build code based on the contract
 
-Давайте сравним популярные реализации стилей REST и SOAP.
+## SOAP [&uarr;](#learn-about-apis)
 
-    - Пример реализации RESTful: JSON через HTTP
-    - Пример реализации SOAP: XML поверх SOAP через HTTP
+RPC (Remote Procedure Call) is a class of technologies that let programs call procedures in a different address space
+(another node or system). One implementation is SOAP, an XML-based protocol for network API requests. SOAP is often used
+over HTTP but tries to be transport-independent and avoids relying on HTTP features. Instead, it uses related standards
+(WS-*). A SOAP web service API is described with WSDL (Web Services Description Language). SOAP originally focused on
+RPC.
 
-Формат обмена сообщениями
+SOAP is a protocol for web services to communicate with each other or with clients. The name stands for Simple Object
+Access Protocol. A SOAP API is a web service that uses SOAP to exchange messages between servers and clients.
 
-    - В SOAP вы используете формат SOAP XML для запросов и ответов.
+SOAP was introduced in 1998 and became a major web services standard, especially with Microsoft .NET. Today it is less
+popular than REST, but SOAP services are still common in banking and telecom.
 
-    - В REST такого фиксированного формата нет. Вы можете обмениваться сообщениями на основе XML, JSON или любого другого удобного формата. JSON является самым популярным среди используемых форматов.
+SOAP can use SMTP, FTP, HTTP, or HTTPS. Most often it uses HTTP because it is universal. A valid SOAP message includes
+Envelope, Header, Body, and Fault elements.
 
-Определения услуг
+## JSON APIs [&uarr;](#learn-about-apis)
 
-    - SOAP использует WSDL (Web Services Description Language) — язык описания веб-сервисов и доступа к ним, основанный на языке XML.
-    
-    - REST не имеет стандартного языка определения сервиса. Несмотря на то, что WADL был одним из первых предложенных стандартов, он не очень популярен. Более популярно использование Swagger или Open API.
+In 2013, Steve Klabnik summarized JSON API practices into a formal JSON API specification and registered it as a media
+type on top of JSON.
 
-Транспорт
+The site http://jsonapi.org/implementations/ lists implementations: 170+ for 32 languages, plus libraries, parsers, and
+serializers.
 
-    SOAP не накладывает никаких ограничений на тип транспортного протокола. Вы можете использовать либо Web протокол HTTP, либо MQ.
+### JSON API pros
 
-    REST подразумевает наилучшее использование транспортного протокола HTTP
+The JSON API spec solves common problems by enforcing conventions. Having a shared agreement prevents endless team
+bikeshedding. When someone does something wrong, you can simply say, "Not JSON API," and point to the spec.
 
-Простота реализации
+Many teams adopt JSON API by default for new services. There are reserved keys (data, meta, include) and filter
+conventions (filters). URL formats are described.
 
-    RESTFful веб-сервисы, как правило, гораздо проще реализовать, чем веб-сервисы на основе SOAP.
+With fewer arguments, development is faster. The backend follows the spec, the client integrates, and the customer is
+happy. Many common issues (like pagination) are already solved.
 
-    REST обычно использует JSON, который легче анализировать и обрабатывать. В дополнение к этому, REST не требует наличия определения службы для предоставления веб-службы.
+Because it is JSON, it is more compact than XML and easier to read.
 
-    Однако в случае SOAP вам необходимо определить свой сервис с использованием WSDL, и при обработке и анализе сообщений SOAP-XML возникают большие накладные расходы.
+### JSON API cons
 
-Всякий раз, когда вы разрабатываете сервис, такой как REST API или SOAP API, вы можете выбрать один из двух подходов:
+The object shape grows (data, attributes, included, etc.), so the frontend must parse nested structures. Not all junior
+engineers are comfortable with that, though serializers/deserializers help.
 
-    - Code First и генерируйте контракт из кода
-    - Contract First и разработка кода на основе контракта
+On the backend side:
 
-### SOAP [&uarr;](#Readme)
+- Nested include depth can explode.
+- Database queries can become heavy when generated automatically.
+- Security risks increase if libraries expose too much.
+- The spec is long and in English, which can be a barrier.
+- Not all libraries implement the spec well.
 
-`RPC(Remote Procedure Call)` – класс технологий, позволяющих программам вызывать функции или процедуры в другом
-представлении
-или в адресном пространстве (на удалённых узлах, либо в независимой сторонней системе на том же узле). Одной из его
-реализаций
-является `SOAP` – это основанный на формате XML протокол для выполнения запросов к сетевым API. Будучи применяемым чаще
-всего
-по `HTTP`, он стремится к независимости от последнего и избегает использования большинства его возможностей. Вместо
-этого к нему
-прилагается масса разнообразных сопутствующих стандартов (фреймворк веб-сервисов, известный под названием WS-*), которые
-добавляют
-в него различные возможности. `API SOAP` веб-сервиса описывается с помощью основанного на XML языка, именуемого языком
-описания
-веб-сервисов (`Web Services Description Language, WSDL`). Первоначально SOAP предназначался в основном для реализации
-удалённого
-вызова процедур RPC.
+### JSON API pitfalls
 
-SOAP — это протокол, по которому веб-сервисы взаимодействуют друг с другом или с клиентами. Название происходит от
-сокращения
-Simple Object Access Protocol («простой протокол доступа к объектам»). SOAP API — это веб-сервис, использующий протокол
-SOAP для
-обмена сообщениями между серверами и клиентами.
+A few examples:
 
-Протокол SOAP был представлен в 1998 году и быстро стал одним из главных стандартов веб-служб, когда Microsoft
-продвигала платформу .NET,
-приложения которой взаимодействовали с помощью SOAP API. Сейчас протокол и API уступают по популярности архитектурному
-стилю REST.
-Но веб-приложения, использующие SOAP API, все еще пользуются спросом, особенно в банковском и телекоммуникационном
-секторах.
+1) The number of relationships is unlimited. If you include comments on an article, you may get all comments, even
+   10,000 of them.
 
-SOAP может использоваться с протоколами SMTP, FTP, HTTP, HTTPS. Чаще всего — с HTTP как с наиболее универсальным: его
-поддерживают
-все браузеры и серверы. Корректное SOAP-сообщение состоит из нескольких структурных элементов: Envelope, Header, Body и
-Fault.
+        GET /articles/1?include=comments HTTP/1.1
 
-### JSON-APIs [&uarr;](#Readme)
-
-В 2013 году все лайфхаки, Steve Klabnik объединил в спецификацию JSON API и зарегистрировал как новый media type поверх
-JSON.
-
-На сайте http://jsonapi.org/implementations/ всё подробно описано: есть даже список 170 различных реализаций
-спецификаций
-для 32 языков программирования — и это только добавленные в каталог. Уже написаны библиотеки, парсеры, сериализаторы и
-пр.
-
-#### Плюсы JSON API
-
-Cпецификация JSON API решает ряд проблем — общее соглашение для всех. Раз есть общее соглашение, то мы не спорим внутри
-команды — велосипедный сарай задокументирован. У нас есть соглашение, из каких материалов делать велосипедный сарай и
-как его красить.
-
-Теперь, когда разработчик делает что-то неправильно и я это вижу, то не начинаю дискуссию, а говорю: «Не по JSON API!» и
-показываю на
-место в спецификации. Меня ненавидят в компании, но постепенно привыкают, и JSON API всем начал нравиться. Новые сервисы
-по умолчанию мы
-делаем по этой спецификации. У нас есть ключ date, мы готовы добавлять ключи meta, include. Для фильтров есть
-зарезервированный
-GET-параметр filters. Мы не спорим, как назвать фильтр — используем эту спецификацию. В ней описано, как делать URL.
-
-Поскольку мы не спорим, а делаем бизнес задачи, производительность разработки выше. У нас спецификации описаны, бэкенд
-разработчик прочитал,
-сделал API, мы его прикрутили — заказчик счастлив.
-
-Популярные проблемы уже решены, например, с пагинацией. В спецификации много подсказок.
-
-Поскольку это JSON (спасибо Дугласу Крокфорду за этот формат), он лаконичней XML, его довольно легко читать и понимать.
-
-#### Минусы JSON API
-
-Объект разросся (date, attributes, included и пр.) — фронтенду надо парсить ответы: уметь перебирать массивы, ходить по
-объекту и
-знать, как работает reduce. Не все начинающие разработчики знают эти сложные вещи. Есть библиотеки
-сериализаторы/десериализаторы,
-можно пользоваться ими. Вообще это просто работа с данными, но объекты большие.
-
-А у бэкенда начинается боль:
-
-- Контроль вложенности — include можно залезть очень далеко;
-- Сложность запросов к БД — они строятся иногда автоматически, и получаются очень тяжелыми;
-- Безопасность — можно залезть в дебри, особенно если подключить какую-то библиотеку;
-- Спецификация сложно читается. Она на английском, и это некоторых отпугнуло, но постепенно все привыкли;
-- Не все библиотеки реализуют спецификацию хорошо — это проблема Open Source.
-
-#### Подводные камни JSON API
-
-Немножко хардкора.
-
-1) `Количество relationships в выдаче не ограничено`. Если мы делаем include, запрашиваем статьи, добавляя к ним
-   комментарии,
-   то в ответ нам придут все комментарии этой статьи. Есть 10 000 комментариев — получи все 10 000 комментариев.
-
-        GET /articles/1?include=comments НТТР/1.1
-    
         01. ...
-          02. "relationships": {
-              03.  "comments": {
-              04.   "data": [0 ... ∞]
-              05.  }
-          06. }
+        02. "relationships": {
+        03.   "comments": {
+        04.     "data": [0 ... infinity]
+        05.   }
+        06. }
 
-Таким образом на наш запрос в ответ пришло реально 5 Мбайт: «В спецификации так и написано — надо правильно
-переформулировать запрос:
+   The response could be 5 MB. The fix is to reformulate the request:
 
         GET /comments?filters[article]=1&page[size]=30 HTTP/1.1
-        
+
         01. {
         02. "data": [0 ... 29]
         03. }
 
-Мы запрашиваем комментарии с фильтром по статье, говорим: «30 штучек, пожалуйста» и получаем 30 комментариев. Это и есть
-неоднозначность.
+2) The same data can be requested in ambiguous ways:
 
-2) `Одни и те же вещи можно неоднозначно сформулировать`:
+   - GET /articles/1?include=comments HTTP/1.1
+   - GET /articles/1/comments HTTP/1.1
+   - GET /comments?filters[article]=1 HTTP/1.1
 
-● GET /articles/1?include=comments HTTP/1.1 — запрашиваем статью с комментариями;
-● GET /articles/1/comments HTTP/1.1 — запрашиваем комментарии к статье;
-● GET /comments?filters[article]=1 HTTP/1.1 — запрашиваем комментарии с фильтром по статье.
+   These are equivalent but produce ambiguity.
 
-Это одно и то же — одни и те же данные, которые получаются по-разному, возникает некоторая неоднозначность. Этот
-подводный камень сразу не видно.
+3) Polymorphic one-to-many relations show up quickly in REST:
 
-3) `Полиморфные связи «один ко многим» очень быстро вылезают в REST`.
-
-       01. GET /comments?include=commentable НТТР/1.1
+       01. GET /comments?include=commentable HTTP/1.1
        02.
        03. ...
        04. "relationships": {
-           05.  "commentable": {
-           06.   "data": { "type": "article", "id": "1″ }
-           07. }
+           05.   "commentable": {
+           06.     "data": { "type": "article", "id": "1" }
+           07.   }
        08. }
 
-На бэкенде есть полиморфная связь commentable — она вылезает в REST. Так и должно произойти, но ее можно замаскировать.
-В JSON API не замаскируешь — она вылезет.
+   The backend has a polymorphic relation commentable and it surfaces in REST. In JSON API you cannot hide it.
 
-4) `Сложные связи «многие ко многим» с дополнительными параметрами`. Тоже все связующие таблицы вылезают:
+4) Complex many-to-many relations with extra attributes also surface:
 
-       01. GET /users?include=users_comments НТТР/1.1
+       01. GET /users?include=users_comments HTTP/1.1
        02.
        03. ...
        04. "relationships": {
-           05.  "users_comments": {
-           06.   "data": [{ "type": "users_comments", "id": "1″ }, ...]
-           07.  },
+           05.   "users_comments": {
+           06.     "data": [{ "type": "users_comments", "id": "1" }, ...]
+           07.   }
        08. }
 
-### gRPC [&uarr;](#Readme)
+## gRPC [&uarr;](#learn-about-apis)
 
-`gRPC` – это новый и современный фреймворк для разработки масштабируемых, современных и быстрых API и дословно
-переводится
-как система удаленного вызова процедур, разработанный компанией Google еще в далеком 2015 году. Используется многими
-ведущими
-компаниями, такими как Google, Square и Netflix, и позволяет программистам писать микросервисы на любом языке, который
-они хотят,
-сохраняя при этом возможность легко устанавливать связь между этими сервисами. И так же является реализацией удалённого
-вызова процедур (RPC), но уже в качестве транспорта использует новый `HTTP/2` - является новой версией протокола `HTTP`,
-которая уменьшает задержки и позволяет выполнять сразу
-множество запросов в рамках одного соединения, благодаря чему значительно увеличивается производительность и ускоряется
-загрузка
-страниц вашего сайта.
+gRPC is a modern framework for building scalable, fast APIs. It is an RPC system created by Google in 2015. It is used
+by companies like Google, Square, and Netflix. It lets you write microservices in any language and connect them easily.
+It uses HTTP/2 as transport, which reduces latency and allows multiple requests over one connection, improving
+performance and page load speed.
 
-А для описания интерфейса используется Protocol Buffers (protobuf), где описывается структура для передачи, кодирования
-и обмена
-данных между представлениями описанными выше. Protocol Buffers проще, компактнее и быстрее, чем XML, поскольку
-осуществляется передача
-бинарных данных.
+Interfaces are described using Protocol Buffers (protobuf), which define data structures for encoding and exchange.
+Protobuf is smaller and faster than XML because it uses binary data.
 
-Какие бывают разновидности API в gRPC?
+API types in gRPC:
 
-- `Унарный (Unary)` – синхронный запрос клиента, который блокируются пока не будет получен ответ от сервера.
-- `Потоковая передача сервера (Server streaming)` – при подключении клиента сервер открывает стрим и начинает отправлять
-  сообщения.
-- `Потоковая передача клиента (Client streaming)` – то же самое, что и серверный, только клиент начинает стримить
-  сообщения на сервер.
-- `Двунаправленная потоковая передача (Bi-directional streaming)` – клиент инициализирует соединение, создаются два
-  стрима. Сервер может отправить изначальные данные при подключении или отвечать на каждый запрос клиента по типу
-  “пинг-понга”
+- Unary: a synchronous client request that blocks until a server response arrives.
+- Server streaming: the server opens a stream and sends multiple messages to the client.
+- Client streaming: the client streams messages to the server.
+- Bi-directional streaming: both client and server open streams; the server can send initial data or respond to each
+  client request in a ping-pong style.
 
-Балансировка нагрузки `(Load Balancing) в gRPC`
+Load balancing in gRPC:
 
-Балансировка нагрузки между сервисами работающих между собой по gRPC выполняется на стороне клиента. В данном случае
-клиент использует
-простой “round-robin” алгоритм для передачи запросов по списку полученному от LB (LoadBalancing) сервера. При желании на
-стороне LB сервера
-можно организовать более сложный алгоритм выдачи списка бэкенд сервисов клиенту использую LB политики.
+Client-side load balancing is common. The client uses a simple round-robin algorithm across the list received from a
+load balancer. More advanced policies can be implemented on the LB side.
 
-### Swagger [&uarr;](#Readme)
+## Swagger [&uarr;](#learn-about-apis)
 
-Ручное формирование документации — утомительное занятие. Поэтому разработчики придумали Swagger. С его помощью на основе
-кода можно автоматически сгенерировать спецификации API.
+Manual documentation is tedious, so developers created Swagger. It can generate API specs from code.
 
-Swagger — это набор инструментов, которые помогают описывать API. Благодаря ему пользователи и машины лучше понимают
-возможности REST API без доступа к коду. С помощью Swagger можно быстро создать документацию и отправить ее другим
-разработчикам или клиентам.
+Swagger is a set of tools that help describe APIs. It lets people and machines understand a REST API without direct
+code access. It helps generate documentation and share it with developers or clients.
 
-В 2015 году проект Swagger сделали открытым и передали OpenAPI Initiative. Теперь сама спецификация называется OpenAPI.
-Swagger — инструментарий для работы с OpenAPI, название которого используется в коммерческих и некоммерческих продуктах.
-Если кто-то называет саму спецификацию Swagger, то это не совсем верно.
+In 2015, Swagger was donated to the OpenAPI Initiative. The specification is now called OpenAPI. Swagger is the tooling
+that works with OpenAPI. Calling the spec itself Swagger is not accurate.
 
-Документ спецификации OpenAPI использует YAML, но также может быть написан в формате JSON. Сам по себе он является
-объектом JSON.
+OpenAPI specs are written in YAML or JSON and are JSON objects.
 
-Swagger предлагает два основных подхода к генерированию документации:
+Swagger supports two approaches:
 
-- Автогенерация на основе кода.
-- Самостоятельная разметка-написание.
+- Auto-generate from code.
+- Manually write specs.
 
-Первый подход проще. Мы добавляем зависимости в проект, конфигурируем настройки и получаем документацию. Сам код из-за
-этого может стать
-менее читабельным, документация тоже не будет идеальной. Но задача минимум решена — код задокументирован.
+Auto-generation is easier: add dependencies, configure settings, get docs. But code readability can suffer and docs are
+not perfect. Still, the minimum is done.
 
-Чтобы пользоваться вторым подходом, нужно знать синтаксис Swagger. Описания можно готовить в формате YAML/JSON. Можно
-упростить эту задачу,
-используя Swagger Editor. Конечно, второй подход позволяет сделать документацию более качественной и кастомной для
-каждого конкретного
-проекта и его особенностей, к тому же все не так сложно как может показаться, это потребует минимальных дополнительных
-усилий.
+Manual writing requires learning the syntax. You can use YAML/JSON and tools like Swagger Editor. This approach yields
+higher quality, more customized docs.
 
-Допустим, нашего бэкенд-разработчика попросили написать документацию к его API, и он ее написал. Это легко, если API
-простой.
-Если же это JSON API, Swagger так легко не напишешь.
+If your backend developer needs to document a simple API, it is easy. If it is a JSON API, it is harder to describe
+with Swagger.
 
-### GraphQL [&uarr;](#Readme)
+## GraphQL [&uarr;](#learn-about-apis)
 
-GraphQL — это язык запросов с открытым исходным кодом.
+GraphQL is an open-source query language.
 
-Три основные характеристики языка:
+Three key characteristics:
 
-- Позволяет клиенту точно указать, какие данные ему нужны.
-- Облегчает агрегацию данных из нескольких источников.
-- Использует систему типов для описания данных.
+- It lets the client specify exactly which data it needs.
+- It simplifies data aggregation from multiple sources.
+- It uses a type system to describe data.
 
-#### Высокий порог входа.
+### High entry barrier
 
-С точки зрения фронтенда все выглядит круто, но нового разработчика не посадишь писать GraphQL, потому что его сначала
-нужно изучить.
-Это как SQL — нельзя сразу писать SQL, надо хотя бы прочитать, что это такое, пройти туториалы, то есть порог входа
-увеличивается.
+From the frontend side, it looks great, but a new developer needs time to learn it. Like SQL, you should study it
+before writing it.
 
-#### Эффект большого взрыва.
+### Big bang effect
 
-Если в проекте не было никакого API, и мы стали использовать GraphQL, через месяц мы поняли, что он нам не подходит,
-будет поздно.
-Придется писать костыли. С JSON API или с OData можно эволюционировать — простейший RESTful, прогрессивно улучшаясь,
-превращается в JSON API.
+If a project had no API and you move to GraphQL, a month later you may realize it does not fit. At that point it is
+hard to roll back. With JSON API or OData you can evolve gradually from simple RESTful endpoints.
 
-#### Ад на бэкенде.
+### Backend pain
 
-GraphQL вызывает ад на бэкенде — прямо один в один, как и полностью реализованный JSON API, потому что GraphQL получает
-полный
-контроль над запросами, а это библиотека, и вам нужно будет решать кучу вопросов:
+GraphQL can be a backend nightmare, similar to a fully implemented JSON API, because it gives full control over
+queries. You must manage:
 
-- контроль вложенности;
-- рекурсия;
-- ограничение частоты;
-- контроль доступа.
+- nesting depth
+- recursion
+- rate limits
+- access control
 
-### Cookie-Based [&uarr;](#Readme)
+## Cookie-based [&uarr;](#learn-about-apis)
 
-Cookie-based authentication normally works in these four steps:
+Cookie-based authentication usually works in these steps:
 
-#### Step 1: Client > Signing up
+#### Step 1: Client - signing up
 
-Before anything else, the user has to sign up. The client posts a HTTP request to the server containing his/her username
-and password.
+The user signs up. The client sends an HTTP request to the server with username and password.
 
-#### Step 2: Server > Handling sign up
+#### Step 2: Server - handling sign up
 
-The server receives this request and hashes the password before storing the username and password in your database. This
-way, if
-someone gains access to your database they won't see your users' actual passwords.
+The server hashes the password before storing it. If someone gains access to the database, they will not see plaintext
+passwords.
 
-#### Step 3: Client > User login
+#### Step 3: Client - user login
 
-Now your user logs in. He/she provides their username/password and again, this is posted as a HTTP request to the
-server.
+The user logs in. The client sends an HTTP request with username and password.
 
-#### Step 4: Server > Validating login
+#### Step 4: Server - validating login
 
-The server looks up the username in the database, hashes the supplied login password, and compares it to the previously
-hashed password in the database. If it doesn't check out, we may deny them access by sending a 401 status code and
-ending the request.
+The server looks up the username, hashes the supplied password, and compares it to the stored hash. If it fails, the
+server can deny access with a 401 status.
 
-#### Step 5: Server > Generating access token
+#### Step 5: Server - generating access token
 
-If everything checks out, we're going to create an access token, which uniquely identifies the user's session. Still in
-the server,
-we do two things with the access token:
+If validation succeeds, the server creates an access token that identifies the user session.
 
-- Store it in the database associated with that user
-- Attach it to a response cookie to be returned to the client. Be sure to set an expiration date/time to limit the
-  user's session
+The server does two things:
 
-Henceforth, the cookies will be attached to every request (and response) made between the client and server.
+- Stores the token in the database for that user.
+- Attaches it to a response cookie returned to the client. Set an expiration date/time.
 
-#### Step 6: Client > Making page requests
+Cookies are sent with every request and response between client and server.
 
-Back on the client side, we are now logged in. Every time the client makes a request for a page that requires
-authorization
-(i.e. they need to be logged in), the server obtains the access token from the cookie and checks it against the one in
-the database
-associated with that user. If it checks out, access is granted.
+#### Step 6: Client - making page requests
 
-This should get you started. Be sure to clear the cookies upon logout!
+When the client requests a protected page, the server reads the access token from the cookie and checks it against the
+stored token. If it matches, access is granted.
 
-### QAuth [&uarr;](#Readme)
+Clear cookies on logout.
 
-OAuth — популярный протокол, который позволяет социальным сервисам интегрироваться между собой и дает безопасный способ
-обмена
-персональной информацией. OAuth может связать между собой 2 сервиса, каждый из которых имеет свою пользовательскую
-базу — именно их я
-в данном случае называю «социальными».
+## OAuth [&uarr;](#learn-about-apis)
 
-OAuth 2 is an authorization framework that enables applications — such as Facebook, GitHub, and DigitalOcean — to obtain
-limited access
-to user accounts on an HTTP service. It works by delegating user authentication to the service that hosts a user account
-and authorizing
-third-party applications to access that user account. OAuth 2 provides authorization flows for web and desktop
-applications, as well as
-mobile devices.
+OAuth is a popular protocol that allows services to integrate and share user data securely. OAuth can connect two
+services, each with its own user base.
 
-### Basic-Auth [&uarr;](#Readme)
+OAuth 2 is an authorization framework that lets applications (Facebook, GitHub, DigitalOcean, etc.) obtain limited
+access to user accounts on an HTTP service. It works by delegating authentication to the service hosting the user
+account and authorizing third-party apps to access it. OAuth 2 provides flows for web, desktop, and mobile apps.
 
-Возможно использовать функцию header() для отправки сообщения "Authentication Required" браузеру, заставив его показать
-окошко для
-ввода логина и пароля. Как только пользователь заполнит логин и пароль, ссылка, содержащая PHP-скрипт будет вызвана ещё
-раз с
-предопределёнными переменными PHP_AUTH_USER, PHP_AUTH_PW и AUTH_TYPE, установленными в логин, пароль и тип
-аутентификации соответственно.
-Эти предопределённые переменные хранятся в массиве $_SERVER. Поддерживаются только: "Basic" и "Digest". Подробнее
-смотрите функцию header().
+## Basic Auth [&uarr;](#learn-about-apis)
 
-Пример Basic HTTP-аутентификации:
+You can use header() to send an "Authentication Required" response, which triggers a browser login dialog. When the
+user enters credentials, the PHP script is called again with predefined variables PHP_AUTH_USER, PHP_AUTH_PW, and
+AUTH_TYPE set in the $_SERVER array. Only "Basic" and "Digest" are supported.
+
+Example of Basic HTTP authentication:
 
       <?php
          if (!isset($_SERVER['PHP_AUTH_USER'])) {
              header('WWW-Authenticate: Basic realm="My Realm"');
              header('HTTP/1.0 401 Unauthorized');
-             echo 'Текст, отправляемый в том случае,
-             если пользователь нажал кнопку Cancel';
+             echo 'Text sent when the user clicks Cancel';
              exit;
          } else {
              echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
-             echo "<p>Вы ввели пароль {$_SERVER['PHP_AUTH_PW']}.</p>";
+             echo "<p>You entered {$_SERVER['PHP_AUTH_PW']}.</p>";
          }
       ?>
 
-### Token-Auth [&uarr;](#Readme)
+## Token-based Auth [&uarr;](#learn-about-apis)
 
-Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique
-access token.
-During the life of the token, users then access the website or app that the token has been issued for, rather than
-having to re-enter
-credentials each time they go back to the same webpage, app, or any resource protected with that same token.
+Token-based authentication allows users to verify identity and receive an access token. During the token lifetime,
+users access the website or app with that token instead of re-entering credentials.
 
-Auth tokens work like a stamped ticket. The user retains access as long as the token remains valid. Once the user logs
-out or quits
-an app, the token is invalidated.
+Auth tokens work like stamped tickets. Access continues as long as the token is valid. When a user logs out or quits an
+app, the token is invalidated.
 
-Token-based authentication is different from traditional password-based or server-based authentication techniques.
-Tokens offer a second
-layer of security, and administrators have detailed control over each action and transaction.
+Tokens provide a second layer of security and allow detailed control over actions and transactions. They require some
+coding know-how, but most developers pick it up quickly.
 
-But using tokens requires a bit of coding know-how. Most developers pick up the techniques quickly, but there is a
-learning curve.
+### Token authentication in 4 steps
 
-Let's dig in, so you can determine if tokens are right for you and your organization.
+- Request: the user asks for access to a server or protected resource.
+- Verification: the server confirms access (password or other checks).
+- Token issuance: the server issues a token and passes it to the user.
+- Storage: the token lives in the user browser while work continues.
 
-Token Authentication in 4 Easy Steps
+If the user requests a different resource, the token is checked again. Access is granted or denied accordingly.
 
-Use a token-based authentication system, and visitors will verify credentials just once. In return, they'll get a token
-that allows access
-for a time period you define.
+Administrators set token limits. Tokens can be one-use or expire after a defined time period.
 
-The process works like this:
+![TokenBasedAuthentication.png](images/TokenBasedAuthentication.png)
 
-- Request: The person asks for access to a server or protected resource. That could involve a login with a password, or
-  it could involve some other process you specify.
-- Verification: The server determines that the person should have access. That could involve checking the password
-  against the username, or it could involve another process you specify.
-- Tokens: The server communicates with the authentication device, like a ring, key, phone, or similar device. After
-  verification, the server issues a token and passes it to the user.
-- Storage: The token sits within the user's browser while work continues.
+## JWT [&uarr;](#learn-about-apis)
 
-If the user attempts to visit a different part of the server, the token communicates with the server again. Access is
-granted or denied
-based on the token.
+JSON Web Token (JWT) is an open standard for transferring claims between parties in a web environment. It is used to
+encode and transfer data for authorized users between an identity provider and a service provider.
 
-Administrators set limits on tokens. You could allow a one-use token that is immediately destroyed when the person logs
-out. Or you could
-set the token to self-destruct at the end of a specified time period.
+In simple terms, a JWT is a string in the format header.payload.signature. Suppose we register on a site. We have three
+participants: the user, the application server, and the authentication server. The authentication server issues a token
+that the user later uses to interact with the application.
 
-![TokenBasedAuthentication.png](images%2FTokenBasedAuthentication.png)
+The application uses JWT to verify authentication:
 
-### JWT [&uarr;](#Readme)
+1. The user authenticates with the auth server (login/password, Facebook key, Google key, etc.).
+2. The auth server creates a JWT and sends it to the user.
+3. The user includes the JWT in API requests.
+4. The application verifies the JWT from the request to confirm identity.
 
-JSON Web Token (JWT): A Special Form of Auth Token – это открытый стандарт для передачи пакетов между сторонами в
-веб-среде. Он используется для шифрования и передачи
-данных авторизованных пользователей между поставщиком идентификации (ваш корпоративный веб-сайт) и поставщиком услуг.
+JWT has three important components:
 
-Простыми словами, JWT — это лишь строка в следующем формате header.payload.signature.
-Предположим, что мы хотим зарегистрироваться на сайте. В нашем случае есть три участника — пользователь user, сервер
-приложения application server и сервер аутентификации authentication server. Сервер аутентификации будет обеспечивать
-пользователя токеном, с помощью которого он позднее сможет взаимодействовать с приложением.
+- Header: token type and signing algorithm.
+- Payload: issuer, expiration, and other claims.
+- Signature: verifies the message integrity.
 
-Приложение использует JWT для проверки аутентификации пользователя следующим образом:
+## OpenID [&uarr;](#learn-about-apis)
 
-1. Сперва пользователь заходит на сервер аутентификации с помощью аутентификационного ключа (это может быть пара
-   логин/пароль, либо Facebook ключ, либо Google ключ, либо ключ от другой учетки).
-2. Затем сервер аутентификации создает JWT и отправляет его пользователю.
-3. Когда пользователь делает запрос к API приложения, он добавляет к нему полученный ранее JWT.
-4. Когда пользователь делает API запрос, приложение может проверить по переданному с запросом JWT является ли
-   пользователь тем, за кого себя выдает. В этой схеме сервер приложения сконфигурирован так, что сможет проверить,
-   является ли входящий JWT именно тем, что был создан сервером аутентификации (процесс проверки будет объяснен позже
-   более детально).
+OpenID is a protocol that uses OAuth 2.0 authorization and authentication mechanisms and is widely adopted by identity
+providers. It solves the problem of sharing user identity across many web services.
 
-JWTs have three important components.
+OpenID allows you to use credentials from an OpenID provider (such as Google) to log in to another app. For example,
+example.com can ask you to sign in with a Google or Facebook account. The site redirects you to the provider, you
+authenticate, and then you are allowed access.
 
-- Header: Define token type and the signing algorithm involved in this space.
-- Payload: Define the token issuer, the expiration of the token, and more in this section.
-- Signature: Verify that the message hasn't changed in transit with a secure signature.
+### OpenID vs OAuth
 
-Coding ties these pieces together. The finished product looks something like this.
+OpenID is for authentication, OAuth is for authorization.
 
-### OpenID [&uarr;](#Readme)
+OpenID provides federated authentication: a third-party app can authenticate users using accounts they already have.
+OAuth was created to avoid sharing passwords with third-party apps.
 
-OpenID is a protocol that utilizes the authorization and authentication mechanisms of OAuth 2.0 and is now widely
-adopted
-by many identity providers on the Internet. It solves the problem of needing to share user’s personal info between many
-different
-web services(e.g. online shops, discussion forums etc.)
+Both protocols can be used for similar tasks, but should not be used interchangeably. OpenID provides an identity
+assertion, while OAuth is more generic. With OAuth, a server issues an access token to a third party, the token is used
+to access a protected resource, and the source validates the token. The token does not verify the identity of its owner.
 
-OpenID allows you to use login credentials from an OpenID provider (such as Google) to log in to another application (
-like Facebook).
-For example, if you want to access www.example.com, they can ask you for your OpenID in the form of a Google or Facebook
-account.
-If you enter your OpenID, example.com will redirect you to your OpenID provider and you will authenticate yourself,
-confirming your
-identity and then be allowed access to your account on example.com.
+Think of a token like a movie ticket. It grants access but contains no identifying information. A bad actor could use a
+stolen token.
 
-#### OpenID vs. OAuth
+## SAML [&uarr;](#learn-about-apis)
 
-Simply put, OpenID is used for authentication while OAuth is used for authorization.
+SAML (Security Assertion Markup Language) is a secure XML-based communication mechanism for exchanging authentication
+and authorization data between organizations and applications. It is often used for web SSO (single sign-on). It
+eliminates the need to store multiple credentials for different organizations. In short, you can use one account (for
+example, username and password) to access multiple applications.
 
-OpenID was created for federated authentication, meaning that it lets a third-party application authenticate users for
-you using
-accounts that you already have. In contrast, OAuth was created to remove the need for users to share their passwords
-with third-party
-applications.
+A SimpleSAMLphp instance connects to an authentication source, such as LDAP or a user database. It authenticates users
+against that source before granting access to resources provided by the service provider.
 
-The problem is that both protocols can be used to accomplish similar tasks, but that doesn’t mean they should be used
-interchangeably.
-OpenID provides an identity assertion while OAuth is more generic. When a client uses OAuth, a server issues an access
-token to a third
-party, the token is used to access a protected resource, and the source validates the token. Notice, that at no point is
-the identity of
-the owner of the token verified.
+## HATEOAS [&uarr;](#learn-about-apis)
 
-You can think of a token issued by a resource server like it’s a ticket to a movie. Nowhere on the ticket does it say
-any identifying
-information about an individual, it simply is used as a way of saying I have permission to enter. This means that the
-issued token may be
-in the hands of a bad actor or a machine.
+HATEOAS stands for "Hypermedia As The Engine Of Application State".
 
-### SAML [&uarr;](#Readme)
+When you request account data, you get both:
 
-SAML (язык разметки подтверждений безопасности) — это защищенный механизм коммуникации на базе XML для обмена данными
-аутентификации и
-авторизации между организациями и приложениями. Часто он используется для реализации Web SSO (единый вход в систему).
-Это устраняет
-необходимость сохранения нескольких учетных данных для разных организаций. Проще говоря, вы можете использовать одну
-учетную запись,
-например имя пользователя и пароль, для доступа к нескольким приложениям.
+- account number and balance data
+- links that allow deposit, withdraw, transfer, or close actions
 
-Экземпляр SimpleSAMLphp подключается к источнику аутентификации, который представляет собой поставщика удостоверений,
-например LDAP или
-база данных пользователей. Он выполняет аутентификацию пользователей для этого источника аутентификации, прежде чем
-предоставлять доступ
-к ресурсам, предоставляемым связанным поставщиком сервисов.
+With HATEOAS, a REST request returns data and actions related to that data.
 
-### HATEOAS [&uarr;](#Readme)
+Why HATEOAS matters:
 
-Термин HATEOAS означает фразу «Hypermedia As The Engine Of Application State» (Гипермедиа как двигатель состояния
-приложения).
+The most important reason is loose coupling. If a REST consumer must hardcode all resource URLs, it is tightly coupled
+with your implementation. If you return URLs for actions in the response, the client is loosely coupled. There is no
+strict dependency on URI structure, because it is provided in responses.
 
-Когда вы отправляете запрос для получения данных к примеру - учетной записи, вы получаете оба:
+## OpenAPI Specs [&uarr;](#learn-about-apis)
 
-- Номер счета и данные баланса
-- Ссылки, которые обеспечивают действия, чтобы сделать депозит/снятие/перевод/закрытие
+OpenAPI is a specification that describes RESTful API interfaces in JSON and YAML so that both humans and machines can
+understand them.
 
-С HATEOAS запрос на REST ресурс дает мне как данные, так и действия, связанные с данными.
-
-Зачем нам нужен HATEOAS?
-
-Единственная самая важная причина для HATEOAS — слабая связь (loose coupling). Если потребителю службы REST необходимо
-жестко закодировать все URL-адреса ресурсов, он тесно связан с реализацией вашей службы. Вместо этого, если вы вернете
-URL-адреса, которые он может использовать для действий, он будет слабосвязанным. Нет строгой зависимости от структуры
-URI, так как она указана и используется в ответе.
-
-### Open-API-Specs [&uarr;](#Readme)
-
-OpenAPI — это спецификация, описывающая API-интерфейсы RESTful в форматах JSON и YAML так, что он понятен и людям, и
-машинам.
-
-Определения OpenAPI не привязаны к конкретному языку и могут использоваться самым разным образом.
-
+OpenAPI definitions are language-agnostic and can be used in many ways.

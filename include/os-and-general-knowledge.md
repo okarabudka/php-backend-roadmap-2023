@@ -1,354 +1,269 @@
-# Readme
+# OS and General Knowledge
 
-#### Список ссылок
+#### Links
 
-- [Что такое Linux? Статья-шпаргалка](https://habr.com/ru/company/timeweb/blog/668344/)
-- [Что такое /dev/null в Linux?](https://ravesli.com/dev-null-in-linux/)
-- [Искусство командной строки](https://github.com/jlevy/the-art-of-command-line/blob/master/README-ru.md)
-- [Основы Linux (обзор с практическим уклоном)](https://habr.com/ru/post/655275/)
-- [Изучаем процессы в Linux. Управление процессами](https://ravesli.com/processes-v-linux/)
-- []()
-- []()
+- [What is Linux? A cheat-sheet article](https://habr.com/ru/company/timeweb/blog/668344/)
+- [What is /dev/null in Linux?](https://ravesli.com/dev-null-in-linux/)
+- [The Art of Command Line (RU)](https://github.com/jlevy/the-art-of-command-line/blob/master/README-ru.md)
+- [Linux basics (practical overview)](https://habr.com/ru/post/655275/)
+- [Studying processes in Linux: process management](https://ravesli.com/processes-v-linux/)
 
-### Как работает ОС [&uarr;](#Readme)
+## How the OS Works [&uarr;](#os-and-general-knowledge)
 
-Linux - это операционная система, которая основана на ядре Linux. Она представляет собой свободное программное
-обеспечение,
-которое может быть изменено и распространено пользователями в соответствии с лицензией GNU GPL. Linux был создан Линусом
-Торвальдсом
-в 1991 году и с тех пор стал популярным выбором для серверов, настольных компьютеров и множества других устройств.
+Linux is an operating system based on the Linux kernel. It is free software that can be modified and redistributed
+under the GNU GPL license. Linux was created by Linus Torvalds in 1991 and has since become popular for servers,
+desktops, and many other devices.
 
-Дистрибутив Linux — это операционная система, созданная на основе ядра Linux, которая включает в себя набор библиотек и
-утилит (пакетов),
-разработанных в рамках проекта GNU, а также систему управления пакетами (менеджер пакетов). В настоящее время существует
-более 500 различных
-дистрибутивов, разрабатываемых как при коммерческой поддержке (Red Hat / Fedora, SLED / OpenSUSE, Ubuntu и др.), так и
-исключительно усилиями
-добровольцев (Debian, Slackware, Gentoo, ArchLinux и др.).
+A Linux distribution is an OS built on the Linux kernel that includes a set of libraries and utilities (packages)
+from the GNU project, plus a package manager. There are 500+ distributions, built either with commercial backing
+(Red Hat/Fedora, SLED/OpenSUSE, Ubuntu, etc.) or by volunteers (Debian, Slackware, Gentoo, Arch Linux, etc.).
 
-Дистрибутивы делятся на несколько типов в зависимости от базового дистрибутива и системы управления пакетами. Вот
-несколько
-примеров наиболее популярных серверных дистрибутивов двух типов:
+Distributions are grouped by base distro and package format. Common server distros:
 
-    RPM-based (используют формат пакетов .rpm)
-    RedHat Enterprise Linux, CentOS, Fedora
+    RPM-based (use .rpm packages)
+    Red Hat Enterprise Linux, CentOS, Fedora
 
-    DEB-based (используют формат пакетов .deb)
+    DEB-based (use .deb packages)
     Debian, Ubuntu, Astra Linux
 
-Плюсы Linux
+Linux advantages:
 
-    - Бесплатное использование. Использование большинства ОС Linux и большей части программ, основанных на ней, абсолютно бесплатно.
-    - Открытый исходный код системы/программы. Благодаря доступу к исходному коду можно изучать его, изменять, распространять, а также публиковать изменения в соответствии с лицензией.
-    - Актуальность и производительность. По сравнению с Windows Linux не устаревает со временем. То есть, чтобы восстановить первоначальную производительность, не нужно будет регулярно чистить или переустанавливать ОС, запускать дефрагментацию.
-    - Безопасность. Linux поддерживает разные параметры безопасности, защищающие от вирусов, замедлений, вредоносных программ, сбоев. Это основная причина популярности ОС среди разработчиков. Конечно, Linux — не на 100% безопасная ОС, но менее уязвимая, чем другие.
-    - Универсальность. Linux поддерживает практически все популярные языки программирования: Java, C/C++, Python, Ruby, C# и другие. Менеджер пакетов поможет установить и обновить целые и отдельные части компонентов ПО. Благодаря поддержке SSH можно быстро управлять серверами.
-    - Дистрибутивы. Многие организации модифицировали ОС Linux, выпустив собственные дистрибутивы. Перечисляем наиболее популярные: Debian, Ubuntu, Linux Mint, Arch Linux, MX Linux, Fedora, Manjaro, CentOS. Linux Mint и Ubuntu подойдут начинающим пользователям, а Arch Linux, Fedora и Debian — опытным разработчикам. Дистрибутив можно собрать и самостоятельно.
-    - Установка ПО из централизованного места — репозитория. Это место, где хранятся данные. Благодаря этому можно установить несколько программ одним щелчком мыши. Можно забыть о поиске кряков, серийных ключей и программ в интернете — с Linux это точно не понадобится.
+- Free to use. Most Linux OSes and Linux-based software are free.
+- Open source. You can study, modify, and distribute the code under the license.
+- Up-to-date performance. Linux does not slow down over time like Windows; no regular cleanup or defrag is needed.
+- Security. Linux supports strong security controls and is less vulnerable than many other OSes.
+- Versatility. Linux supports most popular languages (Java, C/C++, Python, Ruby, C#, etc.). Package managers simplify
+  installation and updates. SSH makes server administration easy.
+- Distributions. Many organizations ship their own: Debian, Ubuntu, Linux Mint, Arch Linux, MX Linux, Fedora, Manjaro,
+  CentOS. Linux Mint and Ubuntu are beginner-friendly; Arch, Fedora, and Debian are more advanced. You can also build
+  your own distro.
+- Centralized software repositories. You can install multiple programs from a repository with one command and avoid
+  hunting for cracks, keys, or random installers.
 
-В целом загрузку среднестатистического дистрибутива Linux можно разделить на пять стадий:
+A typical Linux boot process has five stages:
 
-    1. Загрузчик.
-    2. Запуск и первичная инициализация ядра.
-    3. Обнаружение оборудования, загрузка драйверов и подключение файловых систем.
-    4. Запуск системных служб (демонов).
-    5. Старт графической или консольной пользовательской сессии.
+    1. Bootloader.
+    2. Kernel startup and initial initialization.
+    3. Hardware discovery, driver loading, and filesystem mounting.
+    4. System services (daemons) start.
+    5. Graphical or console user session starts.
 
-### Терминал [&uarr;](#Readme)
+## Terminal [&uarr;](#os-and-general-knowledge)
 
-#### bash
+### bash
 
-    Оболочка, или шелл (shell) — это программа, в нашем случае названная «bash», что является сокращением от Bourne Again Shell. 
-    Оболочка принимает ваши команды и передаёт их операционной системе. 
-    Для взаимодействия с системой используются терминалы, такие как gnome-terminal, eterm, nxterm и т. п.
+A shell is a program, in this case bash (Bourne Again Shell). The shell accepts commands and passes them to the OS.
+You interact with the system via terminals such as gnome-terminal, eterm, nxterm, and others.
 
-    Bash - это интерпретатор команд. По сути, это обычная программа, которая запускается при старте сеанса оболочки. 
-    Мы могли бы запускать не Bash, а скажем, интерпретатор python или ruby, и тогда нам пришлось бы выполнять методы этих языков вместо команд Bash для администрирования системы.
+Bash is a command interpreter. It is just a program that starts when a shell session begins. You could run another
+interpreter (python or ruby) and then execute that language's commands instead of bash.
 
-    Bash принимает команды от пользователя и передает их системному загрузчику, а также обеспечивает взаимодействие между командами, 
-    обмен информацией и потоками ввода-вывода. Также оболочка предоставляет пользователю удобный интерфейс для работы с историей команд, поиска и замены, а также исправления ранее выполненных команд, а также автодополнение путей.
+Bash accepts commands, passes them to the system, and provides features like command history, search/replace, fixing
+previous commands, and path autocompletion.
 
-#### grep
+### grep
 
-    Утилита grep решает множество задач, в основном она используется для поиска строк, соответствующих строке в тексте или содержимому файлов. 
-    Также она может находить по шаблону или регулярным выражениям. Команда в считанные секунды найдёт файл  с нужной строчкой, текст в файле или отфильтрует из вывода только пару нужных строк. А теперь давайте рассмотрим, как ей пользоваться.
-     
-    Синтаксис команды выглядит следующим образом:
-    
-    $ grep [опции] шаблон [имя файла...]
-    
-    Или:
-    
-    $ команда | grep [опции] шаблон
+grep solves many tasks and is mostly used to find lines that match a string or regex. It can search files or filter
+command output. In seconds, it can find a file by content or filter output to a few relevant lines.
 
-    Опции - это дополнительные параметры, с помощью которых указываются различные настройки поиска и вывода, например количество строк или режим инверсии.
-    Шаблон - это любая строка или регулярное выражение, по которому будет вестись поиск
-    Файл и команда - это то место, где будет вестись поиск. Как вы увидите дальше, grep позволяет искать в нескольких файлах и даже в каталоге, используя рекурсивный режим.
+Syntax:
 
-#### alias
+    $ grep [options] pattern [file...]
 
-    Используйте alias, чтобы поименовать часто используемые команды. Например, alias ll='ls -latr' создаст новое сокращение ll
+Or:
 
-#### xargs
+    $ command | grep [options] pattern
 
-    Не забывайте использовать xargs (или parallel). Это очень мощная штука. 
-    Обратите внимание, что вы можете контролировать количество команд на каждую строку (-L), а также параллельность (-P). Если вы не уверены, что делаете что-то правильно, начните с xargs echo. Еще -I{} – полезная штука. Примеры:
+Options control search behavior and output. Pattern is a string or regex. File/command is the source to search. grep
+can search multiple files and even directories with recursive mode.
 
-    Возможность объединения нескольких команд Linux в терминале и использования их в качестве конвейера, когда каждая следующая команда получает вывод предыдущей - очень мощный и гибкий инструмент. Но команды можно объединять не только так. 
-    С помощью утилиты xargs вывод предыдущей команды можно передать в аргументы следующей.
+### alias
 
-    Синтаксис команды немного запутанный, но в нём можно разобраться:
-    
-    $ первая_команда | xargs опции вторая_команда аргументы
-    
-    Сначала выполняется любая первая команда и весь её вывод по туннелю передается в xargs. Затем этот вывод разбивается на строки и для каждой строки вызывается вторая команда, а полученная строка передаётся ей в аргументах.
+Use alias to name frequently used commands. For example, alias ll='ls -latr' creates a shortcut named ll.
 
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
+### xargs
 
-#### cd
+Do not forget xargs (or parallel). It is powerful. You can control lines per command (-L) and parallelism (-P). If you
+are unsure, start with xargs echo. The -I{} option is also useful. Examples:
 
-    Перейти в домашнюю директорию можно с помощью cd. Для указания пути к файлам из домашней директории можно воспользоваться префиксом ~ (например, ~/.bashrc). В sh скриптах для обращения к домашней директории можно использовать переменную $HOME.
-    Для того, чтобы перейти к предыдущей рабочей директории, используйте cd -
+    find . -name '*.py' | xargs grep some_function
+    cat hosts | xargs -I{} ssh root@{} hostname
 
-#### netstat
+xargs passes the output of one command as arguments to another. The syntax:
 
-    Узнайте, какие процессы слушают порты через netstat -lntp или ss -plat (для TCP; добавьте -u для UDP).
+    $ first_command | xargs [options] second_command args
 
-#### history
+### cd
 
-    `Для просмотра последних команд используйте history. Повторить команду: !n (где n - порядковый номер истории). `
+Use cd to go to the home directory. Use ~ as a prefix for home paths (for example, ~/.bashrc). In shell scripts, use
+$HOME. Use cd - to return to the previous directory.
 
-#### ssh
+### netstat
 
-    Синтаксис команды выглядит следующим образом:
+Check which processes listen on ports with netstat -lntp or ss -plat (for TCP; add -u for UDP).
 
-    $ ssh [опции] имя пользователя@сервер [команда]
-    Чтобы просто подключиться к серверу по SSH:
-    
+### history
+
+Use history to view recent commands. Re-run a command with !n (n is the history number).
+
+### ssh
+
+Syntax:
+
+    $ ssh [options] user@server [command]
+
+To connect to a server:
+
     ssh user@host
 
-    Мы привыкли подключаться к удаленному серверу, а уже потом выполнять нужные команды, 
-    но на самом деле утилита ssh позволяет сразу выполнить нужную команду без открытия терминала удаленной машины. Например:
-    
+ssh can also run a command on a remote server without opening a full shell:
+
     ssh user@host ls
 
-#### Как найти файл с определенной подстрокой в директории со вложенностями? [&uarr;](#devmap)
+### How to find a file with a substring in nested directories? [&uarr;](#os-and-general-knowledge)
 
-    использовать find либо же grep
+Use find or grep.
 
-### Управление процессами [&uarr;](#Readme)
+## Process Management [&uarr;](#os-and-general-knowledge)
 
-#### Типы процессов
+### Process types
 
-`Процесс` — это экземпляр запущенной программы. Всякий раз, когда в терминале выполняется какая-нибудь команда (
-например, команда pwd),
-система создает/запускает новый процесс.
+A process is an instance of a running program. Every terminal command (for example, pwd) creates a process.
 
-В `Linux` существует три основных типа процессов:
+Linux has three main process types:
 
-- `Процессы переднего плана` (или «интерактивные процессы») — инициализируются и управляются с помощью терминального
-  сеанса.
-  Другими словами, необходимым условием для запуска таких процессов является наличие пользователя, подключенного к
-  системе;
-  они не запускаются автоматически как часть системных функций/служб. Когда команда/процесс выполняется на переднем
-  плане,
-  то они полностью занимают запустивший их терминал. Вы не сможете использовать другие команды, т.к. приглашение
-  оболочки будет
-  недоступно, пока данный процесс выполняется на переднем плане.
+- Foreground processes (interactive). They are started and controlled by a terminal session. They require a user
+  session and do not run automatically as system services. While a foreground process runs, the terminal is blocked.
 
-- `Фоновые процессы` (или «автоматические процессы») — это процессы, не подключенные к терминалу; они не ожидают
-  пользовательского ввода данных.
-  Таким образом, другие процессы могут выполняться параллельно с процессом, запущенным в фоновом режиме, поскольку им не
-  нужно ждать его завершения.
+- Background processes (automatic). They are not connected to a terminal and do not expect user input. Other processes
+  can run in parallel while a background process runs.
 
-- `Демоны` (англ. «daemons») — это особый тип фоновых процессов, которые запускаются при старте системы и продолжают
-  работать в виде службы;
-  они не умирают. Такие процессы запускаются как системные задачи (службы). Однако при этом они могут управляться
-  пользователем через
-  init-процесс (о котором мы поговорим чуть позже). Например, к демонам относится служба электронных сообщений sendmail
-  и sshd
-  (служба, принимающая от клиентов запросы на соединения по протоколу ssh). За исключением процесса init и некоторых
-  других, процессы демонов
-  обычно имеют окончание d в своем имени.
+- Daemons. These are special background processes that start at boot and keep running as services. They are started as
+  system tasks but can be managed by users via init (or systemd). Examples include sendmail and sshd. Daemon names often
+  end with a trailing d.
 
-#### Как Linux идентифицирует процессы?
+### How Linux identifies processes
 
-Поскольку Linux является многопользовательской системой, разные пользователи могут запускать различные программы, при
-этом
-каждый запущенный экземпляр программы должен быть однозначно идентифицирован ядром.
+Linux is multi-user, so each running instance must be uniquely identified by the kernel.
 
-Процессы запущенной программы имеют уникальный пятизначный номер — `PID` (сокр. от «Process IDentificator» —
-«идентификатор процесса»),
-а также PPID (сокр. от «Parent Process IDentificator» — «идентификатор родительского процесса»). В связи с этим процессы
-дополнительно
-разделяют на две группы:
+Each process has a unique PID (process identifier) and a PPID (parent process ID). Processes fall into two groups:
 
-- `Родительские процессы` — это процессы, которые во время своего выполнения создают другие процессы.
+- Parent processes create other processes.
+- Child processes are created by parent processes.
 
-- `Дочерние процессы` — эти процессы, создаваемые другими процессами во время своего выполнения.
+The ancestor of all processes is init (initialization). It is the first program started by the kernel during boot and
+has PID 1. It has no parent.
 
-Прародителем всех процессов в системе является процесс `init` (от англ. «initialization») — первая программа, которая
-выполняется
-при загрузке Linux и управляет всеми другими процессами в системе. init запускается самим ядром и всегда имеет PID = 1,
-поэтому
-у него в принципе нет родительского процесса.
+Note: at any time, there cannot be two processes with the same PID. New processes may reuse a PID that is now free.
 
-    Примечание: В любой момент времени в системе не существует двух процессов с одинаковым PID. Вновь создаваемому процессу может 
-    быть назначен ранее использованный свободный PID.
+### Process states in Linux
 
-#### Состояния процесса в Linux
+Execution: a process is running or ready to run (waiting for CPU time).
 
-`Выполнение` — процесс либо запущен (текущий процесс в системе), либо готов к запуску (ожидает передачи на выполнение
-процессору).
+Waiting: a process waits for an event (user input, signal, resource). The kernel distinguishes:
 
-`Ожидание` — процесс ожидает наступления некоторого события (пользовательского ввода, сигнала от другого процесса и
-т.п.) или
-выделения системных ресурсов. Кроме того, ядро также различает два типа ожидающих процессов:
+    - interruptible sleep: can be interrupted by signals
+    - uninterruptible sleep: waiting at the hardware level and cannot be interrupted
 
-    - прерываемые ожидающие процессы — могут быть прерваны сигналами;
-    - непрерываемые ожидающие процессы — процессы ожидают непосредственно на аппаратном уровне и не могут быть прерваны каким-либо событием/сигналом.
+Terminated: a process was stopped, usually by the exit() signal.
 
-`Завершен` — процесс был остановлен, как правило, путем получения сигнала штатного завершения работы exit().
+Zombie: if a parent is killed before a child finishes, the child becomes orphaned and is adopted by init. A process
+that has finished but still appears in the process table is called a zombie.
 
-`Зомби` — иногда, когда родительский процесс убивается до завершения дочернего процесса, дочерние процессы становятся
-«осиротевшими»,
-при этом в качестве нового родителя (с соответствующим изменением PPID) им назначается процесс init. Убитые процессы, но
-при этом все
-еще отображающиеся в таблице процессов, называются процессами зомби (они мертвы и не используются).
+### How to get a process ID (PID)
 
-#### Как получить идентификатор (PID) процесса
-
-Для отображения идентификатора нужного вам процесса можно использовать команду pidof, например:
+Use pidof:
 
     $ pidof init
     $ pidof bash
     $ pidof systemd
 
-#### Отслеживание активных процессов
+### Tracking active processes
 
-Существует несколько различных инструментов для просмотра/перечисления запущенных в системе процессов. Двумя
-традиционными
-и хорошо известными из них являются команды ps и top.
+Two common tools are ps and top.
 
-##### Команда ps
+#### ps command
 
-Отображает информацию об активных процессах в системе, как показано на следующем скриншоте:
+Shows process information:
 
     $ ps
-    $ ps -e | head #(head – фильтр, отображающий только первые 10 строк вывода команды "ps -e")
+    $ ps -e | head # show first 10 lines of ps -e output
 
-Для получения дополнительной информации о процессах, запущенных текущим пользователем, применяется опция -f:
+To see more details for current user processes:
 
     $ ps -f
 
-Столбцы, присутствующие в выводе команды ps, имеют следующие значения:
+Columns in ps output:
 
-    UID — идентификатор пользователя, которому принадлежит процесс (тот, от чьего имени происходит выполнение).
-    
-    PID — идентификатор процесса.
-    
-    PPID — идентификатор родительского процесса.
-    
-    C — загрузка CPU процессом.
-    
-    STIME — время начала выполнения процесса.
-    
-    TTY — тип терминала, связанного с процессом.
-    
-    TIME — количество процессорного времени, потраченного на выполнение процесса.
-    
-    CMD — команда, запустившая этот процесс.
+    UID - user ID owning the process
+    PID - process ID
+    PPID - parent process ID
+    C - CPU utilization
+    STIME - start time
+    TTY - terminal type
+    TIME - CPU time used
+    CMD - command that started the process
 
-##### Команда top
+#### top command
 
-Команда top отображает информацию о запущенных процессах в режиме реального времени:
+Shows processes in real time:
 
     $ top
 
-Столбцы, присутствующие в выводе команды top, имеют следующие значения:
+Columns in top output:
 
-    PID — идентификатор процесса.
-    
-    USER — пользователь, которому принадлежит процесс.
-    
-    PR — приоритет процесса на уровне ядра.
-    
-    NI — приоритет выполнения процесса от -20 до 19.
-    
-    VIRT — общий объем (в килобайтах) виртуальной памяти (физическая память самого процесса; загруженные с диска файлы библиотек; память, совместно используемая с другими процессами и т.п.), используемой задачей в данный момент.
-    
-    RES — текущий объем (в килобайтах) физической памяти процесса.
-    
-    SHR — объем совместно используемой с другими процессами памяти.
-    
-    S (сокр. от «STATUS») — состояние процесса:
-    
-        S (сокр. от «Sleeping») — прерываемое ожидание. Процесс ждет наступления события.
-    
-        I (сокр. от «Idle») — процесс бездействует.
-        
-        R (сокр. от «Running») — процесс выполняется (или поставлен в очередь на выполнение).
-        
-        Z (сокр. от «Zombie») — зомби-процесс.
-    
-    %CPU — процент используемых ресурсов процессора.
-    
-    %MEM — процент используемой памяти.
-    
-    TIME+ — количество процессорного времени, затраченного на выполнение процесса.
-    
-    COMMAND — имя процесса (команды).
+    PID - process ID
+    USER - user owning the process
+    PR - kernel priority
+    NI - nice value (-20 to 19)
+    VIRT - total virtual memory in KB (process memory, shared libs, etc.)
+    RES - physical memory in KB
+    SHR - shared memory size
+    S (status) - process state:
 
-### Потоки и парралелизм [&uarr;](#Readme)
+        S (sleeping) - interruptible sleep
+        I (idle) - idle
+        R (running) - running or runnable
+        Z (zombie) - zombie
 
-### Управление памятью [&uarr;](#Readme)
+    %CPU - CPU usage percentage
+    %MEM - memory usage percentage
+    TIME+ - total CPU time
+    COMMAND - command name
 
-### Межпроцессорное взаимодействие [&uarr;](#Readme)
+## Threads and Parallelism [&uarr;](#os-and-general-knowledge)
 
-### Управление I/O [&uarr;](#Readme)
+## Memory Management [&uarr;](#os-and-general-knowledge)
 
-### Основы POSIX [&uarr;](#Readme)
+## Interprocess Communication [&uarr;](#os-and-general-knowledge)
 
-### Концепция построения сети [&uarr;](#Readme)
+## I/O Management [&uarr;](#os-and-general-knowledge)
 
-Основное назначение компьютерных сетей - совместное использование ресурсов и осуществление интерактивной связи как
-внутри
-одной фирмы, так и за ее пределами.
+## POSIX Basics [&uarr;](#os-and-general-knowledge)
 
-Ресурсы (resources) - это данные, приложения и периферийные устройства, такие, как внешний дисковод, принтер, мышь,
-модем
-или джойстик. Понятие интерактивной связи компьютеров подразумевает обмен сообщениями в реальном режиме времени.
+## Network Topology Concepts [&uarr;](#os-and-general-knowledge)
 
-До появления компьютерных сетей каждый пользователь должен был иметь свой принтер, плоттер и другие
-периферийные устройства. Чтобы совместно использовать принтер, существовал единственный способ - пересесть за компьютер,
-подключенный
-к этому принтеру. Сети позволяют целому ряду пользователей одновременно `владеть` данными на носителях прямого доступа и
-периферийными устройствами. Если нескольким пользователям надо распечатать документ, все они могут обратиться к сетевому
-принтеру.
+The main purpose of computer networks is shared access to resources and interactive communication within an
+organization and beyond.
 
-Самая простая сеть (network) состоит как минимум из двух компьютеров, соединенных друг с другом кабелем. Это позволяет
-им использовать
-данные совместно. Все сети (независимо от сложности) основываются именно на этом простом принципе. Рождение компьютерных
-сетей было
-вызвано практической потребностью - иметь возможность для совместного использования данных. Персональный компьютер -
-прекрасный
-инструмент для создания документа, подготовки таблиц, графических данных и других видов информации, но при этом Вы не
-можете быстро
-поделиться своей информацией с другими. Когда не было сетей, приходилось распечатывать каждый документ, чтобы другие
-пользователи
-могли работать с ним, или в лучшем случае - копировать информацию на дискеты. Одновременная обработка документа
-несколькими
-пользователями исключалась. Подобная схема работы называется работой в автономной среде.
+Resources are data, applications, and peripherals such as external drives, printers, mice, modems, or joysticks.
+Interactive communication means exchanging messages in real time.
 
-Сетью называется группа соединенных компьютеров
-и других устройств. А концепция соединенных и совместно использующих ресурсы компьютеров носит название сетевого
-взаимодействия.
-Компьютеры, входящие в сеть, могут совместно использовать:
+Before networks, each user needed their own printer and peripherals. To share a printer, you had to move to the
+computer connected to it. Networks allow multiple users to access data storage and peripherals at the same time.
+If several users need to print a document, they can all send it to a shared network printer.
 
-- данные;
-- принтеры;
-- факсимильные аппараты;
-- модемы;
-- другие устройства.
+The simplest network has at least two computers connected by a cable. This allows shared data access. All networks,
+regardless of complexity, rely on this basic principle. Networks emerged from the practical need to share data.
+A personal computer is great for creating documents, spreadsheets, and graphics, but it does not allow easy sharing.
+Before networks, you had to print documents so others could work with them, or at best copy data to floppy disks.
+Simultaneous editing was not possible in an offline model.
 
+A network is a group of connected computers and other devices. The concept of connected computers that share resources
+is called networking. Computers in a network can share:
+
+- data
+- printers
+- fax machines
+- modems
+- other devices
