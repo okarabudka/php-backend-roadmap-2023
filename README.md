@@ -37,7 +37,7 @@ A practical learning map for backend and frontend fundamentals.
 - Messaging and Realtime: async systems and streaming. See [Messaging and Realtime](#messaging-and-realtime).
 - Containerization vs Virtualization: deployment and runtime environments. See [Containerization vs Virtualization](#containerization-vs-virtualization).
 - Tasks and practice: apply knowledge in exercises. See [Tasks](#tasks) and [JavaScript Tasks](#javascript-tasks).
-- Other topics: tooling, regex, and extras. See [Other](#other).
+- Other topics: tooling, regex, and extras. See [Backend Other Topics](#backend-other-topics).
 
 ## Contents
 
@@ -239,10 +239,8 @@ Outcome: you can decide when to add a search engine.
 
 ### APIs and Authentication [&uarr;](#contents)
 
-#### API styles
-
-Goal: understand common API paradigms.
-Outcome: you can choose the right API style per use case.
+Goal: design APIs and secure access end to end.
+Outcome: you can pick an API style, document it, and implement auth safely.
 
 - [x] [REST](include/learn-about-apis.md#rest)
 - [x] [REST vs SOAP (comparison)](include/learn-about-apis.md#rest-and-soap)
@@ -250,19 +248,8 @@ Outcome: you can choose the right API style per use case.
 - [x] [JSON APIs](include/learn-about-apis.md#json-apis)
 - [x] [gRPC](include/learn-about-apis.md#grpc)
 - [x] [GraphQL](include/learn-about-apis.md#graphql)
-
-#### API specs
-
-Goal: document and validate APIs.
-Outcome: you can publish and consume API contracts.
-
 - [x] [OpenAPI (Swagger)](include/learn-about-apis.md#openapi-specs)
-
-#### Authentication
-
-Goal: secure endpoints and sessions properly.
-Outcome: you can implement auth and explain the tradeoffs.
-
+- [x] [HATEOAS](include/learn-about-apis.md#hateoas)
 - Authentication:
     - [x] [Cookie-based](include/learn-about-apis.md#cookie-based)
     - [x] [OAuth](include/learn-about-apis.md#oauth)
@@ -271,8 +258,6 @@ Outcome: you can implement auth and explain the tradeoffs.
     - [x] [JWT](include/learn-about-apis.md#jwt)
     - [x] [OpenID](include/learn-about-apis.md#openid)
     - [x] [SAML](include/learn-about-apis.md#saml)
-
-- [x] [HATEOAS](include/learn-about-apis.md#hateoas)
 
 ### Performance and Scalability [&uarr;](#contents)
 
@@ -393,7 +378,7 @@ Outcome: you can apply knowledge in small tasks.
 - [ ] [Other](include/tasks-other.md)
 - [ ] [Ideas](include/ideas.md)
 
-### Other [&uarr;](#contents)
+### Backend Other Topics [&uarr;](#contents)
 
 Goal: cover helpful tooling and deep dives.
 Outcome: you can apply these topics as needed.

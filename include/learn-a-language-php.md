@@ -1149,7 +1149,7 @@ An abstract class can:
 - Define abstract method signatures
 - Define methods
 - Define constants
-- Define properties
+- Define instance properties
 - Be extended by child classes
 
 An abstract class cannot be used directly.

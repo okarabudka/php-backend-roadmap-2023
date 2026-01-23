@@ -111,15 +111,10 @@ Study:
 
 ## Topics to Revisit [&uarr;](#javascript)
 
-- Scope
+- Fundamentals review: scope, closures, OOP, regular expressions
 - Vanilla JS (selectors, events)
-- OOP
-- Closures
-- Regular expressions
-- Vue
-- Long polling
-- Short polling
-- Server-sent events
+- Framework refresh: Vue
+- Realtime patterns: long polling, short polling, server-sent events
 
 ## Ajax [&uarr;](#javascript)
 

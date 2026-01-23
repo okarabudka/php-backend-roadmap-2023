@@ -877,6 +877,19 @@ with priority planning.
 
 ### Firebase [&uarr;](#databases)
 
+Common features:
+
+- Real-time operation
+- NoSQL
+- Scalability
+- REST API
+
+Pricing:
+
+- Closed-source project
+- Free tier available
+- Usage-based pricing
+
 #### Firebase - Cloud Firestore
 
 Firebase Cloud Firestore is a NoSQL cloud database used to store and sync data for client and server development. It is
@@ -886,19 +899,9 @@ Firestore integrates with Firebase and Google Cloud, and its SDKs support web an
 Unity, C++, and more. Node.js SDKs support RPC and REST APIs. Firestore provides high performance, automatic scaling,
  ease of use, and strong reliability.
 
-Key features:
+Firestore-specific features:
 
-- Real-time operation
-- NoSQL
-- Scalability
-- REST API
 - Multi-region support
-
-Pricing:
-
-- Closed-source project
-- Free tier available
-- Usage-based pricing
 
 #### Firebase - The Realtime Database
 
@@ -909,19 +912,10 @@ requirements and offers many configuration options.
 The Firebase Realtime Database is a NoSQL cloud database that enables efficient real-time synchronization and storage.
 It also works offline. Stored JSON data can be synchronized across clients.
 
-Key features:
+Realtime Database-specific features:
 
 - Real-time JSON sync
-- NoSQL
-- Scalability
-- REST API
 - Offline support
-
-Pricing:
-
-- Closed-source project
-- Free tier available
-- Usage-based pricing
 
 ## Column DB [&uarr;](#databases)
 

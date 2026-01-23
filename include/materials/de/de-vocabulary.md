@@ -78,7 +78,6 @@
 - **discretion []** - Diskretion
 - **recognize []** - erkennen
 - **acknowledge []** - anerkennen
-- **goal []** - Ziel
 - **eventual difficulties []** - mögliche Schwierigkeiten
 - **advise []** - beraten
 - **frequently []** - häufig
@@ -130,7 +129,6 @@
 - **reduction []** - Reduzierung
 - **consistent schedule []** - konstanter Zeitplan
 - **worth []** - wert
-- **thoroughly []** - gründlich
 - **even got promoted []** - wurde sogar befördert
 - **genuinely []** - aufrichtig
 - **emphasis []** - Betonung
