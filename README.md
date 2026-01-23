@@ -1,38 +1,58 @@
 # README
 
+A practical learning map for backend and frontend fundamentals.
+
+## How to use this repo
+
+- Follow the learning path from Beginner to Advanced; treat each module as a small milestone.
+- Typical pace: 5-7 hours/week. Rough timing: Beginner 3-5 weeks, Intermediate 4-6 weeks, Advanced 4-6 weeks.
+- required (for everyone): Core knowledge, Web Fundamentals, OS, one programming language, Version Control, Databases (fundamentals), APIs basics.
+- optional: English, Time Management, deep dives (NoSQL, Search, advanced architecture), specific frameworks, tasks/ideas.
+
+## Learning Path
+
+### Beginner
+
+- Core knowledge: start here to build learning habits and vocabulary. See [Core knowledge](#core-knowledge-every-developer-should-have).
+- Web Fundamentals: how the web works end to end. See [Web Fundamentals](#web-fundamentals).
+- OS and General Knowledge: processes, memory, terminal basics. See [OS and General Knowledge](#os-and-general-knowledge).
+- Learn a Language: pick one and build fluency. See [Learn a Language](#learn-a-language).
+- Version Control Systems: learn Git basics early. See [Version Control Systems](#version-control-systems).
+- Databases (fundamentals): tables, transactions, normalization. See [Databases](#databases).
+- APIs basics: REST/JSON and common patterns. See [APIs and Authentication](#apis-and-authentication).
+- Frontend basics (optional): JS essentials. See [JavaScript](#javascript).
+
+### Intermediate
+
+- Frameworks: learn how real apps are structured. See [Frameworks](#frameworks).
+- Algorithms: core data structures and complexity. See [Algorithms](#algorithms).
+- Performance and Scalability: caching, observability, capacity thinking. See [Performance and Scalability](#performance-and-scalability).
+- Web Security: standard threats and defenses. See [Web Security](#web-security).
+- Quality and Delivery: tests and CI/CD. See [Quality and Delivery](#quality-and-delivery).
+- Architecture and Patterns: structure and tradeoffs. See [Architecture and Patterns](#architecture-and-patterns).
+- Design and Development Principles: patterns and best practices. See [Design and Development Principles](#design-and-development-principles).
+
+### Advanced
+
+- Messaging and Realtime: async systems and streaming. See [Messaging and Realtime](#messaging-and-realtime).
+- Containerization vs Virtualization: deployment and runtime environments. See [Containerization vs Virtualization](#containerization-vs-virtualization).
+- Tasks and practice: apply knowledge in exercises. See [Tasks](#tasks) and [JavaScript Tasks](#javascript-tasks).
+- Other topics: tooling, regex, and extras. See [Other](#other).
+
 ## Contents
 
-- [**Core knowledge every developer should have:**](#core-knowledge-every-developer-should-have)
-    - [ ] [Books](#books)
-    - [ ] [English](#english)
-    - [ ] [Time Management](#time-management)
-    - [ ] [Other](#other)
-
-- [**Backend Developer Roadmap:**](#backend-developer-roadmap)
-    - [ ] [Web Fundamentals](#web-fundamentals)
-    - [ ] [OS and General Knowledge](#os-and-general-knowledge)
-    - [ ] [Learn a Language](#learn-a-language)
-    - [ ] [Frameworks](#frameworks)
-    - [ ] [Algorithms](#algorithms)
-    - [ ] [Version Control Systems](#version-control-systems)
-    - [ ] [Databases](#databases)
-    - [ ] [APIs and Authentication](#apis-and-authentication)
-    - [ ] [Performance and Scalability](#performance-and-scalability)
-    - [ ] [Web Security](#web-security)
-    - [ ] [Quality and Delivery](#quality-and-delivery)
-    - [ ] [Architecture and Patterns](#architecture-and-patterns)
-    - [ ] [Design and Development Principles](#design-and-development-principles)
-    - [ ] [Messaging and Realtime](#messaging-and-realtime)
-    - [ ] [Containerization vs Virtualization](#containerization-vs-virtualization)
-    - [ ] [Tasks](#tasks)
-
-- [**Frontend Developer Roadmap:**](#frontend-developer-roadmap)
-    - [ ] [JavaScript](#javascript)
-    - [ ] [JavaScript Tasks](#javascript-tasks)
+- [How to use this repo](#how-to-use-this-repo)
+- [Learning Path](#learning-path)
+- [Core knowledge every developer should have](#core-knowledge-every-developer-should-have)
+- [Backend Developer Roadmap](#backend-developer-roadmap)
+- [Frontend Developer Roadmap](#frontend-developer-roadmap)
 
 ## Core knowledge every developer should have [&uarr;](#contents)
 
 ### Books [&uarr;](#contents)
+
+Goal: build a mental model of software engineering and coding standards.
+Outcome: you can explain core concepts and apply them in code reviews.
 
 - Programming:
     - Introduction to Algorithms (Thomas H. Cormen)
@@ -42,11 +62,17 @@
 
 ### English [&uarr;](#contents)
 
+Goal: read docs and communicate in English without friction.
+Outcome: you can navigate documentation and issue trackers confidently.
+
 - Useful resources:
     - [ ] [Duolingo](https://www.duolingo.com/)
     - [ ] [Lingualeo](https://lingualeo.com/)
 
 ### Time Management [&uarr;](#contents)
+
+Goal: build a sustainable learning routine.
+Outcome: you can plan weekly study blocks and avoid burnout.
 
 Time management is a set of practices for organizing time and improving how effectively it is used.
 
@@ -59,6 +85,9 @@ Methods:
 
 ### Other [&uarr;](#contents)
 
+Goal: cover practical career and workflow basics.
+Outcome: you can navigate hiring and day-to-day processes.
+
 - [x] [Questions for an Employer](include/questions.md)
 - [x] [Professional Development](include/hr.md)
 - [x] [Ticketing Systems and Task Organization](include/workflow.md)
@@ -66,6 +95,9 @@ Methods:
 ## Backend Developer Roadmap [&uarr;](#contents)
 
 ### Web Fundamentals [&uarr;](#contents)
+
+Goal: understand how the web works from DNS to browsers.
+Outcome: you can reason about latency, hosting, and delivery.
 
 - [x] [How the Internet Works](include/internet.md#how-the-internet-works)
 - [x] [Types of Network Protocols](include/internet.md#types-of-network-protocols)
@@ -82,6 +114,9 @@ Methods:
 
 ### OS and General Knowledge [&uarr;](#contents)
 
+Goal: understand OS primitives used by servers.
+Outcome: you can debug basic system issues and read logs.
+
 - [x] [How the OS Works](include/os-and-general-knowledge.md#how-the-os-works)
 - [x] [Terminal](include/os-and-general-knowledge.md#terminal)
 - [x] [Process Management](include/os-and-general-knowledge.md#process-management)
@@ -94,24 +129,41 @@ Methods:
 
 ### Learn a Language [&uarr;](#contents)
 
+Goal: reach productivity in one backend language.
+Outcome: you can build small services and scripts end to end.
+
 - [x] [Go](include/learn-a-language-go.md)
 - [x] [Python](include/learn-a-language-python.md)
 - [x] [PHP](include/learn-a-language-php.md)
 
 ### Frameworks [&uarr;](#contents)
 
+Goal: learn how frameworks structure web apps.
+Outcome: you can build a CRUD app with routing, auth, and persistence.
+
 - [ ] [Laravel](include/frameworks-laravel.md)
 - [ ] [Bitrix](include/frameworks-bitrix.md)
 
 ### Algorithms [&uarr;](#contents)
 
+Goal: build algorithmic thinking and complexity awareness.
+Outcome: you can choose data structures and estimate costs.
+
 - [x] [Algorithms](include/algorithms.md)
 
 ### Version Control Systems [&uarr;](#contents)
 
+Goal: work with Git effectively in a team.
+Outcome: you can branch, merge, and review confidently.
+
 - [x] [Version Control Systems](include/version-control-systems.md)
 
 ### Databases [&uarr;](#contents)
+
+#### Fundamentals
+
+Goal: understand relational data modeling and consistency.
+Outcome: you can design schemas and write safe transactions.
 
 - More about databases:
     - ORM:
@@ -124,12 +176,22 @@ Methods:
     - [x] [Failure Modes](include/databases.md#failure-modes)
     - [x] [Profiling](include/databases.md#profiling)
 
+#### Scaling
+
+Goal: keep databases fast and reliable under load.
+Outcome: you can pick the right scaling strategy for a dataset.
+
 - Scaling databases:
     - [x] [Indexes](include/databases.md#indexes)
     - [x] [Replication](include/databases.md#replication)
     - [x] [Partitioning](include/databases.md#partitioning)
     - [x] [Sharding](include/databases.md#sharding)
     - [x] [CAP Theorem](include/databases.md#cap-theorem)
+
+#### NoSQL
+
+Goal: understand non-relational data models.
+Outcome: you can choose a NoSQL database based on access patterns.
 
 - NoSQL databases:
     - Document DBs:
@@ -152,12 +214,22 @@ Methods:
         - [x] [DGraph](include/databases.md#dgraph)
         - [x] [DataStax Enterprise Graph](include/databases.md#datastax-enterprise-graph)
 
+#### Relational
+
+Goal: know the main SQL engines and their tradeoffs.
+Outcome: you can pick a database for common workloads.
+
 - Relational databases:
     - [x] [PostgreSQL](include/databases.md#postgresql)
     - [x] [MySQL](include/databases.md#mysql)
     - [x] [MariaDB](include/databases.md#mariadb)
     - [x] [MS SQL](include/databases.md#ms-sql)
     - [x] [Oracle](include/databases.md#oracle)
+
+#### Search Engines
+
+Goal: understand full-text search basics.
+Outcome: you can decide when to add a search engine.
 
 - Search engines:
     - [x] [Elasticsearch](include/search-engines.md#elasticsearch)
@@ -167,14 +239,29 @@ Methods:
 
 ### APIs and Authentication [&uarr;](#contents)
 
+#### API styles
+
+Goal: understand common API paradigms.
+Outcome: you can choose the right API style per use case.
+
 - [x] [REST](include/learn-about-apis.md#rest)
 - [x] [REST vs SOAP (comparison)](include/learn-about-apis.md#rest-and-soap)
 - [x] [SOAP](include/learn-about-apis.md#soap)
 - [x] [JSON APIs](include/learn-about-apis.md#json-apis)
 - [x] [gRPC](include/learn-about-apis.md#grpc)
-
 - [x] [GraphQL](include/learn-about-apis.md#graphql)
+
+#### API specs
+
+Goal: document and validate APIs.
+Outcome: you can publish and consume API contracts.
+
 - [x] [OpenAPI (Swagger)](include/learn-about-apis.md#openapi-specs)
+
+#### Authentication
+
+Goal: secure endpoints and sessions properly.
+Outcome: you can implement auth and explain the tradeoffs.
 
 - Authentication:
     - [x] [Cookie-based](include/learn-about-apis.md#cookie-based)
@@ -189,6 +276,11 @@ Methods:
 
 ### Performance and Scalability [&uarr;](#contents)
 
+#### Caching
+
+Goal: reduce latency and load.
+Outcome: you can apply caching with correct invalidation.
+
 - Caching:
     - [x] [Client-side](include/caching.md#client-side)
     - [x] [CDN](include/caching.md#cdn)
@@ -197,6 +289,11 @@ Methods:
         - [x] [Redis](include/caching.md#redis)
         - [x] [Memcached](include/caching.md#memcached)
         - [x] [Redis vs Memcached](include/caching.md#redis-vs-memcached)
+
+#### Building for scale
+
+Goal: understand system bottlenecks and mitigation.
+Outcome: you can plan scalability strategies for a service.
 
 - Building for scale:
     - [x] [Building for Scale](include/building-for-scale.md)
@@ -217,6 +314,9 @@ Methods:
 
 ### Web Security [&uarr;](#contents)
 
+Goal: learn common vulnerabilities and defenses.
+Outcome: you can audit endpoints and apply security basics.
+
 - [x] [Vulnerabilities](include/web-security-knowledge.md#vulnerabilities)
 - [x] [HTTPS](include/web-security-knowledge.md#https)
 - [x] [OWASP Security Risks](include/web-security-knowledge.md#owasp-security-risks)
@@ -228,12 +328,18 @@ Methods:
 
 ### Quality and Delivery [&uarr;](#contents)
 
+Goal: ship safely with tests and automation.
+Outcome: you can design a basic CI/CD pipeline.
+
 - [x] [Integration Testing](include/testing.md#integration-testing)
 - [x] [Unit Testing](include/testing.md#unit-testing)
 - [x] [Functional Testing](include/testing.md#functional-testing)
 - [x] [Deployment](include/ci-cd.md)
 
 ### Architecture and Patterns [&uarr;](#contents)
+
+Goal: understand how systems are structured.
+Outcome: you can evaluate tradeoffs between architectures.
 
 - [x] [Architecture](include/software-design-and-architecture.md)
 - [x] [Monolithic Apps and Microservices](include/architectural-patterns.md#monolithic-apps-and-microservices)
@@ -245,6 +351,9 @@ Methods:
 
 ### Design and Development Principles [&uarr;](#contents)
 
+Goal: learn core principles for maintainable code.
+Outcome: you can refactor and design with intent.
+
 - [x] [KISS, DRY, YAGNI, BDUF, SOLID, APO, and Occam's Razor](include/design-and-development-principles.md#kiss-dry-yagni-bduf-solid-apo-and-occams-razor)
 - [x] [Patterns and Anti-patterns](include/design-and-development-principles.md#patterns-and-anti-patterns)
 - [x] [Design Patterns](include/design-and-development-principles.md#design-patterns)
@@ -255,6 +364,9 @@ Methods:
 
 ### Messaging and Realtime [&uarr;](#contents)
 
+Goal: understand async communication and streaming.
+Outcome: you can design a system with queues and realtime updates.
+
 - [x] [RabbitMQ](include/message-brokers.md#rabbitmq)
 - [x] [Kafka](include/message-brokers.md#kafka)
 - [x] [Key Differences Between Apache Kafka and RabbitMQ](include/message-brokers.md#key-differences-between-apache-kafka-and-rabbitmq)
@@ -263,12 +375,17 @@ Methods:
 
 ### Containerization vs Virtualization [&uarr;](#contents)
 
+Goal: understand how apps are packaged and deployed.
+Outcome: you can run services in containers and reason about isolation.
+
 - [x] [Docker](include/containerization-vs-virtualization.md#docker)
 - [x] [Kubernetes](include/containerization-vs-virtualization.md#kubernetes)
 - [x] [LXC](include/containerization-vs-virtualization.md#lxc)
 
-
 ### Tasks [&uarr;](#contents)
+
+Goal: practice with focused exercises.
+Outcome: you can apply knowledge in small tasks.
 
 - [ ] [PHP](include/tasks-php.md)
 - [ ] [SQL](include/tasks-sql.md)
@@ -277,6 +394,9 @@ Methods:
 - [ ] [Ideas](include/ideas.md)
 
 ### Other [&uarr;](#contents)
+
+Goal: cover helpful tooling and deep dives.
+Outcome: you can apply these topics as needed.
 
 - [x] [Composer](include/other-info.md#composer)
 - [x] [Coding Standards](include/other-info.md#coding-standards)
@@ -289,8 +409,14 @@ Methods:
 
 ### JavaScript [&uarr;](#contents)
 
+Goal: master JS fundamentals for frontend work.
+Outcome: you can build small interactive interfaces.
+
 - [ ] [JavaScript](include/javascript.md)
 
 ### JavaScript Tasks [&uarr;](#contents)
+
+Goal: practice JS through exercises.
+Outcome: you can write clean, correct solutions.
 
 - [ ] [JavaScript Tasks](include/tasks-javascript.md)
