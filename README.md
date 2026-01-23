@@ -39,10 +39,83 @@ A practical learning map for backend and frontend fundamentals.
 - Tasks and practice: apply knowledge in exercises. See [Tasks](#tasks) and [JavaScript Tasks](#javascript-tasks).
 - Other topics: tooling, regex, and extras. See [Backend Other Topics](#backend-other-topics).
 
+## Practice Projects
+
+Build one project per level to validate progress and create portfolio artifacts.
+
+### Beginner
+
+- Personal knowledge base (CLI or simple web app)
+  - Goal: store notes with tags and full-text search.
+  - Stack: Go (stdlib + SQLite) or PHP (PDO + SQLite).
+  - Outcome: CRUD, basic persistence, and migrations.
+- HTTP ping dashboard
+  - Goal: periodically check a list of URLs and show status.
+  - Stack: Go (cron + net/http) or PHP (cron + curl).
+  - Outcome: timers, retries, logging, and simple reporting.
+
+### Intermediate
+
+- Task tracker API
+  - Goal: build a REST API with auth and role-based access.
+  - Stack: Go (chi/gin + PostgreSQL) or PHP (Laravel + PostgreSQL).
+  - Outcome: schema design, migrations, auth, pagination, tests.
+- E-commerce catalog + search
+  - Goal: product catalog with filters and full-text search.
+  - Stack: Go or PHP + search engine (Elasticsearch/Manticore).
+  - Outcome: indexing, query tuning, and basic relevance.
+
+### Advanced
+
+- Realtime notifications service
+  - Goal: deliver realtime updates for a multi-tenant app.
+  - Stack: Go or PHP + message broker + WebSockets.
+  - Outcome: fan-out, delivery guarantees, and backpressure.
+- Scaling case study
+  - Goal: take one of your earlier projects and scale it 10x.
+  - Stack: Go or PHP + caching + metrics + load testing.
+  - Outcome: bottleneck analysis, caching strategy, and observability.
+
+### Frontend Track
+
+### Beginner
+
+- Interactive landing page
+  - Goal: build a responsive page with a simple CTA flow.
+  - Stack: HTML/CSS/JS (no framework).
+  - Outcome: layout, typography, responsive breakpoints, form handling.
+- UI widget collection
+  - Goal: build 5 reusable components (tabs, modal, tooltip, dropdown, toast).
+  - Stack: vanilla JS + CSS.
+  - Outcome: component state, accessibility basics, keyboard support.
+
+### Intermediate
+
+- Dashboard SPA
+  - Goal: build a single-page app with auth, routes, and charts.
+  - Stack: React/Vue/Svelte + REST API.
+  - Outcome: routing, state management, data fetching, loading states.
+- Media gallery
+  - Goal: grid + filters + infinite scroll + upload preview.
+  - Stack: React/Vue/Svelte.
+  - Outcome: virtualization, client-side caching, file handling.
+
+### Advanced
+
+- Realtime collaboration UI
+  - Goal: shared editing or live cursors for a small document.
+  - Stack: WebSockets + frontend framework.
+  - Outcome: conflict handling, presence indicators, latency mitigation.
+- Performance audit & optimization
+  - Goal: take one of the apps and hit Lighthouse 90+.
+  - Stack: any frontend app.
+  - Outcome: code splitting, image optimization, caching, bundle analysis.
+
 ## Contents
 
 - [How to use this repo](#how-to-use-this-repo)
 - [Learning Path](#learning-path)
+- [Practice Projects](#practice-projects)
 - [Core knowledge every developer should have](#core-knowledge-every-developer-should-have)
 - [Backend Developer Roadmap](#backend-developer-roadmap)
 - [Frontend Developer Roadmap](#frontend-developer-roadmap)
