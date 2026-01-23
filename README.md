@@ -420,6 +420,24 @@ Outcome: you can refactor and design with intent.
 - [x] [CQRS](include/design-and-development-principles.md#cqrs)
 - [x] [Event Sourcing](include/design-and-development-principles.md#event-sourcing)
 
+### Languages and Tooling [&uarr;](#contents)
+
+Goal: choose a language intentionally and build real projects with the ecosystem.
+Outcome: you can pick a language, set up tooling, and deliver production-ready code.
+
+- [ ] [Language Choice Matrix](include/language-choice-matrix.md)
+- [ ] [Language Fundamentals Checklist](include/language-fundamentals-checklist.md)
+- [ ] [Ecosystem and Tooling](include/ecosystem-tooling.md)
+- [ ] [Runtime and Memory Model](include/runtime-memory-model.md)
+- [ ] [Concurrency and Async](include/concurrency-async.md)
+- [ ] [Build and Deploy by Language](include/build-deploy-by-language.md)
+- [ ] [Stdlib vs Frameworks](include/stdlib-vs-frameworks.md)
+- [ ] [Interoperability](include/interoperability.md)
+- [ ] [Testing by Language](include/testing-by-language.md)
+- [ ] [Style Guide and Conventions](include/style-guide-conventions.md)
+- [ ] [Common Libraries](include/common-libraries.md)
+- [ ] [Performance Profiling](include/performance-profiling.md)
+
 ### Messaging and Realtime [&uarr;](#contents)
 
 Goal: understand async communication and streaming.
