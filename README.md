@@ -1,4 +1,4 @@
-# DevMap
+# php-backend-roadmap-2023
 
 A personal learning map for backend (mainly PHP) and frontend fundamentals, with notes per topic and PHP examples of
 design patterns.
@@ -84,8 +84,12 @@ There are no automated tests. The pattern folders contain PHPUnit-style test fil
 
 ## Status
 
-Not actively developed; last reorganised in January 2026.
+Archived, snapshot of 2023 (last reorganised in January 2026).
 
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+The pattern examples in `include/Patterns` are based on
+[DesignPatternsPHP](https://github.com/DesignPatternsPHP/DesignPatternsPHP) by Dominik Liebler and contributors
+(MIT).
